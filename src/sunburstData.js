@@ -152,7 +152,7 @@ export const dataSunburst = {
           {
             "color": "#ffeb3b",
             "category": "Subgroup",
-            "title": "SImple Oxides",
+            "title": "Simple Oxides",
             "size": 1,
             "labelStyle": {fontSize: 10}
           },

@@ -14,10 +14,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { bubbleData } from "./bubbledata";
 import { heatmapData } from "./heatmapdata";
-import { dataSunburst } from "./sunburstData"
+import { dataSunburst } from "./sunburstData";
 import { scaleLinear } from "d3-scale";
 import {
   XYPlot,
@@ -35,6 +36,7 @@ import {
 } from "react-vis";
 import SearchBar from "material-ui-search-bar";
 import { handleSearch, getAllMinerals } from "./SearchPage";
+import { groupMineralPic } from "./MineralInfoPage";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import ListItem from "@material-ui/core/ListItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -43,6 +45,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import * as THREE from "three";
+import Avatar from "@material-ui/core/Avatar";
 
 class StatsPage extends Component {
   constructor(props) {
@@ -55,7 +58,8 @@ class StatsPage extends Component {
       selectedGroup: [],
       selectedSubGroup: [],
       selectedSystem: [],
-      hoveredCell: false
+      hoveredCell: false,
+      hoveredParent: false
     };
   }
 
@@ -210,6 +214,36 @@ class StatsPage extends Component {
     });
   }
 
+  renderBreadcrumbs() {
+    const chipCellStyle={backgroundColor: this.state.hoveredCell.color, color: "white",  fontWeight: "bold"}
+    const chipParentCellStyle = {backgroundColor: this.state.hoveredParent.color, color: "white",  fontWeight: "bold"}
+    return (
+      <Paper elevation={0}>
+        {this.state.hoveredCell.category === "Group" ? (
+          <Chip
+            label={this.state.hoveredCell.title}
+            style={chipCellStyle}
+          />
+        ) : (
+          <Breadcrumbs
+            separator="›"
+            aria-label="Breadcrumb"
+            style={{ fontSize: 15, color: "black" }}
+          >
+            <Chip
+              label={this.state.hoveredParent.title}
+              style={chipParentCellStyle}
+            />
+            <Chip
+              label={this.state.hoveredCell.title}
+              style={chipCellStyle}
+            />
+          </Breadcrumbs>
+        )}
+      </Paper>
+    );
+  }
+
   render() {
     const applyResetstyle = {
       marginLeft: 10,
@@ -223,25 +257,9 @@ class StatsPage extends Component {
       fontWeight: "bold"
     };
 
-    const filterText = { fontSize: 15, fontStyle: "italic" };
+    const filterText = { fontSize: 11, fontStyle: "italic" };
 
-    const tipStyle = {
-      display: 'flex',
-      color: '#fff',
-      background: '#000',
-      alignItems: 'center',
-      padding: '5px'
-    };
-    const boxStyle = {height: '10px', width: '10px'};
-    
-    function buildValue(hoveredCell) {
-      const {radius, angle, angle0} = hoveredCell;
-      const truedAngle = (angle + angle0) / 2;
-      return {
-        x: radius * Math.cos(truedAngle),
-        y: radius * Math.sin(truedAngle)
-      };
-    }
+    const selectStyle = { height: 3, width: 80}
     return (
       <div>
         <MuiThemeProvider>
@@ -280,9 +298,6 @@ class StatsPage extends Component {
             </Drawer>
             <main
               style={{
-                /*backgroundImage: `url(${backPic})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",*/
                 height: "100%",
                 width: document.documentElement.clientWidth,
                 backgroundSize: "cover"
@@ -298,12 +313,96 @@ class StatsPage extends Component {
                 }}
               >
                 <Grid container spacing={2}>
-                  {/* Number of elements minerals contain on average */}
                   <Grid item>
-                    <Paper
+                  <ControlledExpansionPanels
+                  width={800}
+                      value={
+                        <div>
+                          <BubbleChart />
+                        </div>
+                      }
+                      title={
+                        "Number of minerals containing a specific element - Bubble Chart"
+                      }
+                    />
+                  
+                  
+                    <ControlledExpansionPanels
+                      width={800}
+                      value={
+                        <div>
+                          <LabeledHeatmap mineral={this.state.choosenMineral} />
+                        </div>
+                      }
+                      title={"Occurence of element pairs in minerals - HeatMap"}
+                    />
+                  
+                  
+                    <ControlledExpansionPanels
+                      width={800}
+                      value={
+                        <div>
+                           <Grid container spacing={2}>
+                          <Grid item>
+                          {this.state.hoveredCell
+                            ? this.renderBreadcrumbs()
+                            : null}
+                          <Sunburst
+                            hideRootNode
+                            colorType="literal"
+                            data={dataSunburst}
+                            height={600}
+                            width={650}
+                            style={{
+                              stroke: "#fff",
+                              text: { color: "#ffffff" }
+                            }}
+                            onValueMouseOver={v =>
+                              this.setState({
+                                hoveredCell: v.x && v.y ? v : false,
+                                hoveredParent: v.parent.data
+                              })
+                            }
+                            margin={{
+                              top: 50,
+                              bottom: 50,
+                              left: 50,
+                              right: 50
+                            }}
+                            getLabel={d =>
+                              d.category === "Group" ? d.title : null
+                            }
+                            labelS
+                          />
+                          <div className="sunburstMiddleText">
+                            {this.state.hoveredCell ? (
+                              <Avatar
+                                alt="Something"
+                                src={require("./images/" +
+                                  groupMineralPic(
+                                    this.state.hoveredCell.title
+                                  ).toString() +
+                                  ".svg")}
+                                style={{ width: 300, height: 300 }}
+                              />
+                            ) : null}
+                          </div>
+                          </Grid>
+                          <Grid item>
+                            Bla
+                          </Grid>
+                          </Grid>
+                        </div>
+                      }
+                      title={"Sunburst"}
+                    />
+                  </Grid>
+                  
+                  <Grid item>
+                  <Paper
                       style={{
-                        height: 350,
-                        width: 450,
+                        height: 280,
+                        width: 350,
                         borderRadius: 15,
                         paddingTop: 20,
                         paddingRight: 20,
@@ -315,11 +414,11 @@ class StatsPage extends Component {
                         textAlign: "center"
                       }}
                     >
-                      <Typography
+                  <Typography
                         style={{
                           fontSize: 15,
                           color: "#b5b0b0",
-                          paddingBottom: 30,
+                          paddingBottom: 10,
                           fontWeight: "bold",
                           alignSelf: "center"
                         }}
@@ -327,6 +426,7 @@ class StatsPage extends Component {
                       >
                         Number of distinct elements in minerals
                       </Typography>
+                      {/* Number of elements minerals contain on average */}
                       <MyBarChart point={this.state.choosenMineral} />
                       <Typography
                         style={{
@@ -338,29 +438,28 @@ class StatsPage extends Component {
                       >
                         {this.state.choosenMineral != null
                           ? `${this.state.choosenMineral.name} contains ${
-                          this.state.choosenMineral.formula.length
-                          } distinct elements`
+                              this.state.choosenMineral.formula.length
+                            } distinct elements`
                           : "# of elements"}
                       </Typography>
-                    </Paper>
-                  </Grid>
-                  <Grid item>
-                    <SearchBar
+                      </Paper>
+                  <SearchBar
                       onChange={value =>
                         this.setState({ results: handleSearch(value) })
                       }
                       style={{
-                        margin: "0 auto",
-                        width: 250,
+                        marginTop:5,
+                        marginBottom:5,
+                        width: 350,
                         borderRadius: 15,
-                        marginBottom: 16
+                        
                       }}
                     />
                     <Paper
                       style={{
                         position: "relative",
-                        height: 285,
-                        width: 250,
+                        height: 140,
+                        width: 350,
                         borderRadius: 15,
                         padding: 5,
                         flexDirection: "column",
@@ -369,13 +468,13 @@ class StatsPage extends Component {
                     >
                       {this.state.loading ? (
                         <CircularProgress
-                          style={{ marginLeft: "40%", marginTop: "40%" }}
+                          style={{ marginLeft: "45%", marginTop: "15%" }}
                           size={40}
                         />
                       ) : (
-                          <List style={{ height: 270, overflow: "auto" }}>
-                            {this.state.results != null
-                              ? this.state.results.map(rock => (
+                        <List style={{ height: 130, overflow: "auto" }}>
+                          {this.state.results != null
+                            ? this.state.results.map(rock => (
                                 <ListItem
                                   style={{
                                     backgroundColor:
@@ -386,29 +485,18 @@ class StatsPage extends Component {
                                   button
                                   onClick={() => this.handleListItemClick(rock)}
                                 >
-                                  <ListItemText primary={rock.name} />
+                                  <ListItemText primary={rock.name} style={{fontSize: 12}} />
                                 </ListItem>
                               ))
-                              : null}
-                          </List>
-                        )}
+                            : null}
+                        </List>
+                      )}
                     </Paper>
-                  </Grid>
-                  <Grid item>
-                    <Paper
-                      style={{
-                        position: "relative",
-                        borderRadius: 15,
-                        paddingRight: 15,
-                        paddingLeft: 15,
-                        paddingTop: 15,
-                        flexDirection: "column",
-                        background: "white",
-                        width: 450,
-                        height: 350
-                      }}
-                    >
-                      <div style={{ height: 280, overflow: "auto" }}>
+                    <ControlledExpansionPanels
+                      width={340}
+                      value={
+                        <div>
+                        <div style={{ height:230, overflow: "auto" }}>
                         <div className="filterField">
                           <FormControl style={{ padding: 10 }}>
                             <FormHelperText style={filterText}>
@@ -417,10 +505,7 @@ class StatsPage extends Component {
                             <Select
                               multiple
                               value={["lol", "bla"]}
-                              style={{
-                                maxHeight: 48 * 4.5 + 8,
-                                width: 100
-                              }}
+                              style={selectStyle}
                             >
                               {mineralColors.map(color => (
                                 <MenuItem key={color} value={color}>
@@ -439,7 +524,7 @@ class StatsPage extends Component {
                               <Chip
                                 label={selectedColorElement}
                                 style={{
-                                  margin: 10,
+                                  margin: 7,
                                   color: "white",
                                   backgroundColor: selectedColorElement
                                 }}
@@ -459,10 +544,7 @@ class StatsPage extends Component {
                             <Select
                               multiple
                               value={["lol", "lol2"]}
-                              style={{
-                                maxHeight: 48 * 4.5 + 8,
-                                width: 100
-                              }}
+                              style={selectStyle}
                             >
                               {mineralGroups.map(grp => (
                                 <MenuItem value="">
@@ -479,7 +561,7 @@ class StatsPage extends Component {
                               <Chip
                                 label={selectedGroupElement}
                                 style={{
-                                  margin: 10,
+                                  margin: 7,
                                   color: "black"
                                 }}
                                 onDelete={() =>
@@ -498,10 +580,7 @@ class StatsPage extends Component {
                             <Select
                               multiple
                               value={["lol", "lol2"]}
-                              style={{
-                                maxHeight: 48 * 4.5 + 8,
-                                width: 100
-                              }}
+                              style={selectStyle}
                             >
                               {mineralSubGroups.map(sgrp => (
                                 <MenuItem value="">
@@ -520,7 +599,7 @@ class StatsPage extends Component {
                               <Chip
                                 label={selectedSubGroupElement}
                                 style={{
-                                  margin: 10,
+                                  margin: 7,
                                   color: "black"
                                 }}
                                 onDelete={() =>
@@ -541,10 +620,7 @@ class StatsPage extends Component {
                             <Select
                               multiple
                               value={["lol", "lol2"]}
-                              style={{
-                                maxHeight: 48 * 4.5 + 8,
-                                width: 100
-                              }}
+                              style={selectStyle}
                             >
                               {mineralSystems.map(sys => (
                                 <MenuItem value="">
@@ -561,7 +637,7 @@ class StatsPage extends Component {
                               <Chip
                                 label={selectedSystemElement}
                                 style={{
-                                  margin: 10,
+                                  margin: 7,
                                   color: "black"
                                 }}
                                 onDelete={() =>
@@ -577,7 +653,6 @@ class StatsPage extends Component {
                         style={{
                           textAlign: "right",
                           paddingRight: 10,
-                          paddingTop: 5
                         }}
                       >
                         <Button
@@ -605,66 +680,17 @@ class StatsPage extends Component {
                           }
                         >
                           Reset
-                       </Button>
+                        </Button>
                       </div>
-                    </Paper>
-                  </Grid>
-                  <Grid item>
-                    <ControlledExpansionPanels
-                      value={
-                        <div>
-                          <BubbleChart />
-                        </div>
+                      </div>
                       }
                       title={
-                        "Number of minerals containing a specific element - Bubble Chart"
+                        "Advanced search"
                       }
                     />
-                  </Grid>
-                  <Grid item>
-                    <ControlledExpansionPanels
-                      value={
-                        <div>
-                          <LabeledHeatmap mineral={this.state.choosenMineral} />
-                        </div>
-                      }
-                      title={"Occurence of element pairs in minerals - HeatMap"}
-                    />
-                  </Grid>
-                  <Grid item>
-                    <ControlledExpansionPanels
-                      value={
-                        <div>
-                          <Sunburst
-                            hideRootNode
-                            colorType="literal"
-                            data={dataSunburst}
-                            height={600}
-                            width={650} 
-                            style={{stroke: '#fff', text:{color:"#ffffff"}}}
-                            onValueMouseOver={v =>
-                              this.setState({hoveredCell: v.x && v.y ? v : false})
-                            }
-                            onValueMouseOut={v => this.setState({hoveredCell: false})}
-                            margin={{top: 50, bottom: 50, left: 50, right: 50}}
-                            getLabel={d => d.title}
-                            labelS                      
-                          >
-                            {this.state.hoveredCell ? (
-                              <Hint value={buildValue(this.state.hoveredCell)}>
-                              <div style={tipStyle}>
-                                <div style={{...boxStyle, background: this.state.hoveredCell.color}} />
-                                  {this.state.hoveredCell.title}
-                                </div>
-                              </Hint>
-                            ) : null}
-                          </Sunburst>
-                        </div>
-                      }
-                      title={"Sunburst"}
-                    />
-                  </Grid>
+                 
                 </Grid>
+              </Grid>
               </Container>
             </main>
           </div>
@@ -715,25 +741,25 @@ export class MyBarChart extends React.Component {
           </linearGradient>
         </GradientDefs>
       ) : (
-          <GradientDefs>
-            <linearGradient
-              id="myGradient"
-              gradientUnits="userSpaceOnUse"
-              x1="0"
-              y1="0"
-              x2="200"
-              y2="200"
-            >
-              <stop offset="100%" stopColor="lightGrey" />
-            </linearGradient>
-          </GradientDefs>
-        );
+        <GradientDefs>
+          <linearGradient
+            id="myGradient"
+            gradientUnits="userSpaceOnUse"
+            x1="0"
+            y1="0"
+            x2="200"
+            y2="200"
+          >
+            <stop offset="100%" stopColor="lightGrey" />
+          </linearGradient>
+        </GradientDefs>
+      );
     return (
       <div>
         <XYPlot
           xType="ordinal"
-          width={400}
-          height={250}
+          width={300}
+          height={200}
           xDistance={100}
           color={"url(#myGradient)"}
         >
@@ -783,10 +809,10 @@ export function HintContentBar({ value }) {
       >
         <div style={{ fontSize: "12px", color: "white" }}>{`${y}${
           y > 1 ? " minerals" : " mineral"
-          } contain ${x}${x > 1 ? " different elements" : " element"}`}</div>
+        } contain ${x}${x > 1 ? " different elements" : " element"}`}</div>
       </Paper>
       ,
- </div>
+    </div>
   );
 }
 
@@ -801,7 +827,6 @@ export class LabeledHeatmap extends Component {
   render() {
     const heatMapLabelsX = [
       "H",
-      "B",
       "C",
       "N",
       "O",
@@ -809,34 +834,22 @@ export class LabeledHeatmap extends Component {
       "P",
       "S",
       "K",
-      "Y",
       "I",
-      "Li",
-      "Be",
       "Na",
       "Mg",
       "Al",
       "Si",
       "Cl",
       "Ca",
-      "Ti",
       "V",
       "Cr",
       "Mn",
       "Fe",
-      "Co",
-      "Ni",
       "Cu",
       "Zn",
       "As",
-      "Se",
       "Zr",
-      "Mo",
-      "Ag",
-      "Te",
-      "Au",
-      "Hg",
-      "Pb"
+      "Mo"
     ];
 
     const heatMapLabelsY = heatMapLabelsX;
@@ -872,12 +885,10 @@ export class LabeledHeatmap extends Component {
       const myarray2 = this.props.mineral.formula;
       for (var i = 0; i < myarray2.length - 1; i++) {
         for (var j = i + 1; j < myarray2.length; j++) {
-          results3.push(
-            [
-              myarray2[i].replace(/,/g, ""),
-              myarray2[j].replace(/,/g, "")
-            ]
-          );
+          results3.push([
+            myarray2[i].replace(/,/g, ""),
+            myarray2[j].replace(/,/g, "")
+          ]);
         }
       }
 
@@ -890,7 +901,7 @@ export class LabeledHeatmap extends Component {
                 ob.y.split(/(\d+)/)[0] === item[1]) ||
                 (ob.y.split(/(\d+)/)[0] === item[0] &&
                   ob.x.split(/(\d+)/)[0] === item[1])) &&
-              arr.push(i),
+                arr.push(i),
               arr
             ),
             []
@@ -899,7 +910,7 @@ export class LabeledHeatmap extends Component {
       }
       const finalIndecesArray = indecesArray.filter(Boolean).flat();
 
-      data.forEach(function (element) {
+      data.forEach(function(element) {
         if (
           finalIndecesArray.includes(data.indexOf(element)) &&
           element.color !== 0
@@ -919,8 +930,8 @@ export class LabeledHeatmap extends Component {
         yType="ordinal"
         yDomain={heatMapLabelsY.map(letter => `${letter}2`).reverse()}
         margin={40}
-        width={1150}
-        height={1200}
+        width={800}
+        height={800}
       >
         <XAxis
           orientation="top"
@@ -976,7 +987,7 @@ export function HintContentHeatMap({ value }) {
           components: `${x.split(/(\d+)/)[0]} and ${y.split(/(\d+)/)[0]}`
         })}
         ,
- </div>
+      </div>
     );
   } else {
     return null;
@@ -1068,12 +1079,12 @@ export class BubbleChart extends React.Component {
     };
 
     return (
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: 5 }}>
         <XYPlot
           margin={{ left: 50 }}
           yDomain={[0, 3900]}
           onMouseLeave={() => this.setState({ value: false })}
-          width={1100}
+          width={750}
           height={400}
         >
           <VerticalGridLines tickTotal={43} />
@@ -1100,7 +1111,7 @@ export function HintContentBubble({ value }) {
   return (
     <div>
       {hintRowBubble({ numberOfMinerals: y, components: labelsBubble[x - 1] })},
- </div>
+    </div>
   );
 }
 
@@ -1141,7 +1152,7 @@ function ControlledExpansionPanels(props) {
   return (
     <div>
       <ExpansionPanel
-        style={{ width: window.innerWidth - 180, borderRadius: 15 }}
+        style={{ width: props.width, borderRadius: 15 , margin:5}}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
@@ -1152,7 +1163,7 @@ function ControlledExpansionPanels(props) {
         >
           <Typography>{props.title}</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>{props.value}</ExpansionPanelDetails>
+        <ExpansionPanelDetails style={{padding: 10}}>{props.value}</ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
   );
@@ -1248,7 +1259,6 @@ const mineralSubGroups = [
   "Unclassified"
 ];
 
-
 export function loadingDiamond() {
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(
@@ -1266,7 +1276,7 @@ export function loadingDiamond() {
   var cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
   camera.position.z = 5;
-  var animate = function () {
+  var animate = function() {
     requestAnimationFrame(animate);
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
@@ -1274,6 +1284,5 @@ export function loadingDiamond() {
   };
   animate();
 }
-
 
 export default StatsPage;

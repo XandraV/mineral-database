@@ -150,6 +150,7 @@
 }
 
 .filterField {
+  width:300px;
   margin: 10px;
   border: 0.5px solid #e4dada;
   border-radius: 10px;
@@ -157,7 +158,19 @@
 }
 
 .MuiExpansionPanelSummary-content > p {
+  padding-top: 5px;
   color: rgb(152, 150, 150);
   font-size: 15px;
   font-weight: bold;
+}
+#panel1bh-header {
+  min-height: 30px;
+  height: 40px;
+}
+
+.sunburstMiddleText {
+  margin-top: -450px;
+  padding-left: 170px;
+  color: black;
+  position: absolute;
 }
