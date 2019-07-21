@@ -1,0 +1,1167 @@
+{  
+    "minerals":[  
+       {  
+          "name":"Aegirine",
+          "formula":[  
+             "Na",
+             "Fe",
+             "Si",
+             "O"
+          ],
+          "formulaWeb":"<span>NaFe<sup>3+</sup>Si<sub>2</sub>O<sub>6</sub></span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Inosilicates",
+             "Germanates"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Green",
+                "Brow",
+                "Black",
+                "Red",
+                "Greenish",
+                "Greenish",
+                "Reddish"
+             ]
+          ],
+          "hardness":"6",
+          "mindatLink":"https://www.mindat.org/min-31.html",
+          "specificGravity":"3.5 - 3.6",
+          "lustre":"Vitreous",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Aegirine-augite",
+          "formula":[  
+             "Naa",
+             "Cab",
+             "Fe",
+             "Mgd",
+             "Alf",
+             "Mgh",
+             "Si",
+             "O"
+          ],
+          "formulaWeb":"<span>(Na<sub>a</sub>Ca<sub>b</sub>Fe<sup>2+</sup><sub>c</sub>Mg<sub>d</sub>)(Fe<sup>3+</sup><sub>e</sub>Al<sub>f</sub>Fe<sup>2+</sup><sub>g</sub>Mg<sub>h</sub>)Si<sub>2</sub>O<sub>6</sub></span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Inosilicates",
+             "Germanates"
+          ],
+          "system":"Monoclinic",
+          "color":"no data",
+          "hardness":"6",
+          "mindatLink":"https://www.mindat.org/min-32.html",
+          "specificGravity":"no data",
+          "lustre":"no data",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Aenigmatite",
+          "formula":[  
+             "Na",
+             "Fe",
+             "Ti",
+             "O",
+             "Si"
+          ],
+          "formulaWeb":"<span>Na<sub>4</sub>[Fe<sup>2+</sup><sub>10</sub>Ti<sub>2</sub>]O<sub>4</sub>[Si<sub>12</sub>O<sub>36</sub>]</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Inosilicates",
+             "Germanates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Black"
+             ]
+          ],
+          "hardness":"5½ - 6",
+          "mindatLink":"https://www.mindat.org/min-33.html",
+          "specificGravity":"no data",
+          "lustre":"Greasy",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Aerinite",
+          "formula":[  
+             "Ca",
+             "Na",
+             "Fe",
+             "Al,",
+             "Mg",
+             "H",
+             "Si",
+             "O",
+             "C"
+          ],
+          "formulaWeb":"<span>(Ca<sub>5.1</sub>Na<sub>0.5</sub>)(Fe<sup>3+</sup>,Al,Fe<sup>2+</sup>,Mg)<sub>4</sub>(Al,Mg)<sub>6</sub>[HSi<sub>12</sub>O<sub>36</sub>(OH)<sub>12</sub>][(CO<sub>3</sub>)<sub>1.2</sub>(H<sub>2</sub>O)<sub>12</sub>]</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Inosilicates",
+             "Germanates"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Green",
+                "Blue",
+                "Blue-green"
+             ]
+          ],
+          "hardness":"3",
+          "mindatLink":"https://www.mindat.org/min-34.html",
+          "specificGravity":"no data",
+          "lustre":"no data",
+          "localities":" Caserras del Castillo, Estopiñán del Castillo, Huesca, Aragón, Spain"
+       },
+       {  
+          "name":"Aerugite",
+          "formula":[  
+             "Ni",
+             "As",
+             "O"
+          ],
+          "formulaWeb":"<span>Ni<sub>8.5</sub>(AsO<sub>4</sub>)<sub>2</sub>As<sup>5+</sup>O<sub>8</sub></span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Green",
+                "Blue",
+                "Brow",
+                "Grass-green",
+                "Blue-green",
+                "Pale brown"
+             ]
+          ],
+          "hardness":"4",
+          "mindatLink":"https://www.mindat.org/min-36.html",
+          "specificGravity":"5.85",
+          "lustre":"Sub-Adamantine, Sub-Vitreous, Resinous",
+          "localities":" Johanngeorgenstadt, Johanngeorgenstadt mining district, Erzgebirge District, Saxony, Germany"
+       },
+       {  
+          "name":"Aeschynite-(Ce)",
+          "formula":[  
+             "Ce,",
+             "Ca,",
+             "Fe,",
+             "Th",
+             "Ti,",
+             "Nb",
+             "O,",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(Ce,Ca,Fe,Th)(Ti,Nb)<sub>2</sub>(O,OH)<sub>6</sub></span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Orthorhombic",
+          "color":[  
+             [  
+                "Yellow",
+                "Brow"
+             ]
+          ],
+          "hardness":"5 - 6",
+          "mindatLink":"https://www.mindat.org/min-37.html",
+          "specificGravity":"5.19",
+          "lustre":"Resinous, Waxy, Sub-Metallic",
+          "localities":" Gadolinite Pit (Pits Nos. 75 & 76), Dolgiye Mosty reserve-guard station, Chelyabinsk Oblast, Russia"
+       },
+       {  
+          "name":"Aeschynite-(Nd)",
+          "formula":[  
+             "Nd,",
+             "Ln,",
+             "Ca",
+             "Ti,",
+             "Nb",
+             "O,",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(Nd,Ln,Ca)(Ti,Nb)<sub>2</sub>(O,OH)<sub>6</sub></span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Orthorhombic",
+          "color":[  
+             [  
+                "Brow",
+                "Black",
+                "Pale brown",
+                "Brownish"
+             ]
+          ],
+          "hardness":"5 - 6",
+          "mindatLink":"https://www.mindat.org/min-38.html",
+          "specificGravity":"4.6 - 5.04",
+          "lustre":"Adamantine",
+          "localities":" East Mine, Bayan Obo deposit (Bayun-Obo deposit; Baiyunebo deposit), Bayan Obo, Bayan Obo mining district, Baotou League (Baotou Prefecture), Inner Mongolia, China"
+       },
+       {  
+          "name":"Aeschynite-(Y)",
+          "formula":[  
+             "Y,",
+             "Ln,",
+             "Ca,",
+             "Th",
+             "Ti,",
+             "Nb",
+             "O,",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(Y,Ln,Ca,Th)(Ti,Nb)<sub>2</sub>(O,OH)<sub>6</sub></span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Orthorhombic",
+          "color":[  
+             [  
+                "Yellow",
+                "Orange",
+                "Green",
+                "Brow",
+                "Black",
+                "Brownish",
+                "Yellow-orange",
+                "Greenish",
+                "Greenish"
+             ]
+          ],
+          "hardness":"5 - 6",
+          "mindatLink":"https://www.mindat.org/min-39.html",
+          "specificGravity":"4.82 - 4.93",
+          "lustre":"Resinous, Waxy, Pearly, Sub-Metallic",
+          "localities":" Urstad Feldspar Mine, Hidra (Hitterø), Flekkefjord, Vest-Agder, Norway"
+       },
+       {  
+          "name":"Afghanite",
+          "formula":[  
+             "Na,",
+             "K",
+             "Ca",
+             "Si",
+             "Al",
+             "O",
+             "S",
+             "Cl"
+          ],
+          "formulaWeb":"<span>(Na,K)<sub>22</sub>Ca<sub>10</sub>(Si<sub>24</sub>Al<sub>24</sub>O<sub>96</sub>)(SO<sub>4</sub>)<sub>6</sub>Cl<sub>6</sub></span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Tektosilicates",
+             "Germanates"
+          ],
+          "system":"Trigonal",
+          "color":[  
+             [  
+                "Blue",
+                "White"
+             ]
+          ],
+          "hardness":"5½ - 6",
+          "mindatLink":"https://www.mindat.org/min-41.html",
+          "specificGravity":"2.55",
+          "lustre":"Vitreous",
+          "localities":" Ladjuar Medam (Lajur Madan; Lapis-lazuli Mine; Lapis-lazuli deposit), Sar-e Sang (Sar Sang; Sary Sang), Koksha Valley (Kokscha Valley; Kokcha Valley), Khash & Kuran Wa Munjan Districts, Badakhshan, Afghanistan"
+       },
+       {  
+          "name":"Afwillite",
+          "formula":[  
+             "Ca",
+             "H",
+             "Si",
+             "O"
+          ],
+          "formulaWeb":"<span>Ca<sub>3</sub>(HSiO<sub>4</sub>)<sub>2</sub> · 2H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Nesosilicates",
+             "Germanates"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "White"
+             ]
+          ],
+          "hardness":"3 - 4",
+          "mindatLink":"https://www.mindat.org/min-42.html",
+          "specificGravity":"2.630",
+          "lustre":"Vitreous",
+          "localities":" Dutoitspan Mine, KEM JV Mine (Kimberley Ekapa Mining Joint Venture mine; Kimberley Underground mine), Kimberley, Francis Baard District, Northern Cape, South Africa"
+       },
+       {  
+          "name":"Agardite-(Nd)",
+          "formula":[  
+             "Nd",
+             "Cu",
+             "As",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>NdCu<sub>6</sub>(AsO<sub>4</sub>)<sub>3</sub>(OH)<sub>6</sub> · 3H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Green",
+                "Blue",
+                "Greenish",
+                "Greenish-blue",
+                "Greenish"
+             ]
+          ],
+          "hardness":"3 - 4",
+          "mindatLink":"https://www.mindat.org/min-43.html",
+          "specificGravity":"no data",
+          "lustre":"Vitreous",
+          "localities":" Hilarion Mine (Hilarion adit; Hilarion Mine No. 50), Hilarion area, Kamariza Mines (Kamareza Mines), Agios Konstantinos [St Constantine] (Kamariza), Lavrion District Mines, Lavreotiki, East Attica, Attica, Greece"
+       },
+       {  
+          "name":"Agardite-(Y)",
+          "formula":[  
+             "Y",
+             "Cu",
+             "As",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>YCu<sub>6</sub>(AsO<sub>4</sub>)<sub>3</sub>(OH)<sub>6</sub> · 3H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Bluish"
+             ]
+          ],
+          "hardness":"3 - 4",
+          "mindatLink":"https://www.mindat.org/min-44.html",
+          "specificGravity":"3.61 - 3.72",
+          "lustre":"Sub-Vitreous, Resinous, Waxy",
+          "localities":" Bou Skour Mine, Bou Skour District, Djebel Saghro (Jbel Saghro), Ouarzazate Province, Drâa-Tafilalet Region, Morocco"
+       },
+       {  
+          "name":"Agardite-(Ce)",
+          "formula":[  
+             "Ce",
+             "Cu",
+             "As",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>CeCu<sub>6</sub>(AsO<sub>4</sub>)<sub>3</sub>(OH)<sub>6</sub> · 3H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Yellowish"
+             ]
+          ],
+          "hardness":"3 - 4",
+          "mindatLink":"https://www.mindat.org/min-48.html",
+          "specificGravity":"3.7",
+          "lustre":"Sub-Vitreous, Resinous, Silky",
+          "localities":" Clara Mine, Rankach valley, Oberwolfach, Wolfach, Ortenaukreis, Freiburg, Baden-Württemberg, Germany"
+       },
+       {  
+          "name":"Agardite-(Dy)",
+          "formula":[  
+             "Dy,",
+             "La",
+             "Cu",
+             "As",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(Dy,La)Cu<sub>6</sub>(AsO<sub>4</sub>)<sub>3</sub>(OH)<sub>6</sub> · 3H<sub>2</sub>O</span>",
+          "mainGroup":"no data",
+          "subGroup":"no data",
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Green"
+             ]
+          ],
+          "hardness":"3 - 4",
+          "mindatLink":"https://www.mindat.org/min-49.html",
+          "specificGravity":"no data",
+          "lustre":"Vitreous",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Agardite-(La)",
+          "formula":[  
+             "La",
+             "Cu",
+             "As",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>LaCu<sub>6</sub>(AsO<sub>4</sub>)<sub>3</sub>(OH)<sub>6</sub> · 3H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Colourless",
+                "Yellowish",
+                "Bluish"
+             ]
+          ],
+          "hardness":"3 - 4",
+          "mindatLink":"https://www.mindat.org/min-50.html",
+          "specificGravity":"3.65",
+          "lustre":"Sub-Vitreous, Resinous, Waxy",
+          "localities":" Dorothea Mine, Freudenstadt, Black Forest, Baden-Württemberg, Germany"
+       },
+       {  
+          "name":"Agrellite",
+          "formula":[  
+             "Na",
+             "Ca",
+             "Si",
+             "O",
+             "F"
+          ],
+          "formulaWeb":"<span>NaCa<sub>2</sub>Si<sub>4</sub>O<sub>10</sub>F</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Inosilicates",
+             "Germanates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Green",
+                "Grey",
+                "White",
+                "Greenish",
+                "Greenish"
+             ]
+          ],
+          "hardness":"5½",
+          "mindatLink":"https://www.mindat.org/min-57.html",
+          "specificGravity":"no data",
+          "lustre":"Pearly",
+          "localities":" Kipawa alkaline complex, Les Lacs-du-Témiscamingue, Témiscamingue RCM, Abitibi-Témiscamingue, Québec, Canada"
+       },
+       {  
+          "name":"Agrinierite",
+          "formula":[  
+             "K",
+             "Ca,",
+             "Sr",
+             "U",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>K<sub>2</sub>(Ca,Sr)[(UO<sub>2</sub>)<sub>3</sub>O<sub>3</sub>(OH)<sub>2</sub>]<sub>2</sub> · 5H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Orthorhombic",
+          "color":[  
+             [  
+ 
+             ]
+          ],
+          "hardness":"no data",
+          "mindatLink":"https://www.mindat.org/min-58.html",
+          "specificGravity":"5.7",
+          "lustre":"no data",
+          "localities":" Margnac Mine, Compreignac, Haute-Vienne, Nouvelle-Aquitaine, France"
+       },
+       {  
+          "name":"Aguilarite",
+          "formula":[  
+             "Ag",
+             "Se",
+             "S"
+          ],
+          "formulaWeb":"<span>Ag<sub>4</sub>SeS</span>",
+          "mainGroup":[  
+             "Sulfides",
+             "Sulfosalts"
+          ],
+          "subGroup":[  
+             "Selenides",
+             "Tellurides",
+             "Arsenides",
+             "Antimonides",
+             "Bismuthides",
+             "Sulfarsenites",
+             "Sulfantimonites"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Gray"
+             ]
+          ],
+          "hardness":"2½",
+          "mindatLink":"https://www.mindat.org/min-59.html",
+          "specificGravity":"7.40 - 7.53",
+          "lustre":"Metallic",
+          "localities":" San Carlos Mine, La Luz, Guanajuato Municipality, Guanajuato, Mexico"
+       },
+       {  
+          "name":"Aheylite",
+          "formula":[  
+             "Fe",
+             "Zn",
+             "Al",
+             "P",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(Fe<sup>2+</sup>,Zn)Al<sub>6</sub>(PO<sub>4</sub>)<sub>4</sub>(OH)<sub>8</sub> · 4H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Green",
+                "Blue",
+                "Blue-green"
+             ]
+          ],
+          "hardness":"5 - 5½",
+          "mindatLink":"https://www.mindat.org/min-60.html",
+          "specificGravity":"3.22",
+          "lustre":"Sub-Vitreous",
+          "localities":" Huanuni mine, Huanuni, Dalence Province, Oruro, Bolivia"
+       },
+       {  
+          "name":"Ahlfeldite",
+          "formula":[  
+             "Ni",
+             "Se",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>Ni(SeO<sub>3</sub>) · 2H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Brow",
+                "Pink",
+                "Yellowish"
+             ]
+          ],
+          "hardness":"2 - 2½",
+          "mindatLink":"https://www.mindat.org/min-61.html",
+          "specificGravity":"3.37",
+          "lustre":"Vitreous",
+          "localities":" Virgen de Surumi mine (Pacajake mine; Pakajake mine), Pakajake Canyon (Pacajake Canyon), Chayanta Province, Potosí, Bolivia"
+       },
+       {  
+          "name":"Aikinite",
+          "formula":[  
+             "Pb",
+             "Cu",
+             "Bi",
+             "S"
+          ],
+          "formulaWeb":"<span>PbCuBiS<sub>3</sub></span>",
+          "mainGroup":[  
+             "Sulfides",
+             "Sulfosalts"
+          ],
+          "subGroup":[  
+             "Selenides",
+             "Tellurides",
+             "Arsenides",
+             "Antimonides",
+             "Bismuthides",
+             "Sulfarsenites",
+             "Sulfantimonites"
+          ],
+          "system":"Orthorhombic",
+          "color":[  
+             [  
+                "Grey"
+             ]
+          ],
+          "hardness":"2 - 2½",
+          "mindatLink":"https://www.mindat.org/min-63.html",
+          "specificGravity":"7.06 - 7.08",
+          "lustre":"Metallic",
+          "localities":" Berezovsk Deposit, Beryozovsky, Sverdlovsk Oblast, Russia"
+       },
+       {  
+          "name":"Ajoite",
+          "formula":[  
+             "K,",
+             "Na",
+             "Cu",
+             "Al",
+             "Si",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(K,Na)Cu<sub>7</sub>AlSi<sub>9</sub>O<sub>24</sub>(OH)<sub>6</sub> · 3H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Phyllosilicates",
+             "Germanates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Green"
+             ]
+          ],
+          "hardness":"no data",
+          "mindatLink":"https://www.mindat.org/min-66.html",
+          "specificGravity":"2.96",
+          "lustre":"no data",
+          "localities":" New Cornelia Mine (Ajo Mine), Ajo, Little Ajo Mts, Ajo District, Pima Co., Arizona, USA"
+       },
+       {  
+          "name":"Akaganeite",
+          "formula":[  
+             "Fe",
+             "Ni",
+             "O",
+             "H,",
+             "Cl",
+             "H"
+          ],
+          "formulaWeb":"<span>(Fe<sup>3+</sup>,Ni<sup>2+</sup>)<sub>8</sub>(OH,O)<sub>16</sub>Cl<sub>1.25</sub> · nH<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Brow"
+             ]
+          ],
+          "hardness":"no data",
+          "mindatLink":"https://www.mindat.org/min-67.html",
+          "specificGravity":"3.52 (Calculated)",
+          "lustre":"Earthy",
+          "localities":" Akagane mine, Esashi ward, Oshu City, Iwate, Japan"
+       },
+       {  
+          "name":"Akatoreite",
+          "formula":[  
+             "Mn",
+             "Al",
+             "Si",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>Mn<sup>2+</sup><sub>9</sub>Al<sub>2</sub>Si<sub>8</sub>O<sub>24</sub>(OH)<sub>8</sub></span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Sorosilicates",
+             "Germanates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Orange",
+                "Brow"
+             ]
+          ],
+          "hardness":"6",
+          "mindatLink":"https://www.mindat.org/min-68.html",
+          "specificGravity":"no data",
+          "lustre":"Vitreous",
+          "localities":" Akatore Creek, Clutha District, Otago Region, New Zealand"
+       },
+       {  
+          "name":"Akdalaite",
+          "formula":[  
+             "Al",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>5Al<sub>2</sub>O<sub>3</sub> · H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Greenish",
+                "Greenish"
+             ]
+          ],
+          "hardness":"7 - 7½",
+          "mindatLink":"https://www.mindat.org/min-69.html",
+          "specificGravity":"3.68",
+          "lustre":"Vitreous",
+          "localities":" Solnechnoye Mine (Solvech Mine), Kara-Oba W deposit, Betpakdala Desert (Bet-Pak-Dal Desert), Karazhal, Karaganda Region, Kazakhstan"
+       },
+       {  
+          "name":"Åkermanite",
+          "formula":[  
+             "Ca",
+             "Mg",
+             "Si",
+             "O"
+          ],
+          "formulaWeb":"<span>Ca<sub>2</sub>Mg(Si<sub>2</sub>O<sub>7</sub>)</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Sorosilicates",
+             "Germanates"
+          ],
+          "system":"Tetragonal",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Brow",
+                "Gray",
+                "Yellowish"
+             ]
+          ],
+          "hardness":"5 - 6",
+          "mindatLink":"https://www.mindat.org/min-70.html",
+          "specificGravity":"no data",
+          "lustre":"Vitreous, Resinous",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Akhtenskite",
+          "formula":[  
+             "Mn",
+             "O"
+          ],
+          "formulaWeb":"<span>ε-Mn<sup>4+</sup>O<sub>2</sub></span>",
+          "mainGroup":[  
+             "Oxides",
+             "Vanadates"
+          ],
+          "subGroup":[  
+             "Iodates"
+          ],
+          "system":"Hexagonal",
+          "color":[  
+             [  
+                "Black",
+                "Grey"
+             ]
+          ],
+          "hardness":"no data",
+          "mindatLink":"https://www.mindat.org/min-71.html",
+          "specificGravity":"4.78 (Calculated)",
+          "lustre":"no data",
+          "localities":" Akhtenskoe Fe deposit (Akhtenskoye), Magnitka, Kusinsky District, Chelyabinsk Oblast, Russia"
+       },
+       {  
+          "name":"Akrochordite",
+          "formula":[  
+             "Mn",
+             "Mg",
+             "As",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>(Mn<sup>2+</sup>,Mg)<sub>5</sub>(AsO<sub>4</sub>)<sub>2</sub>(OH)<sub>4</sub> · 4H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Brow",
+                "Pink",
+                "Red",
+                "Red-brown"
+             ]
+          ],
+          "hardness":"3½",
+          "mindatLink":"https://www.mindat.org/min-72.html",
+          "specificGravity":"3.194 - 3.35",
+          "lustre":"Sub-Vitreous, Resinous, Dull",
+          "localities":" Japan working, Långban, Filipstad, Värmland County, Sweden"
+       },
+       {  
+          "name":"Aksaite",
+          "formula":[  
+             "Mg",
+             "B",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>Mg[B<sub>6</sub>O<sub>7</sub>(OH)<sub>6</sub>] · 2H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Borates"
+          ],
+          "subGroup":[  
+             "Hexaborates"
+          ],
+          "system":"Orthorhombic",
+          "color":[  
+             [  
+                "White",
+                "Gray"
+             ]
+          ],
+          "hardness":"2½",
+          "mindatLink":"https://www.mindat.org/min-73.html",
+          "specificGravity":"2.066",
+          "lustre":"no data",
+          "localities":" Chelkar salt dome, Aksai Valley, Shalkar, Aktobe Region, Kazakhstan"
+       },
+       {  
+          "name":"Aktashite",
+          "formula":[  
+             "Cu",
+             "Hg",
+             "As",
+             "S"
+          ],
+          "formulaWeb":"<span>Cu<sub>6</sub>Hg<sub>3</sub>As<sub>4</sub>S<sub>12</sub></span>",
+          "mainGroup":[  
+             "Sulfides",
+             "Sulfosalts"
+          ],
+          "subGroup":[  
+             "Selenides",
+             "Tellurides",
+             "Arsenides",
+             "Antimonides",
+             "Bismuthides",
+             "Sulfarsenites",
+             "Sulfantimonites"
+          ],
+          "system":"Trigonal",
+          "color":[  
+             [  
+                "Black"
+             ]
+          ],
+          "hardness":"3½",
+          "mindatLink":"https://www.mindat.org/min-74.html",
+          "specificGravity":"5.5",
+          "lustre":"Metallic",
+          "localities":" Aktashskoye Sb-Hg deposit, Altai Republic, Russia"
+       },
+       {  
+          "name":"Aluminocopiapite",
+          "formula":[  
+             "Al",
+             "Fe",
+             "S",
+             "O",
+             "H"
+          ],
+          "formulaWeb":"<span>Al<sub>2/3</sub>Fe<sup>3+</sup><sub>4</sub>(SO<sub>4</sub>)<sub>6</sub>(OH)<sub>2</sub> · 20H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Sulfates"
+          ],
+          "subGroup":[  
+             "Chromates",
+             "Molybdates",
+             "Wolframates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Yellow"
+             ]
+          ],
+          "hardness":"2 - 3",
+          "mindatLink":"https://www.mindat.org/min-87.html",
+          "specificGravity":"2.163 (Calculated)",
+          "lustre":"Vitreous",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Alabandite",
+          "formula":[  
+             "Mn",
+             "S"
+          ],
+          "formulaWeb":"<span>MnS</span>",
+          "mainGroup":[  
+             "Sulfides",
+             "Sulfosalts"
+          ],
+          "subGroup":[  
+             "Selenides",
+             "Tellurides",
+             "Arsenides",
+             "Antimonides",
+             "Bismuthides",
+             "Sulfarsenites",
+             "Sulfantimonites"
+          ],
+          "system":"Isometric",
+          "color":[  
+             [  
+                "Green",
+                "Brow",
+                "Black",
+                "Grey"
+             ]
+          ],
+          "hardness":"3½ - 4",
+          "mindatLink":"https://www.mindat.org/min-89.html",
+          "specificGravity":"3.95 - 4.04",
+          "lustre":"Sub-Metallic",
+          "localities":" Săcărâmb (Sacarîmb; Sekeremb; Nagyág), Deva, Hunedoara, Romania"
+       },
+       {  
+          "name":"Alacránite",
+          "formula":[  
+             "As",
+             "S"
+          ],
+          "formulaWeb":"<span>As<sub>8</sub>S<sub>9</sub></span>",
+          "mainGroup":[  
+             "Sulfides",
+             "Sulfosalts"
+          ],
+          "subGroup":[  
+             "Selenides",
+             "Tellurides",
+             "Arsenides",
+             "Antimonides",
+             "Bismuthides",
+             "Sulfarsenites",
+             "Sulfantimonites"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "Yellow",
+                "Gray"
+             ]
+          ],
+          "hardness":"1½",
+          "mindatLink":"https://www.mindat.org/min-91.html",
+          "specificGravity":"3.43",
+          "lustre":"Vitreous, Resinous, Greasy",
+          "localities":"no data"
+       },
+       {  
+          "name":"Alamosite",
+          "formula":[  
+             "Pb",
+             "Si",
+             "O"
+          ],
+          "formulaWeb":"<span>PbSiO<sub>3</sub></span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Inosilicates",
+             "Germanates"
+          ],
+          "system":"Monoclinic",
+          "color":[  
+             [  
+                "White",
+                "Gray",
+                "Cream"
+             ]
+          ],
+          "hardness":"4½",
+          "mindatLink":"https://www.mindat.org/min-93.html",
+          "specificGravity":"no data",
+          "lustre":"Adamantine",
+          "localities":" Álamos, Álamos Municipality, Sonora, Mexico"
+       },
+       {  
+          "name":"Alarsite",
+          "formula":[  
+             "Al",
+             "As",
+             "O"
+          ],
+          "formulaWeb":"<span>AlAsO<sub>4</sub></span>",
+          "mainGroup":[  
+             "Phosphates",
+             "Arsenates",
+             "Vanadates"
+          ],
+          "subGroup":"no",
+          "system":"Trigonal",
+          "color":[  
+             [  
+                "Yellow",
+                "Green",
+                "Blue"
+             ]
+          ],
+          "hardness":"5 - 5½",
+          "mindatLink":"https://www.mindat.org/min-94.html",
+          "specificGravity":"3.32 (Calculated)",
+          "lustre":"Vitreous",
+          "localities":" Great Fissure eruption (Main Fracture), Tolbachik volcano, Kamchatka Krai, Russia"
+       },
+       {  
+          "name":"Albite",
+          "formula":[  
+             "Na",
+             "Al",
+             "Si",
+             "O"
+          ],
+          "formulaWeb":"<span>Na(AlSi<sub>3</sub>O<sub>8</sub>)</span>",
+          "mainGroup":[  
+             "Silicates"
+          ],
+          "subGroup":[  
+             "Tektosilicates",
+             "Germanates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Green",
+                "Red",
+                "Grey",
+                "Greenish",
+                "Bluish",
+                "Greenish",
+                "Reddish"
+             ]
+          ],
+          "hardness":"6 - 6½",
+          "mindatLink":"https://www.mindat.org/min-96.html",
+          "specificGravity":"2.6 - 2.65",
+          "lustre":"Vitreous",
+          "localities":" - This locality has map coordinates listed."
+       },
+       {  
+          "name":"Albrechtschraufite",
+          "formula":[  
+             "Ca",
+             "Mg",
+             "U",
+             "O",
+             "C",
+             "F",
+             "H"
+          ],
+          "formulaWeb":"<span>Ca<sub>4</sub>Mg(UO<sub>2</sub>)<sub>2</sub>(CO<sub>3</sub>)<sub>6</sub>F<sub>2</sub> · 17-18H<sub>2</sub>O</span>",
+          "mainGroup":[  
+             "Carbonates",
+             "Nitrates"
+          ],
+          "subGroup":[  
+             "Nitrates"
+          ],
+          "system":"Triclinic",
+          "color":[  
+             [  
+                "Green"
+             ]
+          ],
+          "hardness":"2 - 3",
+          "mindatLink":"https://www.mindat.org/min-97.html",
+          "specificGravity":"2.6",
+          "lustre":"Vitreous",
+          "localities":" Jáchymov, Karlovy Vary District, Karlovy Vary Region, Czech Republic"
+       }
+    ]
+ }
