@@ -16,22 +16,8 @@ import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import { bubbleData } from "./bubbledata";
-import { heatmapData } from "./heatmapdata";
 import { dataSunburst } from "./sunburstData";
-import { scaleLinear } from "d3-scale";
 import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  HeatmapSeries,
-  LabelSeries,
-  Hint,
-  VerticalBarSeries,
-  GradientDefs,
-  MarkSeriesCanvas,
-  VerticalGridLines,
-  MarkSeries,
   Sunburst
 } from "react-vis";
 import SearchBar from "material-ui-search-bar";
@@ -44,9 +30,10 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import * as THREE from "three";
 import Avatar from "@material-ui/core/Avatar";
-
+import LabeledHeatmap from "./Heatmap";
+import BubbleChart from "./BubbleChart";
+import BarChart from "./BarChart";
 class StatsPage extends Component {
   constructor(props) {
     super(props);
@@ -215,8 +202,8 @@ class StatsPage extends Component {
   }
 
   renderBreadcrumbs() {
-    const chipCellStyle={backgroundColor: this.state.hoveredCell.color, color: "white",  fontWeight: "bold"}
-    const chipParentCellStyle = {backgroundColor: this.state.hoveredParent.color, color: "white",  fontWeight: "bold"}
+    const chipCellStyle = { backgroundColor: this.state.hoveredCell.color, color: "white", fontWeight: "bold" }
+    const chipParentCellStyle = { backgroundColor: this.state.hoveredParent.color, color: "white", fontWeight: "bold" }
     return (
       <Paper elevation={0}>
         {this.state.hoveredCell.category === "Group" ? (
@@ -225,21 +212,21 @@ class StatsPage extends Component {
             style={chipCellStyle}
           />
         ) : (
-          <Breadcrumbs
-            separator="›"
-            aria-label="Breadcrumb"
-            style={{ fontSize: 15, color: "black" }}
-          >
-            <Chip
-              label={this.state.hoveredParent.title}
-              style={chipParentCellStyle}
-            />
-            <Chip
-              label={this.state.hoveredCell.title}
-              style={chipCellStyle}
-            />
-          </Breadcrumbs>
-        )}
+            <Breadcrumbs
+              separator="›"
+              aria-label="Breadcrumb"
+              style={{ fontSize: 15, color: "black" }}
+            >
+              <Chip
+                label={this.state.hoveredParent.title}
+                style={chipParentCellStyle}
+              />
+              <Chip
+                label={this.state.hoveredCell.title}
+                style={chipCellStyle}
+              />
+            </Breadcrumbs>
+          )}
       </Paper>
     );
   }
@@ -257,9 +244,36 @@ class StatsPage extends Component {
       fontWeight: "bold"
     };
 
+    const barChartContainer = {
+      height: 280,
+      width: 350,
+      borderRadius: 15,
+      paddingTop: 20,
+      paddingRight: 20,
+      paddingLeft: 30,
+      display: "flex",
+      overflow: "auto",
+      flexDirection: "column",
+      background: "white",
+      textAlign: "center"
+    };
+    const searchList = {
+      position: "relative",
+      height: 140,
+      width: 350,
+      borderRadius: 15,
+      padding: 5,
+      flexDirection: "column",
+      background: "white"
+    };
+    const searchBar = {
+      marginTop: 5,
+      marginBottom: 5,
+      width: 350,
+      borderRadius: 15,
+    };
     const filterText = { fontSize: 11, fontStyle: "italic" };
-
-    const selectStyle = { height: 3, width: 80}
+    const selectStyle = { height: 3, width: 80 }
     return (
       <div>
         <MuiThemeProvider>
@@ -314,8 +328,8 @@ class StatsPage extends Component {
               >
                 <Grid container spacing={2}>
                   <Grid item>
-                  <ControlledExpansionPanels
-                  width={800}
+                    <ControlledExpansionPanels
+                      width={800}
                       value={
                         <div>
                           <BubbleChart />
@@ -325,8 +339,6 @@ class StatsPage extends Component {
                         "Number of minerals containing a specific element - Bubble Chart"
                       }
                     />
-                  
-                  
                     <ControlledExpansionPanels
                       width={800}
                       value={
@@ -336,60 +348,58 @@ class StatsPage extends Component {
                       }
                       title={"Occurence of element pairs in minerals - HeatMap"}
                     />
-                  
-                  
                     <ControlledExpansionPanels
                       width={800}
                       value={
                         <div>
-                           <Grid container spacing={2}>
-                          <Grid item>
-                          {this.state.hoveredCell
-                            ? this.renderBreadcrumbs()
-                            : null}
-                          <Sunburst
-                            hideRootNode
-                            colorType="literal"
-                            data={dataSunburst}
-                            height={600}
-                            width={650}
-                            style={{
-                              stroke: "#fff",
-                              text: { color: "#ffffff" }
-                            }}
-                            onValueMouseOver={v =>
-                              this.setState({
-                                hoveredCell: v.x && v.y ? v : false,
-                                hoveredParent: v.parent.data
-                              })
-                            }
-                            margin={{
-                              top: 50,
-                              bottom: 50,
-                              left: 50,
-                              right: 50
-                            }}
-                            getLabel={d =>
-                              d.category === "Group" ? d.title : null
-                            }
-                            labelS
-                          />
-                          <div className="sunburstMiddleText">
-                            {this.state.hoveredCell ? (
-                              <Avatar
-                                alt="Something"
-                                src={require("./images/" +
-                                  groupMineralPic(
-                                    this.state.hoveredCell.title
-                                  ).toString() +
-                                  ".svg")}
-                                style={{ width: 300, height: 300 }}
+                          <Grid container spacing={2}>
+                            <Grid item>
+                              {this.state.hoveredCell
+                                ? this.renderBreadcrumbs()
+                                : null}
+                              <Sunburst
+                                hideRootNode
+                                colorType="literal"
+                                data={dataSunburst}
+                                height={600}
+                                width={650}
+                                style={{
+                                  stroke: "#fff",
+                                  text: { color: "#ffffff" }
+                                }}
+                                onValueMouseOver={v =>
+                                  this.setState({
+                                    hoveredCell: v.x && v.y ? v : false,
+                                    hoveredParent: v.parent.data
+                                  })
+                                }
+                                margin={{
+                                  top: 50,
+                                  bottom: 50,
+                                  left: 50,
+                                  right: 50
+                                }}
+                                getLabel={d =>
+                                  d.category === "Group" ? d.title : null
+                                }
+                                labelS
                               />
-                            ) : null}
-                          </div>
-                          </Grid>
-                          <Grid item>
-                            Bla
+                              <div className="sunburstMiddleText">
+                                {this.state.hoveredCell ? (
+                                  <Avatar
+                                    alt="Something"
+                                    src={require("./images/" +
+                                      groupMineralPic(
+                                        this.state.hoveredCell.title
+                                      ).toString() +
+                                      ".svg")}
+                                    style={{ width: 300, height: 300 }}
+                                  />
+                                ) : null}
+                              </div>
+                            </Grid>
+                            <Grid item>
+                              Bla
                           </Grid>
                           </Grid>
                         </div>
@@ -397,24 +407,9 @@ class StatsPage extends Component {
                       title={"Sunburst"}
                     />
                   </Grid>
-                  
                   <Grid item>
-                  <Paper
-                      style={{
-                        height: 280,
-                        width: 350,
-                        borderRadius: 15,
-                        paddingTop: 20,
-                        paddingRight: 20,
-                        paddingLeft: 30,
-                        display: "flex",
-                        overflow: "auto",
-                        flexDirection: "column",
-                        background: "white",
-                        textAlign: "center"
-                      }}
-                    >
-                  <Typography
+                    <Paper style={barChartContainer}>
+                      <Typography
                         style={{
                           fontSize: 15,
                           color: "#b5b0b0",
@@ -427,7 +422,7 @@ class StatsPage extends Component {
                         Number of distinct elements in minerals
                       </Typography>
                       {/* Number of elements minerals contain on average */}
-                      <MyBarChart point={this.state.choosenMineral} />
+                      <BarChart point={this.state.choosenMineral} />
                       <Typography
                         style={{
                           fontSize: 12,
@@ -438,33 +433,19 @@ class StatsPage extends Component {
                       >
                         {this.state.choosenMineral != null
                           ? `${this.state.choosenMineral.name} contains ${
-                              this.state.choosenMineral.formula.length
-                            } distinct elements`
+                          this.state.choosenMineral.formula.length
+                          } distinct elements`
                           : "# of elements"}
                       </Typography>
-                      </Paper>
-                  <SearchBar
+                    </Paper>
+                    <SearchBar
                       onChange={value =>
                         this.setState({ results: handleSearch(value) })
                       }
-                      style={{
-                        marginTop:5,
-                        marginBottom:5,
-                        width: 350,
-                        borderRadius: 15,
-                        
-                      }}
+                      style={searchBar}
                     />
                     <Paper
-                      style={{
-                        position: "relative",
-                        height: 140,
-                        width: 350,
-                        borderRadius: 15,
-                        padding: 5,
-                        flexDirection: "column",
-                        background: "white"
-                      }}
+                      style={searchList}
                     >
                       {this.state.loading ? (
                         <CircularProgress
@@ -472,9 +453,9 @@ class StatsPage extends Component {
                           size={40}
                         />
                       ) : (
-                        <List style={{ height: 130, overflow: "auto" }}>
-                          {this.state.results != null
-                            ? this.state.results.map(rock => (
+                          <List style={{ height: 130, overflow: "auto" }}>
+                            {this.state.results != null
+                              ? this.state.results.map(rock => (
                                 <ListItem
                                   style={{
                                     backgroundColor:
@@ -485,212 +466,206 @@ class StatsPage extends Component {
                                   button
                                   onClick={() => this.handleListItemClick(rock)}
                                 >
-                                  <ListItemText primary={rock.name} style={{fontSize: 12}} />
+                                  <ListItemText primary={rock.name} style={{ fontSize: 12 }} />
                                 </ListItem>
                               ))
-                            : null}
-                        </List>
-                      )}
+                              : null}
+                          </List>
+                        )}
                     </Paper>
                     <ControlledExpansionPanels
                       width={340}
                       value={
                         <div>
-                        <div style={{ height:230, overflow: "auto" }}>
-                        <div className="filterField">
-                          <FormControl style={{ padding: 10 }}>
-                            <FormHelperText style={filterText}>
-                              Color
+                          <div style={{ height: 230, overflow: "auto" }}>
+                            <div className="filterField">
+                              <FormControl style={{ padding: 10 }}>
+                                <FormHelperText style={filterText}>
+                                  Color
                             </FormHelperText>
-                            <Select
-                              multiple
-                              value={["lol", "bla"]}
-                              style={selectStyle}
-                            >
-                              {mineralColors.map(color => (
-                                <MenuItem key={color} value={color}>
-                                  <ListItemText
-                                    primary={color}
-                                    onClick={() =>
-                                      this.handleSelectColor(color)
+                                <Select
+                                  multiple
+                                  value={["lol", "bla"]}
+                                  style={selectStyle}
+                                >
+                                  {mineralColors.map(color => (
+                                    <MenuItem key={color} value={color}>
+                                      <ListItemText
+                                        primary={color}
+                                        onClick={() =>
+                                          this.handleSelectColor(color)
+                                        }
+                                      />
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                              {this.state.selectedColor.map(
+                                selectedColorElement => (
+                                  <Chip
+                                    label={selectedColorElement}
+                                    style={{
+                                      margin: 7,
+                                      color: "white",
+                                      backgroundColor: selectedColorElement
+                                    }}
+                                    onDelete={() =>
+                                      this.handleDeleteColor(selectedColorElement)
                                     }
+                                    clickable
                                   />
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                          {this.state.selectedColor.map(
-                            selectedColorElement => (
-                              <Chip
-                                label={selectedColorElement}
-                                style={{
-                                  margin: 7,
-                                  color: "white",
-                                  backgroundColor: selectedColorElement
-                                }}
-                                onDelete={() =>
-                                  this.handleDeleteColor(selectedColorElement)
-                                }
-                                clickable
-                              />
-                            )
-                          )}
-                        </div>
-                        <div className="filterField">
-                          <FormControl style={{ padding: 10 }}>
-                            <FormHelperText style={filterText}>
-                              Group
-                            </FormHelperText>
-                            <Select
-                              multiple
-                              value={["lol", "lol2"]}
-                              style={selectStyle}
-                            >
-                              {mineralGroups.map(grp => (
-                                <MenuItem value="">
-                                  <ListItemText
-                                    primary={grp}
-                                    onClick={() => this.handleSelectGroup(grp)}
-                                  />
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                          {this.state.selectedGroup.map(
-                            selectedGroupElement => (
-                              <Chip
-                                label={selectedGroupElement}
-                                style={{
-                                  margin: 7,
-                                  color: "black"
-                                }}
-                                onDelete={() =>
-                                  this.handleDeleteGroup(selectedGroupElement)
-                                }
-                                clickable
-                              />
-                            )
-                          )}
-                        </div>
-                        <div className="filterField">
-                          <FormControl style={{ padding: 10 }}>
-                            <FormHelperText style={filterText}>
-                              SubGroup
-                            </FormHelperText>
-                            <Select
-                              multiple
-                              value={["lol", "lol2"]}
-                              style={selectStyle}
-                            >
-                              {mineralSubGroups.map(sgrp => (
-                                <MenuItem value="">
-                                  <ListItemText
-                                    primary={sgrp}
-                                    onClick={() =>
-                                      this.handleSelectSubGroup(sgrp)
+                                )
+                              )}
+                            </div>
+                            <div className="filterField">
+                              <FormControl style={{ padding: 10 }}>
+                                <FormHelperText style={filterText}>
+                                  Group
+                                </FormHelperText>
+                                <Select
+                                  multiple
+                                  value={["lol", "lol2"]}
+                                  style={selectStyle}
+                                >
+                                  {mineralGroups.map(grp => (
+                                    <MenuItem value="">
+                                      <ListItemText
+                                        primary={grp}
+                                        onClick={() => this.handleSelectGroup(grp)}
+                                      />
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                              {this.state.selectedGroup.map(
+                                selectedGroupElement => (
+                                  <Chip
+                                    label={selectedGroupElement}
+                                    style={{
+                                      margin: 7,
+                                      color: "black"
+                                    }}
+                                    onDelete={() =>
+                                      this.handleDeleteGroup(selectedGroupElement)
                                     }
+                                    clickable
                                   />
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                          {this.state.selectedSubGroup.map(
-                            selectedSubGroupElement => (
-                              <Chip
-                                label={selectedSubGroupElement}
-                                style={{
-                                  margin: 7,
-                                  color: "black"
-                                }}
-                                onDelete={() =>
-                                  this.handleDeleteSubGroup(
-                                    selectedSubGroupElement
-                                  )
-                                }
-                                clickable
-                              />
-                            )
-                          )}
-                        </div>
-                        <div className="filterField">
-                          <FormControl style={{ padding: 10 }}>
-                            <FormHelperText style={filterText}>
-                              System
-                            </FormHelperText>
-                            <Select
-                              multiple
-                              value={["lol", "lol2"]}
-                              style={selectStyle}
+                                )
+                              )}
+                            </div>
+                            <div className="filterField">
+                              <FormControl style={{ padding: 10 }}>
+                                <FormHelperText style={filterText}>
+                                  SubGroup
+                              </FormHelperText>
+                                <Select
+                                  multiple
+                                  value={["lol", "lol2"]}
+                                  style={selectStyle}
+                                >
+                                  {mineralSubGroups.map(sgrp => (
+                                    <MenuItem value="">
+                                      <ListItemText
+                                        primary={sgrp}
+                                        onClick={() =>
+                                          this.handleSelectSubGroup(sgrp)
+                                        }
+                                      />
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                              {this.state.selectedSubGroup.map(
+                                selectedSubGroupElement => (
+                                  <Chip
+                                    label={selectedSubGroupElement}
+                                    style={{
+                                      margin: 7,
+                                      color: "black"
+                                    }}
+                                    onDelete={() =>
+                                      this.handleDeleteSubGroup(
+                                        selectedSubGroupElement
+                                      )
+                                    }
+                                    clickable
+                                  />
+                                )
+                              )}
+                            </div>
+                            <div className="filterField">
+                              <FormControl style={{ padding: 10 }}>
+                                <FormHelperText style={filterText}>
+                                  System
+                              </FormHelperText>
+                                <Select
+                                  multiple
+                                  value={["lol", "lol2"]}
+                                  style={selectStyle}
+                                >
+                                  {mineralSystems.map(sys => (
+                                    <MenuItem value="">
+                                      <ListItemText
+                                        primary={sys}
+                                        onClick={() => this.handleSelectSystem(sys)}
+                                      />
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                              {this.state.selectedSystem.map(
+                                selectedSystemElement => (
+                                  <Chip
+                                    label={selectedSystemElement}
+                                    style={{
+                                      margin: 7,
+                                      color: "black"
+                                    }}
+                                    onDelete={() =>
+                                      this.handleDeleteSystem(selectedSystemElement)
+                                    }
+                                    clickable
+                                  />
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className="applyResetButtonContainer" >
+                            <Button
+                              style={applyResetstyle}
+                              variant="contained"
+                              className="button-create"
+                              onClick={() => this.updateMineralsList()}
                             >
-                              {mineralSystems.map(sys => (
-                                <MenuItem value="">
-                                  <ListItemText
-                                    primary={sys}
-                                    onClick={() => this.handleSelectSystem(sys)}
-                                  />
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                          {this.state.selectedSystem.map(
-                            selectedSystemElement => (
-                              <Chip
-                                label={selectedSystemElement}
-                                style={{
-                                  margin: 7,
-                                  color: "black"
-                                }}
-                                onDelete={() =>
-                                  this.handleDeleteSystem(selectedSystemElement)
-                                }
-                                clickable
-                              />
-                            )
-                          )}
+                              Apply
+                            </Button>
+                            <Button
+                              style={applyResetstyle}
+                              variant="contained"
+                              className="button-create"
+                              onClick={() =>
+                                this.setState({
+                                  results: getAllMinerals(),
+                                  choosenMineral: null,
+                                  loading: true,
+                                  selectedColor: [],
+                                  selectedGroup: [],
+                                  selectedSubGroup: [],
+                                  selectedSystem: []
+                                })
+                              }
+                            >
+                              Reset
+                        </Button>
+                          </div>
                         </div>
-                      </div>
-                      <div
-                        style={{
-                          textAlign: "right",
-                          paddingRight: 10,
-                        }}
-                      >
-                        <Button
-                          style={applyResetstyle}
-                          variant="contained"
-                          className="button-create"
-                          onClick={() => this.updateMineralsList()}
-                        >
-                          Apply
-                        </Button>
-                        <Button
-                          style={applyResetstyle}
-                          variant="contained"
-                          className="button-create"
-                          onClick={() =>
-                            this.setState({
-                              results: getAllMinerals(),
-                              choosenMineral: null,
-                              loading: true,
-                              selectedColor: [],
-                              selectedGroup: [],
-                              selectedSubGroup: [],
-                              selectedSystem: []
-                            })
-                          }
-                        >
-                          Reset
-                        </Button>
-                      </div>
-                      </div>
                       }
                       title={
                         "Advanced search"
                       }
                     />
-                 
+                  </Grid>
                 </Grid>
-              </Grid>
               </Container>
             </main>
           </div>
@@ -699,444 +674,7 @@ class StatsPage extends Component {
     );
   }
 }
-const barData = [
-  { x: "1", y: 33 },
-  { x: "2", y: 385 },
-  { x: "3", y: 675 },
-  { x: "4", y: 1089 },
-  { x: "5", y: 1090 },
-  { x: "6", y: 569 },
-  { x: "7", y: 292 },
-  { x: "8", y: 157 },
-  { x: "9", y: 64 },
-  { x: "10", y: 36 },
-  { x: "11", y: 8 },
-  { x: "12", y: 4 }
-];
 
-export class MyBarChart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: false
-    };
-  }
-  render() {
-    const BarSeries = VerticalBarSeries;
-    /*conditional gradient dependint on wether we have a point or not */
-    const gradient =
-      this.props.point == null ? (
-        <GradientDefs>
-          <linearGradient
-            id="myGradient"
-            gradientUnits="userSpaceOnUse"
-            x1="0"
-            y1="0"
-            x2="200"
-            y2="200"
-          >
-            <stop offset="10%" stopColor="orange" />
-            <stop offset="50%" stopColor="pink" />
-            <stop offset="90%" stopColor="lightBlue" />
-          </linearGradient>
-        </GradientDefs>
-      ) : (
-        <GradientDefs>
-          <linearGradient
-            id="myGradient"
-            gradientUnits="userSpaceOnUse"
-            x1="0"
-            y1="0"
-            x2="200"
-            y2="200"
-          >
-            <stop offset="100%" stopColor="lightGrey" />
-          </linearGradient>
-        </GradientDefs>
-      );
-    return (
-      <div>
-        <XYPlot
-          xType="ordinal"
-          width={300}
-          height={200}
-          xDistance={100}
-          color={"url(#myGradient)"}
-        >
-          {gradient}
-          <XAxis />
-          <YAxis />
-          <BarSeries
-            className="vertical-bar-series-example"
-            data={barData}
-            onValueMouseOver={v => this.setState({ value: v })}
-            onSeriesMouseOut={v => this.setState({ value: false })}
-          />
-          {this.props.point != null ? (
-            <MarkSeries
-              animation={true}
-              colorType="literal"
-              data={[
-                { x: this.props.point.formula.length, y: 1, color: "violet" }
-              ]}
-            />
-          ) : null}
-          {this.state.value ? (
-            <Hint value={this.state.value}>
-              <HintContentBar value={this.state.value} />
-            </Hint>
-          ) : null}
-        </XYPlot>
-      </div>
-    );
-  }
-}
-
-export function HintContentBar({ value }) {
-  const { x, y } = value;
-  return (
-    <div>
-      <Paper
-        style={{
-          backgroundColor: "rgb(105,105,105)",
-          alignItems: "center",
-          borderRadius: 4,
-          padding: 8,
-          display: "flex",
-          overflow: "auto",
-          flexDirection: "column"
-        }}
-      >
-        <div style={{ fontSize: "12px", color: "white" }}>{`${y}${
-          y > 1 ? " minerals" : " mineral"
-        } contain ${x}${x > 1 ? " different elements" : " element"}`}</div>
-      </Paper>
-      ,
-    </div>
-  );
-}
-
-export class LabeledHeatmap extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: false
-    };
-  }
-
-  render() {
-    const heatMapLabelsX = [
-      "H",
-      "C",
-      "N",
-      "O",
-      "F",
-      "P",
-      "S",
-      "K",
-      "I",
-      "Na",
-      "Mg",
-      "Al",
-      "Si",
-      "Cl",
-      "Ca",
-      "V",
-      "Cr",
-      "Mn",
-      "Fe",
-      "Cu",
-      "Zn",
-      "As",
-      "Zr",
-      "Mo"
-    ];
-
-    const heatMapLabelsY = heatMapLabelsX;
-    const data = heatMapLabelsX.reduce((acc, letter1, idx) => {
-      return acc.concat(
-        heatMapLabelsY.map((letter2, jdx) => ({
-          x: `${letter2}1`,
-          y: `${letter1}2`,
-          cellValue: heatmapData.find(
-            el => el.x === `${letter1}1` && el.y === `${letter2}2`
-          ).cellValue,
-          color: heatmapData.find(
-            el => el.x === `${letter1}1` && el.y === `${letter2}2`
-          ).cellValue
-        }))
-      );
-    }, []);
-
-    const { min, max } = data.reduce(
-      (acc, row) => ({
-        min: Math.min(acc.min, row.color),
-        max: Math.max(acc.max, row.color)
-      }),
-      { min: Infinity, max: -Infinity }
-    );
-    const { value } = this.state;
-    const exampleColorScale = scaleLinear()
-      .domain([min, (min + max) / 2, max])
-      .range(["lightBlue", "pink", "orange"]);
-
-    if (this.props.mineral != null) {
-      const results3 = [];
-      const myarray2 = this.props.mineral.formula;
-      for (var i = 0; i < myarray2.length - 1; i++) {
-        for (var j = i + 1; j < myarray2.length; j++) {
-          results3.push([
-            myarray2[i].replace(/,/g, ""),
-            myarray2[j].replace(/,/g, "")
-          ]);
-        }
-      }
-
-      const indecesArray = [];
-      for (const item of results3) {
-        indecesArray.push(
-          data.reduce(
-            (arr, ob, i) => (
-              ((ob.x.split(/(\d+)/)[0] === item[0] &&
-                ob.y.split(/(\d+)/)[0] === item[1]) ||
-                (ob.y.split(/(\d+)/)[0] === item[0] &&
-                  ob.x.split(/(\d+)/)[0] === item[1])) &&
-                arr.push(i),
-              arr
-            ),
-            []
-          )
-        );
-      }
-      const finalIndecesArray = indecesArray.filter(Boolean).flat();
-
-      data.forEach(function(element) {
-        if (
-          finalIndecesArray.includes(data.indexOf(element)) &&
-          element.color !== 0
-        ) {
-          element.color = 1500;
-          element.color = 1500;
-        } else {
-          element.color = 0;
-          element.cellValue = "";
-        }
-      });
-    }
-    return (
-      <XYPlot
-        xType="ordinal"
-        xDomain={heatMapLabelsX.map(letter => `${letter}1`)}
-        yType="ordinal"
-        yDomain={heatMapLabelsY.map(letter => `${letter}2`).reverse()}
-        margin={40}
-        width={800}
-        height={800}
-      >
-        <XAxis
-          orientation="top"
-          tickFormat={t => {
-            return `${t.split(/(\d+)/)[0]}`;
-          }}
-        />
-        <YAxis
-          tickFormat={t => {
-            return `${t.split(/(\d+)/)[0]}`;
-          }}
-        />
-        <HeatmapSeries
-          colorType="literal"
-          getColor={d => exampleColorScale(d.color)}
-          style={{
-            stroke: "white",
-            strokeWidth: "2px",
-            rectStyle: {
-              rx: 10,
-              ry: 10
-            }
-          }}
-          className="heatmap-series-example"
-          data={data}
-          onValueMouseOver={v => this.setState({ value: v })}
-          onSeriesMouseOut={v => this.setState({ value: false })}
-        />
-        <LabelSeries
-          style={{ pointerEvents: "none" }}
-          data={data}
-          labelAnchorX="middle"
-          labelAnchorY="baseline"
-          getLabel={d => `${d.cellValue}`}
-        />
-        {value ? (
-          <Hint value={value}>
-            <HintContentHeatMap value={value} />
-          </Hint>
-        ) : null}
-      </XYPlot>
-    );
-  }
-}
-
-export function HintContentHeatMap({ value }) {
-  const { x, y, color } = value;
-  if (color !== 0) {
-    return (
-      <div>
-        {hintRowHeatMap({
-          numberOfMinerals: color,
-          components: `${x.split(/(\d+)/)[0]} and ${y.split(/(\d+)/)[0]}`
-        })}
-        ,
-      </div>
-    );
-  } else {
-    return null;
-  }
-}
-
-function hintRowHeatMap({ numberOfMinerals, components }) {
-  return (
-    <Paper
-      style={{
-        backgroundColor: "rgb(105,105,105)",
-        alignItems: "center",
-        borderRadius: 4,
-        padding: 8,
-        display: "flex",
-        overflow: "auto",
-        flexDirection: "column"
-      }}
-    >
-      <div style={{ fontSize: "12px", color: "white" }}>
-        {numberOfMinerals}
-        {numberOfMinerals > 1 ? " minerals" : " mineral"}
-        {" contain"}
-      </div>
-      <div style={{ fontSize: "12px", color: "white" }}>{components}</div>
-    </Paper>
-  );
-}
-
-const labelsBubble = [
-  "H",
-  "Li",
-  "Be",
-  "B",
-  "C",
-  "N",
-  "O",
-  "F",
-  "Na",
-  "Mg",
-  "Al",
-  "Si",
-  "P",
-  "S",
-  "Cl",
-  "K",
-  "Ca",
-  "Ti",
-  "V",
-  "Cr",
-  "Mn",
-  "Fe",
-  "Co",
-  "Ni",
-  "Cu",
-  "Zn",
-  "As",
-  "Se",
-  "Zr",
-  "Nb",
-  "Mo",
-  "Ru",
-  "Rh",
-  "Ag",
-  "Sn",
-  "Sb",
-  "Te",
-  "Ba",
-  "Ce",
-  "Au",
-  "Hg",
-  "Pb",
-  "U"
-];
-export class BubbleChart extends React.Component {
-  state = {
-    data: bubbleData,
-    value: false
-  };
-
-  render() {
-    const { data } = this.state;
-    const markSeriesProps = {
-      animation: true,
-      sizeRange: [1, 35],
-      colorRange: ["orange", "pink", "lightBlue"],
-      data,
-      onNearestXY: value => this.setState({ value })
-    };
-
-    return (
-      <div style={{ padding: 5 }}>
-        <XYPlot
-          margin={{ left: 50 }}
-          yDomain={[0, 3900]}
-          onMouseLeave={() => this.setState({ value: false })}
-          width={750}
-          height={400}
-        >
-          <VerticalGridLines tickTotal={43} />
-          <XAxis
-            tickFormat={v => labelsBubble[v - 1]}
-            tickTotal={43}
-            tickSize={1}
-          />
-          <YAxis />
-          <MarkSeriesCanvas {...markSeriesProps} />
-          {this.state.value ? (
-            <Hint value={this.state.value}>
-              <HintContentBubble value={this.state.value} />
-            </Hint>
-          ) : null}
-        </XYPlot>
-      </div>
-    );
-  }
-}
-
-export function HintContentBubble({ value }) {
-  const { x, y } = value;
-  return (
-    <div>
-      {hintRowBubble({ numberOfMinerals: y, components: labelsBubble[x - 1] })},
-    </div>
-  );
-}
-
-function hintRowBubble({ numberOfMinerals, components }) {
-  return (
-    <Paper
-      style={{
-        backgroundColor: "rgb(105,105,105)",
-        alignItems: "center",
-        borderRadius: 4,
-        padding: 8,
-        display: "flex",
-        overflow: "auto",
-        flexDirection: "column"
-      }}
-    >
-      <div style={{ fontSize: "12px", color: "white" }}>
-        {numberOfMinerals}
-        {numberOfMinerals > 1 ? " minerals" : " mineral"}
-        {" contain "}
-        {components}
-      </div>
-    </Paper>
-  );
-}
 
 function demoAsyncCall() {
   return new Promise(resolve => setTimeout(() => resolve(), 2500));
@@ -1152,7 +690,7 @@ function ControlledExpansionPanels(props) {
   return (
     <div>
       <ExpansionPanel
-        style={{ width: props.width, borderRadius: 15 , margin:5}}
+        style={{ width: props.width, borderRadius: 15, margin: 5 }}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
@@ -1163,7 +701,7 @@ function ControlledExpansionPanels(props) {
         >
           <Typography>{props.title}</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails style={{padding: 10}}>{props.value}</ExpansionPanelDetails>
+        <ExpansionPanelDetails style={{ padding: 10 }}>{props.value}</ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
   );

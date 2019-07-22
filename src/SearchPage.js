@@ -16,6 +16,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage, { chooseMineralPic } from "./MineralInfoPage";
 import Avatar from "@material-ui/core/Avatar";
+import "./App.css";
 
 class SearchPage extends Component {
   constructor(props) {
@@ -42,6 +43,17 @@ class SearchPage extends Component {
   }
 
   renderSearchResults() {
+    const loadMoreButton = {
+      background: "#009faf",
+      borderRadius: 25,
+      border: 0,
+      color: "white",
+      height: 48,
+      padding: "0 20px",
+      boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
+      transition: "all 0.3s ease 0s",
+      fontWeight: 'bold'
+    }
     if (this.state.results) {
       return (
         <div style={{ textAlign: "center" }}>
@@ -60,25 +72,8 @@ class SearchPage extends Component {
                   >
                     <Grid container spacing={1} alignItems="center" style={{padding:18}}>
                       <Grid item>
-                        <div
-                          style={{
-                            width: 110,
-                            height: 110,
-                            backgroundColor: "#80deea",
-                            borderRadius: "50%",
-                            boxShadow:'0px 0px 8px #009faf',
-                          }}
-                        >
-                          <div
-                            style={{
-                              margin: 5,
-                              width: 100,
-                              height: 100,
-                              backgroundColor: "#009faf",
-                              display: "inline-block",
-                              borderRadius: "50%"
-                            }}
-                          >
+                        <div className="outterCircle">
+                          <div className="innerCircle" >
                             <Avatar
                               style={{
                                 margin: 10,
@@ -124,17 +119,7 @@ class SearchPage extends Component {
           </Grid>
           <div className="button-container">
             <Button
-              style={{
-                background: "#009faf",
-                borderRadius: 25,
-                border: 0,
-                color: "white",
-                height: 48,
-                padding: "0 20px",
-                boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
-                transition: "all 0.3s ease 0s",
-                fontWeight: 'bold'
-              }}
+              style={loadMoreButton}
               variant="contained"
               className="button-create"
               onClick={() => this.onLoadMore()}
@@ -148,6 +133,19 @@ class SearchPage extends Component {
   }
 
   renderSearchPage() {
+    const searchBar = {
+      margin: "0 auto",
+      width: 800,
+      borderRadius: 15
+    };
+    const mainElement = {
+      paddingTop: 100,
+      justify: "center",
+      alignItems: "center",
+      height: window.innerHeight,
+      width: document.documentElement.clientWidth,
+      backgroundSize: "cover"
+    };
     return (
       <MuiThemeProvider>
         <div>
@@ -180,14 +178,7 @@ class SearchPage extends Component {
             <List style={{ marginTop: "61px" }}>{mainListItems}</List>
           </Drawer>
           <main
-            style={{
-              paddingTop: 100,
-              justify: "center",
-              alignItems: "center",
-              height: window.innerHeight,
-              width: document.documentElement.clientWidth,
-              backgroundSize: "cover"
-            }}
+            style={mainElement}
           >
             <SearchBar
               value={this.state.value}
@@ -195,11 +186,7 @@ class SearchPage extends Component {
               onRequestSearch={() =>
                 this.setState({ results: handleSearch(this.state.value) })
               }
-              style={{
-                margin: "0 auto",
-                width: 800,
-                borderRadius: 15
-              }}
+              style={searchBar}
             />
             <Container
               maxWidth="lg"
@@ -243,7 +230,6 @@ export function handleSearch(input) {
       resultList.push(data.minerals[i]);
     }
   }
-  console.log(resultList);
   return resultList;
 }
 
