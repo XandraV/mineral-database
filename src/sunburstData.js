@@ -8,6 +8,7 @@ export const dataSunburst = {
         "children": [
           {
             "color": "#f44336",
+            "stroke": "black",
             "category": "Subgroup",
             "title": "Metals",
             "size": 1,

@@ -3,7 +3,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { mainListItems } from "./listItems";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -18,7 +19,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { dataSunburst } from "./sunburstData";
 import {
-  Sunburst
+  Hint, Sunburst
 } from "react-vis";
 import SearchBar from "material-ui-search-bar";
 import { handleSearch, getAllMinerals } from "./SearchPage";
@@ -205,29 +206,37 @@ class StatsPage extends Component {
     const chipCellStyle = { backgroundColor: this.state.hoveredCell.color, color: "white", fontWeight: "bold" }
     const chipParentCellStyle = { backgroundColor: this.state.hoveredParent.color, color: "white", fontWeight: "bold" }
     return (
-      <Paper elevation={0}>
-        {this.state.hoveredCell.category === "Group" ? (
-          <Chip
-            label={this.state.hoveredCell.title}
-            style={chipCellStyle}
-          />
-        ) : (
-            <Breadcrumbs
-              separator="›"
-              aria-label="Breadcrumb"
-              style={{ fontSize: 15, color: "black" }}
-            >
-              <Chip
-                label={this.state.hoveredParent.title}
-                style={chipParentCellStyle}
-              />
-              <Chip
-                label={this.state.hoveredCell.title}
-                style={chipCellStyle}
-              />
-            </Breadcrumbs>
-          )}
-      </Paper>
+      <div>
+        <Paper elevation={0}>
+          {this.state.hoveredCell.category === "Group" ? (
+            <Chip
+              label={this.state.hoveredCell.title}
+              style={chipCellStyle}
+            />
+          ) : (
+              <Breadcrumbs
+                separator="›"
+                aria-label="Breadcrumb"
+                style={{ fontSize: 15, color: "black" }}
+              >
+                <Chip
+                  label={this.state.hoveredParent.title}
+                  style={chipParentCellStyle}
+                />
+                <Chip
+                  label={this.state.hoveredCell.title}
+                  style={chipCellStyle}
+                />
+              </Breadcrumbs>
+            )}
+        </Paper>
+        <Divider variant="middle" style={{ marginTop: 16, marginBottom: 16, marginLeft: 0, marginRight: 0 }} />
+        <div className="groupInfoSunburst">
+          <Typography style={{ fontSize: 12 }}>
+            Silicate mineral, any of a large group of silicon-oxygen compounds that are widely distributed throughout much of the solar system. The basic structural unit of all silicate minerals is the silicon tetrahedron in which one silicon atom is surrounded by and bonded to (i.e., coordinated with) four oxygen atoms, each at the corner of a regular tetrahedron. These SiO4 tetrahedral units can share oxygen atoms and be linked in a variety of ways, which results in different structures.
+          </Typography>
+        </div>
+      </div>
     );
   }
 
@@ -354,15 +363,12 @@ class StatsPage extends Component {
                         <div>
                           <Grid container spacing={2}>
                             <Grid item>
-                              {this.state.hoveredCell
-                                ? this.renderBreadcrumbs()
-                                : null}
                               <Sunburst
                                 hideRootNode
                                 colorType="literal"
                                 data={dataSunburst}
-                                height={600}
-                                width={650}
+                                height={400}
+                                width={450}
                                 style={{
                                   stroke: "#fff",
                                   text: { color: "#ffffff" }
@@ -379,28 +385,42 @@ class StatsPage extends Component {
                                   left: 50,
                                   right: 50
                                 }}
-                                getLabel={d =>
-                                  d.category === "Group" ? d.title : null
-                                }
-                                labelS
-                              />
-                              <div className="sunburstMiddleText">
+                              /*getLabel={d =>
+                                d.category === "Group" ? d.title : null
+                              }
+                              labelS*/
+                              >
+                                <div className="sunburstMiddleText">
+                                  {this.state.hoveredCell ? (
+                                    <Avatar
+                                      alt="Something"
+                                      src={require("./images/" +
+                                        groupMineralPic(
+                                          this.state.hoveredCell.title
+                                        ).toString() +
+                                        ".svg")}
+                                      style={{ width: 200, height: 200 }}
+                                    />
+                                  ) : null}
+                                </div>
                                 {this.state.hoveredCell ? (
-                                  <Avatar
-                                    alt="Something"
-                                    src={require("./images/" +
-                                      groupMineralPic(
-                                        this.state.hoveredCell.title
-                                      ).toString() +
-                                      ".svg")}
-                                    style={{ width: 300, height: 300 }}
-                                  />
+                                  <Hint value={{ x: this.state.hoveredCell.x, y: this.state.hoveredCell.y }}>
+                                    <div className="hintTextContainer1" >
+                                      <div className="hintTextContainer2" />
+                                      {this.state.hoveredCell.title}
+                                    </div>
+                                  </Hint>
                                 ) : null}
+                              </Sunburst>
+                            </Grid>
+                            <Grid item >
+                              <div>
+                                <div className='breadcrumbs'>Current group</div>
+                                {this.state.hoveredCell
+                                  ? this.renderBreadcrumbs()
+                                  : null}
                               </div>
                             </Grid>
-                            <Grid item>
-                              Bla
-                          </Grid>
                           </Grid>
                         </div>
                       }

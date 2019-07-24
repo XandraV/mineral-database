@@ -555,7 +555,7 @@ class MineralInfoPage extends Component {
           fill={darkColor}
         />
         <Text
-          fontSize={18}
+          fontSize={15}
           text={
             this.state.choosenCreatedMineral.system +
             "\ncrystal structure"
@@ -832,7 +832,7 @@ class MineralInfoPage extends Component {
           fill={darkColor}
         />
         <Text
-          fontSize={18}
+          fontSize={15}
           text={
             "Hardness\n" + this.state.choosenCreatedMineral.hardness
           }
@@ -878,7 +878,7 @@ class MineralInfoPage extends Component {
           fill={darkColor}
         />
         <Text
-          fontSize={18}
+          fontSize={15}
           text={this.state.choosenCreatedMineral.color[0]}
           wrap="char"
           x={250 + window.innerWidth / 2 - 225 - 55}

@@ -169,8 +169,8 @@
 }
 
 .sunburstMiddleText {
-  margin-top: -450px;
-  padding-left: 170px;
+  margin-top: -300px;
+  padding-left: 125px;
   color: black;
   position: absolute;
 }
@@ -195,4 +195,30 @@
 .applyResetButtonContainer {
   text-align: right;
   padding-right: 10;
+}
+
+.breadcrumbs {
+  color: rgb(152, 150, 150);
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.groupInfoSunburst {
+  width:220px;
+  text-align: justify;
+}
+
+.hintTextContainer1 {
+  display: "flex";
+  color: black;
+  background: white;
+  align-items: "center";
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.hintTextContainer2{
+  height: 10px;
+  width: 10px;
 }
