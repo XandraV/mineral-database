@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect  } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Drawer from "@material-ui/core/Drawer";
@@ -14,36 +14,26 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import MineralInfoPage, { chooseMineralPic } from "./MineralInfoPage";
+import MineralInfoPage from "./MineralInfoPage";
+import { chooseMineralPic } from "./MineralInfoPageComponents"
 import Avatar from "@material-ui/core/Avatar";
+import { demoAsyncCall } from "./helpers";
+import { Menu } from "./App";
 import "./App.css";
 
-class SearchPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      choosenMineral: null,
-      value: "",
-      results: getAllMinerals(),
-      loading: true,
-      loaded: false,
-      limit: 8
-    };
-  }
+function SearchPage () {
+  const [ choosenMineral, setChoosenMineral] = useState(null);
+  const [ value, setValue ] = useState("");
+  const [ results, setResults ] = useState(getAllMinerals());
+  const [ loading, setLoading ] = useState(true);
+  const [ limit, setLimit ] = useState(8);
 
-  componentDidMount() {
+   useEffect(() => {
     // this simulates an async action, after which the component will render the content
-    demoAsyncCall().then(() => this.setState({ loading: false, loaded: true }));
-  }
+    demoAsyncCall().then(() => setLoading(false));
+  });
 
-  onLoadMore() {
-    this.setState({
-      limit: this.state.limit + 8
-    });
-  }
-
-  renderSearchResults() {
-    const loadMoreButton = {
+  const loadMoreButton = {
       background: "#009faf",
       borderRadius: 25,
       border: 0,
@@ -53,8 +43,9 @@ class SearchPage extends Component {
       boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
       transition: "all 0.3s ease 0s",
       fontWeight: 'bold'
-    }
-    if (this.state.results) {
+  }
+  function renderSearchResults() {
+    if (results) {
       return (
         <div style={{ textAlign: "center" }}>
           <Grid
@@ -64,54 +55,13 @@ class SearchPage extends Component {
             alignItems="center"
             style={{ height: 350, flexGrow: 1, overflow: "auto" }}
           >
-            {this.state.results.slice(0, this.state.limit).map(rock => (
+            {results.slice(0, limit).map(rock => (
               <Grid item>
                 <Card style={{ height: 140, width: 300, borderRadius: 15, backgroundColor: "rgba(255,255,255,0.7)" }}>
                   <CardActionArea
-                    onClick={() => this.setState({ choosenMineral: rock })}
+                    onClick={() => setChoosenMineral(rock) }
                   >
-                    <Grid container spacing={1} alignItems="center" style={{padding:18}}>
-                      <Grid item>
-                        <div className="outterCircle">
-                          <div className="innerCircle" >
-                            <Avatar
-                              style={{
-                                margin: 10,
-                                width: 80,
-                                height: 80,
-                                backgroundColor: "white",
-                                display: "inline-block",
-                              }}
-                              alt="Something"
-                              src={require("./images/" +
-                                chooseMineralPic(rock.color[0]) +
-                                ".svg")}
-                            />
-                          </div>
-                        </div>
-                      </Grid>
-                      <Grid item>
-                        <CardContent>
-                          <Typography
-                            gutterBottom
-                            variant="h5"
-                            component="h5"
-                            style={{ color: "black", fontSize: 15 }}
-                          >
-                            {rock.name}
-                          </Typography>
-                          <Typography
-                            gutterBottom
-                            variant="body2"
-                            color="textSecondary"
-                            component="p"
-                            style={{ fontSize: 12 }}
-                          >
-                            {`${rock.color[0]} mineral`}
-                          </Typography>
-                        </CardContent>
-                      </Grid>
-                    </Grid>
+                    <MineralListItem mineralItem={rock}/>
                   </CardActionArea>
                 </Card>
               </Grid>
@@ -122,7 +72,7 @@ class SearchPage extends Component {
               style={loadMoreButton}
               variant="contained"
               className="button-create"
-              onClick={() => this.onLoadMore()}
+              onClick={() => setLimit(limit + 8)}
             >
               Load more
             </Button>
@@ -132,7 +82,7 @@ class SearchPage extends Component {
     }
   }
 
-  renderSearchPage() {
+  function renderSearchPage() {
     const searchBar = {
       margin: "0 auto",
       width: 800,
@@ -149,43 +99,14 @@ class SearchPage extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <AppBar
-            position="fixed"
-            className="appBar"
-            style={{ zIndex: 1201, backgroundColor: "#009faf" }}
-          >
-            <Toolbar className="toolbar">
-              <Typography
-                component="h1"
-                variant="h6"
-                color="inherit"
-                noWrap
-                className="menu-header-text"
-              >
-                {"Mineral Search"}
-              </Typography>
-              <div className="icon">
-                <img
-                  alt="icon"
-                  src="/crystallizer/favicon.ico"
-                  width={50}
-                  height={50}
-                />
-              </div>
-            </Toolbar>
-          </AppBar>
-          <Drawer variant="permanent" className="drawerPaper">
-            <List style={{ marginTop: "61px" }}>{mainListItems}</List>
-          </Drawer>
+          <Menu title="Mineral Search"/>
           <main
             style={mainElement}
           >
             <SearchBar
-              value={this.state.value}
-              onChange={newValue => this.setState({ value: newValue })}
-              onRequestSearch={() =>
-                this.setState({ results: handleSearch(this.state.value) })
-              }
+              value={value}
+              onChange={newValue => setValue(newValue)}
+              onRequestSearch={() => setResults(handleSearch(value))}
               style={searchBar}
             />
             <Container
@@ -193,14 +114,14 @@ class SearchPage extends Component {
               style={{ padding: 20, position: "relative" }}
             >
               <div>
-                {this.state.loading ? (
+                {loading ? (
                   <CircularProgress
                     style={{ marginLeft: "50%" }}
                     left={-20}
                     size={40}
                   />
                 ) : (
-                  this.renderSearchResults()
+                  renderSearchResults()
                 )}
               </div>
             </Container>
@@ -210,16 +131,59 @@ class SearchPage extends Component {
     );
   }
 
-  render() {
-    return this.state.choosenMineral != null ? (
-      <MineralInfoPage value={this.state.choosenMineral} />
-    ) : (
-      this.renderSearchPage()
-    );
-  }
+  return(
+    choosenMineral != null ? (
+      <MineralInfoPage value={choosenMineral} />
+    ) : 
+      renderSearchPage()
+  )
 }
-function demoAsyncCall() {
-  return new Promise(resolve => setTimeout(() => resolve(), 2500));
+
+function MineralListItem(props){
+  return(
+    <Grid container spacing={1} alignItems="center" style={{padding:18}}>
+      <Grid item>
+        <div className="outterCircle">
+          <div className="innerCircle" >
+            <Avatar
+              style={{
+                margin: 10,
+                width: 80,
+                height: 80,
+                backgroundColor: "white",
+                display: "inline-block",
+              }}
+              alt="Something"
+              src={require("./images/" +
+                chooseMineralPic(props.mineralItem.color[0]) +
+                ".svg")}
+            />
+          </div>
+        </div>
+      </Grid>
+      <Grid item>
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h5"
+            style={{ color: "black", fontSize: 15 }}
+          >
+            {props.mineralItem.name}
+          </Typography>
+          <Typography
+            gutterBottom
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            style={{ fontSize: 12 }}
+          >
+            {`${props.mineralItem.color[0]} mineral`}
+          </Typography>
+        </CardContent>
+      </Grid>
+    </Grid>
+  )
 }
 
 export function handleSearch(input) {

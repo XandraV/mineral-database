@@ -1,8 +1,14 @@
-.Periodic-table{
+.table-wrapper{
   margin: 'auto';
   text-align: center;
   display: inline-block;
   flex-grow: 1;
+  padding-left: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.periodic-table {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .card1 {
@@ -124,7 +130,6 @@
 }
 
 .toolbar {
-  
   display: flex;
   position: relative;
 }
@@ -147,6 +152,14 @@
   padding-top: 6px;
   padding-left: 6px;
   flex-direction: column;
+  height: 50px;
+  width: 250px;
+}
+
+.MuiGrid-conatiner {
+  text-align: "center";
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .filterField {
@@ -221,4 +234,15 @@
 .hintTextContainer2{
   height: 10px;
   width: 10px;
+}
+
+.hintBar {
+  font-size: 12px;
+  color: white;
+}
+
+.tableBackground {
+  background-position: center;
+  background-position-y: 10px;
+  background-repeat: no-repeat;
 }

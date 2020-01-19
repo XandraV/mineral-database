@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import { bubbleData } from "./bubbledata";
+import { bubbleData, labelsBubble } from "./bubbledata";
 import {
   XYPlot,
   XAxis,
@@ -10,28 +10,22 @@ import {
   Hint
 } from "react-vis";
 
-class BubbleChart extends Component {
-  state = {
-    data: bubbleData,
-    value: false
-  };
-
-  render() {
-    const { data } = this.state;
+function BubbleChart() {
+    const [ data ] = useState(bubbleData);
+    const [ value, setValue ] = useState(false);
     const markSeriesProps = {
       animation: true,
       sizeRange: [1, 35],
       colorRange: ["orange", "pink", "lightBlue"],
       data,
-      onNearestXY: value => this.setState({ value })
+      onNearestXY: value => setValue(value)
     };
-
     return (
       <div style={{ padding: 5 }}>
         <XYPlot
           margin={{ left: 50 }}
           yDomain={[0, 3900]}
-          onMouseLeave={() => this.setState({ value: false })}
+          onMouseLeave={() => setValue(false)}
           width={750}
           height={400}
         >
@@ -43,16 +37,16 @@ class BubbleChart extends Component {
           />
           <YAxis />
           <MarkSeriesCanvas {...markSeriesProps} />
-          {this.state.value ? (
-            <Hint value={this.state.value}>
-              <HintContentBubble value={this.state.value} />
+          {value ? (
+            <Hint value={value}>
+              <HintContentBubble value={value} />
             </Hint>
           ) : null}
         </XYPlot>
       </div>
     );
   }
-}
+
 
 function HintContentBubble({ value }) {
   const { x, y } = value;
@@ -85,51 +79,5 @@ function hintRowBubble({ numberOfMinerals, components }) {
     </Paper>
   );
 }
-
-const labelsBubble = [
-  "H",
-  "Li",
-  "Be",
-  "B",
-  "C",
-  "N",
-  "O",
-  "F",
-  "Na",
-  "Mg",
-  "Al",
-  "Si",
-  "P",
-  "S",
-  "Cl",
-  "K",
-  "Ca",
-  "Ti",
-  "V",
-  "Cr",
-  "Mn",
-  "Fe",
-  "Co",
-  "Ni",
-  "Cu",
-  "Zn",
-  "As",
-  "Se",
-  "Zr",
-  "Nb",
-  "Mo",
-  "Ru",
-  "Rh",
-  "Ag",
-  "Sn",
-  "Sb",
-  "Te",
-  "Ba",
-  "Ce",
-  "Au",
-  "Hg",
-  "Pb",
-  "U"
-];
 
 export default BubbleChart;

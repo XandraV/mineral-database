@@ -18,12 +18,10 @@ import Button from "@material-ui/core/Button";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { dataSunburst } from "./sunburstData";
-import {
-  Hint, Sunburst
-} from "react-vis";
+import { Hint, Sunburst } from "react-vis";
 import SearchBar from "material-ui-search-bar";
-import { handleSearch, getAllMinerals } from "./SearchPage";
-import { groupMineralPic } from "./MineralInfoPage";
+import { handleSearch, getAllMinerals, demoAsyncCall } from "./helpers";
+import { mineralColors, mineralSystems, mineralGroups, mineralSubGroups } from "./dashboardData"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import ListItem from "@material-ui/core/ListItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -35,6 +33,8 @@ import Avatar from "@material-ui/core/Avatar";
 import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
+import { Menu } from "./App";
+import { chooseMineralPic, groupMineralPic } from "./MineralInfoPageComponents"
 class StatsPage extends Component {
   constructor(props) {
     super(props);
@@ -100,7 +100,6 @@ class StatsPage extends Component {
       var newMineralsArray4 = newMineralsArray3;
     }
 
-    /*console.log(newMineralsArray4);*/
     this.setState({
       results: newMineralsArray4,
       choosenMineral: null
@@ -291,35 +290,9 @@ class StatsPage extends Component {
               rel="stylesheet"
               href="https://unpkg.com/react-vis/dist/style.css"
             />
-            <AppBar
-              position="fixed"
-              className="appBar"
-              style={{ zIndex: 1201, backgroundColor: "#009faf" }}
-            >
-              <Toolbar className="toolbar">
-                <Typography
-                  component="h1"
-                  variant="h6"
-                  color="inherit"
-                  noWrap
-                  className="menu-header-text"
-                >
-                  {"Mineral Statistics"}
-                </Typography>
-                <div className="icon">
-                  <img
-                    alt="icon"
-                    src="/crystallizer/favicon.ico"
-                    width={50}
-                    height={50}
-                  />
-                </div>
-              </Toolbar>
-            </AppBar>
-            <Drawer variant="permanent" className="drawerPaper">
-              <List style={{ marginTop: "61px" }}>{mainListItems}</List>
-            </Drawer>
+            <Menu title="Mineral Statistics"/>
             <main
+              className='main-stats'
               style={{
                 height: "100%",
                 width: document.documentElement.clientWidth,
@@ -695,11 +668,6 @@ class StatsPage extends Component {
   }
 }
 
-
-function demoAsyncCall() {
-  return new Promise(resolve => setTimeout(() => resolve(), 2500));
-}
-
 function ControlledExpansionPanels(props) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -726,95 +694,5 @@ function ControlledExpansionPanels(props) {
     </div>
   );
 }
-const mineralColors = [
-  "Yellow",
-  "Orange",
-  "Black",
-  "Blue",
-  "Bluish-green",
-  "Brown",
-  "Cream",
-  "Green",
-  "Greenish-blue",
-  "Grey",
-  "Pale brown",
-  "Pink",
-  "Purple",
-  "Red-brown",
-  "Red",
-  "Violet",
-  "Yellow-orange"
-];
-
-const mineralSystems = [
-  "Triclinic",
-  "Monoclinic",
-  "Orthorhombic",
-  "Hexagonal",
-  "Tetragonal",
-  "Trigonal",
-  "Isometric"
-];
-
-const mineralGroups = [
-  "Elements",
-  "Sulfides",
-  "Sulfosalts",
-  "Halides",
-  "Oxides",
-  "Carbonates",
-  "Nitrates",
-  "Borates",
-  "Sulfates",
-  "Phosphates",
-  "Arsenates",
-  "Vanadates",
-  "Silicates",
-  "Organic Compounds"
-];
-
-const mineralSubGroups = [
-  "Metals",
-  "Metalloids",
-  "Nonmetals",
-  "Carbides",
-  "Silicides",
-  "Nitrides",
-  "Phosphides",
-  "Selenides",
-  "Tellurides",
-  "Arsenides",
-  "Antimonides",
-  "Bismuthides",
-  "Sulfarsenites",
-  "Sulfantimonites",
-  "Sulfbismuthies",
-  "Oxysulfosalts",
-  "Complex Halides",
-  "Oxyhalides",
-  "Hydroxyhalides",
-  "Iodates",
-  "Nitrates",
-  "Monoborates",
-  "Diborates",
-  "Triborates",
-  "Tetraborates",
-  "Pentaborates",
-  "Hexaborates",
-  "Heptaborates",
-  "Chromates",
-  "Uranyl sulfates",
-  "Molybdates",
-  "Wolframates",
-  "Niobates",
-  "Nesosilicates",
-  "Sorosilicates",
-  "Cyclosilicates",
-  "Inosilicates",
-  "Phyllosilicates",
-  "Tektosilicates",
-  "Germanates",
-  "Unclassified"
-];
 
 export default StatsPage;

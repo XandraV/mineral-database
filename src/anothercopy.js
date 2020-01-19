@@ -19,9 +19,8 @@ import StatsPage from "./Statistics";
 import SearchPage from "./SearchPage";
 import MineralInfoPage from "./MineralInfoPage";
 import "./App.css";
-import { chooseMineralPic } from "./MineralInfoPageComponents"
+import { chooseMineralPic } from "./MineralInfoPage";
 import blue from "./images/bluish-green.svg";
-import { demoAsyncCall, getColor } from "./helpers";
 
 class App extends Component {
   constructor(props) {
@@ -186,7 +185,34 @@ class App extends Component {
 
     const Home = () => (
       <div>
-        <Menu title="Crystallizer"/>
+        <AppBar
+          position="fixed"
+          className="appBar"
+          style={{ zIndex: 1201, backgroundColor: "#009faf" }}
+        >
+          <Toolbar className="toolbar">
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              className="menu-header-text"
+            >
+              {"Crystallizer"}
+            </Typography>
+            <div className="icon">
+              <img
+                alt="icon"
+                src="/crystallizer/favicon.ico"
+                width={50}
+                height={50}
+              />
+            </div>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" className="drawerPaper">
+          <List style={{ marginTop: "61px" }}>{mainListItems}</List>
+        </Drawer>
         <main className="content">
           <Container
             maxWidth="lg"
@@ -320,6 +346,70 @@ function Element(props) {
   );
 }
 
+function getColor(symbol) {
+  switch (symbol) {
+    case "H":
+    case "C":
+    case "N":
+    case "O":
+    case "P":
+    case "S":
+    case "Se":
+      return "#9575cd";
+    case "Li":
+    case "Na":
+    case "K":
+    case "Rb":
+    case "Cs":
+    case "Fr":
+      return "#14cba8";
+    case "Be":
+    case "Mg":
+    case "Ca":
+    case "Sr":
+    case "Ba":
+    case "Ra":
+      return "#ff1744";
+    case "Al":
+    case "Ga":
+    case "In":
+    case "Sn":
+    case "Tl":
+    case "Pb":
+    case "Bi":
+    case "Nh":
+    case "Fl":
+    case "Mc":
+    case "Lv":
+      return "#ffb300";
+    case "B":
+    case "Si":
+    case "Ge":
+    case "As":
+    case "Te":
+    case "Po":
+    case "Sb":
+      return "#00838f";
+    case "F":
+    case "Cl":
+    case "Br":
+    case "I":
+    case "At":
+    case "Ts":
+      return "#ff6d00";
+    case "He":
+    case "Ne":
+    case "Ar":
+    case "Kr":
+    case "Xe":
+    case "Rn":
+    case "Og":
+      return "#673ab7";
+    default:
+      return "#1565c0";
+  }
+}
+
 function search(arrayOfElements) {
   const resultList = [];
   if (arrayOfElements.length > 0) {
@@ -333,41 +423,5 @@ function search(arrayOfElements) {
   }
   return resultList;
 }
-
-export function Menu (props) {
-  return(
-  <div>
-  <AppBar
-          position="fixed"
-          className="appBar"
-          style={{ zIndex: 1201, backgroundColor: "#009faf" }}
-        >
-          <Toolbar className="toolbar">
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              className="menu-header-text"
-            >
-              {props.title}
-            </Typography>
-            <div className="icon">
-              <img
-                alt="icon"
-                src="/crystallizer/favicon.ico"
-                width={50}
-                height={50}
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
-        <Drawer variant="permanent" className="drawerPaper">
-          <List style={{ marginTop: "61px" }}>{mainListItems}</List>
-        </Drawer>
-      </div>
-  )
-}
-
 
 export default App;
