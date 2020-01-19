@@ -11,42 +11,41 @@ import {
 } from "react-vis";
 
 function BubbleChart() {
-    const [ data ] = useState(bubbleData);
-    const [ value, setValue ] = useState(false);
-    const markSeriesProps = {
-      animation: true,
-      sizeRange: [1, 35],
-      colorRange: ["orange", "pink", "lightBlue"],
-      data,
-      onNearestXY: value => setValue(value)
-    };
-    return (
-      <div style={{ padding: 5 }}>
-        <XYPlot
-          margin={{ left: 50 }}
-          yDomain={[0, 3900]}
-          onMouseLeave={() => setValue(false)}
-          width={750}
-          height={400}
-        >
-          <VerticalGridLines tickTotal={43} />
-          <XAxis
-            tickFormat={v => labelsBubble[v - 1]}
-            tickTotal={43}
-            tickSize={1}
-          />
-          <YAxis />
-          <MarkSeriesCanvas {...markSeriesProps} />
-          {value ? (
-            <Hint value={value}>
-              <HintContentBubble value={value} />
-            </Hint>
-          ) : null}
-        </XYPlot>
-      </div>
-    );
-  }
-
+  const [data] = useState(bubbleData);
+  const [value, setValue] = useState(false);
+  const markSeriesProps = {
+    animation: true,
+    sizeRange: [1, 35],
+    colorRange: ["orange", "pink", "lightBlue"],
+    data,
+    onNearestXY: value => setValue(value)
+  };
+  return (
+    <div style={{ padding: 5 }}>
+      <XYPlot
+        margin={{ left: 50 }}
+        yDomain={[0, 3900]}
+        onMouseLeave={() => setValue(false)}
+        width={750}
+        height={400}
+      >
+        <VerticalGridLines tickTotal={43} />
+        <XAxis
+          tickFormat={v => labelsBubble[v - 1]}
+          tickTotal={43}
+          tickSize={1}
+        />
+        <YAxis />
+        <MarkSeriesCanvas {...markSeriesProps} />
+        {value ? (
+          <Hint value={value}>
+            <HintContentBubble value={value} />
+          </Hint>
+        ) : null}
+      </XYPlot>
+    </div>
+  );
+}
 
 function HintContentBubble({ value }) {
   const { x, y } = value;

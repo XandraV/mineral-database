@@ -1,11 +1,6 @@
-import React, { useState, useEffect  } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { mainListItems } from "./listItems";
 import SearchBar from "material-ui-search-bar";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Grid from "@material-ui/core/Grid";
@@ -21,28 +16,28 @@ import { demoAsyncCall } from "./helpers";
 import { Menu } from "./App";
 import "./App.css";
 
-function SearchPage () {
-  const [ choosenMineral, setChoosenMineral] = useState(null);
-  const [ value, setValue ] = useState("");
-  const [ results, setResults ] = useState(getAllMinerals());
-  const [ loading, setLoading ] = useState(true);
-  const [ limit, setLimit ] = useState(8);
+function SearchPage() {
+  const [choosenMineral, setChoosenMineral] = useState(null);
+  const [value, setValue] = useState("");
+  const [results, setResults] = useState(getAllMinerals());
+  const [loading, setLoading] = useState(true);
+  const [limit, setLimit] = useState(8);
 
-   useEffect(() => {
+  useEffect(() => {
     // this simulates an async action, after which the component will render the content
     demoAsyncCall().then(() => setLoading(false));
   });
 
   const loadMoreButton = {
-      background: "#009faf",
-      borderRadius: 25,
-      border: 0,
-      color: "white",
-      height: 48,
-      padding: "0 20px",
-      boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
-      transition: "all 0.3s ease 0s",
-      fontWeight: 'bold'
+    background: "#009faf",
+    borderRadius: 25,
+    border: 0,
+    color: "white",
+    height: 48,
+    padding: "0 20px",
+    boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
+    transition: "all 0.3s ease 0s",
+    fontWeight: 'bold'
   }
   function renderSearchResults() {
     if (results) {
@@ -59,9 +54,9 @@ function SearchPage () {
               <Grid item>
                 <Card style={{ height: 140, width: 300, borderRadius: 15, backgroundColor: "rgba(255,255,255,0.7)" }}>
                   <CardActionArea
-                    onClick={() => setChoosenMineral(rock) }
+                    onClick={() => setChoosenMineral(rock)}
                   >
-                    <MineralListItem mineralItem={rock}/>
+                    <MineralListItem mineralItem={rock} />
                   </CardActionArea>
                 </Card>
               </Grid>
@@ -99,7 +94,7 @@ function SearchPage () {
     return (
       <MuiThemeProvider>
         <div>
-          <Menu title="Mineral Search"/>
+          <Menu title="Mineral Search" />
           <main
             style={mainElement}
           >
@@ -121,8 +116,8 @@ function SearchPage () {
                     size={40}
                   />
                 ) : (
-                  renderSearchResults()
-                )}
+                    renderSearchResults()
+                  )}
               </div>
             </Container>
           </main>
@@ -131,17 +126,17 @@ function SearchPage () {
     );
   }
 
-  return(
+  return (
     choosenMineral != null ? (
       <MineralInfoPage value={choosenMineral} />
-    ) : 
+    ) :
       renderSearchPage()
   )
 }
 
-function MineralListItem(props){
-  return(
-    <Grid container spacing={1} alignItems="center" style={{padding:18}}>
+function MineralListItem(props) {
+  return (
+    <Grid container spacing={1} alignItems="center" style={{ padding: 18 }}>
       <Grid item>
         <div className="outterCircle">
           <div className="innerCircle" >

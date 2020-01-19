@@ -11,7 +11,7 @@ import {
   Hint
 } from "react-vis";
 
-function LabeledHeatmap  (props) {
+function LabeledHeatmap(props) {
   const [value, setValue] = useState(false);
   const heatMapLabelsX = [
     "H",
@@ -63,7 +63,7 @@ function LabeledHeatmap  (props) {
     }),
     { min: Infinity, max: -Infinity }
   );
-  
+
   const exampleColorScale = scaleLinear()
     .domain([min, (min + max) / 2, max])
     .range(["lightBlue", "pink", "orange"]);
@@ -89,7 +89,7 @@ function LabeledHeatmap  (props) {
               ob.y.split(/(\d+)/)[0] === item[1]) ||
               (ob.y.split(/(\d+)/)[0] === item[0] &&
                 ob.x.split(/(\d+)/)[0] === item[1])) &&
-              arr.push(i),
+            arr.push(i),
             arr
           ),
           []
@@ -97,7 +97,7 @@ function LabeledHeatmap  (props) {
       );
     }
     const finalIndecesArray = indecesArray.filter(Boolean).flat();
-    data.forEach(function(element) {
+    data.forEach(function (element) {
       if (
         finalIndecesArray.includes(data.indexOf(element)) &&
         element.color !== 0

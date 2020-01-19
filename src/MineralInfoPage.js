@@ -107,7 +107,7 @@ class MineralInfoPage extends Component {
     }
   }
 
-  
+
 
   renderSystemGravityCircle() {
     return (
@@ -905,7 +905,7 @@ class MineralInfoPage extends Component {
                     this.state.choosenCreatedMineral.mainGroup
                   )}
 
-                  
+
 
 
                   {this.state.hoveredComponents ?
@@ -921,8 +921,8 @@ class MineralInfoPage extends Component {
                   {this.renderSmallSystemCircle()}
 
                   <SystemCircle
-                    mineralSystemImage = {this.state.mineralSystemImage}
-                    choosenCreatedMineral = {this.state.choosenCreatedMineral}
+                    mineralSystemImage={this.state.mineralSystemImage}
+                    choosenCreatedMineral={this.state.choosenCreatedMineral}
                     onTap={() =>
                       this.setState({
                         hoveredSystem: true
@@ -952,8 +952,8 @@ class MineralInfoPage extends Component {
                     : null}
 
                   <GroupCircle
-                    mineralGroupImage = {this.state.mineralGroupImage}
-                    choosenCreatedMineral = {this.state.choosenCreatedMineral}
+                    mineralGroupImage={this.state.mineralGroupImage}
+                    choosenCreatedMineral={this.state.choosenCreatedMineral}
                     onTap={() =>
                       this.setState({
                         hoveredGroup: true

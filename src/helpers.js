@@ -1,25 +1,25 @@
 export function getAllMinerals() {
-    const data = require("./data.json");
-    const allMineralsList = [];
-    for (let i = 0; i < Object.keys(data.minerals).length; i++) {
-        allMineralsList.push(data.minerals[i]);
-    }
-    return allMineralsList;
+  const data = require("./data.json");
+  const allMineralsList = [];
+  for (let i = 0; i < Object.keys(data.minerals).length; i++) {
+    allMineralsList.push(data.minerals[i]);
+  }
+  return allMineralsList;
 }
 
 export function demoAsyncCall() {
-    return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  return new Promise(resolve => setTimeout(() => resolve(), 2500));
 }
 
 export function handleSearch(input) {
-    const data = require("./data.json");
-    const resultList = [];
-    for (let i = 0; i < Object.keys(data.minerals).length; i++) {
-        if (data.minerals[i].name.toLowerCase().includes(input.toLowerCase())) {
-            resultList.push(data.minerals[i]);
-        }
+  const data = require("./data.json");
+  const resultList = [];
+  for (let i = 0; i < Object.keys(data.minerals).length; i++) {
+    if (data.minerals[i].name.toLowerCase().includes(input.toLowerCase())) {
+      resultList.push(data.minerals[i]);
     }
-    return resultList;
+  }
+  return resultList;
 }
 
 export function getColor(symbol) {

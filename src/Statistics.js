@@ -290,7 +290,7 @@ class StatsPage extends Component {
               rel="stylesheet"
               href="https://unpkg.com/react-vis/dist/style.css"
             />
-            <Menu title="Mineral Statistics"/>
+            <Menu title="Mineral Statistics" />
             <main
               className='main-stats'
               style={{

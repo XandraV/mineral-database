@@ -186,7 +186,7 @@ class App extends Component {
 
     const Home = () => (
       <div>
-        <Menu title="Crystallizer"/>
+        <Menu title="Crystallizer" />
         <main className="content">
           <Container
             maxWidth="lg"
@@ -235,7 +235,7 @@ class App extends Component {
                   />
                 </IconButton>
               </div>
-              <div className="result-count">{this.state.createdMineral != null ? `${this.state.createdMineral.length} results` :``}</div>
+              <div className="result-count">{this.state.createdMineral != null ? `${this.state.createdMineral.length} results` : ``}</div>
               {this.renderCreatedMinerals(this.state.createdMineral)}
             </div>
           </Container>
@@ -334,38 +334,38 @@ function search(arrayOfElements) {
   return resultList;
 }
 
-export function Menu (props) {
-  return(
-  <div>
-  <AppBar
-          position="fixed"
-          className="appBar"
-          style={{ zIndex: 1201, backgroundColor: "#009faf" }}
-        >
-          <Toolbar className="toolbar">
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              className="menu-header-text"
-            >
-              {props.title}
-            </Typography>
-            <div className="icon">
-              <img
-                alt="icon"
-                src="/crystallizer/favicon.ico"
-                width={50}
-                height={50}
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
-        <Drawer variant="permanent" className="drawerPaper">
-          <List style={{ marginTop: "61px" }}>{mainListItems}</List>
-        </Drawer>
-      </div>
+export function Menu(props) {
+  return (
+    <div>
+      <AppBar
+        position="fixed"
+        className="appBar"
+        style={{ zIndex: 1201, backgroundColor: "#009faf" }}
+      >
+        <Toolbar className="toolbar">
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className="menu-header-text"
+          >
+            {props.title}
+          </Typography>
+          <div className="icon">
+            <img
+              alt="icon"
+              src="/crystallizer/favicon.ico"
+              width={50}
+              height={50}
+            />
+          </div>
+        </Toolbar>
+      </AppBar>
+      <Drawer variant="permanent" className="drawerPaper">
+        <List style={{ marginTop: "61px" }}>{mainListItems}</List>
+      </Drawer>
+    </div>
   )
 }
 
