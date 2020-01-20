@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -18,7 +18,12 @@ import { dataSunburst } from "./sunburstData";
 import { Hint, Sunburst } from "react-vis";
 import SearchBar from "material-ui-search-bar";
 import { handleSearch, getAllMinerals, demoAsyncCall } from "./helpers";
-import { mineralColors, mineralSystems, mineralGroups, mineralSubGroups } from "./dashboardData"
+import {
+  mineralColors,
+  mineralSystems,
+  mineralGroups,
+  mineralSubGroups
+} from "./dashboardData";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -30,7 +35,7 @@ import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
 import { Menu } from "./MenuComponents";
-import { chooseMineralPic, groupMineralPic } from "./MineralInfoPageComponents"
+import { chooseMineralPic, groupMineralPic } from "./MineralInfoPageComponents";
 class StatsPage extends Component {
   constructor(props) {
     super(props);
@@ -198,37 +203,57 @@ class StatsPage extends Component {
   }
 
   renderBreadcrumbs() {
-    const chipCellStyle = { backgroundColor: this.state.hoveredCell.color, color: "white", fontWeight: "bold" }
-    const chipParentCellStyle = { backgroundColor: this.state.hoveredParent.color, color: "white", fontWeight: "bold" }
+    const chipCellStyle = {
+      backgroundColor: this.state.hoveredCell.color,
+      color: "white",
+      fontWeight: "bold"
+    };
+    const chipParentCellStyle = {
+      backgroundColor: this.state.hoveredParent.color,
+      color: "white",
+      fontWeight: "bold"
+    };
     return (
       <div>
         <Paper elevation={0}>
           {this.state.hoveredCell.category === "Group" ? (
-            <Chip
-              label={this.state.hoveredCell.title}
-              style={chipCellStyle}
-            />
+            <Chip label={this.state.hoveredCell.title} style={chipCellStyle} />
           ) : (
-              <Breadcrumbs
-                separator="›"
-                aria-label="Breadcrumb"
-                style={{ fontSize: 15, color: "black" }}
-              >
-                <Chip
-                  label={this.state.hoveredParent.title}
-                  style={chipParentCellStyle}
-                />
-                <Chip
-                  label={this.state.hoveredCell.title}
-                  style={chipCellStyle}
-                />
-              </Breadcrumbs>
-            )}
+            <Breadcrumbs
+              separator="›"
+              aria-label="Breadcrumb"
+              style={{ fontSize: 15, color: "black" }}
+            >
+              <Chip
+                label={this.state.hoveredParent.title}
+                style={chipParentCellStyle}
+              />
+              <Chip
+                label={this.state.hoveredCell.title}
+                style={chipCellStyle}
+              />
+            </Breadcrumbs>
+          )}
         </Paper>
-        <Divider variant="middle" style={{ marginTop: 16, marginBottom: 16, marginLeft: 0, marginRight: 0 }} />
+        <Divider
+          variant="middle"
+          style={{
+            marginTop: 16,
+            marginBottom: 16,
+            marginLeft: 0,
+            marginRight: 0
+          }}
+        />
         <div className="groupInfoSunburst">
           <Typography style={{ fontSize: 12 }}>
-            Silicate mineral, any of a large group of silicon-oxygen compounds that are widely distributed throughout much of the solar system. The basic structural unit of all silicate minerals is the silicon tetrahedron in which one silicon atom is surrounded by and bonded to (i.e., coordinated with) four oxygen atoms, each at the corner of a regular tetrahedron. These SiO4 tetrahedral units can share oxygen atoms and be linked in a variety of ways, which results in different structures.
+            Silicate mineral, any of a large group of silicon-oxygen compounds
+            that are widely distributed throughout much of the solar system. The
+            basic structural unit of all silicate minerals is the silicon
+            tetrahedron in which one silicon atom is surrounded by and bonded to
+            (i.e., coordinated with) four oxygen atoms, each at the corner of a
+            regular tetrahedron. These SiO4 tetrahedral units can share oxygen
+            atoms and be linked in a variety of ways, which results in different
+            structures.
           </Typography>
         </div>
       </div>
@@ -274,10 +299,10 @@ class StatsPage extends Component {
       marginTop: 5,
       marginBottom: 5,
       width: 350,
-      borderRadius: 15,
+      borderRadius: 15
     };
     const filterText = { fontSize: 11, fontStyle: "italic" };
-    const selectStyle = { height: 3, width: 80 }
+    const selectStyle = { height: 3, width: 80 };
     return (
       <div>
         <MuiThemeProvider>
@@ -288,7 +313,7 @@ class StatsPage extends Component {
             />
             <Menu title="Mineral Statistics" />
             <main
-              className='main-stats'
+              className="main-stats"
               style={{
                 height: "100%",
                 width: document.documentElement.clientWidth,
@@ -354,7 +379,7 @@ class StatsPage extends Component {
                                   left: 50,
                                   right: 50
                                 }}
-                              /*getLabel={d =>
+                                /*getLabel={d =>
                                 d.category === "Group" ? d.title : null
                               }
                               labelS*/
@@ -373,8 +398,13 @@ class StatsPage extends Component {
                                   ) : null}
                                 </div>
                                 {this.state.hoveredCell ? (
-                                  <Hint value={{ x: this.state.hoveredCell.x, y: this.state.hoveredCell.y }}>
-                                    <div className="hintTextContainer1" >
+                                  <Hint
+                                    value={{
+                                      x: this.state.hoveredCell.x,
+                                      y: this.state.hoveredCell.y
+                                    }}
+                                  >
+                                    <div className="hintTextContainer1">
                                       <div className="hintTextContainer2" />
                                       {this.state.hoveredCell.title}
                                     </div>
@@ -382,9 +412,9 @@ class StatsPage extends Component {
                                 ) : null}
                               </Sunburst>
                             </Grid>
-                            <Grid item >
+                            <Grid item>
                               <div>
-                                <div className='breadcrumbs'>Current group</div>
+                                <div className="breadcrumbs">Current group</div>
                                 {this.state.hoveredCell
                                   ? this.renderBreadcrumbs()
                                   : null}
@@ -421,9 +451,7 @@ class StatsPage extends Component {
                         noWrap
                       >
                         {this.state.choosenMineral != null
-                          ? `${this.state.choosenMineral.name} contains ${
-                          this.state.choosenMineral.formula.length
-                          } distinct elements`
+                          ? `${this.state.choosenMineral.name} contains ${this.state.choosenMineral.formula.length} distinct elements`
                           : "# of elements"}
                       </Typography>
                     </Paper>
@@ -433,18 +461,16 @@ class StatsPage extends Component {
                       }
                       style={searchBar}
                     />
-                    <Paper
-                      style={searchList}
-                    >
+                    <Paper style={searchList}>
                       {this.state.loading ? (
                         <CircularProgress
                           style={{ marginLeft: "45%", marginTop: "15%" }}
                           size={40}
                         />
                       ) : (
-                          <List style={{ height: 130, overflow: "auto" }}>
-                            {this.state.results != null
-                              ? this.state.results.map(rock => (
+                        <List style={{ height: 130, overflow: "auto" }}>
+                          {this.state.results != null
+                            ? this.state.results.map(rock => (
                                 <ListItem
                                   style={{
                                     backgroundColor:
@@ -455,12 +481,15 @@ class StatsPage extends Component {
                                   button
                                   onClick={() => this.handleListItemClick(rock)}
                                 >
-                                  <ListItemText primary={rock.name} style={{ fontSize: 12 }} />
+                                  <ListItemText
+                                    primary={rock.name}
+                                    style={{ fontSize: 12 }}
+                                  />
                                 </ListItem>
                               ))
-                              : null}
-                          </List>
-                        )}
+                            : null}
+                        </List>
+                      )}
                     </Paper>
                     <ControlledExpansionPanels
                       width={340}
@@ -471,7 +500,7 @@ class StatsPage extends Component {
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText style={filterText}>
                                   Color
-                            </FormHelperText>
+                                </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "bla"]}
@@ -499,7 +528,9 @@ class StatsPage extends Component {
                                       backgroundColor: selectedColorElement
                                     }}
                                     onDelete={() =>
-                                      this.handleDeleteColor(selectedColorElement)
+                                      this.handleDeleteColor(
+                                        selectedColorElement
+                                      )
                                     }
                                     clickable
                                   />
@@ -520,7 +551,9 @@ class StatsPage extends Component {
                                     <MenuItem value="">
                                       <ListItemText
                                         primary={grp}
-                                        onClick={() => this.handleSelectGroup(grp)}
+                                        onClick={() =>
+                                          this.handleSelectGroup(grp)
+                                        }
                                       />
                                     </MenuItem>
                                   ))}
@@ -535,7 +568,9 @@ class StatsPage extends Component {
                                       color: "black"
                                     }}
                                     onDelete={() =>
-                                      this.handleDeleteGroup(selectedGroupElement)
+                                      this.handleDeleteGroup(
+                                        selectedGroupElement
+                                      )
                                     }
                                     clickable
                                   />
@@ -546,7 +581,7 @@ class StatsPage extends Component {
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText style={filterText}>
                                   SubGroup
-                              </FormHelperText>
+                                </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "lol2"]}
@@ -586,7 +621,7 @@ class StatsPage extends Component {
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText style={filterText}>
                                   System
-                              </FormHelperText>
+                                </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "lol2"]}
@@ -596,7 +631,9 @@ class StatsPage extends Component {
                                     <MenuItem value="">
                                       <ListItemText
                                         primary={sys}
-                                        onClick={() => this.handleSelectSystem(sys)}
+                                        onClick={() =>
+                                          this.handleSelectSystem(sys)
+                                        }
                                       />
                                     </MenuItem>
                                   ))}
@@ -611,7 +648,9 @@ class StatsPage extends Component {
                                       color: "black"
                                     }}
                                     onDelete={() =>
-                                      this.handleDeleteSystem(selectedSystemElement)
+                                      this.handleDeleteSystem(
+                                        selectedSystemElement
+                                      )
                                     }
                                     clickable
                                   />
@@ -619,7 +658,7 @@ class StatsPage extends Component {
                               )}
                             </div>
                           </div>
-                          <div className="applyResetButtonContainer" >
+                          <div className="applyResetButtonContainer">
                             <Button
                               style={applyResetstyle}
                               variant="contained"
@@ -645,13 +684,11 @@ class StatsPage extends Component {
                               }
                             >
                               Reset
-                        </Button>
+                            </Button>
                           </div>
                         </div>
                       }
-                      title={
-                        "Advanced search"
-                      }
+                      title={"Advanced search"}
                     />
                   </Grid>
                 </Grid>
@@ -685,7 +722,9 @@ function ControlledExpansionPanels(props) {
         >
           <Typography>{props.title}</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails style={{ padding: 10 }}>{props.value}</ExpansionPanelDetails>
+        <ExpansionPanelDetails style={{ padding: 10 }}>
+          {props.value}
+        </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
   );

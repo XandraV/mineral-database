@@ -14,7 +14,7 @@ import StatsPage from "./Statistics";
 import SearchPage from "./SearchPage";
 import MineralInfoPage from "./MineralInfoPage";
 import "./App.css";
-import { chooseMineralPic } from "./MineralInfoPageComponents"
+import { chooseMineralPic } from "./MineralInfoPageComponents";
 import blue from "./images/bluish-green.svg";
 import { getColor } from "./helpers";
 
@@ -28,7 +28,7 @@ class App extends Component {
       clicked: Array(118).fill(false),
       createdMineral: null,
       choosenCreatedMineral:
-        JSON.parse(localStorage.getItem("choosenCreatedMineral")) || null,
+        JSON.parse(localStorage.getItem("choosenCreatedMineral")) || null
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -118,7 +118,7 @@ class App extends Component {
                     borderBottomLeftRadius: 15,
                     borderTopRightRadius: 15,
                     backgroundImage: `url(${"https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95"})`,
-                    boxShadow: '0px 0px 8px grey',
+                    boxShadow: "0px 0px 8px grey"
                   }}
                 >
                   <Grid container spacing={2} alignItems="center">
@@ -136,11 +136,16 @@ class App extends Component {
                       >
                         <Link
                           to="/createdMineral"
-                          style={{ textDecoration: "none", color: "white", fontWeight: 'bold' }}
+                          style={{
+                            textDecoration: "none",
+                            color: "white",
+                            fontWeight: "bold"
+                          }}
                           onClick={() =>
-                            this.setState({
-                              choosenCreatedMineral: rock
-                            },
+                            this.setState(
+                              {
+                                choosenCreatedMineral: rock
+                              },
                               () => {
                                 localStorage.setItem(
                                   "choosenCreatedMineral",
@@ -176,7 +181,7 @@ class App extends Component {
       padding: "0 20px",
       boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
       transition: "all 0.3s ease 0s",
-      fontWeight: 'bold'
+      fontWeight: "bold"
     };
 
     const Home = () => (
@@ -193,7 +198,8 @@ class App extends Component {
                 href="https://fonts.googleapis.com/icon?family=Material+Icons"
                 rel="stylesheet"
               />
-              <div className="tableBackground"
+              <div
+                className="tableBackground"
                 style={{
                   backgroundImage: `url(${blue})`
                 }}
@@ -230,7 +236,11 @@ class App extends Component {
                   />
                 </IconButton>
               </div>
-              <div className="result-count">{this.state.createdMineral != null ? `${this.state.createdMineral.length} results` : ``}</div>
+              <div className="result-count">
+                {this.state.createdMineral != null
+                  ? `${this.state.createdMineral.length} results`
+                  : ``}
+              </div>
               {this.renderCreatedMinerals(this.state.createdMineral)}
             </div>
           </Container>
@@ -297,12 +307,9 @@ function Element(props) {
       style={{
         backgroundColor:
           props.className === "yellowButton" ? "white" : thisColor,
-        color:
-          props.className === "yellowButton" ? thisColor : "white",
-        borderColor:
-          props.className === "yellowButton" ? thisColor : "white",
-        borderStyle:
-          props.className === "yellowButton" ? "dashed" : "solid"
+        color: props.className === "yellowButton" ? thisColor : "white",
+        borderColor: props.className === "yellowButton" ? thisColor : "white",
+        borderStyle: props.className === "yellowButton" ? "dashed" : "solid"
       }}
       id={props.value.symbol}
       className={props.className}

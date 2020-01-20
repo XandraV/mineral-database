@@ -43,7 +43,7 @@ export function Menu(props) {
         <List style={{ marginTop: "61px" }}>{mainListItems}</List>
       </Drawer>
     </div>
-  )
+  );
 }
 
 export const mainListItems = (

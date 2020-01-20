@@ -89,7 +89,7 @@ function LabeledHeatmap(props) {
               ob.y.split(/(\d+)/)[0] === item[1]) ||
               (ob.y.split(/(\d+)/)[0] === item[0] &&
                 ob.x.split(/(\d+)/)[0] === item[1])) &&
-            arr.push(i),
+              arr.push(i),
             arr
           ),
           []
@@ -97,7 +97,7 @@ function LabeledHeatmap(props) {
       );
     }
     const finalIndecesArray = indecesArray.filter(Boolean).flat();
-    data.forEach(function (element) {
+    data.forEach(function(element) {
       if (
         finalIndecesArray.includes(data.indexOf(element)) &&
         element.color !== 0
@@ -144,7 +144,7 @@ function LabeledHeatmap(props) {
         }}
         className="heatmap-series-example"
         data={data}
-        onValueMouseOver={(v) => setValue(v)}
+        onValueMouseOver={v => setValue(v)}
         onSeriesMouseOut={() => setValue(false)}
       />
       <LabelSeries
@@ -162,7 +162,6 @@ function LabeledHeatmap(props) {
     </XYPlot>
   );
 }
-
 
 export function HintContentHeatMap({ value }) {
   const { x, y, color } = value;

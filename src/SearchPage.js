@@ -10,7 +10,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage from "./MineralInfoPage";
-import { chooseMineralPic } from "./MineralInfoPageComponents"
+import { chooseMineralPic } from "./MineralInfoPageComponents";
 import Avatar from "@material-ui/core/Avatar";
 import { demoAsyncCall } from "./helpers";
 import { Menu } from "./MenuComponents";
@@ -37,8 +37,8 @@ function SearchPage() {
     padding: "0 20px",
     boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
     transition: "all 0.3s ease 0s",
-    fontWeight: 'bold'
-  }
+    fontWeight: "bold"
+  };
   function renderSearchResults() {
     if (results) {
       return (
@@ -52,10 +52,15 @@ function SearchPage() {
           >
             {results.slice(0, limit).map(rock => (
               <Grid item>
-                <Card style={{ height: 140, width: 300, borderRadius: 15, backgroundColor: "rgba(255,255,255,0.7)" }}>
-                  <CardActionArea
-                    onClick={() => setChoosenMineral(rock)}
-                  >
+                <Card
+                  style={{
+                    height: 140,
+                    width: 300,
+                    borderRadius: 15,
+                    backgroundColor: "rgba(255,255,255,0.7)"
+                  }}
+                >
+                  <CardActionArea onClick={() => setChoosenMineral(rock)}>
                     <MineralListItem mineralItem={rock} />
                   </CardActionArea>
                 </Card>
@@ -95,9 +100,7 @@ function SearchPage() {
       <MuiThemeProvider>
         <div>
           <Menu title="Mineral Search" />
-          <main
-            style={mainElement}
-          >
+          <main style={mainElement}>
             <SearchBar
               value={value}
               onChange={newValue => setValue(newValue)}
@@ -116,8 +119,8 @@ function SearchPage() {
                     size={40}
                   />
                 ) : (
-                    renderSearchResults()
-                  )}
+                  renderSearchResults()
+                )}
               </div>
             </Container>
           </main>
@@ -126,12 +129,11 @@ function SearchPage() {
     );
   }
 
-  return (
-    choosenMineral != null ? (
-      <MineralInfoPage value={choosenMineral} />
-    ) :
-      renderSearchPage()
-  )
+  return choosenMineral != null ? (
+    <MineralInfoPage value={choosenMineral} />
+  ) : (
+    renderSearchPage()
+  );
 }
 
 function MineralListItem(props) {
@@ -139,14 +141,14 @@ function MineralListItem(props) {
     <Grid container spacing={1} alignItems="center" style={{ padding: 18 }}>
       <Grid item>
         <div className="outterCircle">
-          <div className="innerCircle" >
+          <div className="innerCircle">
             <Avatar
               style={{
                 margin: 10,
                 width: 80,
                 height: 80,
                 backgroundColor: "white",
-                display: "inline-block",
+                display: "inline-block"
               }}
               alt="Something"
               src={require("./images/" +
@@ -178,7 +180,7 @@ function MineralListItem(props) {
         </CardContent>
       </Grid>
     </Grid>
-  )
+  );
 }
 
 export function handleSearch(input) {

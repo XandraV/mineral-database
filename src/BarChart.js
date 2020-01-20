@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 import {
   XYPlot,
   XAxis,
@@ -8,7 +8,7 @@ import {
   Hint,
   VerticalBarSeries,
   GradientDefs,
-  MarkSeries,
+  MarkSeries
 } from "react-vis";
 
 function BarChart(props) {
@@ -32,19 +32,19 @@ function BarChart(props) {
         </linearGradient>
       </GradientDefs>
     ) : (
-        <GradientDefs>
-          <linearGradient
-            id="myGradient"
-            gradientUnits="userSpaceOnUse"
-            x1="0"
-            y1="0"
-            x2="200"
-            y2="200"
-          >
-            <stop offset="100%" stopColor="lightGrey" />
-          </linearGradient>
-        </GradientDefs>
-      );
+      <GradientDefs>
+        <linearGradient
+          id="myGradient"
+          gradientUnits="userSpaceOnUse"
+          x1="0"
+          y1="0"
+          x2="200"
+          y2="200"
+        >
+          <stop offset="100%" stopColor="lightGrey" />
+        </linearGradient>
+      </GradientDefs>
+    );
   return (
     <div>
       <XYPlot
@@ -60,16 +60,14 @@ function BarChart(props) {
         <BarSeries
           className="vertical-bar-series-example"
           data={barData}
-          onValueMouseOver={(v) => setValue(v)}
+          onValueMouseOver={v => setValue(v)}
           onSeriesMouseOut={() => setValue(false)}
         />
         {props.point != null ? (
           <MarkSeries
             animation={true}
             colorType="literal"
-            data={[
-              { x: props.point.formula.length, y: 1, color: "violet" }
-            ]}
+            data={[{ x: props.point.formula.length, y: 1, color: "violet" }]}
           />
         ) : null}
         {value ? (
@@ -101,7 +99,7 @@ function HintContentBar({ value }) {
       <StyledHint>
         <div className="hintBar">{`${y}${
           y > 1 ? " minerals" : " mineral"
-          } contain ${x}${x > 1 ? " different elements" : " element"}`}</div>
+        } contain ${x}${x > 1 ? " different elements" : " element"}`}</div>
       </StyledHint>
     </div>
   );
