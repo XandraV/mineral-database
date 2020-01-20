@@ -2,18 +2,13 @@ import React, { Component } from "react";
 import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
-import { mainListItems } from "./listItems";
+import { Menu } from "./MenuComponents";
 import { elements } from "./periodic-table";
 import StatsPage from "./Statistics";
 import SearchPage from "./SearchPage";
@@ -21,7 +16,7 @@ import MineralInfoPage from "./MineralInfoPage";
 import "./App.css";
 import { chooseMineralPic } from "./MineralInfoPageComponents"
 import blue from "./images/bluish-green.svg";
-import { demoAsyncCall, getColor } from "./helpers";
+import { getColor } from "./helpers";
 
 class App extends Component {
   constructor(props) {
@@ -333,41 +328,5 @@ function search(arrayOfElements) {
   }
   return resultList;
 }
-
-export function Menu(props) {
-  return (
-    <div>
-      <AppBar
-        position="fixed"
-        className="appBar"
-        style={{ zIndex: 1201, backgroundColor: "#009faf" }}
-      >
-        <Toolbar className="toolbar">
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className="menu-header-text"
-          >
-            {props.title}
-          </Typography>
-          <div className="icon">
-            <img
-              alt="icon"
-              src="/crystallizer/favicon.ico"
-              width={50}
-              height={50}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" className="drawerPaper">
-        <List style={{ marginTop: "61px" }}>{mainListItems}</List>
-      </Drawer>
-    </div>
-  )
-}
-
 
 export default App;

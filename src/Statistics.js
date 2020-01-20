@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Drawer from "@material-ui/core/Drawer";
+import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { mainListItems } from "./listItems";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -23,7 +20,6 @@ import SearchBar from "material-ui-search-bar";
 import { handleSearch, getAllMinerals, demoAsyncCall } from "./helpers";
 import { mineralColors, mineralSystems, mineralGroups, mineralSubGroups } from "./dashboardData"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import ListItem from "@material-ui/core/ListItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -33,7 +29,7 @@ import Avatar from "@material-ui/core/Avatar";
 import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
-import { Menu } from "./App";
+import { Menu } from "./MenuComponents";
 import { chooseMineralPic, groupMineralPic } from "./MineralInfoPageComponents"
 class StatsPage extends Component {
   constructor(props) {

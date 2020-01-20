@@ -5,6 +5,46 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import { Link } from "react-router-dom";
 import Tooltip from "@material-ui/core/Tooltip";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+
+export function Menu(props) {
+  return (
+    <div>
+      <AppBar
+        position="fixed"
+        className="appBar"
+        style={{ zIndex: 1201, backgroundColor: "#009faf" }}
+      >
+        <Toolbar className="toolbar">
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className="menu-header-text"
+          >
+            {props.title}
+          </Typography>
+          <div className="icon">
+            <img
+              alt="icon"
+              src="/crystallizer/favicon.ico"
+              width={50}
+              height={50}
+            />
+          </div>
+        </Toolbar>
+      </AppBar>
+      <Drawer variant="permanent" className="drawerPaper">
+        <List style={{ marginTop: "61px" }}>{mainListItems}</List>
+      </Drawer>
+    </div>
+  )
+}
 
 export const mainListItems = (
   <div>

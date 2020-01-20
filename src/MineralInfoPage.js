@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
-import { mainListItems } from "./listItems";
+import { mainListItems } from "./MenuComponents";
 import { Stage, Layer, Text, Circle, Line, Rect, Group } from "react-konva";
 import Container from "@material-ui/core/Container";
 import { chooseMineralPic, groupMineralPic, GroupCircle, SystemCircle } from "./MineralInfoPageComponents"
@@ -106,8 +106,6 @@ class MineralInfoPage extends Component {
         return "isometric";
     }
   }
-
-
 
   renderSystemGravityCircle() {
     return (

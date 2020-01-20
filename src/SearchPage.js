@@ -13,7 +13,7 @@ import MineralInfoPage from "./MineralInfoPage";
 import { chooseMineralPic } from "./MineralInfoPageComponents"
 import Avatar from "@material-ui/core/Avatar";
 import { demoAsyncCall } from "./helpers";
-import { Menu } from "./App";
+import { Menu } from "./MenuComponents";
 import "./App.css";
 
 function SearchPage() {
