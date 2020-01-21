@@ -39,9 +39,7 @@ export const bubbleData = [
   { x: 37, y: 126, size: 126 / 100, color: Math.random() * 44, opacity: 1 },
   { x: 38, y: 184, size: 184 / 100, color: Math.random() * 44, opacity: 1 },
   { x: 39, y: 122, size: 122 / 100, color: Math.random() * 44, opacity: 1 },
-  { x: 40, y: 31, size: 31 / 100, color: Math.random() * 44, opacity: 1 },
-  { x: 41, y: 82, size: 82 / 100, color: Math.random() * 44, opacity: 1 },
-  { x: 43, y: 182, size: 182 / 100, color: Math.random() * 44, opacity: 1 }
+  { x: 40, y: 31, size: 31 / 100, color: Math.random() * 44, opacity: 1 }
 ];
 export const labelsBubble = [
   "H",
@@ -84,7 +82,5 @@ export const labelsBubble = [
   "Ba",
   "Ce",
   "Au",
-  "Hg",
-  "Pb",
-  "U"
+  "Hg"
 ];

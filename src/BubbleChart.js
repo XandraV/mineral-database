@@ -26,7 +26,7 @@ function BubbleChart() {
         margin={{ left: 50 }}
         yDomain={[0, 3900]}
         onMouseLeave={() => setValue(false)}
-        width={750}
+        width={720}
         height={400}
       >
         <VerticalGridLines tickTotal={43} />

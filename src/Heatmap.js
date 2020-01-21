@@ -35,9 +35,7 @@ function LabeledHeatmap(props) {
     "Fe",
     "Cu",
     "Zn",
-    "As",
-    "Zr",
-    "Mo"
+    "As"
   ];
 
   const heatMapLabelsY = heatMapLabelsX;
@@ -117,7 +115,7 @@ function LabeledHeatmap(props) {
       yType="ordinal"
       yDomain={heatMapLabelsY.map(letter => `${letter}2`).reverse()}
       margin={40}
-      width={800}
+      width={750}
       height={800}
     >
       <XAxis

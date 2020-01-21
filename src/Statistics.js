@@ -35,14 +35,14 @@ import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
 import { Menu } from "./MenuComponents";
-import { chooseMineralPic, groupMineralPic } from "./MineralInfoPageComponents";
+import { groupMineralPic } from "./MineralInfoPageComponents";
 class StatsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       results: getAllMinerals(),
       choosenMineral: null,
-      loading: true,
+      isloading: true,
       selectedColor: [],
       selectedGroup: [],
       selectedSubGroup: [],
@@ -54,7 +54,7 @@ class StatsPage extends Component {
 
   componentDidMount() {
     // this simulates an async action, after which the component will render the content
-    demoAsyncCall().then(() => this.setState({ loading: false, loaded: true }));
+    demoAsyncCall().then(() => this.setState({ isloading: false }));
   }
 
   handleListItemClick(rock) {
@@ -324,7 +324,7 @@ class StatsPage extends Component {
                 maxWidth="lg"
                 style={{
                   paddingTop: 80,
-                  paddingLeft: 40,
+                  paddingLeft: 80,
                   paddingBottom: 10,
                   display: "grid"
                 }}
@@ -332,7 +332,7 @@ class StatsPage extends Component {
                 <Grid container spacing={2}>
                   <Grid item>
                     <ControlledExpansionPanels
-                      width={800}
+                      width={750}
                       value={
                         <div>
                           <BubbleChart />
@@ -343,7 +343,7 @@ class StatsPage extends Component {
                       }
                     />
                     <ControlledExpansionPanels
-                      width={800}
+                      width={750}
                       value={
                         <div>
                           <LabeledHeatmap mineral={this.state.choosenMineral} />
@@ -352,7 +352,7 @@ class StatsPage extends Component {
                       title={"Occurence of element pairs in minerals - HeatMap"}
                     />
                     <ControlledExpansionPanels
-                      width={800}
+                      width={750}
                       value={
                         <div>
                           <Grid container spacing={2}>
@@ -483,7 +483,10 @@ class StatsPage extends Component {
                                 >
                                   <ListItemText
                                     primary={rock.name}
-                                    style={{ fontSize: 12 }}
+                                    style={{
+                                      fontSize: 11,
+                                      fontFamily: "Roboto"
+                                    }}
                                   />
                                 </ListItem>
                               ))
@@ -703,11 +706,9 @@ class StatsPage extends Component {
 
 function ControlledExpansionPanels(props) {
   const [expanded, setExpanded] = React.useState(false);
-
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-
   return (
     <div>
       <ExpansionPanel
