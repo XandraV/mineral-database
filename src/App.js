@@ -49,7 +49,7 @@ class App extends Component {
     if (clicked[names.indexOf(elements[i].symbol)]) {
       return (
         <Element
-          className="yellowButton"
+          className="selected-element"
           value={element}
           onClick={() => this.handleClick(element.symbol)}
         />
@@ -57,7 +57,7 @@ class App extends Component {
     } else {
       return (
         <Element
-          className="blackButton"
+          className="not-selected-element"
           value={element}
           onClick={() => this.handleClick(element.symbol)}
         />
@@ -301,15 +301,16 @@ class App extends Component {
 }
 
 function Element(props) {
+  console.log(props.value)
   const thisColor = getColor(props.value.symbol);
   return (
     <div
       style={{
         backgroundColor:
-          props.className === "yellowButton" ? "white" : thisColor,
-        color: props.className === "yellowButton" ? thisColor : "white",
-        borderColor: props.className === "yellowButton" ? thisColor : "white",
-        borderStyle: props.className === "yellowButton" ? "dashed" : "solid"
+          props.className === "selected-element" ? "white" : thisColor,
+        color: props.className === "selected-element" ? thisColor : "white",
+        borderColor: props.className === "selected-element" ? thisColor : "white",
+        borderStyle: props.className === "selected-element" ? "dashed" : "solid"
       }}
       id={props.value.symbol}
       className={props.className}

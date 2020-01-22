@@ -27,7 +27,7 @@
   grid-column-start: 13;
 }
 
-.blackButton {
+.not-selected-element {
   cursor: pointer;
   width: 5vw;
   height: 5.5vw;
@@ -49,7 +49,7 @@
   border: 1px solid #00ffff;
 }
 
-.yellowButton {
+.selected-element {
   cursor: pointer;
   width: 5vw;
   height: 5.5vw;
