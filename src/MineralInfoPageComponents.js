@@ -8,6 +8,7 @@ export function getGroupData(choosenCreatedMineral, mineralGroup) {
     if (mineralGroup === "Elements") {
       return choosenCreatedMineral.formula[0];
     } else {
+      console.log(mineralGroup);
       const data = require("./mineralGroups.json");
       return data.groups.elements[mineralGroup];
     }
@@ -258,7 +259,6 @@ export function Components(props) {
     props.choosenCreatedMineral,
     props.mainGroup[0]
   );
-  const darkColor = "#009faf";
   if (componentsList.length > 1) {
     return (
       <Group>

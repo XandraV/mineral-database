@@ -8,6 +8,7 @@
             "Carbonates":["C", "O"],
             "Halides":["F", "Cl", "Br", "I", "At"],
             "Phosphates":["P","O"],
+            "Borates":["B"],
             "Organic":["C"]
         },
         "basicFormula":{

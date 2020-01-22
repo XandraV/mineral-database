@@ -219,6 +219,7 @@ class MineralInfoPage extends Component {
                     }
                   >
                     <Components
+                      choosenCreatedMineral={this.state.choosenCreatedMineral}
                       mainGroup={this.state.choosenCreatedMineral.mainGroup}
                     />
                   </Layer>

@@ -1,4 +1,4 @@
-# Crystallizer
+# Crystallizer ![Alt text](/public/favicon-32x32.png)
 
 A React application that allows the user to search for minerals by selecting elements in the periodic table, view the info page of a chosen mineral and a dashboard with statistics tailored to the specific mineral properties.
 
