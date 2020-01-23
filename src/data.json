@@ -43,7 +43,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -227,7 +227,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -254,7 +254,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -281,7 +281,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -341,7 +341,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -454,7 +454,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -600,7 +600,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -748,7 +748,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -956,7 +956,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -1015,7 +1015,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow"
@@ -1097,7 +1097,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -1183,7 +1183,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -1278,7 +1278,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -1485,7 +1485,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Brown",
@@ -1609,7 +1609,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -1981,7 +1981,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -2098,7 +2098,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -2317,7 +2317,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -2483,7 +2483,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -2508,7 +2508,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -2567,7 +2567,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -2598,7 +2598,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -2628,7 +2628,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -2659,7 +2659,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Brown",
@@ -2686,7 +2686,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -2736,7 +2736,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Blue"
@@ -2964,7 +2964,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -3194,7 +3194,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -3223,7 +3223,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -3329,7 +3329,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -3416,7 +3416,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -3734,7 +3734,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -3762,7 +3762,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Blue"
@@ -3930,7 +3930,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -4048,7 +4048,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -4275,7 +4275,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -4474,7 +4474,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -4502,7 +4502,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -4531,7 +4531,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Pink",
@@ -4557,7 +4557,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -4757,7 +4757,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -4814,7 +4814,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Orange",
@@ -4873,7 +4873,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -4899,7 +4899,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -4926,7 +4926,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -5182,7 +5182,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow"
@@ -5230,7 +5230,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White",
@@ -5489,7 +5489,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -5515,7 +5515,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White",
@@ -5631,7 +5631,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Amorphous",
          "color":[
             "Yellow",
@@ -6152,7 +6152,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -6206,7 +6206,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink",
@@ -6286,7 +6286,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -6449,7 +6449,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -6470,7 +6470,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Green",
@@ -6602,7 +6602,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -7008,7 +7008,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -7067,7 +7067,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -7260,7 +7260,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -7448,7 +7448,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -7537,7 +7537,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -7562,7 +7562,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Blue",
@@ -7622,7 +7622,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -8023,7 +8023,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -8049,7 +8049,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -8422,7 +8422,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Green",
@@ -8648,7 +8648,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -8693,7 +8693,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -8952,7 +8952,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -8978,7 +8978,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Orange",
@@ -9094,7 +9094,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -9240,7 +9240,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -9358,7 +9358,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Purple",
@@ -9443,7 +9443,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green"
@@ -9496,7 +9496,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -9584,7 +9584,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -9821,7 +9821,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -9848,7 +9848,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -9873,7 +9873,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -9897,7 +9897,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -10068,7 +10068,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "White",
@@ -10794,7 +10794,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -11197,7 +11197,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Amorphous",
          "color":[
             "Brown",
@@ -11253,7 +11253,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Orange",
@@ -11339,7 +11339,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Amorphous",
          "color":[
             "Yellow",
@@ -11469,7 +11469,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -11828,7 +11828,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -11886,7 +11886,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -11950,7 +11950,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -12035,7 +12035,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -12557,7 +12557,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -12615,7 +12615,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Red"
@@ -12758,7 +12758,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -12786,7 +12786,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink",
@@ -12927,7 +12927,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -13109,7 +13109,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Amorphous",
          "color":[
             "Yellow",
@@ -13142,7 +13142,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Brown",
@@ -13170,7 +13170,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -13419,7 +13419,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink"
@@ -13475,7 +13475,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -13560,7 +13560,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -13669,7 +13669,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -13748,7 +13748,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -13903,7 +13903,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -14022,7 +14022,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -14081,7 +14081,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -14103,7 +14103,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -14132,7 +14132,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -14247,7 +14247,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -14758,7 +14758,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -14823,7 +14823,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -14847,7 +14847,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -14899,7 +14899,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -15018,7 +15018,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Purple"
@@ -15163,7 +15163,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -15224,7 +15224,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow"
@@ -15251,7 +15251,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown"
@@ -15300,7 +15300,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White"
@@ -15436,7 +15436,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -15825,7 +15825,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Black"
@@ -15852,7 +15852,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White"
@@ -16228,7 +16228,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -16255,7 +16255,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -16284,7 +16284,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -16392,7 +16392,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -16630,7 +16630,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -17061,7 +17061,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -17124,7 +17124,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -17150,7 +17150,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "White"
@@ -17265,7 +17265,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -17530,7 +17530,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Orange",
@@ -17847,7 +17847,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -18017,7 +18017,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -18134,7 +18134,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -18274,7 +18274,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Purple",
@@ -18469,7 +18469,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Green",
@@ -18652,7 +18652,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -18763,7 +18763,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "White"
@@ -18895,7 +18895,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -18920,7 +18920,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -18974,7 +18974,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -19099,7 +19099,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -19291,7 +19291,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -19350,7 +19350,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -19698,7 +19698,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -19810,7 +19810,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White",
@@ -19867,7 +19867,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink",
@@ -20003,7 +20003,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -20029,7 +20029,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -20059,7 +20059,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -20087,7 +20087,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -20231,7 +20231,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -20538,7 +20538,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "White",
@@ -20594,7 +20594,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Brown"
@@ -20922,7 +20922,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -21037,7 +21037,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Orange",
@@ -21141,7 +21141,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -21229,7 +21229,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -21282,7 +21282,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -21311,7 +21311,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -21394,7 +21394,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -21423,7 +21423,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown"
@@ -21477,7 +21477,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -21502,7 +21502,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "White"
@@ -21559,7 +21559,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Green",
@@ -21615,7 +21615,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Orange",
@@ -21647,7 +21647,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -21704,7 +21704,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -21954,7 +21954,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow"
@@ -22034,7 +22034,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -22091,7 +22091,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -22178,7 +22178,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -22362,7 +22362,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -22544,7 +22544,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -22655,7 +22655,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Blue",
@@ -22829,7 +22829,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -23066,7 +23066,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -23123,7 +23123,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -23268,7 +23268,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -23323,7 +23323,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -23379,7 +23379,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -23407,7 +23407,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Pink",
@@ -23640,7 +23640,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Orange",
@@ -23727,7 +23727,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -23921,7 +23921,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -23947,7 +23947,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -24382,7 +24382,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White"
@@ -24749,7 +24749,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -24771,7 +24771,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -24975,7 +24975,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -25096,7 +25096,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -25269,7 +25269,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -25291,7 +25291,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -25526,7 +25526,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "White",
@@ -25553,7 +25553,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -25580,7 +25580,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -25607,7 +25607,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -25634,7 +25634,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -25713,7 +25713,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -25740,7 +25740,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Green"
@@ -25790,7 +25790,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -25815,7 +25815,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -25873,7 +25873,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Green"
@@ -26067,7 +26067,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -26242,7 +26242,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -26298,7 +26298,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -26352,7 +26352,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Green",
@@ -26516,7 +26516,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -26577,7 +26577,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow"
@@ -26628,7 +26628,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -26715,7 +26715,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -26858,7 +26858,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink",
@@ -26920,7 +26920,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -27032,7 +27032,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Blue"
@@ -27538,7 +27538,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Green",
@@ -27772,7 +27772,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow"
@@ -27907,7 +27907,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -28128,7 +28128,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -28155,7 +28155,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -28244,7 +28244,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Blue",
@@ -28635,7 +28635,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -28691,7 +28691,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Green",
@@ -28717,7 +28717,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -28883,7 +28883,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -29001,7 +29001,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Pink"
@@ -29026,7 +29026,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Red"
@@ -29054,7 +29054,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "White"
@@ -29248,7 +29248,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow"
@@ -29272,7 +29272,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Colourless"
@@ -29406,7 +29406,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -29432,7 +29432,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -29489,7 +29489,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -29603,7 +29603,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -29630,7 +29630,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown"
@@ -29683,7 +29683,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -29714,7 +29714,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -30027,7 +30027,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Orange",
@@ -30084,7 +30084,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -30230,7 +30230,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -30319,7 +30319,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -30346,7 +30346,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -30371,7 +30371,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White",
@@ -30397,7 +30397,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -30425,7 +30425,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -30484,7 +30484,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -30597,7 +30597,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -30832,7 +30832,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Amorphous",
          "color":[
             "Yellow",
@@ -30922,7 +30922,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -31035,7 +31035,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -31604,7 +31604,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -31628,7 +31628,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -31707,7 +31707,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -31738,7 +31738,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Purple",
@@ -31824,7 +31824,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Red"
@@ -31900,7 +31900,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -32142,7 +32142,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -32626,7 +32626,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "White"
@@ -32646,7 +32646,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Gray"
@@ -32728,7 +32728,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -32785,7 +32785,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow"
@@ -32810,7 +32810,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown"
@@ -32838,7 +32838,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -32867,7 +32867,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -32918,7 +32918,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -33272,7 +33272,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -33329,7 +33329,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -33442,7 +33442,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -33499,7 +33499,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -33560,7 +33560,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink",
@@ -33590,7 +33590,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -33701,7 +33701,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Amorphous",
          "color":[
             "Yellow",
@@ -33862,7 +33862,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White"
@@ -34003,7 +34003,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink"
@@ -34024,7 +34024,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -34050,7 +34050,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -34131,7 +34131,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -34301,7 +34301,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -34331,7 +34331,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -34417,7 +34417,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -34688,7 +34688,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Colourless"
@@ -34714,7 +34714,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -34803,7 +34803,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Colourless"
@@ -34910,7 +34910,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -34944,7 +34944,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -35083,7 +35083,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow"
@@ -35108,7 +35108,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -35192,7 +35192,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "White",
@@ -35306,7 +35306,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow"
@@ -35612,7 +35612,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -35897,7 +35897,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -35954,7 +35954,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Pink"
@@ -36194,7 +36194,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -36252,7 +36252,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Orange",
@@ -36371,7 +36371,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -36426,7 +36426,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -36804,7 +36804,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -36917,7 +36917,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -36945,7 +36945,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Pink",
@@ -37297,7 +37297,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Blue"
@@ -37348,7 +37348,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -37438,7 +37438,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -37465,7 +37465,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -37695,7 +37695,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -37724,7 +37724,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -37835,7 +37835,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Yellow",
@@ -37866,7 +37866,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -37893,7 +37893,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -38067,7 +38067,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow"
@@ -38199,7 +38199,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Pink"
@@ -38283,7 +38283,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -38369,7 +38369,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -38703,7 +38703,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -38898,7 +38898,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -38979,7 +38979,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -39163,7 +39163,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Green"
@@ -39342,7 +39342,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow"
@@ -39450,7 +39450,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -39480,7 +39480,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -39511,7 +39511,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -39596,7 +39596,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -39791,7 +39791,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -39986,7 +39986,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green"
@@ -40012,7 +40012,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Green",
@@ -40145,7 +40145,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -40202,7 +40202,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -40396,7 +40396,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -40476,7 +40476,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -40621,7 +40621,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -40736,7 +40736,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Yellow",
@@ -40843,7 +40843,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -40874,7 +40874,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -40898,7 +40898,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -40988,7 +40988,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Blue"
@@ -41097,7 +41097,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -41122,7 +41122,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -41144,7 +41144,7 @@
          "mainGroup":[
             "Halides"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Isometric",
          "color":[
             "Orange",
@@ -41171,7 +41171,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Orange",
@@ -41258,7 +41258,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -41287,7 +41287,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -41316,7 +41316,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "White"
@@ -41340,7 +41340,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -41519,7 +41519,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -41613,7 +41613,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -41674,7 +41674,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Hexagonal",
          "color":[
             "Black",
@@ -41700,7 +41700,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -41754,7 +41754,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -41870,7 +41870,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow",
@@ -41904,7 +41904,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Blue",
@@ -42107,7 +42107,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Pink",
@@ -42189,7 +42189,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Blue"
@@ -42211,7 +42211,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow",
@@ -42238,7 +42238,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Yellow",
@@ -42266,7 +42266,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -42295,7 +42295,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Green",
@@ -42585,7 +42585,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green",
@@ -42644,7 +42644,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Pink",
@@ -42849,7 +42849,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -42907,7 +42907,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Yellow",
@@ -42968,7 +42968,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
@@ -43077,7 +43077,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Yellow"
@@ -43186,7 +43186,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Orthorhombic",
          "color":[
             "Brown",
@@ -43246,7 +43246,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Green"
@@ -43272,7 +43272,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Green"
@@ -43297,7 +43297,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Blue"
@@ -43374,7 +43374,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Tetragonal",
          "color":[
             "Green"
@@ -43398,7 +43398,7 @@
          "mainGroup":[
             "Organic"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Trigonal",
          "color":[
             "Green",
@@ -43541,7 +43541,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Yellow"
@@ -43659,7 +43659,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Monoclinic",
          "color":[
             "Brown",
@@ -43717,7 +43717,7 @@
             "Arsenates",
             "Vanadates"
          ],
-         "subGroup":"n/a",
+         "subGroup":"Iodates",
          "system":"Triclinic",
          "color":[
             "Yellow",
