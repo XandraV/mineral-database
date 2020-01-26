@@ -13,45 +13,52 @@ import { elements } from "./periodic-table";
 import StatsPage from "./Statistics";
 import SearchPage from "./SearchPage";
 import MineralInfoPage from "./MineralInfoPage";
-import "./App.css";
 import { chooseMineralPic } from "./MineralInfoPageComponents";
 import blue from "./images/bluish-green.svg";
 import { getColor } from "./helpers";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: elements.slice().map(el => {
+      elementSymbols: elements.slice().map(el => {
         return el.symbol;
       }),
-      clicked: Array(118).fill(false),
-      createdMineral: null,
+      clickedElements: Array(118).fill(false),
+      mineralResults: null,
       choosenCreatedMineral:
         JSON.parse(localStorage.getItem("choosenCreatedMineral")) || null
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleElementClick = this.handleElementClick.bind(this);
   }
 
-  handleClick(i) {
-    const names = this.state.names;
-    const clicked = this.state.clicked.slice();
-    clicked[names.indexOf(i)] = !clicked[names.indexOf(i)];
+  handleElementClick(el) {
+    const elementSymbols = this.state.elementSymbols;
+    const clickedElements = this.state.clickedElements.slice();
+    clickedElements[elementSymbols.indexOf(el)] = !clickedElements[elementSymbols.indexOf(el)];
     this.setState({
-      clicked: clicked
+      clickedElements: clickedElements
     });
   }
 
-  renderElement(i) {
-    let element = elements[i];
-    const names = this.state.names;
-    const clicked = this.state.clicked.slice();
-    if (clicked[names.indexOf(elements[i].symbol)]) {
+  deleteElements(){
+    this.setState({
+      clickedElements: Array(118).fill(false),
+      mineralResults: null
+    })
+  }
+
+  renderElement(elementNum) {
+    let element = elements[elementNum];
+    const elementSymbols = this.state.elementSymbols;
+    const clickedElements = this.state.clickedElements.slice();
+    if (clickedElements[elementSymbols.indexOf(elements[elementNum].symbol)]) {
       return (
         <Element
           className="selected-element"
           value={element}
-          onClick={() => this.handleClick(element.symbol)}
+          onClick={() => this.handleElementClick(element.symbol)}
         />
       );
     } else {
@@ -59,7 +66,7 @@ class App extends Component {
         <Element
           className="not-selected-element"
           value={element}
-          onClick={() => this.handleClick(element.symbol)}
+          onClick={() => this.handleElementClick(element.symbol)}
         />
       );
     }
@@ -81,23 +88,23 @@ class App extends Component {
 
   createMineral() {
     this.setState({
-      createdMineral: null
+      mineralResults: null
     });
-    const nameList = this.state.names;
-    const clickedList = this.state.clicked;
-    if (clickedList.every(el => el === false)) {
+    const nameList = this.state.elementSymbols;
+    const clickedElementsList = this.state.clickedElements;
+    if (clickedElementsList.every(el => el === false)) {
       return;
     } else {
       const choosenElements = nameList
         .map(elementName => {
-          if (clickedList[nameList.indexOf(elementName)]) {
+          if (clickedElementsList[nameList.indexOf(elementName)]) {
             return elementName;
           }
         })
         .filter(Boolean);
       const result = search(choosenElements);
       this.setState({
-        createdMineral: result
+        mineralResults: result
       });
     }
   }
@@ -135,7 +142,7 @@ class App extends Component {
                         style={{ fontSize: 15, marginBottom: 0, paddingTop: 0 }}
                       >
                         <Link
-                          to="/createdMineral"
+                          to="/mineralResults"
                           style={{
                             textDecoration: "none",
                             color: "white",
@@ -223,12 +230,7 @@ class App extends Component {
                     position: "absolute",
                     transition: "all 0.3s ease 0s"
                   }}
-                  onClick={() =>
-                    this.setState({
-                      clicked: Array(19).fill(false),
-                      createdMineral: null
-                    })
-                  }
+                  onClick={() => this.deleteElements()}
                 >
                   <DeleteOutlinedIcon
                     style={{ color: "black" }}
@@ -237,11 +239,11 @@ class App extends Component {
                 </IconButton>
               </div>
               <div className="result-count">
-                {this.state.createdMineral != null
-                  ? `${this.state.createdMineral.length} results`
+                {this.state.mineralResults != null
+                  ? `${this.state.mineralResults.length} results`
                   : ``}
               </div>
-              {this.renderCreatedMinerals(this.state.createdMineral)}
+              {this.renderCreatedMinerals(this.state.mineralResults)}
             </div>
           </Container>
         </main>
@@ -274,7 +276,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/createdMineral"
+              path="/mineralResults"
               render={renderProps => (
                 <div>
                   <MineralInfoPage
@@ -301,7 +303,6 @@ class App extends Component {
 }
 
 function Element(props) {
-  console.log(props.value)
   const thisColor = getColor(props.value.symbol);
   return (
     <div
