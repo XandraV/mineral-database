@@ -20,7 +20,7 @@ class Map extends React.Component {
     componentDidMount() {
         const map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: 'mapbox://styles/sandraexplores/cjp5etozq1xno2sqj2ekckqfc',
+            style: 'mapbox://styles/sandraexplores/ck5yg2w1i0cq61ijwkdzib1w4',
             center: [this.state.lng, this.state.lat],
             zoom: this.state.zoom
         });
@@ -35,7 +35,7 @@ class Map extends React.Component {
         });
 
         map.on('load', () => {
-            map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+            map.loadImage('https://images.vexels.com/media/users/3/151224/isolated/preview/58003c389b57ec8182abf593984eaa82-slot-diamond-icon-by-vexels.png', (error, image) => {
                 if (error) throw error;
                 map.addImage('diamond', image);
                 // Add a layer showing the places.
