@@ -10,6 +10,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
+import ExploreIcon from '@material-ui/icons/Explore';
 
 export function Menu(props) {
   return (
@@ -76,6 +77,15 @@ export const mainListItems = (
           style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
         >
           <BarChartIcon />
+        </ListItemIcon>
+      </Tooltip>
+    </ListItem>
+    <ListItem button component={Link} to="/map">
+      <Tooltip title="Map" placement="right" style={{ width: 500 }}>
+        <ListItemIcon
+          style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
+        >
+          <ExploreIcon/>
         </ListItemIcon>
       </Tooltip>
     </ListItem>

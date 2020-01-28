@@ -13,6 +13,7 @@ import { elements } from "./periodic-table";
 import StatsPage from "./Statistics";
 import SearchPage from "./SearchPage";
 import MineralInfoPage from "./MineralInfoPage";
+import Map from './Map';
 import { chooseMineralPic } from "./MineralInfoPageComponents";
 import blue from "./images/bluish-green.svg";
 import { getColor } from "./helpers";
@@ -259,6 +260,14 @@ class App extends Component {
         <CssBaseline />
         <Router>
           <Switch>
+            <Route
+              path="/map"
+              render={renderProps => (
+                <div>
+                  <Map {...this.props} {...renderProps} />
+                </div>
+              )}
+            />
             <Route
               path={"/statistics"}
               render={renderProps => (
