@@ -10,7 +10,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
-import ExploreIcon from '@material-ui/icons/Explore';
+import ExploreIcon from "@material-ui/icons/Explore";
 
 export function Menu(props) {
   return (
@@ -85,7 +85,7 @@ export const mainListItems = (
         <ListItemIcon
           style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
         >
-          <ExploreIcon/>
+          <ExploreIcon />
         </ListItemIcon>
       </Tooltip>
     </ListItem>

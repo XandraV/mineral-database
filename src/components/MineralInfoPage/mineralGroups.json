@@ -1,0 +1,24 @@
+{
+    "groups":{
+        "elements":{
+            "Silicates":["Si", "O"],
+            "Oxides":["O"],
+            "Sulfates":["S","O"],
+            "Sulfides":["S"],
+            "Carbonates":["C", "O"],
+            "Halides":["F", "Cl", "Br", "I", "At"],
+            "Phosphates":["P","O"],
+            "Borates":["B"],
+            "Organic":["C"]
+        },
+        "basicFormula":{
+            "Silicates": "<span>SiO<sub>2</sub></span>",
+            "Oxides": "<span>O</span>",
+            "Sulphates":"<span>SO<sub>4</sub></span>",
+            "Sulphides":"<span>S<sup>2-</sup></span>",
+            "Carbonates":"<span>CO<sup>2−</sup><sub>3</sub></span>",
+            "Halides": "<span>Cl<sup>−</sup></span>",
+            "Phosphates":"<span>PO<sub>4</sub><sup>3−</sup></span>"
+        }
+    }
+}

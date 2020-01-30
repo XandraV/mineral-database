@@ -10,11 +10,11 @@ import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
 import { Menu } from "./MenuComponents";
 import { elements } from "./periodic-table";
-import StatsPage from "./Statistics";
-import SearchPage from "./SearchPage";
-import MineralInfoPage from "./MineralInfoPage";
-import Map from './Map';
-import { chooseMineralPic } from "./MineralInfoPageComponents";
+import StatsPage from "./components/Statistics/Statistics";
+import SearchPage from "./components/SearchPage/SearchPage";
+import MineralInfoPage from "./components/MineralInfoPage/MineralInfoPage";
+import Map from "./components/Map/Map";
+import { chooseMineralPic } from "./components/MineralInfoPage/MineralInfoPageComponents";
 import blue from "./images/bluish-green.svg";
 import { getColor } from "./helpers";
 import "./App.css";
@@ -37,17 +37,19 @@ class App extends Component {
   handleElementClick(el) {
     const elementSymbols = this.state.elementSymbols;
     const clickedElements = this.state.clickedElements.slice();
-    clickedElements[elementSymbols.indexOf(el)] = !clickedElements[elementSymbols.indexOf(el)];
+    clickedElements[elementSymbols.indexOf(el)] = !clickedElements[
+      elementSymbols.indexOf(el)
+    ];
     this.setState({
       clickedElements: clickedElements
     });
   }
 
-  deleteElements(){
+  deleteElements() {
     this.setState({
       clickedElements: Array(118).fill(false),
       mineralResults: null
-    })
+    });
   }
 
   renderElement(elementNum) {
@@ -319,7 +321,8 @@ function Element(props) {
         backgroundColor:
           props.className === "selected-element" ? "white" : thisColor,
         color: props.className === "selected-element" ? thisColor : "white",
-        borderColor: props.className === "selected-element" ? thisColor : "white",
+        borderColor:
+          props.className === "selected-element" ? thisColor : "white",
         borderStyle: props.className === "selected-element" ? "dashed" : "solid"
       }}
       id={props.value.symbol}

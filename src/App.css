@@ -245,58 +245,57 @@
 
 .navmenu {
   width: 15%;
-  }
-  
-  .mapContainer {
-    position: absolute;
-    left: 10%;
-    right: 1%;
-    width: 84%;
-    top: 15%;
-    bottom: 2.5%;
-    border-radius: 10px;
-  }
-  
-  img {
-    max-width: 200px;
-    max-height: 200px;
-      
-  }
-  
-  .mapboxgl-popup-content {
-      min-width: 240px;
-      min-height: 210px;
-      background: rgba(255,255,255,0);
-      color: rgb(241, 134, 179);
-      padding: 20px 20px 20px 20px;
-      font: 12px 'Proxima Nova Lt', sans-serif;
-      box-shadow: 5px 10px 18px #888888;
-      border-radius: 10px;
-      border-spacing: 10px; 
-  }
-  
-  .mapboxgl-popup-content .caption {
-      position: absolute;
-      left: 10%;
-      bottom: 0%;
-  }
-  .mapboxgl-popup-content .caption h1 {
-      font: 16px 'Proxima Nova Lt', sans-serif;
-  }
-  
-  .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
-  .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
-  .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-      border-bottom-color: transparent;
-      }
-  .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
-  .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
-  .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-      border-top-color: transparent;
-      }
-  .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-      border-right-color: transparent;
-      }
-  .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-      border-left-color: transparent;
-      }
+}
+
+.mapContainer {
+  position: absolute;
+  left: 10%;
+  right: 1%;
+  width: 84%;
+  top: 15%;
+  bottom: 2.5%;
+  border-radius: 10px;
+}
+
+img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.mapboxgl-popup-content {
+  min-width: 240px;
+  min-height: 210px;
+  background: rgba(255, 255, 255, 0);
+  color: rgb(241, 134, 179);
+  padding: 20px 20px 20px 20px;
+  font: 12px "Proxima Nova Lt", sans-serif;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 10px;
+  border-spacing: 10px;
+}
+
+.mapboxgl-popup-content .caption {
+  position: absolute;
+  left: 10%;
+  bottom: 0%;
+}
+.mapboxgl-popup-content .caption h1 {
+  font: 16px "Proxima Nova Lt", sans-serif;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  border-bottom-color: transparent;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+  border-top-color: transparent;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: transparent;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: transparent;
+}
