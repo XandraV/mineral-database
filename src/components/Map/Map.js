@@ -1,5 +1,5 @@
 import React from "react";
-import mapboxgl from "mapbox-gl";
+import mapboxgl, { LngLat } from "mapbox-gl";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { Menu } from "../../MenuComponents";
 import "./../../App.css";
@@ -90,12 +90,15 @@ class Map extends React.Component {
 
     // Event listener for clicking the gem icons
     map.on("click", e => {
+      let clickedPointcoordinates;
       // Query all the rendered points in the view
       const features = map.queryRenderedFeatures(e.point, {
         layers: ["places"]
       });
-      const clickedPoint = features[0];
-      flyToPlace(map, clickedPoint);
+      features[0] != undefined
+        ? (clickedPointcoordinates = features[0].geometry.coordinates)
+        : (clickedPointcoordinates = [e.lngLat.lng, e.lngLat.lat]);
+      flyToPlace(map, clickedPointcoordinates);
     });
 
     // Add zoom and rotation controls to the map.
@@ -123,7 +126,7 @@ export default Map;
 
 function flyToPlace(map, currentFeature) {
   map.flyTo({
-    center: currentFeature.geometry.coordinates,
+    center: currentFeature,
     zoom: 10
   });
 }
