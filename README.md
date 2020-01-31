@@ -2,7 +2,7 @@
 
 A React application that allows the user to search for minerals by selecting elements in the periodic table, view the info page of a chosen mineral and a dashboard with statistics tailored to the specific mineral properties.
 
-You can visit the deployed app at https://xandrav.github.io/crystallizer/.
+You can visit the deployed app at https://master.d3qg9ohvtw44n0.amplifyapp.com/.
 
 ![Alt text](/public/crystallizer.gif)
 
