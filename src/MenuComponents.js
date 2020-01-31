@@ -11,6 +11,7 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import ExploreIcon from "@material-ui/icons/Explore";
+import crystallizer from "./images/crystallizer.ico";
 
 export function Menu(props) {
   return (
@@ -33,7 +34,7 @@ export function Menu(props) {
           <div className="icon">
             <img
               alt="icon"
-              src="/crystallizer/favicon.ico"
+              src={crystallizer}
               width={50}
               height={50}
             />
