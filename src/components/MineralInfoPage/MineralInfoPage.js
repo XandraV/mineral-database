@@ -28,6 +28,7 @@ import {
   Color,
   MineralImage
 } from "./MineralInfoPageComponents";
+import crystallizer from "./../../images/crystallizer.ico";
 
 class MineralInfoPage extends Component {
   constructor(props) {
@@ -171,7 +172,7 @@ class MineralInfoPage extends Component {
             <div className="icon">
               <img
                 alt="icon"
-                src="/crystallizer/favicon.ico"
+                src={crystallizer}
                 width={50}
                 height={50}
               />
