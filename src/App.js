@@ -339,7 +339,7 @@ function Element(props) {
 function search(arrayOfElements) {
   const resultList = [];
   if (arrayOfElements.length > 0) {
-    const data = require("./data.json");
+    const data = require("./mineral-data.json");
     const elements = arrayOfElements;
     for (let i = 0; i < Object.keys(data.minerals).length; i++) {
       if (elements.every(elem => data.minerals[i].formula.includes(elem))) {

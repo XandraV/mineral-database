@@ -1,5 +1,5 @@
 export function getAllMinerals() {
-  const data = require("./data.json");
+  const data = require("./mineral-data.json");
   const allMineralsList = [];
   for (let i = 0; i < Object.keys(data.minerals).length; i++) {
     allMineralsList.push(data.minerals[i]);
@@ -12,7 +12,7 @@ export function demoAsyncCall() {
 }
 
 export function handleSearch(input) {
-  const data = require("./data.json");
+  const data = require("./mineral-data.json");
   const resultList = [];
   for (let i = 0; i < Object.keys(data.minerals).length; i++) {
     if (data.minerals[i].name.toLowerCase().includes(input.toLowerCase())) {
