@@ -1,6 +1,6 @@
 {
   "name": "crystallizer",
-  "homepage": "http://xandrav.github.io/crystallizer",
+  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
