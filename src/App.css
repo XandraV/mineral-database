@@ -201,7 +201,7 @@
   border-radius: 50%;
 }
 
-.applyResetButtonContainer {
+.apply-reset-btn-container {
   text-align: right;
   padding-right: 10;
 }
@@ -381,4 +381,9 @@ p.filter-properties{
 div.properties-select{
   height: 3px;
   width: 80px;
+}
+
+main.main-stats{
+  height: 100%;
+  background-size: cover;
 }

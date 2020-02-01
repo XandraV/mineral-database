@@ -25,10 +25,7 @@ import {
 } from "./dashboardData";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ControlledExpansionPanel from "./ControlledExpansionPanel";
 import Avatar from "@material-ui/core/Avatar";
 import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
@@ -37,6 +34,7 @@ import { Menu } from "../../MenuComponents";
 import { groupMineralPic } from "../MineralInfoPage/MineralInfoPageComponents";
 import SunburtsBreadcrumb from "./SunburtsBreadcrumb";
 import "./../../App.css";
+
 class StatsPage extends Component {
   constructor(props) {
     super(props);
@@ -64,8 +62,19 @@ class StatsPage extends Component {
     });
   }
 
+  /*handleSearch(input) {
+    const data = require("./mineral-data.json");
+    const resultList = [];
+    for (let i = 0; i < Object.keys(data.minerals).length; i++) {
+      if (data.minerals[i].name.toLowerCase().includes(input.toLowerCase())) {
+        resultList.push(data.minerals[i]);
+      }
+    }
+    return resultList;
+  }*/
+
   updateMineralsList() {
-    const originalMineralsArray = getAllMinerals();
+    const originalMineralsArray = this.state.results;
     const filterColors = this.state.selectedColor;
     const filterGroups = this.state.selectedGroup;
     const filterSubGroups = this.state.selectedSubGroup;
@@ -146,23 +155,23 @@ class StatsPage extends Component {
     }
   }
 
-  handleDeleteGroup(groupToBeDeleted) {
+  handleDeleteGroup(group) {
     const newselected = this.state.selectedGroup;
-    newselected.splice(this.state.selectedGroup.indexOf(groupToBeDeleted), 1);
+    newselected.splice(this.state.selectedGroup.indexOf(group), 1);
     this.setState({
       selectedGroup: newselected
     });
   }
 
-  handleSelectSubGroup(mySubGroup) {
-    if (this.state.selectedColor.indexOf(mySubGroup) > -1) {
-      var newselected = this.state.selectedSubGroup;
-      newselected.splice(this.state.selectedSubGroup.indexOf(mySubGroup), 1);
+  handleSelectSubGroup(group) {
+    if (this.state.selectedColor.indexOf(group) > -1) {
+      const newselected = this.state.selectedSubGroup;
+      newselected.splice(this.state.selectedSubGroup.indexOf(group), 1);
       this.setState({
         selectedSubGroup: newselected
       });
     } else {
-      var newselected = this.state.selectedSubGroup.concat([mySubGroup]);
+      const newselected = this.state.selectedSubGroup.concat([group]);
       this.setState({
         selectedSubGroup: newselected
       });
@@ -222,17 +231,15 @@ class StatsPage extends Component {
             <main
               className="main-stats"
               style={{
-                height: "100%",
                 width: document.documentElement.clientWidth,
-                backgroundSize: "cover"
               }}
             >
               <Container maxWidth="lg" className="stats-page-container">
                 <Grid container spacing={2}>
                   <Grid item>
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={750}
-                      value={
+                      content={
                         <div>
                           <BubbleChart />
                         </div>
@@ -241,7 +248,7 @@ class StatsPage extends Component {
                         "Number of minerals containing a specific element - Bubble Chart"
                       }
                     />
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={750}
                       value={
                         <div>
@@ -250,9 +257,9 @@ class StatsPage extends Component {
                       }
                       title={"Occurence of element pairs in minerals - HeatMap"}
                     />
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={750}
-                      value={
+                      content={
                         <div>
                           <Grid container spacing={2}>
                             <Grid item>
@@ -383,9 +390,9 @@ class StatsPage extends Component {
                         </List>
                       )}
                     </Paper>
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={340}
-                      value={
+                      content={
                         <div>
                           <div style={{ height: 230, overflow: "auto" }}>
                             <div className="filterField">
@@ -550,7 +557,7 @@ class StatsPage extends Component {
                               )}
                             </div>
                           </div>
-                          <div className="applyResetButtonContainer">
+                          <div className="apply-reset-btn-container">
                             <Button
                               className="apply-reset"
                               variant="contained"
@@ -591,31 +598,5 @@ class StatsPage extends Component {
   }
 }
 
-function ControlledExpansionPanels(props) {
-  const [expanded, setExpanded] = React.useState(false);
-  const handleChange = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-  return (
-    <div>
-      <ExpansionPanel
-        style={{ width: props.width, borderRadius: 15, margin: 5 }}
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography>{props.title}</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails style={{ padding: 10 }}>
-          {props.value}
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
-  );
-}
 
 export default StatsPage;
