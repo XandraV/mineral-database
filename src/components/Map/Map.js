@@ -1,5 +1,5 @@
 import React from "react";
-import mapboxgl from "mapbox-gl";
+import mapboxgl, { LngLat } from "mapbox-gl";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { Menu } from "../../MenuComponents";
 import "./../../App.css";
@@ -95,7 +95,7 @@ class Map extends React.Component {
       const features = map.queryRenderedFeatures(e.point, {
         layers: ["places"]
       });
-      features[0] !== undefined
+      features[0] != undefined
         ? (clickedPointcoordinates = features[0].geometry.coordinates)
         : (clickedPointcoordinates = [e.lngLat.lng, e.lngLat.lat]);
       flyToPlace(map, clickedPointcoordinates);

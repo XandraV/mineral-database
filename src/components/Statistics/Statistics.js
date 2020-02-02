@@ -12,8 +12,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import { dataSunburst, sunburstDescription } from "./sunburstData";
+import { dataSunburst } from "./sunburstData";
 import { Hint, Sunburst } from "react-vis";
 import SearchBar from "material-ui-search-bar";
 import { handleSearch, getAllMinerals, demoAsyncCall } from "../../helpers";
@@ -32,9 +33,6 @@ import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
 import { Menu } from "../../MenuComponents";
 import { groupMineralPic } from "../MineralInfoPage/MineralInfoPageComponents";
-import SunburtsBreadcrumb from "./SunburtsBreadcrumb";
-import "./../../App.css";
-
 class StatsPage extends Component {
   constructor(props) {
     super(props);
@@ -212,13 +210,107 @@ class StatsPage extends Component {
     });
   }
 
+  renderBreadcrumbs() {
+    const chipCellStyle = {
+      backgroundColor: this.state.hoveredCell.color,
+      color: "white",
+      fontWeight: "bold"
+    };
+    const chipParentCellStyle = {
+      backgroundColor: this.state.hoveredParent.color,
+      color: "white",
+      fontWeight: "bold"
+    };
+    return (
+      <div>
+        <Paper elevation={0}>
+          {this.state.hoveredCell.category === "Group" ? (
+            <Chip label={this.state.hoveredCell.title} style={chipCellStyle} />
+          ) : (
+            <Breadcrumbs
+              separator="›"
+              aria-label="Breadcrumb"
+              style={{ fontSize: 15, color: "black" }}
+            >
+              <Chip
+                label={this.state.hoveredParent.title}
+                style={chipParentCellStyle}
+              />
+              <Chip
+                label={this.state.hoveredCell.title}
+                style={chipCellStyle}
+              />
+            </Breadcrumbs>
+          )}
+        </Paper>
+        <Divider
+          variant="middle"
+          style={{
+            marginTop: 16,
+            marginBottom: 16,
+            marginLeft: 0,
+            marginRight: 0
+          }}
+        />
+        <div className="groupInfoSunburst">
+          <Typography style={{ fontSize: 12 }}>
+            Silicate mineral, any of a large group of silicon-oxygen compounds
+            that are widely distributed throughout much of the solar system. The
+            basic structural unit of all silicate minerals is the silicon
+            tetrahedron in which one silicon atom is surrounded by and bonded to
+            (i.e., coordinated with) four oxygen atoms, each at the corner of a
+            regular tetrahedron. These SiO4 tetrahedral units can share oxygen
+            atoms and be linked in a variety of ways, which results in different
+            structures.
+          </Typography>
+        </div>
+      </div>
+    );
+  }
+
   render() {
+    const applyResetstyle = {
+      marginLeft: 10,
+      background: "#009faf",
+      borderRadius: 25,
+      border: 0,
+      color: "white",
+      height: 40,
+      boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
+      transition: "all 0.3s ease 0s",
+      fontWeight: "bold"
+    };
+
+    const barChartContainer = {
+      height: 280,
+      width: 350,
+      borderRadius: 15,
+      paddingTop: 20,
+      paddingRight: 20,
+      paddingLeft: 30,
+      display: "flex",
+      overflow: "auto",
+      flexDirection: "column",
+      background: "white",
+      textAlign: "center"
+    };
+    const searchList = {
+      position: "relative",
+      height: 140,
+      width: 350,
+      borderRadius: 15,
+      padding: 5,
+      flexDirection: "column",
+      background: "white"
+    };
     const searchBar = {
       marginTop: 5,
       marginBottom: 5,
       width: 350,
       borderRadius: 15
     };
+    const filterText = { fontSize: 11, fontStyle: "italic" };
+    const selectStyle = { height: 3, width: 80 };
     return (
       <div>
         <MuiThemeProvider>
@@ -234,7 +326,15 @@ class StatsPage extends Component {
                 width: document.documentElement.clientWidth,
               }}
             >
-              <Container maxWidth="lg" className="stats-page-container">
+              <Container
+                maxWidth="lg"
+                style={{
+                  paddingTop: 80,
+                  paddingLeft: 80,
+                  paddingBottom: 10,
+                  display: "grid"
+                }}
+              >
                 <Grid container spacing={2}>
                   <Grid item>
                     <ControlledExpansionPanel
@@ -285,6 +385,10 @@ class StatsPage extends Component {
                                   left: 50,
                                   right: 50
                                 }}
+                                /*getLabel={d =>
+                                d.category === "Group" ? d.title : null
+                              }
+                              labelS*/
                               >
                                 <div className="sunburstMiddleText">
                                   {this.state.hoveredCell ? (
@@ -317,20 +421,9 @@ class StatsPage extends Component {
                             <Grid item>
                               <div>
                                 <div className="breadcrumbs">Current group</div>
-                                {this.state.hoveredCell ? (
-                                  <div>
-                                    <SunburtsBreadcrumb
-                                      hoveredCell={this.state.hoveredCell}
-                                      hoveredParent={this.state.hoveredCell}
-                                    />
-                                    <Divider variant="middle" />
-                                    <div className="groupInfoSunburst">
-                                      <Typography style={{ fontSize: 12 }}>
-                                        {sunburstDescription}
-                                      </Typography>
-                                    </div>
-                                  </div>
-                                ) : null}
+                                {this.state.hoveredCell
+                                  ? this.renderBreadcrumbs()
+                                  : null}
                               </div>
                             </Grid>
                           </Grid>
@@ -340,12 +433,29 @@ class StatsPage extends Component {
                     />
                   </Grid>
                   <Grid item>
-                    <Paper className="barchart-container">
-                      <Typography className="barchart-title" noWrap>
+                    <Paper style={barChartContainer}>
+                      <Typography
+                        style={{
+                          fontSize: 15,
+                          color: "#b5b0b0",
+                          paddingBottom: 10,
+                          fontWeight: "bold",
+                          alignSelf: "center"
+                        }}
+                        noWrap
+                      >
                         Number of distinct elements in minerals
                       </Typography>
+                      {/* Number of elements minerals contain on average */}
                       <BarChart point={this.state.choosenMineral} />
-                      <Typography className="barchart-legend" noWrap>
+                      <Typography
+                        style={{
+                          fontSize: 12,
+                          color: "#b5b0b0",
+                          fontWeight: "bold"
+                        }}
+                        noWrap
+                      >
                         {this.state.choosenMineral != null
                           ? `${this.state.choosenMineral.name} contains ${this.state.choosenMineral.formula.length} distinct elements`
                           : "# of elements"}
@@ -357,7 +467,7 @@ class StatsPage extends Component {
                       }
                       style={searchBar}
                     />
-                    <Paper className="minerals-list">
+                    <Paper style={searchList}>
                       {this.state.loading ? (
                         <CircularProgress
                           style={{ marginLeft: "45%", marginTop: "15%" }}
@@ -397,13 +507,13 @@ class StatsPage extends Component {
                           <div style={{ height: 230, overflow: "auto" }}>
                             <div className="filterField">
                               <FormControl style={{ padding: 10 }}>
-                                <FormHelperText className="filter-properties">
+                                <FormHelperText style={filterText}>
                                   Color
                                 </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "bla"]}
-                                  className="properties-select"
+                                  style={selectStyle}
                                 >
                                   {mineralColors.map(color => (
                                     <MenuItem key={color} value={color}>
@@ -438,13 +548,13 @@ class StatsPage extends Component {
                             </div>
                             <div className="filterField">
                               <FormControl style={{ padding: 10 }}>
-                                <FormHelperText className="filter-properties">
+                                <FormHelperText style={filterText}>
                                   Group
                                 </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "lol2"]}
-                                  className="properties-select"
+                                  style={selectStyle}
                                 >
                                   {mineralGroups.map(grp => (
                                     <MenuItem value="">
@@ -478,13 +588,13 @@ class StatsPage extends Component {
                             </div>
                             <div className="filterField">
                               <FormControl style={{ padding: 10 }}>
-                                <FormHelperText className="filter-properties">
+                                <FormHelperText style={filterText}>
                                   SubGroup
                                 </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "lol2"]}
-                                  className="properties-select"
+                                  style={selectStyle}
                                 >
                                   {mineralSubGroups.map(sgrp => (
                                     <MenuItem value="">
@@ -518,13 +628,13 @@ class StatsPage extends Component {
                             </div>
                             <div className="filterField">
                               <FormControl style={{ padding: 10 }}>
-                                <FormHelperText className="filter-properties">
+                                <FormHelperText style={filterText}>
                                   System
                                 </FormHelperText>
                                 <Select
                                   multiple
                                   value={["lol", "lol2"]}
-                                  className="properties-select"
+                                  style={selectStyle}
                                 >
                                   {mineralSystems.map(sys => (
                                     <MenuItem value="">
@@ -559,15 +669,17 @@ class StatsPage extends Component {
                           </div>
                           <div className="apply-reset-btn-container">
                             <Button
-                              className="apply-reset"
+                              style={applyResetstyle}
                               variant="contained"
+                              className="button-create"
                               onClick={() => this.updateMineralsList()}
                             >
                               Apply
                             </Button>
                             <Button
-                              className="apply-reset"
+                              style={applyResetstyle}
                               variant="contained"
+                              className="button-create"
                               onClick={() =>
                                 this.setState({
                                   results: getAllMinerals(),
