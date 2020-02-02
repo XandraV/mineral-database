@@ -1,3 +1,11 @@
+export const groupInfoText = `Silicate mineral, any of a large group of silicon-oxygen compounds
+that are widely distributed throughout much of the solar system. The
+basic structural unit of all silicate minerals is the silicon
+tetrahedron in which one silicon atom is surrounded by and bonded to
+(i.e., coordinated with) four oxygen atoms, each at the corner of a
+regular tetrahedron. These SiO4 tetrahedral units can share oxygen
+atoms and be linked in a variety of ways, which results in different
+structures.`;
 export const dataSunburst = {
   title: "",
   color: 1,
