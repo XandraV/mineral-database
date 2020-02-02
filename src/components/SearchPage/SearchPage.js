@@ -10,7 +10,10 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage from "../MineralInfoPage/MineralInfoPage";
-import { chooseMineralPic } from "../MineralInfoPage/MineralInfoPageComponents";
+import {
+  chooseMineralPic,
+  MineralImage
+} from "../MineralInfoPage/MineralInfoPageComponents";
 import Avatar from "@material-ui/core/Avatar";
 import { demoAsyncCall, getAllMinerals, handleSearch } from "../../helpers";
 import { Menu } from "../../MenuComponents";
@@ -61,7 +64,7 @@ function SearchPage() {
                   }}
                 >
                   <CardActionArea onClick={() => setChoosenMineral(rock)}>
-                    <MineralListItem mineralItem={rock} />
+                    <SearchListItem mineralItem={rock} />
                   </CardActionArea>
                 </Card>
               </Grid>
@@ -100,7 +103,7 @@ function SearchPage() {
       <MuiThemeProvider>
         <div>
           <Menu title="Mineral Search" />
-          <main style={mainElement}>
+          <main className="search-main" style={mainElement}>
             <SearchBar
               value={value}
               onChange={newValue => setValue(newValue)}
@@ -136,27 +139,11 @@ function SearchPage() {
   );
 }
 
-function MineralListItem(props) {
+function SearchListItem(props) {
   return (
     <Grid container spacing={1} alignItems="center" style={{ padding: 18 }}>
       <Grid item>
-        <div className="outterCircle">
-          <div className="innerCircle">
-            <Avatar
-              style={{
-                margin: 10,
-                width: 80,
-                height: 80,
-                backgroundColor: "white",
-                display: "inline-block"
-              }}
-              alt="Something"
-              src={require("./../../images/" +
-                chooseMineralPic(props.mineralItem.color[0]) +
-                ".svg")}
-            />
-          </div>
-        </div>
+        <MineralAvatar color={props.mineralItem.color} />
       </Grid>
       <Grid item>
         <CardContent>
@@ -180,6 +167,28 @@ function MineralListItem(props) {
         </CardContent>
       </Grid>
     </Grid>
+  );
+}
+
+function MineralAvatar(props) {
+  return (
+    <div className="outter-circle">
+      <div className="inner-circle">
+        <Avatar
+          style={{
+            margin: 10,
+            width: 80,
+            height: 80,
+            backgroundColor: "white",
+            display: "inline-block"
+          }}
+          alt="Something"
+          src={require("./../../images/" +
+            chooseMineralPic(props.color[0]) +
+            ".svg")}
+        />
+      </div>
+    </div>
   );
 }
 

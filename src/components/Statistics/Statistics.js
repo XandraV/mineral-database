@@ -27,7 +27,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ControlledExpansionPanel from "./ControlledExpansionPanel";
 import Avatar from "@material-ui/core/Avatar";
-import LabeledHeatmap from "./Heatmap";
+import LabeledHeatmap from "./LabeledHeatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
 import { Menu } from "../../MenuComponents";
@@ -286,7 +286,7 @@ class StatsPage extends Component {
                                   right: 50
                                 }}
                               >
-                                <div className="sunburstMiddleText">
+                                <div className="sunburst-middle-text">
                                   {this.state.hoveredCell ? (
                                     <Avatar
                                       alt="Something"

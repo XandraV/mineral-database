@@ -14,8 +14,8 @@ function ControlledExpansionPanel(props) {
     <div>
       <ExpansionPanel
         style={{ width: props.width, borderRadius: 15, margin: 5 }}
-        expanded={expanded === "panel"}
-        onChange={handleChange("panel")}
+        expanded={expanded === "panel1"}
+        onChange={handleChange("panel1")}
       >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
