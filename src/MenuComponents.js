@@ -53,30 +53,30 @@ export const mainListItems = (
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <ListItem className="menu-btn" button component={Link} to="/">
-      <Tooltip title="Periodic Table" placement="right" >
-        <ListItemIcon className="menu-item">
+    <ListItem button component={Link} to="/">
+      <Tooltip title="Periodic Table" placement="right" style={{width:500}}>
+        <ListItemIcon style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}>
           <DashboardIcon />
         </ListItemIcon>
       </Tooltip>
     </ListItem>
-    <ListItem className="menu-btn" button component={Link} to="/search">
-      <Tooltip title="Search" placement="right" >
-        <ListItemIcon className="menu-item">
+    <ListItem button component={Link} to="/search">
+      <Tooltip title="Search" placement="right" style={{width:500}} >
+        <ListItemIcon style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}>
           <i className="material-icons">search</i>
         </ListItemIcon>
       </Tooltip>
     </ListItem>
-    <ListItem className="menu-btn" button component={Link} to="/statistics">
-      <Tooltip title="Dashboard" placement="right" >
-        <ListItemIcon className="menu-item">
+    <ListItem button component={Link} to="/statistics">
+      <Tooltip title="Dashboard" placement="right" style={{width:500}} >
+        <ListItemIcon style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}>
           <BarChartIcon />
         </ListItemIcon>
       </Tooltip>
     </ListItem>
-    <ListItem className="menu-btn" button component={Link} to="/map">
-      <Tooltip title="Map" placement="right" >
-        <ListItemIcon className="menu-item">
+    <ListItem button component={Link} to="/map">
+      <Tooltip title="Map" placement="right" style={{width:500}} >
+        <ListItemIcon style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}>
           <ExploreIcon />
         </ListItemIcon>
       </Tooltip>
