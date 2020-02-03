@@ -158,7 +158,7 @@
   border-top-right-radius: 15px;
 }
 
-.filterField {
+.filter-field {
   width: 300px;
   margin: 10px;
   border: 0.5px solid #e4dada;
@@ -201,7 +201,7 @@
   border-radius: 50%;
 }
 
-.applyResetButtonContainer {
+.apply-reset-btn-container {
   text-align: right;
   padding-right: 10;
 }
@@ -336,17 +336,17 @@ p.barchart-legend {
   font-weight: bold;
 }
 
-div.minerals-list{
+div.minerals-list {
   position: relative;
   height: 140px;
   width: 350px;
   border-radius: 15px;
   padding: 5px;
   flex-direction: column;
-  background: "white"
+  background: "white";
 }
 
-div.barchart-container{
+div.barchart-container {
   height: 280px;
   width: 350px;
   border-radius: 15px;
@@ -360,14 +360,14 @@ div.barchart-container{
   text-align: center;
 }
 
-button.apply-reset{
+button.apply-reset {
   margin-left: 10px;
   background: #009faf;
   border-radius: 25px;
   border: 0px;
   color: white;
   height: 40px;
-  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
   transition: all 0.3s ease 0s;
   font-weight: bold;
 }
@@ -377,17 +377,46 @@ button.apply-reset:hover {
   background: #009faf;
 }
 
-p.filter-properties{
+p.filter-properties {
   font-size: 11px;
-  font-style: italic; 
+  font-style: italic;
 }
 
-div.properties-select{
+div.properties-select {
   height: 3px;
   width: 80px;
 }
 
-main.main-stats{
+main.main-stats {
   height: 100%;
   background-size: cover;
+}
+
+div.menu-item {
+  width: 60px;
+  padding-right: 8px;
+  color: #009faf;
+}
+
+a.menu-btn {
+  width: 60px;
+}
+
+button.load-more {
+  padding: 20px;
+  background: #009faf;
+  border-radius: 25px;
+  border: 0px;
+  color: white;
+  height: 48px;
+  padding: 0 20px;
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  transition: all 0.3s ease 0s;
+  font-weight: bold;
+}
+
+button.load-more:hover {
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  background: #009faf;
+  transform: translateY(-7px);
 }

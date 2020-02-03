@@ -35,7 +35,6 @@ import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
 import { Menu } from "../../MenuComponents";
-import { groupMineralPic } from "../MineralInfoPage/MineralInfoPageComponents";
 //import SunburtsBreadcrumb from "./SunburtsBreadcrumb";
 import "./../../App.css";
 class StatsPage extends Component {
@@ -333,11 +332,7 @@ class StatsPage extends Component {
                                   {this.state.hoveredCell ? (
                                     <Avatar
                                       alt="Something"
-                                      src={require("./../../images/" +
-                                        groupMineralPic(
-                                          this.state.hoveredCell.title
-                                        ).toString() +
-                                        ".svg")}
+                                      src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${this.state.hoveredCell.title.toString().toLowerCase()}.svg`}
                                       style={{ width: 200, height: 200 }}
                                     />
                                   ) : null}
@@ -434,7 +429,7 @@ class StatsPage extends Component {
                       value={
                         <div>
                           <div style={{ height: 230, overflow: "auto" }}>
-                            <div className="filterField">
+                            <div className="filter-field">
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText className="filter-properties">
                                   Color
@@ -475,7 +470,7 @@ class StatsPage extends Component {
                                 )
                               )}
                             </div>
-                            <div className="filterField">
+                            <div className="filter-field">
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText className="filter-properties">
                                   Group
@@ -515,7 +510,7 @@ class StatsPage extends Component {
                                 )
                               )}
                             </div>
-                            <div className="filterField">
+                            <div className="filter-field">
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText className="filter-properties">
                                   SubGroup
@@ -555,7 +550,7 @@ class StatsPage extends Component {
                                 )
                               )}
                             </div>
-                            <div className="filterField">
+                            <div className="filter-field">
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText className="filter-properties">
                                   System
@@ -596,7 +591,7 @@ class StatsPage extends Component {
                               )}
                             </div>
                           </div>
-                          <div className="applyResetButtonContainer">
+                          <div className="apply-reset-btn-container">
                             <Button
                               className="apply-reset"
                               variant="contained"

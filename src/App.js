@@ -14,8 +14,6 @@ import StatsPage from "./components/Statistics/Statistics";
 import SearchPage from "./components/SearchPage/SearchPage";
 import MineralInfoPage from "./components/MineralInfoPage/MineralInfoPage";
 import Map from "./components/Map/Map";
-import { chooseMineralPic } from "./components/MineralInfoPage/MineralInfoPageComponents";
-import blue from "./images/bluish-green.svg";
 import { getColor } from "./helpers";
 import "./App.css";
 
@@ -135,9 +133,8 @@ class App extends Component {
                     <Grid item>
                       <Avatar
                         alt="Something"
-                        src={require("./images/" +
-                          chooseMineralPic(rock.color[0]) +
-                          ".svg")}
+                        src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${rock.color[0].toLowerCase()}.svg`}
+                        
                       />
                     </Grid>
                     <Grid item>
@@ -210,9 +207,8 @@ class App extends Component {
               />
               <div
                 className="table-background"
-                style={{
-                  backgroundImage: `url(${blue})`
-                }}
+                style={{backgroundImage: `url(https://crystallizer.s3.eu-west-2.amazonaws.com/bluish-green.svg`}}
+                
               >
                 <div className="periodic-table">
                   <section className="card1">{this.renderTable()}</section>

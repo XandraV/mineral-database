@@ -11,7 +11,6 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import ExploreIcon from "@material-ui/icons/Explore";
-import crystallizer from "./images/crystallizer.ico";
 
 export function Menu(props) {
   return (
@@ -34,7 +33,7 @@ export function Menu(props) {
           <div className="icon">
             <img
               alt="icon"
-              src={crystallizer}
+              src={`https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.ico`}
               width={50}
               height={50}
             />
@@ -54,38 +53,30 @@ export const mainListItems = (
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <ListItem button component={Link} to="/">
-      <Tooltip title="Periodic Table" placement="right" style={{ width: 500 }}>
-        <ListItemIcon
-          style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
-        >
+    <ListItem className="menu-btn" button component={Link} to="/">
+      <Tooltip title="Periodic Table" placement="right" >
+        <ListItemIcon className="menu-item">
           <DashboardIcon />
         </ListItemIcon>
       </Tooltip>
     </ListItem>
-    <ListItem button component={Link} to="/search">
-      <Tooltip title="Search" placement="right" style={{ width: 500 }}>
-        <ListItemIcon
-          style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
-        >
+    <ListItem className="menu-btn" button component={Link} to="/search">
+      <Tooltip title="Search" placement="right" >
+        <ListItemIcon className="menu-item">
           <i className="material-icons">search</i>
         </ListItemIcon>
       </Tooltip>
     </ListItem>
-    <ListItem button component={Link} to="/statistics">
-      <Tooltip title="Dashboard" placement="right" style={{ width: 500 }}>
-        <ListItemIcon
-          style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
-        >
+    <ListItem className="menu-btn" button component={Link} to="/statistics">
+      <Tooltip title="Dashboard" placement="right" >
+        <ListItemIcon className="menu-item">
           <BarChartIcon />
         </ListItemIcon>
       </Tooltip>
     </ListItem>
-    <ListItem button component={Link} to="/map">
-      <Tooltip title="Map" placement="right" style={{ width: 500 }}>
-        <ListItemIcon
-          style={{ minWidth: 0, paddingRight: 8, color: "#009faf" }}
-        >
+    <ListItem className="menu-btn" button component={Link} to="/map">
+      <Tooltip title="Map" placement="right" >
+        <ListItemIcon className="menu-item">
           <ExploreIcon />
         </ListItemIcon>
       </Tooltip>

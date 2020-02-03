@@ -10,7 +10,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage from "../MineralInfoPage/MineralInfoPage";
-import { chooseMineralPic } from "../MineralInfoPage/MineralInfoPageComponents";
 import Avatar from "@material-ui/core/Avatar";
 import { demoAsyncCall, getAllMinerals, handleSearch } from "../../helpers";
 import { Menu } from "../../MenuComponents";
@@ -28,17 +27,7 @@ function SearchPage() {
     demoAsyncCall().then(() => setLoading(false));
   });
 
-  const loadMoreButton = {
-    background: "#009faf",
-    borderRadius: 25,
-    border: 0,
-    color: "white",
-    height: 48,
-    padding: "0 20px",
-    boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
-    transition: "all 0.3s ease 0s",
-    fontWeight: "bold"
-  };
+ 
   function renderSearchResults() {
     if (results) {
       return (
@@ -69,9 +58,8 @@ function SearchPage() {
           </Grid>
           <div className="button-container">
             <Button
-              style={loadMoreButton}
               variant="contained"
-              className="button-create"
+              className="load-more"
               onClick={() => setLimit(limit + 8)}
             >
               Load more
@@ -137,6 +125,7 @@ function SearchPage() {
 }
 
 function MineralListItem(props) {
+  const color = props.mineralItem.color[0].toLowerCase();
   return (
     <Grid container spacing={1} alignItems="center" style={{ padding: 18 }}>
       <Grid item>
@@ -151,9 +140,7 @@ function MineralListItem(props) {
                 display: "inline-block"
               }}
               alt="Something"
-              src={require("./../../images/" +
-                chooseMineralPic(props.mineralItem.color[0]) +
-                ".svg")}
+              src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`}
             />
           </div>
         </div>

@@ -10,8 +10,6 @@ import { mainListItems } from "../../MenuComponents";
 import { Stage, Layer } from "react-konva";
 import Container from "@material-ui/core/Container";
 import {
-  chooseMineralPic,
-  groupMineralPic,
   GroupCircle,
   SystemCircle,
   SystemInfo,
@@ -28,7 +26,6 @@ import {
   Color,
   MineralImage
 } from "./MineralInfoPageComponents";
-import crystallizer from "./../../images/crystallizer.ico";
 
 class MineralInfoPage extends Component {
   constructor(props) {
@@ -75,6 +72,9 @@ class MineralInfoPage extends Component {
       const imageMineral = new window.Image();
       const imageGroup = new window.Image();
       const imageSystem = new window.Image();
+      const color = this.state.choosenCreatedMineral.color[0].toLowerCase();
+      const group = this.state.choosenCreatedMineral.mainGroup[0].toLowerCase();
+      const system = this.state.choosenCreatedMineral.system.toLowerCase();
       imageMineral.onload = () => {
         this.setState({
           mineralImage: imageMineral
@@ -90,36 +90,10 @@ class MineralInfoPage extends Component {
           mineralSystemImage: imageSystem
         });
       };
-      imageMineral.src = require("./../../images/" +
-        chooseMineralPic(this.state.choosenCreatedMineral.color[0]) +
-        ".svg");
-      imageGroup.src = require("./../../images/" +
-        groupMineralPic(this.state.choosenCreatedMineral.mainGroup[0]) +
-        ".svg");
-      imageSystem.src = require("./../../images/" +
-        this.chooseSystemPic(this.state.choosenCreatedMineral.system) +
-        ".svg");
-    }
-  }
+      imageMineral.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`;
+      imageGroup.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${group}.svg`;
+      imageSystem.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${system}.svg`;
 
-  chooseSystemPic(systemOfMineral) {
-    switch (systemOfMineral.toLowerCase()) {
-      case "triclinic":
-        return "triclinic";
-      case "monoclinic":
-        return "monoclinic";
-      case "orthorhombic":
-        return "orthorhombic";
-      case "hexagonal":
-        return "hexagonal";
-      case "tetragonal":
-        return "tetragonal";
-      case "trigonal":
-        return "trigonal";
-      case "isometric":
-        return "isometric";
-      default:
-        return "isometric";
     }
   }
 
@@ -170,12 +144,7 @@ class MineralInfoPage extends Component {
               }}
             />
             <div className="icon">
-              <img
-                alt="icon"
-                src={crystallizer}
-                width={50}
-                height={50}
-              />
+              <img alt="icon" src={`https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.ico`} width={50} height={50} />
             </div>
           </Toolbar>
         </AppBar>
