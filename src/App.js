@@ -209,7 +209,7 @@ class App extends Component {
                 rel="stylesheet"
               />
               <div
-                className="tableBackground"
+                className="table-background"
                 style={{
                   backgroundImage: `url(${blue})`
                 }}
