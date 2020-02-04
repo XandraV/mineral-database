@@ -117,24 +117,12 @@ class App extends Component {
           <Grid container justify="center" spacing={2} alignItems="center">
             {resultsArray.map(rock => (
               <Grid item>
-                <Paper
-                  className="paper"
-                  style={{
-                    height: 50,
-                    width: 250,
-                    textAlign: "center",
-                    borderBottomLeftRadius: 15,
-                    borderTopRightRadius: 15,
-                    backgroundImage: `url(${"https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95"})`,
-                    boxShadow: "0px 0px 8px grey"
-                  }}
-                >
+                <Paper className="main-min-results">
                   <Grid container spacing={2} alignItems="center">
                     <Grid item>
                       <Avatar
                         alt="Something"
                         src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${rock.color[0].toLowerCase()}.svg`}
-                        
                       />
                     </Grid>
                     <Grid item>
@@ -179,18 +167,6 @@ class App extends Component {
   }
 
   render() {
-    const createButtonStyle = {
-      background: "#009faf",
-      borderRadius: 25,
-      border: 0,
-      color: "white",
-      height: 48,
-      padding: "0 20px",
-      boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
-      transition: "all 0.3s ease 0s",
-      fontWeight: "bold"
-    };
-
     const Home = () => (
       <div>
         <Menu title="Crystallizer" />
@@ -207,8 +183,9 @@ class App extends Component {
               />
               <div
                 className="table-background"
-                style={{backgroundImage: `url(https://crystallizer.s3.eu-west-2.amazonaws.com/bluish-green.svg`}}
-                
+                style={{
+                  backgroundImage: `url(https://crystallizer.s3.eu-west-2.amazonaws.com/bluish-green.svg`
+                }}
               >
                 <div className="periodic-table">
                   <section className="card1">{this.renderTable()}</section>
@@ -216,7 +193,6 @@ class App extends Component {
               </div>
               <div className="button-container">
                 <Button
-                  style={createButtonStyle}
                   variant="contained"
                   className="button-create"
                   onClick={() => this.createMineral()}
@@ -225,10 +201,6 @@ class App extends Component {
                 </Button>
                 <IconButton
                   className="bin"
-                  style={{
-                    position: "absolute",
-                    transition: "all 0.3s ease 0s"
-                  }}
                   onClick={() => this.deleteElements()}
                 >
                   <DeleteOutlinedIcon

@@ -26,7 +26,7 @@ import {
   Color,
   MineralImage
 } from "./MineralInfoPageComponents";
-
+import CrystallizerIcon from "./../../CrystallizerIcon";
 class MineralInfoPage extends Component {
   constructor(props) {
     super(props);
@@ -93,7 +93,6 @@ class MineralInfoPage extends Component {
       imageMineral.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`;
       imageGroup.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${group}.svg`;
       imageSystem.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${system}.svg`;
-
     }
   }
 
@@ -102,23 +101,14 @@ class MineralInfoPage extends Component {
     return (
       <div>
         <AppBar position="fixed" className="appBar" style={appBarStyle}>
-          <Toolbar className="toolbar" style={{ paddingLeft: 0 }}>
+          <Toolbar className="toolbar info-page">
             <IconButton
               color="inherit"
               aria-label="Menu"
               style={{ paddingLeft: -20 }}
             >
               <NavLink to="/">
-                <i
-                  className="material-icons"
-                  style={{
-                    color: "white",
-                    fontSize: 30,
-                    verticalAlign: "middle"
-                  }}
-                >
-                  arrow_back_ios
-                </i>
+                <i className="material-icons back-btn">arrow_back_ios</i>
               </NavLink>
             </IconButton>
             <Typography
@@ -143,9 +133,7 @@ class MineralInfoPage extends Component {
                 }`
               }}
             />
-            <div className="icon">
-              <img alt="icon" src={`https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.ico`} width={50} height={50} />
-            </div>
+            <CrystallizerIcon/>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" className="drawerPaper">

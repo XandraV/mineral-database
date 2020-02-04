@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import SearchBar from "material-ui-search-bar";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage from "../MineralInfoPage/MineralInfoPage";
-import Avatar from "@material-ui/core/Avatar";
 import { demoAsyncCall, getAllMinerals, handleSearch } from "../../helpers";
 import { Menu } from "../../MenuComponents";
+import SearchResultItem from "./SearchResultItem";
 import "./../../App.css";
 
 function SearchPage() {
-  const [choosenMineral, setChoosenMineral] = useState(null);
+  const [clickedMineral, setClickedMineral] = useState(null);
   const [value, setValue] = useState("");
   const [results, setResults] = useState(getAllMinerals());
   const [loading, setLoading] = useState(true);
@@ -27,36 +25,39 @@ function SearchPage() {
     demoAsyncCall().then(() => setLoading(false));
   });
 
- 
+  function handleMineralClick(mineral) {
+    setClickedMineral(mineral);
+    localStorage.setItem(
+      "choosenCreatedMineral",
+      JSON.stringify(clickedMineral)
+    );
+  }
+
   function renderSearchResults() {
     if (results) {
       return (
-        <div style={{ textAlign: "center" }}>
+        <div className="grid-container">
           <Grid
+            className="search-results-container"
             container
             justify="center"
             spacing={2}
             alignItems="center"
-            style={{ height: 350, flexGrow: 1, overflow: "auto" }}
           >
-            {results.slice(0, limit).map(rock => (
+            {results.slice(0, limit).map(mineral => (
               <Grid item>
-                <Card
-                  style={{
-                    height: 140,
-                    width: 300,
-                    borderRadius: 15,
-                    backgroundColor: "rgba(255,255,255,0.7)"
-                  }}
-                >
-                  <CardActionArea onClick={() => setChoosenMineral(rock)}>
-                    <MineralListItem mineralItem={rock} />
-                  </CardActionArea>
+                <Card className="result-item-wrapper">
+                  <Link
+                    to="/mineralResults"
+                    onClick={() => handleMineralClick(mineral)}
+                  >
+                    <SearchResultItem mineralItem={mineral} />
+                  </Link>
                 </Card>
               </Grid>
             ))}
           </Grid>
-          <div className="button-container">
+          <div className="load-more-btn-container">
             <Button
               variant="contained"
               className="load-more"
@@ -77,18 +78,14 @@ function SearchPage() {
       borderRadius: 15
     };
     const mainElement = {
-      paddingTop: 100,
-      justify: "center",
-      alignItems: "center",
       height: window.innerHeight,
       width: document.documentElement.clientWidth,
-      backgroundSize: "cover"
     };
     return (
       <MuiThemeProvider>
         <div>
           <Menu title="Mineral Search" />
-          <main style={mainElement}>
+          <main className="search-page-wrapper" style={mainElement}>
             <SearchBar
               value={value}
               onChange={newValue => setValue(newValue)}
@@ -117,56 +114,10 @@ function SearchPage() {
     );
   }
 
-  return choosenMineral != null ? (
-    <MineralInfoPage value={choosenMineral} />
+  return clickedMineral != null ? (
+    <MineralInfoPage value={clickedMineral} />
   ) : (
     renderSearchPage()
-  );
-}
-
-function MineralListItem(props) {
-  const color = props.mineralItem.color[0].toLowerCase();
-  return (
-    <Grid container spacing={1} alignItems="center" style={{ padding: 18 }}>
-      <Grid item>
-        <div className="outterCircle">
-          <div className="innerCircle">
-            <Avatar
-              style={{
-                margin: 10,
-                width: 80,
-                height: 80,
-                backgroundColor: "white",
-                display: "inline-block"
-              }}
-              alt="Something"
-              src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`}
-            />
-          </div>
-        </div>
-      </Grid>
-      <Grid item>
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="h5"
-            style={{ color: "black", fontSize: 15 }}
-          >
-            {props.mineralItem.name}
-          </Typography>
-          <Typography
-            gutterBottom
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            style={{ fontSize: 12 }}
-          >
-            {`${props.mineralItem.color[0]} mineral`}
-          </Typography>
-        </CardContent>
-      </Grid>
-    </Grid>
   );
 }
 
