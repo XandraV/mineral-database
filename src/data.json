@@ -296,36 +296,6 @@
          "lustre":"Sub-Vitreous, Resinous, Waxy"
       },
       {
-         "name":"Aguilarite",
-         "formula":[
-            "Ag",
-            "Se",
-            "S"
-         ],
-         "formulaWeb":"<span>Ag<sub>4</sub>SeS</span>",
-         "mainGroup":[
-            "Sulfides",
-            "Sulfosalts"
-         ],
-         "subGroup":[
-            "Selenides",
-            "Tellurides",
-            "Arsenides",
-            "Antimonides",
-            "Bismuthides",
-            "Sulfarsenites",
-            "Sulfantimonites"
-         ],
-         "system":"Monoclinic",
-         "color":[
-            "Gray"
-         ],
-         "hardness":"2½",
-         "mindatLink":"https://www.mindat.org/min-59.html",
-         "specificGravity":"7.40 - 7.53",
-         "lustre":"Metallic"
-      },
-      {
          "name":"Aheylite",
          "formula":[
             "Fe",
@@ -558,36 +528,6 @@
          "lustre":"Sub-Metallic"
       },
       {
-         "name":"Alacránite",
-         "formula":[
-            "As",
-            "S"
-         ],
-         "formulaWeb":"<span>As<sub>8</sub>S<sub>9</sub></span>",
-         "mainGroup":[
-            "Sulfides",
-            "Sulfosalts"
-         ],
-         "subGroup":[
-            "Selenides",
-            "Tellurides",
-            "Arsenides",
-            "Antimonides",
-            "Bismuthides",
-            "Sulfarsenites",
-            "Sulfantimonites"
-         ],
-         "system":"Monoclinic",
-         "color":[
-            "Yellow",
-            "Gray"
-         ],
-         "hardness":"1½",
-         "mindatLink":"https://www.mindat.org/min-91.html",
-         "specificGravity":"3.43",
-         "lustre":"Vitreous, Resinous, Greasy"
-      },
-      {
          "name":"Alarsite",
          "formula":[
             "Al",
@@ -669,70 +609,6 @@
          "mindatLink":"https://www.mindat.org/min-97.html",
          "specificGravity":"2.6",
          "lustre":"Vitreous"
-      },
-      {
-         "name":"Aleksite",
-         "formula":[
-            "Pb",
-            "Bi",
-            "Te",
-            "S"
-         ],
-         "formulaWeb":"<span>PbBi<sub>2</sub>Te<sub>2</sub>S<sub>2</sub></span>",
-         "mainGroup":[
-            "Sulfides",
-            "Sulfosalts"
-         ],
-         "subGroup":[
-            "Selenides",
-            "Tellurides",
-            "Arsenides",
-            "Antimonides",
-            "Bismuthides",
-            "Sulfarsenites",
-            "Sulfantimonites"
-         ],
-         "system":"Trigonal",
-         "color":[
-            "Green",
-            "Greenish",
-            "Gray"
-         ],
-         "hardness":"2½",
-         "mindatLink":"https://www.mindat.org/min-108.html",
-         "specificGravity":"7.80 (Calculated)",
-         "lustre":"Metallic"
-      },
-      {
-         "name":"Algodonite",
-         "formula":[
-            "Cu",
-            "Asx"
-         ],
-         "formulaWeb":"<span>(Cu<sub>1-x</sub>As<sub>x</sub>)</span>",
-         "mainGroup":[
-            "Sulfides",
-            "Sulfosalts"
-         ],
-         "subGroup":[
-            "Metalloids",
-            "Selenides",
-            "Tellurides",
-            "Arsenides",
-            "Antimonides",
-            "Bismuthides",
-            "Sulfarsenites",
-            "Sulfantimonites"
-         ],
-         "system":"Hexagonal",
-         "color":[
-            "White",
-            "Gray"
-         ],
-         "hardness":"4",
-         "mindatLink":"https://www.mindat.org/min-114.html",
-         "specificGravity":"8.38",
-         "lustre":"Metallic"
       },
       {
          "name":"Allactite",
@@ -820,96 +696,6 @@
          "lustre":"Vitreous"
       },
       {
-         "name":"Alleghanyite",
-         "formula":[
-            "Mn",
-            "Si",
-            "O",
-            "H"
-         ],
-         "formulaWeb":"<span>Mn<sup>2+</sup><sub>5</sub>(SiO<sub>4</sub>)<sub>2</sub>(OH)<sub>2</sub></span>",
-         "mainGroup":[
-            "Silicates"
-         ],
-         "subGroup":[
-            "Nesosilicates",
-            "Germanates"
-         ],
-         "system":"Monoclinic",
-         "color":[
-            "Brown",
-            "Pink",
-            "Red",
-            "Gray",
-            "Reddish"
-         ],
-         "hardness":"5½",
-         "mindatLink":"https://www.mindat.org/min-129.html",
-         "specificGravity":"3.93 - 4.02",
-         "lustre":"Sub-Vitreous, Resinous, Waxy, Dull"
-      },
-      {
-         "name":"Alloclasite",
-         "formula":[
-            "Co",
-            "Fex",
-            "As",
-            "S"
-         ],
-         "formulaWeb":"<span>Co<sub>1-x</sub>Fe<sub>x</sub>AsS</span>",
-         "mainGroup":[
-            "Sulfides",
-            "Sulfosalts"
-         ],
-         "subGroup":[
-            "Selenides",
-            "Tellurides",
-            "Arsenides",
-            "Antimonides",
-            "Bismuthides",
-            "Sulfarsenites",
-            "Sulfantimonites"
-         ],
-         "system":"Monoclinic",
-         "color":[
-            "Gray"
-         ],
-         "hardness":"5",
-         "mindatLink":"https://www.mindat.org/min-134.html",
-         "specificGravity":"5.95",
-         "lustre":"Metallic"
-      },
-      {
-         "name":"Alstonite",
-         "formula":[
-            "Ba",
-            "Ca",
-            "C",
-            "O"
-         ],
-         "formulaWeb":"<span>BaCa(CO<sub>3</sub>)<sub>2</sub></span>",
-         "mainGroup":[
-            "Carbonates",
-            "Nitrates"
-         ],
-         "subGroup":[
-            "Nitrates"
-         ],
-         "system":"Triclinic",
-         "color":[
-            "Yellow",
-            "Pink",
-            "Red",
-            "White",
-            "Gray",
-            "Cream"
-         ],
-         "hardness":"4 - 4½",
-         "mindatLink":"https://www.mindat.org/min-146.html",
-         "specificGravity":"3.67 - 3.711",
-         "lustre":"Vitreous"
-      },
-      {
          "name":"Altaite",
          "formula":[
             "Pb",
@@ -940,37 +726,6 @@
          "mindatLink":"https://www.mindat.org/min-147.html",
          "specificGravity":"8.19",
          "lustre":"Metallic"
-      },
-      {
-         "name":"Althausite",
-         "formula":[
-            "Mg",
-            "P",
-            "O",
-            "H,",
-            "F,"
-         ],
-         "formulaWeb":"<span>Mg<sub>4</sub>(PO<sub>4</sub>)<sub>2</sub>(OH,O)(F,☐)</span>",
-         "mainGroup":[
-            "Phosphates",
-            "Arsenates",
-            "Vanadates"
-         ],
-         "subGroup":"Iodates",
-         "system":"Orthorhombic",
-         "color":[
-            "Green",
-            "Blue",
-            "Brown",
-            "Black",
-            "Red",
-            "Gray",
-            "Reddish"
-         ],
-         "hardness":"3½ - 4",
-         "mindatLink":"https://www.mindat.org/min-148.html",
-         "specificGravity":"2.97",
-         "lustre":"Sub-Vitreous, Resinous"
       },
       {
          "name":"Aluminite",
@@ -1048,38 +803,6 @@
          "mindatLink":"https://www.mindat.org/min-159.html",
          "specificGravity":"7.48 (Calculated)",
          "lustre":"Adamantine, Greasy"
-      },
-      {
-         "name":"Alunite",
-         "formula":[
-            "K",
-            "Al",
-            "S",
-            "O",
-            "H"
-         ],
-         "formulaWeb":"<span>KAl<sub>3</sub>(SO<sub>4</sub>)<sub>2</sub>(OH)<sub>6</sub></span>",
-         "mainGroup":[
-            "Sulfates"
-         ],
-         "subGroup":[
-            "Chromates",
-            "Molybdates",
-            "Wolframates"
-         ],
-         "system":"Trigonal",
-         "color":[
-            "Yellow",
-            "Brown",
-            "Red",
-            "White",
-            "Gray",
-            "Reddish"
-         ],
-         "hardness":"3½ - 4",
-         "mindatLink":"https://www.mindat.org/min-161.html",
-         "specificGravity":"2.6 - 2.9",
-         "lustre":"Vitreous, Pearly"
       },
       {
          "name":"Alvanite",
@@ -1200,70 +923,6 @@
          "lustre":"Sub-Vitreous, Resinous, Greasy, Pearly"
       },
       {
-         "name":"Amesite",
-         "formula":[
-            "Mg",
-            "Al",
-            "Si",
-            "O",
-            "H"
-         ],
-         "formulaWeb":"<span>Mg<sub>2</sub>Al(AlSiO<sub>5</sub>)(OH)<sub>4</sub></span>",
-         "mainGroup":[
-            "Silicates"
-         ],
-         "subGroup":[
-            "Phyllosilicates",
-            "Germanates"
-         ],
-         "system":"Triclinic",
-         "color":[
-            "Green",
-            "Blue",
-            "Pink",
-            "White",
-            "Blue-green",
-            "Colourless",
-            "Gray"
-         ],
-         "hardness":"2½ - 3",
-         "mindatLink":"https://www.mindat.org/min-197.html",
-         "specificGravity":"2.77 - 2.78",
-         "lustre":"Resinous, Waxy, Greasy, Sub-Metallic"
-      },
-      {
-         "name":"Analcime",
-         "formula":[
-            "Na",
-            "Al",
-            "Si",
-            "O",
-            "H"
-         ],
-         "formulaWeb":"<span>Na(AlSi<sub>2</sub>O<sub>6</sub>) · H<sub>2</sub>O</span>",
-         "mainGroup":[
-            "Silicates"
-         ],
-         "subGroup":[
-            "Tektosilicates",
-            "Germanates"
-         ],
-         "system":"Triclinic",
-         "color":[
-            "Yellow",
-            "Green",
-            "Pink",
-            "Colourless",
-            "Greenish",
-            "Gray",
-            "Yellowish"
-         ],
-         "hardness":"5 - 5½",
-         "mindatLink":"https://www.mindat.org/min-210.html",
-         "specificGravity":"2.24 - 2.29",
-         "lustre":"Vitreous"
-      },
-      {
          "name":"Anapaite",
          "formula":[
             "Ca",
@@ -1353,36 +1012,6 @@
          "lustre":"Dull"
       },
       {
-         "name":"Andalusite",
-         "formula":[
-            "Al",
-            "Si",
-            "O"
-         ],
-         "formulaWeb":"<span>Al<sub>2</sub>(SiO<sub>4</sub>)O</span>",
-         "mainGroup":[
-            "Silicates"
-         ],
-         "subGroup":[
-            "Nesosilicates",
-            "Germanates"
-         ],
-         "system":"Orthorhombic",
-         "color":[
-            "Yellow",
-            "Green",
-            "Brown",
-            "Violet",
-            "Red",
-            "White",
-            "Gray"
-         ],
-         "hardness":"6½ - 7½",
-         "mindatLink":"https://www.mindat.org/min-217.html",
-         "specificGravity":"3.13 - 3.21",
-         "lustre":"Vitreous, Sub-Vitreous, Greasy"
-      },
-      {
          "name":"Andersonite",
          "formula":[
             "Na",
@@ -1409,38 +1038,6 @@
          "mindatLink":"https://www.mindat.org/min-219.html",
          "specificGravity":"2.8",
          "lustre":"Vitreous"
-      },
-      {
-         "name":"Andradite",
-         "formula":[
-            "Ca",
-            "Fe",
-            "Si",
-            "O"
-         ],
-         "formulaWeb":"<span>Ca<sub>3</sub>Fe<sup>3+</sup><sub>2</sub>(SiO<sub>4</sub>)<sub>3</sub></span>",
-         "mainGroup":[
-            "Silicates"
-         ],
-         "subGroup":[
-            "Nesosilicates",
-            "Germanates"
-         ],
-         "system":"Isometric",
-         "color":[
-            "Yellow",
-            "Green",
-            "Brown",
-            "Black",
-            "Red",
-            "Brownish",
-            "Greenish",
-            "Gray"
-         ],
-         "hardness":"6½ - 7",
-         "mindatLink":"https://www.mindat.org/min-223.html",
-         "specificGravity":"3.8 - 3.9",
-         "lustre":"Adamantine, Resinous, Dull"
       },
       {
          "name":"Anduoite",
@@ -2113,38 +1710,6 @@
          "mindatLink":"https://www.mindat.org/min-304.html",
          "specificGravity":"3.655",
          "lustre":"Sub-Vitreous, Resinous, Waxy, Greasy, Dull"
-      },
-      {
-         "name":"Arsenopyrite",
-         "formula":[
-            "Fe",
-            "As",
-            "S"
-         ],
-         "formulaWeb":"<span>FeAsS</span>",
-         "mainGroup":[
-            "Sulfides",
-            "Sulfosalts"
-         ],
-         "subGroup":[
-            "Selenides",
-            "Tellurides",
-            "Arsenides",
-            "Antimonides",
-            "Bismuthides",
-            "Sulfarsenites",
-            "Sulfantimonites"
-         ],
-         "system":"Monoclinic",
-         "color":[
-            "Yellow",
-            "White",
-            "Gray"
-         ],
-         "hardness":"5½ - 6",
-         "mindatLink":"https://www.mindat.org/min-305.html",
-         "specificGravity":"6.07",
-         "lustre":"Metallic, Sub-Metallic"
       },
       {
          "name":"Aragonite",

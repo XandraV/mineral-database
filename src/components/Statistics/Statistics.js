@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -12,9 +11,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import { dataSunburst, groupInfoText } from "./sunburstData";
+import { dataSunburst } from "./sunburstData";
 import { Hint, Sunburst } from "react-vis";
 import SearchBar from "material-ui-search-bar";
 import { handleSearch, getAllMinerals, demoAsyncCall } from "../../helpers";
@@ -26,16 +24,13 @@ import {
 } from "./dashboardData";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Avatar from "@material-ui/core/Avatar";
 import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
 import { Menu } from "../../MenuComponents";
-//import SunburtsBreadcrumb from "./SunburtsBreadcrumb";
+import ControlledExpansionPanel from "./ControlledExpansionPanel";
+import SunburstBreadcrumbs from "./SunburstBreadcrumbs";
+import SunburstAvatar from "./SunburstAvatar";
 import "./../../App.css";
 class StatsPage extends Component {
   constructor(props) {
@@ -203,51 +198,6 @@ class StatsPage extends Component {
     });
   }
 
-  renderBreadcrumbs() {
-    const chipCellStyle = {
-      backgroundColor: this.state.hoveredCell.color,
-      color: "white",
-      fontWeight: "bold"
-    };
-    const chipParentCellStyle = {
-      backgroundColor: this.state.hoveredParent.color,
-      color: "white",
-      fontWeight: "bold"
-    };
-    return (
-      <div>
-        <Paper elevation={0}>
-          {this.state.hoveredCell.category === "Group" ? (
-            <Chip label={this.state.hoveredCell.title} style={chipCellStyle} />
-          ) : (
-            <Breadcrumbs
-              separator="›"
-              aria-label="Breadcrumb"
-              style={{ fontSize: 15, color: "black" }}
-            >
-              <Chip
-                label={this.state.hoveredParent.title}
-                style={chipParentCellStyle}
-              />
-              <Chip
-                label={this.state.hoveredCell.title}
-                style={chipCellStyle}
-              />
-            </Breadcrumbs>
-          )}
-        </Paper>
-        <Divider
-          variant="middle"
-        />
-        <div className="group-info-sunburst">
-          <Typography>
-            {groupInfoText}
-          </Typography>
-        </div>
-      </div>
-    );
-  }
-
   render() {
     const searchBar = {
       marginTop: 5,
@@ -273,13 +223,10 @@ class StatsPage extends Component {
                 backgroundSize: "cover"
               }}
             >
-              <Container
-                maxWidth="lg"
-                className="stats-page-container"
-              >
+              <Container maxWidth="lg" className="stats-page-container">
                 <Grid container spacing={2}>
                   <Grid item>
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={750}
                       value={
                         <div>
@@ -290,7 +237,7 @@ class StatsPage extends Component {
                         "Number of minerals containing a specific element - Bubble Chart"
                       }
                     />
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={750}
                       value={
                         <div>
@@ -299,7 +246,7 @@ class StatsPage extends Component {
                       }
                       title={"Occurence of element pairs in minerals - HeatMap"}
                     />
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={750}
                       value={
                         <div>
@@ -328,12 +275,10 @@ class StatsPage extends Component {
                                   right: 50
                                 }}
                               >
-                                <div className="sunburstMiddleText">
+                                <div className="sunburst-image-wrapper">
                                   {this.state.hoveredCell ? (
-                                    <Avatar
-                                      alt="Something"
-                                      src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${this.state.hoveredCell.title.toString().toLowerCase()}.svg`}
-                                      style={{ width: 200, height: 200 }}
+                                    <SunburstAvatar
+                                      hoveredCell={this.state.hoveredCell}
                                     />
                                   ) : null}
                                 </div>
@@ -344,8 +289,8 @@ class StatsPage extends Component {
                                       y: this.state.hoveredCell.y
                                     }}
                                   >
-                                    <div className="hintTextContainer1">
-                                      <div className="hintTextContainer2" />
+                                    <div className="sunburst-hint-container-outter">
+                                      <div className="sunburst-hint-container-inner" />
                                       {this.state.hoveredCell.title}
                                     </div>
                                   </Hint>
@@ -355,9 +300,12 @@ class StatsPage extends Component {
                             <Grid item>
                               <div>
                                 <div className="breadcrumbs">Current group</div>
-                                {this.state.hoveredCell
-                                  ? this.renderBreadcrumbs()
-                                  : null}
+                                {this.state.hoveredCell ? (
+                                  <SunburstBreadcrumbs
+                                    hoveredCell={this.state.hoveredCell}
+                                    hoveredParent={this.state.hoveredParent}
+                                  />
+                                ) : null}
                               </div>
                             </Grid>
                           </Grid>
@@ -368,18 +316,11 @@ class StatsPage extends Component {
                   </Grid>
                   <Grid item>
                     <Paper className="barchart-container">
-                      <Typography
-                        className="barchart-title"
-                        noWrap
-                      >
+                      <Typography className="barchart-title" noWrap>
                         Number of distinct elements in minerals
                       </Typography>
-                      {/* Number of elements minerals contain on average */}
                       <BarChart point={this.state.choosenMineral} />
-                      <Typography
-                        className="barchart-legend"
-                        noWrap
-                      >
+                      <Typography className="barchart-legend" noWrap>
                         {this.state.choosenMineral != null
                           ? `${this.state.choosenMineral.name} contains ${this.state.choosenMineral.formula.length} distinct elements`
                           : "# of elements"}
@@ -424,11 +365,11 @@ class StatsPage extends Component {
                         </List>
                       )}
                     </Paper>
-                    <ControlledExpansionPanels
+                    <ControlledExpansionPanel
                       width={340}
                       value={
                         <div>
-                          <div style={{ height: 230, overflow: "auto" }}>
+                          <div style={{ height: 230, overflow: "auto", overflowX:"hidden"}}>
                             <div className="filter-field">
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText className="filter-properties">
@@ -458,7 +399,7 @@ class StatsPage extends Component {
                                     style={{
                                       margin: 7,
                                       color: "white",
-                                      backgroundColor: selectedColorElement
+                                      backgroundColor: "lightpink"
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteColor(
@@ -498,7 +439,8 @@ class StatsPage extends Component {
                                     label={selectedGroupElement}
                                     style={{
                                       margin: 7,
-                                      color: "black"
+                                      color: "white",
+                                      backgroundColor: "lightBlue"
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteGroup(
@@ -538,7 +480,8 @@ class StatsPage extends Component {
                                     label={selectedSubGroupElement}
                                     style={{
                                       margin: 7,
-                                      color: "black"
+                                      color: "white",
+                                      backgroundColor: "lightBlue"
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteSubGroup(
@@ -578,7 +521,8 @@ class StatsPage extends Component {
                                     label={selectedSystemElement}
                                     style={{
                                       margin: 7,
-                                      color: "black"
+                                      color: "white",
+                                      backgroundColor: "lightBlue"
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteSystem(
@@ -595,7 +539,6 @@ class StatsPage extends Component {
                             <Button
                               className="apply-reset"
                               variant="contained"
-                              className="button-create"
                               onClick={() => this.updateMineralsList()}
                             >
                               Apply
@@ -603,7 +546,6 @@ class StatsPage extends Component {
                             <Button
                               className="apply-reset"
                               variant="contained"
-                              className="button-create"
                               onClick={() =>
                                 this.setState({
                                   results: getAllMinerals(),
@@ -632,33 +574,6 @@ class StatsPage extends Component {
       </div>
     );
   }
-}
-
-function ControlledExpansionPanels(props) {
-  const [expanded, setExpanded] = React.useState(false);
-  const handleChange = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-  return (
-    <div>
-      <ExpansionPanel
-        style={{ width: props.width, borderRadius: 15, margin: 5 }}
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography>{props.title}</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails style={{ padding: 10 }}>
-          {props.value}
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
-  );
 }
 
 export default StatsPage;
