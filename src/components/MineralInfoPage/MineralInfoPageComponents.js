@@ -3,13 +3,13 @@ import { Layer, Text, Circle, Line, Rect, Group } from "react-konva";
 
 const darkColor = "#009faf";
 const lightColor = "#80deea";
+const data = require("./mineralGroups.json");
 export function getGroupData(choosenCreatedMineral, mineralGroup) {
   if (mineralGroup != null) {
     if (mineralGroup === "Elements") {
       return choosenCreatedMineral.formula[0];
     } else {
       console.log(mineralGroup);
-      const data = require("./mineralGroups.json");
       return data.groups.elements[mineralGroup];
     }
   }
@@ -411,9 +411,9 @@ export function ComponentsInfo(props) {
           fontStyle={{ color: "grey" }}
           text={`Members of the ${
             props.choosenCreatedMineral.mainGroup[0]
-          } consist ${getGroupData(
-            props.choosenCreatedMineral.mainGroup[0]
-          )} elements.`}
+          } consist ${data.groups.elements[props.choosenCreatedMineral.mainGroup[0]].length
+            
+          } elements.`}
           wrap="word"
           x={125 + window.innerWidth / 2 - 480}
           y={50}

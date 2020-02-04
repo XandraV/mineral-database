@@ -198,6 +198,17 @@ class StatsPage extends Component {
     });
   }
 
+  resetFilters(){
+    this.setState({
+      results: getAllMinerals(),
+      choosenMineral: null,
+      selectedColor: [],
+      selectedGroup: [],
+      selectedSubGroup: [],
+      selectedSystem: []
+    })
+  }
+
   render() {
     const searchBar = {
       marginTop: 5,
@@ -354,10 +365,6 @@ class StatsPage extends Component {
                                 >
                                   <ListItemText
                                     primary={rock.name}
-                                    style={{
-                                      fontSize: 11,
-                                      fontFamily: "Roboto"
-                                    }}
                                   />
                                 </ListItem>
                               ))
@@ -377,7 +384,7 @@ class StatsPage extends Component {
                                 </FormHelperText>
                                 <Select
                                   multiple
-                                  value={["lol", "bla"]}
+                                  value={["", ""]}
                                   className="properties-select"
                                 >
                                   {mineralColors.map(color => (
@@ -547,15 +554,7 @@ class StatsPage extends Component {
                               className="apply-reset"
                               variant="contained"
                               onClick={() =>
-                                this.setState({
-                                  results: getAllMinerals(),
-                                  choosenMineral: null,
-                                  loading: true,
-                                  selectedColor: [],
-                                  selectedGroup: [],
-                                  selectedSubGroup: [],
-                                  selectedSystem: []
-                                })
+                                this.resetFilters()
                               }
                             >
                               Reset
