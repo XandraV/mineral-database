@@ -9,7 +9,6 @@ export function getGroupData(chosenCreatedMineral, mineralGroup) {
     if (mineralGroup === "Elements") {
       return chosenCreatedMineral.formula[0];
     } else {
-      console.log(mineralGroup);
       return data.groups.elements[mineralGroup];
     }
   }

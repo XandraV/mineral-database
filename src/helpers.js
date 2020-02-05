@@ -11,6 +11,12 @@ export function demoAsyncCall() {
   return new Promise(resolve => setTimeout(() => resolve(), 2500));
 }
 
+export function jsonToArray(jsonData) {
+  const result = [];
+  for (let i in jsonData) result.push(jsonData[i]);
+  return result;
+}
+
 export function handleSearchMineralsList(input) {
   const data = require("./data.json");
   const resultList = [];
@@ -24,12 +30,11 @@ export function handleSearchMineralsList(input) {
 
 export function searchMineralsByElements(arrayOfElements) {
   const resultList = [];
+  const allMinerals = jsonToArray(require("./data.json"));
   if (arrayOfElements.length > 0) {
-    const data = require("./data.json");
-    const elements = arrayOfElements;
-    for (let i = 0; i < Object.keys(data.minerals).length; i++) {
-      if (elements.every(elem => data.minerals[i].formula.includes(elem))) {
-        resultList.push(data.minerals[i]);
+    for (let mineralObj of allMinerals[0]) {
+      if (arrayOfElements.every(elem => mineralObj.formula.includes(elem))) {
+        resultList.push(mineralObj);
       }
     }
   }
