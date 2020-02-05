@@ -1,7 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { Menu } from "../../MenuComponents";
+import { Menu } from "../../Menu";
 import "./../../App.css";
 import { mapData } from "./mapData";
 

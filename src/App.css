@@ -61,23 +61,21 @@
 
 .button-container {
   padding: 20px;
-
 }
 
 div.load-more-btn-container {
   padding: 20px;
   text-align: center;
-  
 }
 
-button.button-create{
+button.button-create {
   background: #009faf;
   border-radius: 25px;
   border: 0px;
   color: white;
   height: 48px;
   padding: 0 20px;
-  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
   transition: all 0.3s ease 0s;
   font-weight: bold;
 }
@@ -85,10 +83,10 @@ button.button-create{
 button.button-create:hover {
   transform: translateY(-7px);
   background: #009faf;
-  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
 }
 
-button.bin{
+button.bin {
   position: "absolute";
   transition: all 0.3s ease 0s;
 }
@@ -156,7 +154,7 @@ div.toolbar {
   position: relative;
 }
 
-div.info-page{
+div.info-page {
   padding-left: 0px;
 }
 
@@ -170,12 +168,25 @@ div.info-page{
   flex-grow: 1;
   height: 100vh;
 }
-.container {
+div.formula-html{
+  color: white;
+  font-size: 15px;
+  padding-right: 20px;
+}
+
+a.min-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.home-container {
   padding-top: 70px;
+  padding-left: 20px;
 }
 div.main-min-results {
   text-align: "center";
-  border-bottom-left-radius : 15px;
+  border-bottom-left-radius: 15px;
   border-top-right-radius: 15px;
   display: flex;
   padding-top: 6px;
@@ -281,6 +292,7 @@ div.main-min-results {
   background-position: center;
   background-position-y: 10px;
   background-repeat: no-repeat;
+  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/bluish-green.svg");
 }
 
 .navmenu {
@@ -436,49 +448,49 @@ button.load-more {
   color: white;
   height: 48px;
   padding: 0 20px;
-  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
   transition: all 0.3s ease 0s;
   font-weight: bold;
 }
 
 button.load-more:hover {
-  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
   background: #009faf;
   transform: translateY(-7px);
 }
 
-div.result-item-wrapper{
+div.result-item-wrapper {
   height: 140px;
   width: 300px;
   border-radius: 15px;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-div.search-results-container{
+div.search-results-container {
   height: 350px;
   flex-grow: 1;
   overflow: auto;
 }
 
-div.grid-conatiner{
+div.grid-conatiner {
   text-align: center;
 }
 
-span.MuiListItemText-primary{
+span.MuiListItemText-primary {
   font-size: 1rem;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-i.back-btn{
+i.back-btn {
   color: white;
   font-size: 30px;
   vertical-align: middle;
 }
 
-main.search-page-wrapper{
+main.search-page-wrapper {
   padding-top: 100px;
   justify-items: center;
   align-items: center;

@@ -22,6 +22,20 @@ export function handleSearchMineralsList(input) {
   return resultList;
 }
 
+export function searchMineralsByElements(arrayOfElements) {
+  const resultList = [];
+  if (arrayOfElements.length > 0) {
+    const data = require("./data.json");
+    const elements = arrayOfElements;
+    for (let i = 0; i < Object.keys(data.minerals).length; i++) {
+      if (elements.every(elem => data.minerals[i].formula.includes(elem))) {
+        resultList.push(data.minerals[i]);
+      }
+    }
+  }
+  return resultList;
+}
+
 export function getColorInTable(symbol) {
   switch (symbol) {
     case "H":

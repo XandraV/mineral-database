@@ -3,10 +3,8 @@ import { NavLink } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
-import { mainListItems } from "../../MenuComponents";
+import { SideBar } from "../../Menu";
 import { Stage, Layer } from "react-konva";
 import Container from "@material-ui/core/Container";
 import {
@@ -31,9 +29,9 @@ class MineralInfoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      choosenCreatedMineral:
+      chosenCreatedMineral:
         this.props.value ||
-        JSON.parse(localStorage.getItem("choosenCreatedMineral")),
+        JSON.parse(localStorage.getItem("chosenCreatedMineral")),
       mineralImage: null,
       mineralGroupImage: null,
       mineralSystemImage: null,
@@ -49,7 +47,7 @@ class MineralInfoPage extends Component {
     this.checkSize();
     window.addEventListener("resize", this.checkSize);
 
-    this.getImagesForInfoPage(this.state.choosenCreatedMineral);
+    this.getImagesForInfoPage(this.state.chosenCreatedMineral);
     window.addEventListener("getimage", this.getImagesForInfoPage);
   }
 
@@ -67,14 +65,14 @@ class MineralInfoPage extends Component {
     }
   };
 
-  getImagesForInfoPage(choosenMineral) {
-    if (choosenMineral != null) {
+  getImagesForInfoPage(chosenMineral) {
+    if (chosenMineral != null) {
       const imageMineral = new window.Image();
       const imageGroup = new window.Image();
       const imageSystem = new window.Image();
-      const color = this.state.choosenCreatedMineral.color[0].toLowerCase();
-      const group = this.state.choosenCreatedMineral.mainGroup[0].toLowerCase();
-      const system = this.state.choosenCreatedMineral.system.toLowerCase();
+      const color = this.state.chosenCreatedMineral.color[0].toLowerCase();
+      const group = this.state.chosenCreatedMineral.mainGroup[0].toLowerCase();
+      const system = this.state.chosenCreatedMineral.system.toLowerCase();
       imageMineral.onload = () => {
         this.setState({
           mineralImage: imageMineral
@@ -118,27 +116,25 @@ class MineralInfoPage extends Component {
               noWrap
               className="menu-header-text"
             >
-              {this.state.choosenCreatedMineral === null
+              {this.state.chosenCreatedMineral === null
                 ? "Crystallizer"
-                : this.state.choosenCreatedMineral.name}
+                : this.state.chosenCreatedMineral.name}
             </Typography>
             <div className="formula">Formula: </div>
             <div
-              style={{ color: "white", fontSize: 15, paddingRight: 20 }}
+              className="formula-html"
               dangerouslySetInnerHTML={{
                 __html: `${
-                  this.state.choosenCreatedMineral === null
-                    ? localStorage.getItem("choosenCreatedMineral")
-                    : this.state.choosenCreatedMineral.formulaWeb
+                  this.state.chosenCreatedMineral === null
+                    ? localStorage.getItem("chosenCreatedMineral")
+                    : this.state.chosenCreatedMineral.formulaWeb
                 }`
               }}
             />
-            <CrystallizerIcon/>
+            <CrystallizerIcon />
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" className="drawerPaper">
-          <List style={{ marginTop: "61px" }}>{mainListItems}</List>
-        </Drawer>
+        <SideBar />
         <main className="content">
           <Container
             maxWidth="lg"
@@ -177,13 +173,13 @@ class MineralInfoPage extends Component {
                     }
                   >
                     <Components
-                      choosenCreatedMineral={this.state.choosenCreatedMineral}
-                      mainGroup={this.state.choosenCreatedMineral.mainGroup}
+                      chosenCreatedMineral={this.state.chosenCreatedMineral}
+                      mainGroup={this.state.chosenCreatedMineral.mainGroup}
                     />
                   </Layer>
                   {this.state.hoveredComponents ? (
                     <ComponentsInfo
-                      choosenCreatedMineral={this.state.choosenCreatedMineral}
+                      chosenCreatedMineral={this.state.chosenCreatedMineral}
                     />
                   ) : null}
                   <Layer
@@ -200,13 +196,13 @@ class MineralInfoPage extends Component {
                   >
                     <SpecificGravityCircle
                       specificGravity={
-                        this.state.choosenCreatedMineral.specificGravity
+                        this.state.chosenCreatedMineral.specificGravity
                       }
                     />
                   </Layer>
                   {this.state.hoveredGravity ? <SpecificGravityInfo /> : null}
                   <SmallSystemCircle
-                    system={this.state.choosenCreatedMineral.system}
+                    system={this.state.chosenCreatedMineral.system}
                   />
                   <Layer
                     onTap={() =>
@@ -222,7 +218,7 @@ class MineralInfoPage extends Component {
                   >
                     <SystemCircle
                       mineralSystemImage={this.state.mineralSystemImage}
-                      choosenCreatedMineral={this.state.choosenCreatedMineral}
+                      chosenCreatedMineral={this.state.chosenCreatedMineral}
                     />
                   </Layer>
                   {this.state.hoveredSystem ? (
@@ -241,7 +237,7 @@ class MineralInfoPage extends Component {
                     }
                   >
                     <SubGroup
-                      subGroup={this.state.choosenCreatedMineral.subGroup}
+                      subGroup={this.state.chosenCreatedMineral.subGroup}
                     />
                   </Layer>
                   {this.state.hoveredSubGroup ? <SubGroupInfo /> : null}
@@ -260,13 +256,13 @@ class MineralInfoPage extends Component {
                   >
                     <GroupCircle
                       mineralGroupImage={this.state.mineralGroupImage}
-                      choosenCreatedMineral={this.state.choosenCreatedMineral}
+                      chosenCreatedMineral={this.state.chosenCreatedMineral}
                     />
                   </Layer>
                   <Hardness
-                    hardness={this.state.choosenCreatedMineral.hardness}
+                    hardness={this.state.chosenCreatedMineral.hardness}
                   />
-                  <Color color={this.state.choosenCreatedMineral.color} />
+                  <Color color={this.state.chosenCreatedMineral.color} />
                   <MineralImage mineralImage={this.state.mineralImage} />
                 </Stage>
               </div>

@@ -14,7 +14,7 @@ import {
 function BarChart(props) {
   const [value, setValue] = useState(false);
   const BarSeries = VerticalBarSeries;
-  /*conditional gradient depending on whether we have a mineral choosen or not */
+  /*conditional gradient depending on whether we have a mineral chosen or not */
   const gradient =
     props.point == null ? (
       <GradientDefs>

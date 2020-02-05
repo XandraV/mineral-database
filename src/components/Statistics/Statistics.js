@@ -27,7 +27,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import LabeledHeatmap from "./Heatmap";
 import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
-import { Menu } from "../../MenuComponents";
+import { Menu } from "../../Menu";
 import ControlledExpansionPanel from "./ControlledExpansionPanel";
 import SunburstBreadcrumbs from "./SunburstBreadcrumbs";
 import SunburstAvatar from "./SunburstAvatar";
@@ -37,7 +37,7 @@ class Statistics extends Component {
     super(props);
     this.state = {
       results: getAllMinerals(),
-      choosenMineral: null,
+      chosenMineral: null,
       isloading: true,
       selectedColor: [],
       selectedGroup: [],
@@ -55,7 +55,7 @@ class Statistics extends Component {
 
   handleListItemClick(rock) {
     this.setState({
-      choosenMineral: this.state.choosenMineral === rock ? null : rock
+      chosenMineral: this.state.chosenMineral === rock ? null : rock
     });
   }
 
@@ -99,7 +99,7 @@ class Statistics extends Component {
 
     this.setState({
       results: newMineralsArray4,
-      choosenMineral: null
+      chosenMineral: null
     });
   }
 
@@ -201,7 +201,7 @@ class Statistics extends Component {
   resetFilters(){
     this.setState({
       results: getAllMinerals(),
-      choosenMineral: null,
+      chosenMineral: null,
       selectedColor: [],
       selectedGroup: [],
       selectedSubGroup: [],
@@ -252,7 +252,7 @@ class Statistics extends Component {
                       width={750}
                       value={
                         <div>
-                          <LabeledHeatmap mineral={this.state.choosenMineral} />
+                          <LabeledHeatmap mineral={this.state.chosenMineral} />
                         </div>
                       }
                       title={"Occurence of element pairs in minerals - HeatMap"}
@@ -330,10 +330,10 @@ class Statistics extends Component {
                       <Typography className="barchart-title" noWrap>
                         Number of distinct elements in minerals
                       </Typography>
-                      <BarChart point={this.state.choosenMineral} />
+                      <BarChart point={this.state.chosenMineral} />
                       <Typography className="barchart-legend" noWrap>
-                        {this.state.choosenMineral != null
-                          ? `${this.state.choosenMineral.name} contains ${this.state.choosenMineral.formula.length} distinct elements`
+                        {this.state.chosenMineral != null
+                          ? `${this.state.chosenMineral.name} contains ${this.state.chosenMineral.formula.length} distinct elements`
                           : "# of elements"}
                       </Typography>
                     </Paper>
@@ -356,7 +356,7 @@ class Statistics extends Component {
                                 <ListItem
                                   style={{
                                     backgroundColor:
-                                      rock === this.state.choosenMineral
+                                      rock === this.state.chosenMineral
                                         ? "lightGrey"
                                         : "white"
                                   }}

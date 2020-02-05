@@ -4,10 +4,10 @@ import { Layer, Text, Circle, Line, Rect, Group } from "react-konva";
 const darkColor = "#009faf";
 const lightColor = "#80deea";
 const data = require("./mineralGroups.json");
-export function getGroupData(choosenCreatedMineral, mineralGroup) {
+export function getGroupData(chosenCreatedMineral, mineralGroup) {
   if (mineralGroup != null) {
     if (mineralGroup === "Elements") {
-      return choosenCreatedMineral.formula[0];
+      return chosenCreatedMineral.formula[0];
     } else {
       console.log(mineralGroup);
       return data.groups.elements[mineralGroup];
@@ -256,7 +256,7 @@ export function SpecificGravityCircle(props) {
 
 export function Components(props) {
   const componentsList = getGroupData(
-    props.choosenCreatedMineral,
+    props.chosenCreatedMineral,
     props.mainGroup[0]
   );
   if (componentsList.length > 1) {
@@ -285,7 +285,7 @@ export function Components(props) {
         <Text
           fontSize={18}
           text={
-            getGroupData(props.choosenCreatedMineral, props.mainGroup[0])[0]
+            getGroupData(props.chosenCreatedMineral, props.mainGroup[0])[0]
           }
           wrap="char"
           x={125 - 60 + window.innerWidth / 2 - 265}
@@ -299,7 +299,7 @@ export function Components(props) {
         <Text
           fontSize={18}
           text={
-            getGroupData(props.choosenCreatedMineral, props.mainGroup[0])[1]
+            getGroupData(props.chosenCreatedMineral, props.mainGroup[0])[1]
           }
           wrap="char"
           x={125 - 60 + window.innerWidth / 2 - 215}
@@ -340,7 +340,7 @@ export function Components(props) {
         <Text
           fontSize={18}
           text={
-            getGroupData(props.choosenCreatedMineral, props.mainGroup[0])[0]
+            getGroupData(props.chosenCreatedMineral, props.mainGroup[0])[0]
           }
           wrap="char"
           x={125 - 60 + window.innerWidth / 2 - 240}
@@ -410,8 +410,8 @@ export function ComponentsInfo(props) {
           fontSize={15}
           fontStyle={{ color: "grey" }}
           text={`Members of the ${
-            props.choosenCreatedMineral.mainGroup[0]
-          } consist ${data.groups.elements[props.choosenCreatedMineral.mainGroup[0]].length
+            props.chosenCreatedMineral.mainGroup[0]
+          } consist ${data.groups.elements[props.chosenCreatedMineral.mainGroup[0]].length
             
           } elements.`}
           wrap="word"
@@ -470,7 +470,7 @@ export function GroupCircle(props) {
       />
       <Text
         fontSize={18}
-        text={props.choosenCreatedMineral.mainGroup[0] + "\ngroup"}
+        text={props.chosenCreatedMineral.mainGroup[0] + "\ngroup"}
         wrap="char"
         x={70 - 65 + window.innerWidth / 2 - 225}
         y={210 - 65}

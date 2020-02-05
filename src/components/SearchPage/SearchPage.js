@@ -16,11 +16,11 @@ import {
   getAllMinerals,
   handleSearchMineralsList
 } from "../../helpers";
-import { Menu } from "../../MenuComponents";
+import { Menu } from "../../Menu";
 import "./../../App.css";
 
 function SearchPage() {
-  const [choosenMineral, setChoosenMineral] = useState(null);
+  const [chosenMineral, setChosenMineral] = useState(null);
   const [value, setValue] = useState("");
   const [results, setResults] = useState(getAllMinerals());
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ function SearchPage() {
             {results.slice(0, limit).map(rock => (
               <Grid item>
                 <Card className="result-item-wrapper">
-                  <CardActionArea onClick={() => setChoosenMineral(rock)}>
+                  <CardActionArea onClick={() => setChosenMineral(rock)}>
                     <MineralListItem mineralItem={rock} />
                   </CardActionArea>
                 </Card>
@@ -111,8 +111,8 @@ function SearchPage() {
     );
   }
 
-  return choosenMineral != null ? (
-    <MineralInfoPage value={choosenMineral} />
+  return chosenMineral != null ? (
+    <MineralInfoPage value={chosenMineral} />
   ) : (
     renderSearchPage()
   );

@@ -16,7 +16,7 @@ describe(`Info page canvas element `, () => {
     const groupCircle = renderer.create(
       <GroupCircle
         mineralGroupImage={testImage}
-        choosenCreatedMineral={testMineral}
+        chosenCreatedMineral={testMineral}
       />
     );
     expect(groupCircle.toJSON()).toMatchSnapshot();
