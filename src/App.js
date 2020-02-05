@@ -32,12 +32,9 @@ class App extends Component {
     this.handleElementClick = this.handleElementClick.bind(this);
   }
 
-  handleElementClick(el) {
-    const elementSymbols = this.state.elementSymbols;
-    const clickedElements = this.state.clickedElements.slice();
-    clickedElements[elementSymbols.indexOf(el)] = !clickedElements[
-      elementSymbols.indexOf(el)
-    ];
+  handleElementClick(elementNum) {
+    const clickedElements = this.state.clickedElements;
+    clickedElements[elementNum] = !clickedElements[elementNum];
     this.setState({
       clickedElements: clickedElements
     });
@@ -58,7 +55,7 @@ class App extends Component {
         <Element
           className="selected-element"
           value={element}
-          onClick={() => this.handleElementClick(element.symbol)}
+          onClick={() => this.handleElementClick(elementNum)}
         />
       );
     } else {
@@ -66,7 +63,7 @@ class App extends Component {
         <Element
           className="not-selected-element"
           value={element}
-          onClick={() => this.handleElementClick(element.symbol)}
+          onClick={() => this.handleElementClick(elementNum)}
         />
       );
     }
@@ -90,21 +87,19 @@ class App extends Component {
     this.setState({
       mineralResults: null
     });
-    const nameList = this.state.elementSymbols;
-    const clickedElementsList = this.state.clickedElements;
-    if (clickedElementsList.every(el => el === false)) {
+    if (this.state.clickedElements.every(el => el === false)) {
       return;
     } else {
-      const choosenElements = nameList
-        .map(elementName => {
-          if (clickedElementsList[nameList.indexOf(elementName)]) {
-            return elementName;
-          }
-        })
-        .filter(Boolean);
-      const result = searchMineralsByElements(choosenElements);
+      const indices = this.state.clickedElements.reduce(
+        (out, bool, index) => (bool ? out.concat(index) : out),
+        []
+      );
+      const chosenElements = indices.map(index => {
+        return this.state.elementSymbols[index];
+      });
+      const searchResults = searchMineralsByElements(chosenElements);
       this.setState({
-        mineralResults: result
+        mineralResults: searchResults
       });
     }
   }
