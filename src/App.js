@@ -10,11 +10,11 @@ import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
 import { Menu } from "./MenuComponents";
 import { elements } from "./periodic-table";
-import StatsPage from "./components/Statistics/Statistics";
+import Statistics from "./components/Statistics/Statistics";
 import SearchPage from "./components/SearchPage/SearchPage";
 import MineralInfoPage from "./components/MineralInfoPage/MineralInfoPage";
 import Map from "./components/Map/Map";
-import { getColor } from "./helpers";
+import { getColorInTable } from "./helpers";
 import "./App.css";
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
       elementSymbols: elements.slice().map(el => {
         return el.symbol;
       }),
-      clickedElements: Array(118).fill(false),
+      clickedElements: Array(120).fill(false),
       mineralResults: null,
       choosenCreatedMineral:
         JSON.parse(localStorage.getItem("choosenCreatedMineral")) || null
@@ -45,16 +45,15 @@ class App extends Component {
 
   deleteElements() {
     this.setState({
-      clickedElements: Array(118).fill(false),
+      clickedElements: Array(120).fill(false),
       mineralResults: null
     });
   }
 
   renderElement(elementNum) {
     let element = elements[elementNum];
-    const elementSymbols = this.state.elementSymbols;
-    const clickedElements = this.state.clickedElements.slice();
-    if (clickedElements[elementSymbols.indexOf(elements[elementNum].symbol)]) {
+    const clickedElements = this.state.clickedElements;
+    if (clickedElements[elementNum]) {
       return (
         <Element
           className="selected-element"
@@ -103,7 +102,7 @@ class App extends Component {
           }
         })
         .filter(Boolean);
-      const result = search(choosenElements);
+      const result = searchMineralsByElements(choosenElements);
       this.setState({
         mineralResults: result
       });
@@ -242,7 +241,7 @@ class App extends Component {
               path={"/statistics"}
               render={renderProps => (
                 <div>
-                  <StatsPage {...this.props} {...renderProps} />
+                  <Statistics {...this.props} {...renderProps} />
                 </div>
               )}
             />
@@ -282,7 +281,7 @@ class App extends Component {
 }
 
 function Element(props) {
-  const thisColor = getColor(props.value.symbol);
+  const thisColor = getColorInTable(props.value.symbol);
   return (
     <div
       style={{
@@ -304,7 +303,7 @@ function Element(props) {
   );
 }
 
-function search(arrayOfElements) {
+function searchMineralsByElements(arrayOfElements) {
   const resultList = [];
   if (arrayOfElements.length > 0) {
     const data = require("./data.json");

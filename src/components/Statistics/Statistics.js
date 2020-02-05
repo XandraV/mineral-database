@@ -15,7 +15,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import { dataSunburst } from "./sunburstData";
 import { Hint, Sunburst } from "react-vis";
 import SearchBar from "material-ui-search-bar";
-import { handleSearch, getAllMinerals, demoAsyncCall } from "../../helpers";
+import { handleSearchMineralsList, getAllMinerals, demoAsyncCall } from "../../helpers";
 import {
   mineralColors,
   mineralSystems,
@@ -32,7 +32,7 @@ import ControlledExpansionPanel from "./ControlledExpansionPanel";
 import SunburstBreadcrumbs from "./SunburstBreadcrumbs";
 import SunburstAvatar from "./SunburstAvatar";
 import "./../../App.css";
-class StatsPage extends Component {
+class Statistics extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -339,7 +339,7 @@ class StatsPage extends Component {
                     </Paper>
                     <SearchBar
                       onChange={value =>
-                        this.setState({ results: handleSearch(value) })
+                        this.setState({ results: handleSearchMineralsList(value) })
                       }
                       style={searchBar}
                     />
@@ -575,4 +575,4 @@ class StatsPage extends Component {
   }
 }
 
-export default StatsPage;
+export default Statistics;

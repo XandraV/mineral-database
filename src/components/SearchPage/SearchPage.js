@@ -8,7 +8,11 @@ import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage from "../MineralInfoPage/MineralInfoPage";
-import { demoAsyncCall, getAllMinerals, handleSearch } from "../../helpers";
+import {
+  demoAsyncCall,
+  getAllMinerals,
+  handleSearchMineralsList
+} from "../../helpers";
 import { Menu } from "../../MenuComponents";
 import SearchResultItem from "./SearchResultItem";
 import "./../../App.css";
@@ -79,7 +83,7 @@ function SearchPage() {
     };
     const mainElement = {
       height: window.innerHeight,
-      width: document.documentElement.clientWidth,
+      width: document.documentElement.clientWidth
     };
     return (
       <MuiThemeProvider>
@@ -89,7 +93,9 @@ function SearchPage() {
             <SearchBar
               value={value}
               onChange={newValue => setValue(newValue)}
-              onRequestSearch={() => setResults(handleSearch(value))}
+              onRequestSearch={() =>
+                setResults(handleSearchMineralsList(value))
+              }
               style={searchBar}
             />
             <Container

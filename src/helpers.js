@@ -11,7 +11,7 @@ export function demoAsyncCall() {
   return new Promise(resolve => setTimeout(() => resolve(), 2500));
 }
 
-export function handleSearch(input) {
+export function handleSearchMineralsList(input) {
   const data = require("./data.json");
   const resultList = [];
   for (let i = 0; i < Object.keys(data.minerals).length; i++) {
@@ -22,7 +22,7 @@ export function handleSearch(input) {
   return resultList;
 }
 
-export function getColor(symbol) {
+export function getColorInTable(symbol) {
   switch (symbol) {
     case "H":
     case "C":
