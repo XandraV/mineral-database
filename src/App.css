@@ -164,7 +164,8 @@ div.info-page {
   width: 71;
 }
 
-.content {
+.min-info-content {
+  padding-top:70px;
   flex-grow: 1;
   height: 100vh;
 }

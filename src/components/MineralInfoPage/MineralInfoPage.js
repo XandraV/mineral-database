@@ -135,7 +135,7 @@ class MineralInfoPage extends Component {
           </Toolbar>
         </AppBar>
         <SideBar />
-        <main className="content">
+        <main className="min-info-content">
           <Container
             maxWidth="lg"
             className="container"
