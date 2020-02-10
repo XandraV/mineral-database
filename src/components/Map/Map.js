@@ -1,9 +1,17 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
+import Grid from "@material-ui/core/Grid";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import Container from "@material-ui/core/Container";
 import { Menu } from "../../Menu";
 import "./../../App.css";
-import { mapData } from "./mapData";
+import ListItem from "@material-ui/core/ListItem";
+import List from "@material-ui/core/List";
+import Paper from "@material-ui/core/Paper";
+import ListItemText from "@material-ui/core/ListItemText";
+import SearchBar from "material-ui-search-bar";
+import { handleSearchMineralsList, getAllMinerals } from "../../helpers";
+import { mapData, allMinerals } from "./mapData";
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2FuZHJhZXhwbG9yZXMiLCJhIjoiY2pveXYzYmZsMmZzMzN2cGFkaDFzcnc4ZyJ9.jVMo-5f0RWDTv4FDD6WOLQ";
@@ -12,6 +20,8 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      results: allMinerals,
+      chosenMineral: null,
       lng: 10.926,
       lat: 36.695,
       zoom: 1.45
@@ -100,22 +110,88 @@ class Map extends React.Component {
         : (clickedPointcoordinates = [e.lngLat.lng, e.lngLat.lat]);
       flyToPlace(map, clickedPointcoordinates);
     });
+    
 
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
   }
 
+  handleListItemClick(rock) {
+    this.setState({
+      chosenMineral: this.state.chosenMineral === rock ? null : rock
+    });
+  }
+
+  handleMapSearchMineralsList(input) {
+    const data = allMinerals;
+    const resultList = [];
+    for (let mineral of data) {
+      if (mineral.name.toLowerCase().includes(input.toLowerCase())) {
+        resultList.push(mineral);
+      }
+    }
+    return resultList;
+  }
   render() {
+    const searchBar = {
+      marginTop: 5,
+      marginBottom: 5,
+      width: 350,
+      borderRadius: 15
+    };
     return (
       <MuiThemeProvider>
         <Menu title="Map" />
-        <main>
-          <div>
-            <div
-              ref={el => (this.mapContainer = el)}
-              className="mapContainer"
-            />
-          </div>
+        <main
+          className="main-stats"
+          style={{
+            height: "100%",
+            width: "100%",
+            backgroundSize: "cover"
+          }}
+        >
+          <Container maxWidth="lg" className="stats-page-container">
+            <Grid container justify="center" spacing={2}>
+              <Grid item key="0" >
+                <div>
+                  <SearchBar
+                    onChange={value =>
+                      this.setState({
+                        results: this.handleMapSearchMineralsList(value)
+                      })
+                    }
+                    style={searchBar}
+                  />
+                  <Paper className="map-minerals-list">
+                    <List style={{ height: 420, overflow: "auto" }}>
+                      {this.state.results != null
+                        ? this.state.results.map(rock => (
+                            <ListItem
+                              style={{
+                                backgroundColor:
+                                  rock === this.state.chosenMineral
+                                    ? "lightGrey"
+                                    : "white"
+                              }}
+                              button
+                              onClick={() => this.handleListItemClick(rock)}
+                            >
+                              <ListItemText primary={rock.name} />
+                            </ListItem>
+                          ))
+                        : null}
+                    </List>
+                  </Paper>
+                </div>
+              </Grid>
+              <Grid item key="1" >
+                <div
+                  ref={el => (this.mapContainer = el)}
+                  className="mapContainer"
+                />
+              </Grid>
+            </Grid>
+          </Container>
         </main>
       </MuiThemeProvider>
     );

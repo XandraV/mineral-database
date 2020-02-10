@@ -165,11 +165,11 @@ div.info-page {
 }
 
 .min-info-content {
-  padding-top:70px;
+  padding-top: 70px;
   flex-grow: 1;
   height: 100vh;
 }
-div.formula-html{
+div.formula-html {
   color: white;
   font-size: 15px;
   padding-right: 20px;
@@ -302,11 +302,9 @@ div.main-min-results {
 
 .mapContainer {
   position: absolute;
-  left: 10%;
-  right: 1%;
-  width: 84%;
+  width: 63%;
   top: 15%;
-  bottom: 2.5%;
+  bottom: 6%;
   border-radius: 10px;
 }
 
@@ -496,4 +494,14 @@ main.search-page-wrapper {
   justify-items: center;
   align-items: center;
   background-size: cover;
+}
+
+div.map-minerals-list {
+  position: relative;
+  height: 430px;
+  width: 350px;
+  border-radius: 15px;
+  padding: 5px;
+  flex-direction: column;
+  background: "white";
 }
