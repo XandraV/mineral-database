@@ -17,6 +17,7 @@ import {
   handleSearchMineralsList
 } from "../../helpers";
 import { Menu } from "../../Menu";
+import ControlledExpansionPanel from "../Statistics/ControlledExpansionPanel";
 import "./../../App.css";
 
 function SearchPage() {
@@ -25,11 +26,57 @@ function SearchPage() {
   const [results, setResults] = useState(getAllMinerals());
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(8);
+  const [selectedColor, setsSelectedColor] = useState([]);
+  const [selectedGroup, setsSelectedGroup] = useState([]);
+  const [selectedSubGroup, setSelectedSubGroup] = useState([]);
+  const [selectedSystem, setSelectedSystem] = useState([]);
 
   useEffect(() => {
     // this simulates an async action, after which the component will render the content
     demoAsyncCall().then(() => setLoading(false));
   });
+
+  function updateMineralsList() {
+    const originalMineralsArray = getAllMinerals();
+    const filterColors = selectedColor;
+    const filterGroups = selectedGroup;
+    const filterSubGroups = selectedSubGroup;
+    const filterSystems = selectedSystem;
+    if (filterColors.length > 0) {
+      var newMineralsArray = originalMineralsArray.filter(el => {
+        return filterColors.some(elem => el.color.includes(elem));
+      });
+    } else {
+      var newMineralsArray = originalMineralsArray;
+    }
+
+    if (filterGroups.length > 0) {
+      var newMineralsArray2 = newMineralsArray.filter(el => {
+        return filterGroups.some(elem => el.mainGroup.includes(elem));
+      });
+    } else {
+      var newMineralsArray2 = newMineralsArray;
+    }
+
+    if (filterSubGroups.length > 0) {
+      var newMineralsArray3 = newMineralsArray2.filter(el => {
+        return filterSubGroups.some(elem => el.subGroup.includes(elem));
+      });
+    } else {
+      var newMineralsArray3 = newMineralsArray2;
+    }
+
+    if (filterSystems.length > 0) {
+      var newMineralsArray4 = newMineralsArray3.filter(el => {
+        return filterSystems.some(elem => el.system.includes(elem));
+      });
+    } else {
+      var newMineralsArray4 = newMineralsArray3;
+    }
+
+    setResults(newMineralsArray4);
+    setChosenMineral(null);
+  }
 
   function renderSearchResults() {
     if (results) {
@@ -89,6 +136,13 @@ function SearchPage() {
               }
               style={searchBar}
             />
+            <div className="filter-wrapper">
+            <ControlledExpansionPanel
+              width={500}
+              value={<div></div>}
+              title={"Filters"}
+            />
+            </div>
             <Container
               maxWidth="lg"
               style={{ padding: 20, position: "relative" }}

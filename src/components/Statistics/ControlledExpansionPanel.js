@@ -11,9 +11,9 @@ function ControlledExpansionPanel(props) {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <div>
+    <div style={{margin:5}}>
       <ExpansionPanel
-        style={{ width: props.width, borderRadius: 15, margin: 5 }}
+        style={{ width: props.width, borderRadius: 15, margin: "0 auto" }}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >

@@ -220,8 +220,7 @@ div.main-min-results {
   font-weight: bold;
 }
 #panel1bh-header {
-  min-height: 30px;
-  height: 40px;
+  height: 50px;
 }
 
 .sunburst-image-wrapper {
@@ -504,4 +503,16 @@ div.map-minerals-list {
   padding: 5px;
   flex-direction: column;
   background: "white";
+}
+
+div.filter-wrapper{
+  margin-top: 20px;
+}
+
+div.search-page-filter{
+  margin: 0 auto;
+}
+
+.MuiIconButton-edgeEnd{
+  margin-right: 0px;
 }
