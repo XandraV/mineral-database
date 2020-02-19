@@ -4,6 +4,11 @@ import Typography from "@material-ui/core/Typography";
 import SearchBar from "material-ui-search-bar";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -11,13 +16,14 @@ import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MineralInfoPage from "../MineralInfoPage/MineralInfoPage";
 import Avatar from "@material-ui/core/Avatar";
+import InputLabel from "@material-ui/core/InputLabel";
+import { mineralColors } from "../Statistics/dashboardData";
 import {
   demoAsyncCall,
   getAllMinerals,
   handleSearchMineralsList
 } from "../../helpers";
 import { Menu } from "../../Menu";
-import ControlledExpansionPanel from "../Statistics/ControlledExpansionPanel";
 import "./../../App.css";
 
 function SearchPage() {
@@ -26,8 +32,8 @@ function SearchPage() {
   const [results, setResults] = useState(getAllMinerals());
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(8);
-  const [selectedColor, setsSelectedColor] = useState([]);
-  const [selectedGroup, setsSelectedGroup] = useState([]);
+  const [selectedColor, setSelectedColor] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState([]);
   const [selectedSubGroup, setSelectedSubGroup] = useState([]);
   const [selectedSystem, setSelectedSystem] = useState([]);
 
@@ -114,9 +120,10 @@ function SearchPage() {
   }
 
   function renderSearchPage() {
+    console.log(selectedColor);
     const searchBar = {
       margin: "0 auto",
-      width: 800,
+      width: 500,
       borderRadius: 15
     };
     const mainElement = {
@@ -128,21 +135,44 @@ function SearchPage() {
         <div>
           <Menu title="Mineral Search" />
           <main className="search-page-wrapper" style={mainElement}>
-            <SearchBar
-              value={value}
-              onChange={newValue => setValue(newValue)}
-              onRequestSearch={() =>
-                setResults(handleSearchMineralsList(value))
-              }
-              style={searchBar}
-            />
-            <div className="filter-wrapper">
-            <ControlledExpansionPanel
-              width={500}
-              value={<div></div>}
-              title={"Filters"}
-            />
-            </div>
+            <Container maxWidth="lg" className="search-page-container">
+              <Grid container spacing={2}>
+                <Grid item style={{paddingLeft:380}}>
+                  <SearchBar
+                    value={value}
+                    onChange={newValue => setValue(newValue)}
+                    onRequestSearch={() =>
+                      setResults(handleSearchMineralsList(value))
+                    }
+                    style={searchBar}
+                  />
+                </Grid>
+                <Grid item>
+                  <div className="filter-wrapper">
+                    <Paper className="search-minerals-list">
+                      <FormControl style={{ marginBottom: 50 }}>
+                        <InputLabel  >
+                          Color
+                        </InputLabel>
+                        <Select
+                          value={selectedColor[0]}
+                          className="search-properties-select"
+                        >
+                          {mineralColors.map(color => (
+                            <MenuItem key={color} value={color}>
+                              <ListItemText
+                                primary={color}
+                                onClick={() => setSelectedColor([color])}
+                              />
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </Paper>
+                  </div>
+                </Grid>
+              </Grid>
+            </Container>
             <Container
               maxWidth="lg"
               style={{ padding: 20, position: "relative" }}

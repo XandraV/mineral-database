@@ -15,7 +15,11 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import { dataSunburst } from "./sunburstData";
 import { Hint, Sunburst } from "react-vis";
 import SearchBar from "material-ui-search-bar";
-import { handleSearchMineralsList, getAllMinerals, demoAsyncCall } from "../../helpers";
+import {
+  handleSearchMineralsList,
+  getAllMinerals,
+  demoAsyncCall
+} from "../../helpers";
 import {
   mineralColors,
   mineralSystems,
@@ -198,7 +202,7 @@ class Statistics extends Component {
     });
   }
 
-  resetFilters(){
+  resetFilters() {
     this.setState({
       results: getAllMinerals(),
       chosenMineral: null,
@@ -206,7 +210,7 @@ class Statistics extends Component {
       selectedGroup: [],
       selectedSubGroup: [],
       selectedSystem: []
-    })
+    });
   }
 
   render() {
@@ -339,7 +343,9 @@ class Statistics extends Component {
                     </Paper>
                     <SearchBar
                       onChange={value =>
-                        this.setState({ results: handleSearchMineralsList(value) })
+                        this.setState({
+                          results: handleSearchMineralsList(value)
+                        })
                       }
                       style={searchBar}
                     />
@@ -363,9 +369,7 @@ class Statistics extends Component {
                                   button
                                   onClick={() => this.handleListItemClick(rock)}
                                 >
-                                  <ListItemText
-                                    primary={rock.name}
-                                  />
+                                  <ListItemText primary={rock.name} />
                                 </ListItem>
                               ))
                             : null}
@@ -376,7 +380,13 @@ class Statistics extends Component {
                       width={340}
                       value={
                         <div>
-                          <div style={{ height: 230, overflow: "auto", overflowX:"hidden"}}>
+                          <div
+                            style={{
+                              height: 230,
+                              overflow: "auto",
+                              overflowX: "hidden"
+                            }}
+                          >
                             <div className="filter-field">
                               <FormControl style={{ padding: 10 }}>
                                 <FormHelperText className="filter-properties">
@@ -553,9 +563,7 @@ class Statistics extends Component {
                             <Button
                               className="apply-reset"
                               variant="contained"
-                              onClick={() =>
-                                this.resetFilters()
-                              }
+                              onClick={() => this.resetFilters()}
                             >
                               Reset
                             </Button>

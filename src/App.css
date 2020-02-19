@@ -367,6 +367,9 @@ div.stats-page-container {
   padding-bottom: 10px;
   display: grid;
 }
+div.search-page-container {
+  display: grid;
+}
 
 p.barchart-title {
   font-size: 15px;
@@ -430,6 +433,10 @@ p.filter-properties {
 
 div.properties-select {
   height: 3px;
+  width: 80px;
+}
+
+div.search-properties-select {
   width: 80px;
 }
 
@@ -505,14 +512,29 @@ div.map-minerals-list {
   background: "white";
 }
 
-div.filter-wrapper{
-  margin-top: 20px;
+div.filter-wrapper {
+  text-align: center;
 }
 
-div.search-page-filter{
+div.search-page-filter {
   margin: 0 auto;
 }
 
-.MuiIconButton-edgeEnd{
+.MuiIconButton-edgeEnd {
   margin-right: 0px;
+}
+
+label + .MuiInput-formControl {
+  margin-top: 10px;
+}
+
+div.search-minerals-list {
+  border-radius: 10px;
+  text-align: center;
+  height: 50px;
+  width: 90px;
+}
+
+div.search-properties-select {
+  margin-top: 10px;
 }
