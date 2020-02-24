@@ -24,15 +24,17 @@ import {
   handleSearchMineralsList
 } from "../../helpers";
 import { Menu } from "../../Menu";
+import BinButton from "../../BinButton";
 import "./../../App.css";
 
 function SearchPage() {
+  const originalList = getAllMinerals();
   const [chosenMineral, setChosenMineral] = useState(null);
   const [value, setValue] = useState("");
-  const [results, setResults] = useState(getAllMinerals());
+  const [results, setResults] = useState(originalList);
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(8);
-  const [selectedColor, setSelectedColor] = useState([]);
+  const [selectedColor, setSelectedColor] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState([]);
   const [selectedSubGroup, setSelectedSubGroup] = useState([]);
   const [selectedSystem, setSelectedSystem] = useState([]);
@@ -42,48 +44,26 @@ function SearchPage() {
     demoAsyncCall().then(() => setLoading(false));
   });
 
-  function updateMineralsList() {
-    const originalMineralsArray = getAllMinerals();
-    const filterColors = selectedColor;
-    const filterGroups = selectedGroup;
-    const filterSubGroups = selectedSubGroup;
-    const filterSystems = selectedSystem;
+  function updateMineralsList(newColor) {
+    setSelectedColor(newColor);
+    const originalMineralsArray = originalList;
+    const filterColors = newColor;
     if (filterColors.length > 0) {
-      var newMineralsArray = originalMineralsArray.filter(el => {
-        return filterColors.some(elem => el.color.includes(elem));
-      });
+      setResults(
+        originalMineralsArray.filter(el => {
+          return el.color[0].includes(newColor);
+        })
+      );
     } else {
-      var newMineralsArray = originalMineralsArray;
+      setResults(originalMineralsArray);
     }
-
-    if (filterGroups.length > 0) {
-      var newMineralsArray2 = newMineralsArray.filter(el => {
-        return filterGroups.some(elem => el.mainGroup.includes(elem));
-      });
-    } else {
-      var newMineralsArray2 = newMineralsArray;
-    }
-
-    if (filterSubGroups.length > 0) {
-      var newMineralsArray3 = newMineralsArray2.filter(el => {
-        return filterSubGroups.some(elem => el.subGroup.includes(elem));
-      });
-    } else {
-      var newMineralsArray3 = newMineralsArray2;
-    }
-
-    if (filterSystems.length > 0) {
-      var newMineralsArray4 = newMineralsArray3.filter(el => {
-        return filterSystems.some(elem => el.system.includes(elem));
-      });
-    } else {
-      var newMineralsArray4 = newMineralsArray3;
-    }
-
-    setResults(newMineralsArray4);
     setChosenMineral(null);
   }
 
+  function resetSearch() {
+    setResults(originalList);
+    setSelectedColor(false);
+  }
   function renderSearchResults() {
     if (results) {
       return (
@@ -137,7 +117,7 @@ function SearchPage() {
           <main className="search-page-wrapper" style={mainElement}>
             <Container maxWidth="lg" className="search-page-container">
               <Grid container spacing={2}>
-                <Grid item style={{paddingLeft:380}}>
+                <Grid item style={{ paddingLeft: 380 }}>
                   <SearchBar
                     value={value}
                     onChange={newValue => setValue(newValue)}
@@ -151,19 +131,17 @@ function SearchPage() {
                   <div className="filter-wrapper">
                     <Paper className="search-minerals-list">
                       <FormControl style={{ marginBottom: 50 }}>
-                        <InputLabel  >
-                          Color
-                        </InputLabel>
+                        <InputLabel>Color</InputLabel>
                         <Select
-                        disableUnderline 
-                          value={selectedColor[0]}
+                          disableUnderline
+                          value={selectedColor?selectedColor:null}
                           className="search-properties-select"
                         >
                           {mineralColors.map(color => (
                             <MenuItem key={color} value={color}>
                               <ListItemText
                                 primary={color}
-                                onClick={() => setSelectedColor([color])}
+                                onClick={() => updateMineralsList(color)}
                               />
                             </MenuItem>
                           ))}
@@ -171,6 +149,7 @@ function SearchPage() {
                       </FormControl>
                     </Paper>
                   </div>
+                  <BinButton onClick={() => resetSearch()} />
                 </Grid>
               </Grid>
             </Container>
