@@ -537,4 +537,17 @@ div.search-minerals-list {
 
 div.search-properties-select {
   margin-top: 10px;
+  padding: 0px;
+}
+
+div.search-properties-select > div {
+  height: 1em;
+}
+
+div.MuiInputBase-root.MuiInput-root.MuiInput-underline.search-properties-select.MuiInputBase-formControl.MuiInput-formControl {
+  margin-top: -0.3em;
+}
+div.MuiListItemText-root {
+  margin-top:0px;
+  margin-bottom: 0px;
 }

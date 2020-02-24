@@ -155,6 +155,7 @@ function SearchPage() {
                           Color
                         </InputLabel>
                         <Select
+                        disableUnderline 
                           value={selectedColor[0]}
                           className="search-properties-select"
                         >
