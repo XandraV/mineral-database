@@ -4,7 +4,7 @@ A React application that allows the user to search for minerals by selecting ele
 
 You can visit the deployed app at https://master.d3qg9ohvtw44n0.amplifyapp.com/.
 
-![Alt text](/public/crystallizer.gif)
+![Alt text](https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.gif)
 
 This repository contains the files related to the app. The master branch contains the app's source code and the gh-pages branch contains a built version of the app.
 
