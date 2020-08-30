@@ -2,28 +2,21 @@
 
 A React application that allows the user to search for minerals by selecting elements in the periodic table, view the info page of a chosen mineral and a dashboard with statistics tailored to the specific mineral properties.
 
-You can visit the deployed app at https://master.d3qg9ohvtw44n0.amplifyapp.com/.
+You can visit the deployed app at https://master.d2773e6759xldj.amplifyapp.com/.
 
 ![Alt text](https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.gif)
 
-This repository contains the files related to the app. The master branch contains the app's source code and the gh-pages branch contains a built version of the app.
+Data used in this application was collected from https://www.mindat.org using Python Request library.
+The data analysis project based on this dataset can be found here https://github.com/XandraV/python-data-visualisation.
 
 ## Installation
 
-Clone the master branch and then run `npm start` in the project directory.
+Clone the master branch and then run following scripts in the project directory:
 
-### To install relevant libraries you will need to run:
 
-* `npm install @material-ui/core`
+* `npm install` - to install relevant dependencies
 
-* `npm install react-konva konva --save`
-
-* `npm install react-vis`
-
-## Other scripts
-* `npm run deploy` - deploys the app to GitHub Pages
-
-* `npm run build` - Creates a complete app bundle in build/
+* `npm start` - to start the react app
 
 ## Resources
 
