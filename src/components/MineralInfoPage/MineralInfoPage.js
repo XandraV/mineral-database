@@ -22,9 +22,11 @@ import {
   SubGroupInfo,
   Hardness,
   Color,
-  MineralImage
+  MineralImage,
 } from "./MineralInfoPageComponents";
-import CrystallizerIcon from "./../../CrystallizerIcon";
+import Formula from "./Formula";
+import Icon from "./../../Icon";
+
 class MineralInfoPage extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,7 @@ class MineralInfoPage extends Component {
       hoveredSystem: false,
       hoveredGroup: false,
       hoveredSubGroup: false,
-      hoveredComponents: false
+      hoveredComponents: false,
     };
   }
   componentDidMount() {
@@ -60,7 +62,7 @@ class MineralInfoPage extends Component {
     if (this.container) {
       const width = this.container.offsetWidth;
       this.setState({
-        stageWidth: width
+        stageWidth: width,
       });
     }
   };
@@ -75,17 +77,17 @@ class MineralInfoPage extends Component {
       const system = this.state.chosenCreatedMineral.system.toLowerCase();
       imageMineral.onload = () => {
         this.setState({
-          mineralImage: imageMineral
+          mineralImage: imageMineral,
         });
       };
       imageGroup.onload = () => {
         this.setState({
-          mineralGroupImage: imageGroup
+          mineralGroupImage: imageGroup,
         });
       };
       imageSystem.onload = () => {
         this.setState({
-          mineralSystemImage: imageSystem
+          mineralSystemImage: imageSystem,
         });
       };
       imageMineral.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`;
@@ -120,18 +122,12 @@ class MineralInfoPage extends Component {
                 ? "Crystallizer"
                 : this.state.chosenCreatedMineral.name}
             </Typography>
-            <div className="formula">Formula: </div>
-            <div
+
+            <Formula
               className="formula-html"
-              dangerouslySetInnerHTML={{
-                __html: `${
-                  this.state.chosenCreatedMineral === null
-                    ? localStorage.getItem("chosenCreatedMineral")
-                    : this.state.chosenCreatedMineral.formulaWeb
-                }`
-              }}
+              chosenCreatedMineral={this.state.chosenCreatedMineral}
             />
-            <CrystallizerIcon />
+            <Icon />
           </Toolbar>
         </AppBar>
         <SideBar />
@@ -152,7 +148,7 @@ class MineralInfoPage extends Component {
               />
               <div
                 className="canvas-wrapper"
-                ref={node => {
+                ref={(node) => {
                   this.container = node;
                 }}
               >
@@ -163,12 +159,12 @@ class MineralInfoPage extends Component {
                   <Layer
                     onTap={() =>
                       this.setState({
-                        hoveredComponents: true
+                        hoveredComponents: true,
                       })
                     }
                     onMouseOver={() =>
                       this.setState({
-                        hoveredComponents: true
+                        hoveredComponents: true,
                       })
                     }
                   >
@@ -185,12 +181,12 @@ class MineralInfoPage extends Component {
                   <Layer
                     onTap={() =>
                       this.setState({
-                        hoveredGravity: true
+                        hoveredGravity: true,
                       })
                     }
                     onMouseOver={() =>
                       this.setState({
-                        hoveredGravity: true
+                        hoveredGravity: true,
                       })
                     }
                   >
@@ -207,12 +203,12 @@ class MineralInfoPage extends Component {
                   <Layer
                     onTap={() =>
                       this.setState({
-                        hoveredSystem: true
+                        hoveredSystem: true,
                       })
                     }
                     onMouseOver={() =>
                       this.setState({
-                        hoveredSystem: true
+                        hoveredSystem: true,
                       })
                     }
                   >
@@ -227,12 +223,12 @@ class MineralInfoPage extends Component {
                   <Layer
                     onTap={() =>
                       this.setState({
-                        hoveredSubGroup: true
+                        hoveredSubGroup: true,
                       })
                     }
                     onMouseOver={() =>
                       this.setState({
-                        hoveredSubGroup: true
+                        hoveredSubGroup: true,
                       })
                     }
                   >
@@ -245,12 +241,12 @@ class MineralInfoPage extends Component {
                   <Layer
                     onTap={() =>
                       this.setState({
-                        hoveredGroup: true
+                        hoveredGroup: true,
                       })
                     }
                     onMouseOver={() =>
                       this.setState({
-                        hoveredGroup: true
+                        hoveredGroup: true,
                       })
                     }
                   >

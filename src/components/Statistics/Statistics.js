@@ -35,7 +35,13 @@ import { Menu } from "../../Menu";
 import ControlledExpansionPanel from "./ControlledExpansionPanel";
 import SunburstBreadcrumbs from "./SunburstBreadcrumbs";
 import SunburstAvatar from "./SunburstAvatar";
+import ApplyButton from "./ApplyButton";
 import "./../../App.css";
+import styled from "styled-components/macro";
+
+const ButtonsWrapper = styled.div`text-align: right;
+padding-right: 10;
+padding-top: 10px;`;
 class Statistics extends Component {
   constructor(props) {
     super(props);
@@ -314,7 +320,6 @@ class Statistics extends Component {
                             </Grid>
                             <Grid item>
                               <div>
-                                <div className="breadcrumbs">Current group</div>
                                 {this.state.hoveredCell ? (
                                   <SunburstBreadcrumbs
                                     hoveredCell={this.state.hoveredCell}
@@ -552,22 +557,18 @@ class Statistics extends Component {
                               )}
                             </div>
                           </div>
-                          <div className="apply-reset-btn-container">
-                            <Button
-                              className="apply-reset"
-                              variant="contained"
+                          <ButtonsWrapper>
+                            <ApplyButton
                               onClick={() => this.updateMineralsList()}
                             >
                               Apply
-                            </Button>
-                            <Button
-                              className="apply-reset"
-                              variant="contained"
+                            </ApplyButton>
+                            <ApplyButton
                               onClick={() => this.resetFilters()}
                             >
                               Reset
-                            </Button>
-                          </div>
+                            </ApplyButton>
+                          </ButtonsWrapper>
                         </div>
                       }
                       title={"Advanced search"}
