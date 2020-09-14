@@ -17,7 +17,17 @@ import {
 } from "../../helpers";
 import { Menu } from "../../Menu";
 import LoadMoreButton from "./LoadMoreButton";
+import styled from "styled-components/macro";
 import "./../../App.css";
+
+const PageWrapper = styled.main`
+  height: ${window.innerHeight};
+  width: ${document.documentElement.clientWidth};
+  padding-top: 100px;
+  justify-items: center;
+  align-items: center;
+  background-size: cover;
+`;
 
 function SearchPage() {
   const originalList = getAllMinerals();
@@ -26,7 +36,6 @@ function SearchPage() {
   const [results, setResults] = useState(originalList);
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(8);
-  
 
   useEffect(() => {
     // this simulates an async action, after which the component will render the content
@@ -63,7 +72,6 @@ function SearchPage() {
   }
 
   function renderSearchPage() {
-    
     const searchBar = {
       margin: "0 auto",
       width: 500,
@@ -77,7 +85,7 @@ function SearchPage() {
       <MuiThemeProvider>
         <div>
           <Menu title="Mineral Search" />
-          <main className="search-page-wrapper" style={mainElement}>
+          <PageWrapper>
             <Container maxWidth="lg" className="search-page-container">
               <Grid container spacing={2}>
                 <Grid item style={{ paddingLeft: 380 }}>
@@ -108,7 +116,7 @@ function SearchPage() {
                 )}
               </div>
             </Container>
-          </main>
+          </PageWrapper>
         </div>
       </MuiThemeProvider>
     );

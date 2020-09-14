@@ -24,11 +24,11 @@ const MenuWrapper = styled.div`
   }
 `;
 
-export function Menu(props) {
+export const Menu = ({ ...props }) => {
   return (
     <MenuWrapper>
       <AppBar position="fixed" className="appBar">
-        <Toolbar className="toolbar">
+        <Toolbar>
           <Typography
             component="h1"
             variant="h6"
@@ -38,13 +38,14 @@ export function Menu(props) {
           >
             {props.title}
           </Typography>
+          {props.children}
           <Icon />
         </Toolbar>
       </AppBar>
       <SideBar />
     </MenuWrapper>
   );
-}
+};
 const listIconStyle = { minWidth: 0, paddingRight: 8, color: "#009faf" };
 export function SideBar() {
   return (

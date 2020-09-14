@@ -20,7 +20,8 @@ const ButtonWrapper = styled.span`
     box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
   }
 `;
-function CreateMineralButton(props) {
+
+function CreateButton(props) {
   return (
     <ButtonWrapper>
       <Button
@@ -33,4 +34,4 @@ function CreateMineralButton(props) {
     </ButtonWrapper>
   );
 }
-export default CreateMineralButton;
+export default CreateButton;

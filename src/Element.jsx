@@ -51,11 +51,10 @@ const StyledNotSelectedElement = styled.div`
 
 function Element(props) {
   const thisColor = getColorInTable(props.value.symbol);
-  return props.className === "selected-element" ? (
+  return props.selected ? (
     <StyledSelectedElement
       elementColor={thisColor}
       id={props.value.symbol}
-      className={props.className}
       onClick={props.onClick}
     >
       <StyledNumber>{props.value.number}</StyledNumber>
@@ -66,7 +65,6 @@ function Element(props) {
     <StyledNotSelectedElement
       elementColor={thisColor}
       id={props.value.symbol}
-      className={props.className}
       onClick={props.onClick}
     >
       <StyledNumber>{props.value.number}</StyledNumber>

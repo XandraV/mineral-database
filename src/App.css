@@ -1,23 +1,3 @@
-.table-wrapper {
-  margin: "auto";
-  text-align: center;
-  display: inline-block;
-  flex-grow: 1;
-  padding-left: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.periodic-table {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-.card1 {
-  display: grid;
-  grid-template-columns: repeat(18, auto);
-  grid-gap: 1.5px;
-  padding: 10px;
-}
-
 #He {
   grid-column-start: -2;
 }
@@ -27,14 +7,9 @@
   grid-column-start: 13;
 }
 
-
 .gravityLayer:hover {
   box-shadow: 0px 0px 5px #00ffff;
   border: 1px solid #00ffff;
-}
-
-.button-container {
-  padding: 1.25em;
 }
 
 div.load-more-btn-container {
@@ -57,9 +32,6 @@ div.load-more-btn-container {
   display: flex;
 }
 
-div.info-page {
-  padding-left: 0px;
-}
 
 .drawerPaper {
   position: relative;
@@ -67,35 +39,7 @@ div.info-page {
   width: 71;
 }
 
-.min-info-content {
-  padding-top: 70px;
-  flex-grow: 1;
-  height: 100vh;
-}
 
-a.min-link {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.home-container {
-  padding-top: 70px;
-  padding-left: 20px;
-}
-div.main-min-results {
-  text-align: "center";
-  border-bottom-left-radius: 15px;
-  border-top-right-radius: 15px;
-  display: flex;
-  padding-top: 6px;
-  padding-left: 6px;
-  flex-direction: column;
-  height: 50px;
-  width: 250px;
-  box-shadow: 0px 0px 8px grey;
-  background-image: url("https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95");
-}
 
 .MuiGrid-conatiner {
   text-align: "center";
@@ -165,12 +109,7 @@ div.main-min-results {
   color: white;
 }
 
-.table-background {
-  background-position: center;
-  background-position-y: 10px;
-  background-repeat: no-repeat;
-  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/bluish-green.svg");
-}
+
 
 .navmenu {
   width: 15%;
@@ -330,19 +269,6 @@ a {
   text-decoration: none;
 }
 
-i.back-btn {
-  color: white;
-  font-size: 30px;
-  vertical-align: middle;
-}
-
-main.search-page-wrapper {
-  padding-top: 100px;
-  justify-items: center;
-  align-items: center;
-  background-size: cover;
-}
-
 div.map-minerals-list {
   position: relative;
   height: 430px;
@@ -351,44 +277,4 @@ div.map-minerals-list {
   padding: 5px;
   flex-direction: column;
   background: "white";
-}
-
-div.filter-wrapper {
-  text-align: center;
-}
-
-div.search-page-filter {
-  margin: 0 auto;
-}
-
-.MuiIconButton-edgeEnd {
-  margin-right: 0px;
-}
-
-label + .MuiInput-formControl {
-  margin-top: 10px;
-}
-
-div.search-minerals-list {
-  border-radius: 10px;
-  text-align: center;
-  height: 50px;
-  width: 90px;
-}
-
-div.search-properties-select {
-  margin-top: 10px;
-  padding: 0px;
-}
-
-div.search-properties-select > div {
-  height: 1em;
-}
-
-div.MuiInputBase-root.MuiInput-root.MuiInput-underline.search-properties-select.MuiInputBase-formControl.MuiInput-formControl {
-  margin-top: -0.3em;
-}
-div.MuiListItemText-root {
-  margin-top:0px;
-  margin-bottom: 0px;
 }
