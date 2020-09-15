@@ -192,7 +192,7 @@ function Home() {
             <PeriodicTable />
           </div>
           <div className="button-container">
-            <StyledButton onClick={() => createMineral()} />
+            <StyledButton onClick={() => createMineral()}>search</StyledButton>
             <BinButton onClick={() => deleteElements()} />
           </div>
           <div className="result-count">

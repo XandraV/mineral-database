@@ -21,7 +21,7 @@ const ButtonWrapper = styled.span`
   }
 `;
 
-function StyledButton(props) {
+const StyledButton = ({ ...props }) => {
   return (
     <ButtonWrapper>
       <Button
@@ -29,9 +29,9 @@ function StyledButton(props) {
         className="button-create"
         onClick={props.onClick}
       >
-        Create mineral
+        {props.children}
       </Button>
     </ButtonWrapper>
   );
-}
+};
 export default StyledButton;

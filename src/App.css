@@ -12,11 +12,6 @@
   border: 1px solid #00ffff;
 }
 
-div.load-more-btn-container {
-  padding: 20px;
-  text-align: center;
-}
-
 .result-count {
   text-align: center;
   color: black;
@@ -183,9 +178,7 @@ div.stats-page-container {
   padding-bottom: 10px;
   display: grid;
 }
-div.search-page-container {
-  display: grid;
-}
+
 
 p.barchart-title {
   font-size: 15px;

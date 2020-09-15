@@ -45,7 +45,7 @@ export const Menu = ({ ...props }) => {
     <MenuWrapper>
       <AppBar position="fixed" className="appBar">
         <Toolbar>
-          {props.title !== "Crystallizer" ? <BackButton /> : ""}
+          {/* {props.title !== "Crystallizer" ? <BackButton /> : ""} */}
           <Typography
             component="h1"
             variant="h6"
