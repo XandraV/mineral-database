@@ -8,17 +8,17 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import MineralInfoPage from "../MineralInfoPage/MineralInfoPage";
+import MineralInfoPage from "./components/MineralInfoPage/MineralInfoPage";
 import Avatar from "@material-ui/core/Avatar";
 import {
   demoAsyncCall,
   getAllMinerals,
   handleSearchMineralsList,
-} from "../../helpers";
-import { Menu } from "../../Menu";
-import LoadMoreButton from "./LoadMoreButton";
+} from "./helpers";
+import { Menu } from "./Menu";
+import StyledButton from "./StyledButton";
 import styled from "styled-components/macro";
-import "./../../App.css";
+import "./App.css";
 
 const PageWrapper = styled.main`
   height: ${window.innerHeight};
@@ -64,7 +64,7 @@ function SearchPage() {
             ))}
           </Grid>
           <div className="load-more-btn-container">
-            <LoadMoreButton onClick={() => setLimit(limit + 8)} />
+            <StyledButton onClick={() => setLimit(limit + 8)}>Load more</StyledButton>
           </div>
         </div>
       );
@@ -77,10 +77,7 @@ function SearchPage() {
       width: 500,
       borderRadius: 15,
     };
-    const mainElement = {
-      height: window.innerHeight,
-      width: document.documentElement.clientWidth,
-    };
+    
     return (
       <MuiThemeProvider>
         <div>

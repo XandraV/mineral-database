@@ -21,7 +21,7 @@ const ButtonWrapper = styled.span`
   }
 `;
 
-function CreateButton(props) {
+function StyledButton(props) {
   return (
     <ButtonWrapper>
       <Button
@@ -34,4 +34,4 @@ function CreateButton(props) {
     </ButtonWrapper>
   );
 }
-export default CreateButton;
+export default StyledButton;

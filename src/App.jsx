@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Home from "./Home";
 import MineralInfoPage from "./components/MineralInfoPage/MineralInfoPage";
-import Map from "./components/Map/Map";
+import Map from "./Map";
 import Statistics from "./components/Statistics/Statistics";
-import SearchPage from "./components/SearchPage/SearchPage";
+import SearchPage from "./SearchPage";
 import { MineralContextContainer } from "./MineralContextContainer";
 import "./App.css";
 

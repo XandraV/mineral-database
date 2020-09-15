@@ -1,5 +1,5 @@
 export function getAllMinerals() {
-  const data = require("./data.json");
+  const data = require("./data/data.json");
   const allMineralsList = [];
   for (let i = 0; i < Object.keys(data.minerals).length; i++) {
     allMineralsList.push(data.minerals[i]);
@@ -18,7 +18,7 @@ export function jsonToArray(jsonData) {
 }
 
 export function handleSearchMineralsList(input) {
-  const data = require("./data.json");
+  const data = require("./data/data.json");
   const resultList = [];
   for (let i = 0; i < Object.keys(data.minerals).length; i++) {
     if (data.minerals[i].name.toLowerCase().includes(input.toLowerCase())) {
@@ -30,7 +30,7 @@ export function handleSearchMineralsList(input) {
 
 export function searchMineralsByElements(arrayOfElements) {
   const resultList = [];
-  const allMinerals = jsonToArray(require("./data.json"));
+  const allMinerals = jsonToArray(require("./data/data.json"));
   if (arrayOfElements.length > 0) {
     for (let mineralObj of allMinerals[0]) {
       if (arrayOfElements.every(elem => mineralObj.formula.includes(elem))) {

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import BinButton from "./BinButton";
-import CreateButton from "./CreateButton";
+import StyledButton from "./StyledButton";
 import Container from "@material-ui/core/Container";
 import Element from "./Element";
 import Grid from "@material-ui/core/Grid";
 import MineralLink from "./MineralLink";
 import Paper from "@material-ui/core/Paper";
 import { Menu } from "./Menu";
-import { elements } from "./periodic-table";
+import { elements } from "./data/periodic-table";
 import { searchMineralsByElements } from "./helpers";
 import styled from "styled-components/macro";
 import { MineralContext } from "./MineralContext";
@@ -192,7 +192,7 @@ function Home() {
             <PeriodicTable />
           </div>
           <div className="button-container">
-            <CreateButton onClick={() => createMineral()} />
+            <StyledButton onClick={() => createMineral()} />
             <BinButton onClick={() => deleteElements()} />
           </div>
           <div className="result-count">

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
-import BackButton from "./BackButton";
+import React, { useContext, useEffect, useState } from "react";
 import { Menu } from "../../Menu";
 import { Stage, Layer } from "react-konva";
 import Container from "@material-ui/core/Container";
@@ -23,16 +22,6 @@ import {
 import Formula from "./Formula";
 import styled from "styled-components/macro";
 import { MineralContext } from "../../MineralContext";
-
-const MenuWrapper = styled.div`
-  .appBar {
-    z-index: 1201;
-    background-color: #009faf;
-  }
-  .menu-header-text {
-    flex-grow: 1;
-  }
-`;
 
 const PageWrapper = styled.main`
   padding-top: 70px;
@@ -97,7 +86,6 @@ function MineralInfoPage() {
   return (
     <div>
       <Menu title={myChosenCreatedMineral.name}>
-      <BackButton />
         <Formula
           className="formula-html"
           chosenCreatedMineral={myChosenCreatedMineral}

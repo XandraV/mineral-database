@@ -10,7 +10,6 @@ import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
-import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { dataSunburst } from "./sunburstData";
 import { Hint, Sunburst } from "react-vis";
@@ -18,13 +17,13 @@ import SearchBar from "material-ui-search-bar";
 import {
   handleSearchMineralsList,
   getAllMinerals,
-  demoAsyncCall
+  demoAsyncCall,
 } from "../../helpers";
 import {
   mineralColors,
   mineralSystems,
   mineralGroups,
-  mineralSubGroups
+  mineralSubGroups,
 } from "./dashboardData";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -35,13 +34,16 @@ import { Menu } from "../../Menu";
 import ControlledExpansionPanel from "./ControlledExpansionPanel";
 import SunburstBreadcrumbs from "./SunburstBreadcrumbs";
 import SunburstAvatar from "./SunburstAvatar";
-import ApplyButton from "./ApplyButton";
+import StyledButton from "./../../StyledButton";
 import "./../../App.css";
 import styled from "styled-components/macro";
 
-const ButtonsWrapper = styled.div`text-align: right;
-padding-right: 10;
-padding-top: 10px;`;
+const ButtonsWrapper = styled.span`
+  padding-left: 1em;
+  text-align: right;
+  padding-top: 10px;
+  margin-right: 0.5em;
+`;
 class Statistics extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +56,7 @@ class Statistics extends Component {
       selectedSubGroup: [],
       selectedSystem: [],
       hoveredCell: false,
-      hoveredParent: false
+      hoveredParent: false,
     };
   }
 
@@ -65,7 +67,7 @@ class Statistics extends Component {
 
   handleListItemClick(rock) {
     this.setState({
-      chosenMineral: this.state.chosenMineral === rock ? null : rock
+      chosenMineral: this.state.chosenMineral === rock ? null : rock,
     });
   }
 
@@ -76,32 +78,32 @@ class Statistics extends Component {
     const filterSubGroups = this.state.selectedSubGroup;
     const filterSystems = this.state.selectedSystem;
     if (filterColors.length > 0) {
-      var newMineralsArray = originalMineralsArray.filter(el => {
-        return filterColors.some(elem => el.color.includes(elem));
+      var newMineralsArray = originalMineralsArray.filter((el) => {
+        return filterColors.some((elem) => el.color.includes(elem));
       });
     } else {
       var newMineralsArray = originalMineralsArray;
     }
 
     if (filterGroups.length > 0) {
-      var newMineralsArray2 = newMineralsArray.filter(el => {
-        return filterGroups.some(elem => el.mainGroup.includes(elem));
+      var newMineralsArray2 = newMineralsArray.filter((el) => {
+        return filterGroups.some((elem) => el.mainGroup.includes(elem));
       });
     } else {
       var newMineralsArray2 = newMineralsArray;
     }
 
     if (filterSubGroups.length > 0) {
-      var newMineralsArray3 = newMineralsArray2.filter(el => {
-        return filterSubGroups.some(elem => el.subGroup.includes(elem));
+      var newMineralsArray3 = newMineralsArray2.filter((el) => {
+        return filterSubGroups.some((elem) => el.subGroup.includes(elem));
       });
     } else {
       var newMineralsArray3 = newMineralsArray2;
     }
 
     if (filterSystems.length > 0) {
-      var newMineralsArray4 = newMineralsArray3.filter(el => {
-        return filterSystems.some(elem => el.system.includes(elem));
+      var newMineralsArray4 = newMineralsArray3.filter((el) => {
+        return filterSystems.some((elem) => el.system.includes(elem));
       });
     } else {
       var newMineralsArray4 = newMineralsArray3;
@@ -109,7 +111,7 @@ class Statistics extends Component {
 
     this.setState({
       results: newMineralsArray4,
-      chosenMineral: null
+      chosenMineral: null,
     });
   }
 
@@ -118,12 +120,12 @@ class Statistics extends Component {
       var newselected = this.state.selectedColor;
       newselected.splice(this.state.selectedColor.indexOf(mycolor), 1);
       this.setState({
-        selectedColor: newselected
+        selectedColor: newselected,
       });
     } else {
       var newselected = this.state.selectedColor.concat([mycolor]);
       this.setState({
-        selectedColor: newselected
+        selectedColor: newselected,
       });
     }
   }
@@ -132,7 +134,7 @@ class Statistics extends Component {
     const newselected = this.state.selectedColor;
     newselected.splice(this.state.selectedColor.indexOf(colorToBeDeleted), 1);
     this.setState({
-      selectedColor: newselected
+      selectedColor: newselected,
     });
   }
 
@@ -141,12 +143,12 @@ class Statistics extends Component {
       var newselected = this.state.selectedGroup;
       newselected.splice(this.state.selectedGroup.indexOf(mygroup), 1);
       this.setState({
-        selectedGroup: newselected
+        selectedGroup: newselected,
       });
     } else {
       var newselected = this.state.selectedGroup.concat([mygroup]);
       this.setState({
-        selectedGroup: newselected
+        selectedGroup: newselected,
       });
     }
   }
@@ -155,7 +157,7 @@ class Statistics extends Component {
     const newselected = this.state.selectedGroup;
     newselected.splice(this.state.selectedGroup.indexOf(groupToBeDeleted), 1);
     this.setState({
-      selectedGroup: newselected
+      selectedGroup: newselected,
     });
   }
 
@@ -164,12 +166,12 @@ class Statistics extends Component {
       var newselected = this.state.selectedSubGroup;
       newselected.splice(this.state.selectedSubGroup.indexOf(mySubGroup), 1);
       this.setState({
-        selectedSubGroup: newselected
+        selectedSubGroup: newselected,
       });
     } else {
       var newselected = this.state.selectedSubGroup.concat([mySubGroup]);
       this.setState({
-        selectedSubGroup: newselected
+        selectedSubGroup: newselected,
       });
     }
   }
@@ -181,7 +183,7 @@ class Statistics extends Component {
       1
     );
     this.setState({
-      selectedSubGroup: newselected
+      selectedSubGroup: newselected,
     });
   }
 
@@ -190,12 +192,12 @@ class Statistics extends Component {
       var newselected = this.state.selectedSystem;
       newselected.splice(this.state.selectedSystem.indexOf(systemGroup), 1);
       this.setState({
-        selectedSystem: newselected
+        selectedSystem: newselected,
       });
     } else {
       var newselected = this.state.selectedSystem.concat([systemGroup]);
       this.setState({
-        selectedSystem: newselected
+        selectedSystem: newselected,
       });
     }
   }
@@ -204,7 +206,7 @@ class Statistics extends Component {
     const newselected = this.state.selectedSystem;
     newselected.splice(this.state.selectedSystem.indexOf(systemToBeDeleted), 1);
     this.setState({
-      selectedSystem: newselected
+      selectedSystem: newselected,
     });
   }
 
@@ -215,7 +217,7 @@ class Statistics extends Component {
       selectedColor: [],
       selectedGroup: [],
       selectedSubGroup: [],
-      selectedSystem: []
+      selectedSystem: [],
     });
   }
 
@@ -224,7 +226,7 @@ class Statistics extends Component {
       marginTop: 5,
       marginBottom: 5,
       width: 350,
-      borderRadius: 15
+      borderRadius: 15,
     };
 
     return (
@@ -241,7 +243,7 @@ class Statistics extends Component {
               style={{
                 height: "100%",
                 width: document.documentElement.clientWidth,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
             >
               <Container maxWidth="lg" className="stats-page-container">
@@ -281,19 +283,19 @@ class Statistics extends Component {
                                 width={450}
                                 style={{
                                   stroke: "#fff",
-                                  text: { color: "#ffffff" }
+                                  text: { color: "#ffffff" },
                                 }}
-                                onValueMouseOver={v =>
+                                onValueMouseOver={(v) =>
                                   this.setState({
                                     hoveredCell: v.x && v.y ? v : false,
-                                    hoveredParent: v.parent.data
+                                    hoveredParent: v.parent.data,
                                   })
                                 }
                                 margin={{
                                   top: 50,
                                   bottom: 50,
                                   left: 50,
-                                  right: 50
+                                  right: 50,
                                 }}
                               >
                                 <div className="sunburst-image-wrapper">
@@ -307,7 +309,7 @@ class Statistics extends Component {
                                   <Hint
                                     value={{
                                       x: this.state.hoveredCell.x,
-                                      y: this.state.hoveredCell.y
+                                      y: this.state.hoveredCell.y,
                                     }}
                                   >
                                     <div className="sunburst-hint-container-outter">
@@ -347,9 +349,9 @@ class Statistics extends Component {
                       </Typography>
                     </Paper>
                     <SearchBar
-                      onChange={value =>
+                      onChange={(value) =>
                         this.setState({
-                          results: handleSearchMineralsList(value)
+                          results: handleSearchMineralsList(value),
                         })
                       }
                       style={searchBar}
@@ -363,13 +365,13 @@ class Statistics extends Component {
                       ) : (
                         <List style={{ height: 130, overflow: "auto" }}>
                           {this.state.results != null
-                            ? this.state.results.map(rock => (
+                            ? this.state.results.map((rock) => (
                                 <ListItem
                                   style={{
                                     backgroundColor:
                                       rock === this.state.chosenMineral
                                         ? "lightGrey"
-                                        : "white"
+                                        : "white",
                                   }}
                                   button
                                   onClick={() => this.handleListItemClick(rock)}
@@ -389,7 +391,7 @@ class Statistics extends Component {
                             style={{
                               height: 230,
                               overflow: "auto",
-                              overflowX: "hidden"
+                              overflowX: "hidden",
                             }}
                           >
                             <div className="filter-field">
@@ -402,7 +404,7 @@ class Statistics extends Component {
                                   value={["", ""]}
                                   className="properties-select"
                                 >
-                                  {mineralColors.map(color => (
+                                  {mineralColors.map((color) => (
                                     <MenuItem key={color} value={color}>
                                       <ListItemText
                                         primary={color}
@@ -415,13 +417,13 @@ class Statistics extends Component {
                                 </Select>
                               </FormControl>
                               {this.state.selectedColor.map(
-                                selectedColorElement => (
+                                (selectedColorElement) => (
                                   <Chip
                                     label={selectedColorElement}
                                     style={{
                                       margin: 7,
                                       color: "white",
-                                      backgroundColor: "lightpink"
+                                      backgroundColor: "lightpink",
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteColor(
@@ -443,7 +445,7 @@ class Statistics extends Component {
                                   value={["lol", "lol2"]}
                                   className="properties-select"
                                 >
-                                  {mineralGroups.map(grp => (
+                                  {mineralGroups.map((grp) => (
                                     <MenuItem value="">
                                       <ListItemText
                                         primary={grp}
@@ -456,13 +458,13 @@ class Statistics extends Component {
                                 </Select>
                               </FormControl>
                               {this.state.selectedGroup.map(
-                                selectedGroupElement => (
+                                (selectedGroupElement) => (
                                   <Chip
                                     label={selectedGroupElement}
                                     style={{
                                       margin: 7,
                                       color: "white",
-                                      backgroundColor: "lightBlue"
+                                      backgroundColor: "lightBlue",
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteGroup(
@@ -484,7 +486,7 @@ class Statistics extends Component {
                                   value={["lol", "lol2"]}
                                   className="properties-select"
                                 >
-                                  {mineralSubGroups.map(sgrp => (
+                                  {mineralSubGroups.map((sgrp) => (
                                     <MenuItem value="">
                                       <ListItemText
                                         primary={sgrp}
@@ -497,13 +499,13 @@ class Statistics extends Component {
                                 </Select>
                               </FormControl>
                               {this.state.selectedSubGroup.map(
-                                selectedSubGroupElement => (
+                                (selectedSubGroupElement) => (
                                   <Chip
                                     label={selectedSubGroupElement}
                                     style={{
                                       margin: 7,
                                       color: "white",
-                                      backgroundColor: "lightBlue"
+                                      backgroundColor: "lightBlue",
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteSubGroup(
@@ -525,7 +527,7 @@ class Statistics extends Component {
                                   value={["lol", "lol2"]}
                                   className="properties-select"
                                 >
-                                  {mineralSystems.map(sys => (
+                                  {mineralSystems.map((sys) => (
                                     <MenuItem value="">
                                       <ListItemText
                                         primary={sys}
@@ -538,13 +540,13 @@ class Statistics extends Component {
                                 </Select>
                               </FormControl>
                               {this.state.selectedSystem.map(
-                                selectedSystemElement => (
+                                (selectedSystemElement) => (
                                   <Chip
                                     label={selectedSystemElement}
                                     style={{
                                       margin: 7,
                                       color: "white",
-                                      backgroundColor: "lightBlue"
+                                      backgroundColor: "lightBlue",
                                     }}
                                     onDelete={() =>
                                       this.handleDeleteSystem(
@@ -558,17 +560,15 @@ class Statistics extends Component {
                             </div>
                           </div>
                           <ButtonsWrapper>
-                            <ApplyButton
+                            <StyledButton
                               onClick={() => this.updateMineralsList()}
                             >
                               Apply
-                            </ApplyButton>
-                            <ApplyButton
-                              onClick={() => this.resetFilters()}
-                            >
-                              Reset
-                            </ApplyButton>
+                            </StyledButton>
                           </ButtonsWrapper>
+                          <StyledButton onClick={() => this.resetFilters()}>
+                            Reset
+                          </StyledButton>
                         </div>
                       }
                       title={"Advanced search"}

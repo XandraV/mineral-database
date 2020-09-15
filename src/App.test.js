@@ -1,7 +1,7 @@
 //import React from 'react'
 //import { shallow } from 'enzyme';
 //import { Element } from './App';
-//import { elements } from "./periodic-table";
+//import { elements } from "./data/periodic-table";
 //import renderer from "react-test-renderer";
 it('renders without crashing', () => {
   //const hydrogenData = elements[1];

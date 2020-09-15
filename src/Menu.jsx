@@ -1,10 +1,10 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
+import BackButton from "./BackButton";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Drawer from "@material-ui/core/Drawer";
 import ExploreIcon from "@material-ui/icons/Explore";
-import Icon from "./Icon";
 import ListItem from "@material-ui/core/ListItem";
 import { Link } from "react-router-dom";
 import List from "@material-ui/core/List";
@@ -23,12 +23,29 @@ const MenuWrapper = styled.div`
     flex-grow: 1;x
   }
 `;
+const IconWrapper = styled.div`
+  padding-top: 0.5em;
+`;
+
+const Icon = () => {
+  return (
+    <IconWrapper>
+      <img
+        alt="icon"
+        src={`https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.ico`}
+        width={50}
+        height={50}
+      />
+    </IconWrapper>
+  );
+};
 
 export const Menu = ({ ...props }) => {
   return (
     <MenuWrapper>
       <AppBar position="fixed" className="appBar">
         <Toolbar>
+          {props.title !== "Crystallizer" ? <BackButton /> : ""}
           <Typography
             component="h1"
             variant="h6"
