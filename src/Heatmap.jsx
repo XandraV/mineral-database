@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import { heatmapData } from "./heatmapdata";
+import { heatmapData } from "./data/heatmapdata";
 import { scaleLinear } from "d3-scale";
 import {
   XYPlot,

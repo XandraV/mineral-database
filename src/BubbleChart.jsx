@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import { bubbleData, labelsBubble } from "./bubbledata";
+import { bubbleData, labelsBubble } from "./data/bubbledata";
 import {
   XYPlot,
   XAxis,

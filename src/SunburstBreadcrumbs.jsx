@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Chip from "@material-ui/core/Chip";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import { groupInfoText } from "./sunburstData";
+import { groupInfoText } from "./data/sunburstData";
 import styled from "styled-components/macro";
 const StyledGroupInfo = styled.div`
   width: 220px;

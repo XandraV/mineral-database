@@ -4,7 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Home from "./Home";
 import InfoPage from "./InfoPage";
 import Map from "./Map";
-import Statistics from "./components/Statistics/Statistics";
+import Statistics from "./Statistics";
 import SearchPage from "./SearchPage";
 import { MineralContextContainer } from "./MineralContextContainer";
 import "./App.css";
