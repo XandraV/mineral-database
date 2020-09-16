@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import Typography from "@material-ui/core/Typography";
 import SearchBar from "material-ui-search-bar";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
+import SearchListItem from "./SearchListItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {
   demoAsyncCall,
@@ -15,9 +14,7 @@ import {
 } from "./helpers";
 import { Menu } from "./Menu";
 import StyledButton from "./StyledButton";
-import StyledAvatar from "./StyledAvatar";
 import styled from "styled-components/macro";
-import MineralLink from "./MineralLink";
 import { MineralContext } from "./MineralContext";
 import "./App.css";
 
@@ -47,41 +44,6 @@ function SearchPage() {
     // this simulates an async action, after which the component will render the content
     demoAsyncCall().then(() => setLoading(false));
   });
-
-  function MineralListItem(props) {
-    const color = props.mineralItem.color[0].toLowerCase();
-    return (
-      <Grid container spacing={1} alignItems="center" style={{ padding: 18 }}>
-        <Grid item>
-          <StyledAvatar color={color} />
-        </Grid>
-        <Grid item>
-          <CardContent>
-            <MineralLink
-              onClick={() => setMyChosenCreatedMineral(props.mineralItem)}
-            >
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="h5"
-                style={{ color: "black", fontSize: 15 }}
-              >
-                {props.mineralItem.name}
-              </Typography>
-              <Typography
-                gutterBottom
-                color="textSecondary"
-                component="p"
-                style={{ fontSize: 12 }}
-              >
-                {`${props.mineralItem.color[0]} mineral`}
-              </Typography>
-            </MineralLink>
-          </CardContent>
-        </Grid>
-      </Grid>
-    );
-  }
 
   const searchBar = {
     width: 500,
@@ -131,7 +93,7 @@ function SearchPage() {
                       <CardActionArea
                         onClick={() => setMyChosenCreatedMineral(rock)}
                       >
-                        <MineralListItem mineralItem={rock} />
+                        <SearchListItem mineral={rock} onClick={() => setMyChosenCreatedMineral(rock)}/>
                       </CardActionArea>
                     </Card>
                   </Grid>

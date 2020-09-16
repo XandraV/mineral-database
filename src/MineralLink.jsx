@@ -14,7 +14,7 @@ function MineralLink(props) {
     <LinkWrapper>
       <Link
         className="link"
-        to="/mineralResults"
+        to="/mineral-results"
         onClick={props.onClick
         }
       >

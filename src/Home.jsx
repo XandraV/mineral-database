@@ -59,6 +59,13 @@ const HomeWrapper = styled.div`
   }
 `;
 
+const ResultCount = styled.div`
+  text-align: center;
+  color: black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+`;
+
 function Home() {
   const { clickedElements, mineralResults, chosenCreatedMineral } = useContext(
     MineralContext
@@ -195,11 +202,11 @@ function Home() {
             <StyledButton onClick={() => createMineral()}>search</StyledButton>
             <BinButton onClick={() => deleteElements()} />
           </div>
-          <div className="result-count">
+          <ResultCount>
             {myMineralResults != null
               ? `${myMineralResults.length} results`
               : ``}
-          </div>
+          </ResultCount>
           {renderCreatedMinerals(myMineralResults)}
         </div>
       </Container>

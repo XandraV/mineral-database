@@ -3,7 +3,7 @@ import { Layer, Text, Circle, Line, Rect, Group } from "react-konva";
 
 const darkColor = "#009faf";
 const lightColor = "#80deea";
-const data = require("./mineralGroups.json");
+const data = require("./data/mineralGroups.json");
 export function getGroupData(chosenCreatedMineral, mineralGroup) {
   if (mineralGroup != null) {
     if (mineralGroup === "Elements") {

@@ -1,7 +1,9 @@
+<img align="right" width="15%" src="./public/readme.gif"/>
+
 ![contributors](https://img.shields.io/github/contributors/XandraV/crystallizer?color=gold)
 ![commit](https://img.shields.io/github/last-commit/XandraV/crystallizer?color=cyan)
 
-# Crystallizer ![Alt text](/public/favicon-32x32.png)
+# Crystallizer 
 
 ![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![react](https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white)

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -337,17 +336,7 @@ class Statistics extends Component {
                     />
                   </Grid>
                   <Grid item>
-                    <Paper className="barchart-container">
-                      <Typography className="barchart-title" noWrap>
-                        Number of distinct elements in minerals
-                      </Typography>
-                      <BarChart point={this.state.chosenMineral} />
-                      <Typography className="barchart-legend" noWrap>
-                        {this.state.chosenMineral != null
-                          ? `${this.state.chosenMineral.name} contains ${this.state.chosenMineral.formula.length} distinct elements`
-                          : "# of elements"}
-                      </Typography>
-                    </Paper>
+                    <BarChart chosenMineral={this.state.chosenMineral} />
                     <SearchBar
                       onChange={(value) =>
                         this.setState({

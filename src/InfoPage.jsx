@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Menu } from "../../Menu";
+import { Menu } from "./Menu";
 import { Stage, Layer } from "react-konva";
 import Container from "@material-ui/core/Container";
 import {
@@ -18,10 +18,10 @@ import {
   Hardness,
   Color,
   MineralImage,
-} from "./MineralInfoPageComponents";
+} from "./InfoPageComponents";
 import Formula from "./Formula";
 import styled from "styled-components/macro";
-import { MineralContext } from "../../MineralContext";
+import { MineralContext } from "./MineralContext";
 
 const PageWrapper = styled.main`
   padding-top: 70px;
@@ -29,7 +29,7 @@ const PageWrapper = styled.main`
   height: 100vh;
 `;
 
-function MineralInfoPage() {
+function InfoPage() {
   const { chosenCreatedMineral } = useContext(MineralContext);
   const [
     myChosenCreatedMineral,
@@ -176,4 +176,4 @@ function MineralInfoPage() {
   );
 }
 
-export default MineralInfoPage;
+export default InfoPage;
