@@ -20,7 +20,7 @@ const MenuWrapper = styled.div`
     background-color: #009faf;
   }
   .menu-header-text {
-    flex-grow: 1;x
+    flex-grow: 1;
   }
 `;
 const IconWrapper = styled.div`

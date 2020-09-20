@@ -44,47 +44,50 @@ function InfoPage() {
   const [hoveredGroup, setHoveredGroup] = useState(false);
   const [hoveredSubGroup, setHoveredSubGroup] = useState(false);
   const [hoveredComponents, setHoveredComponents] = useState(false);
-  const [width, setWidth] = React.useState(window.innerWidth);
 
   useEffect(() => {
-    window.addEventListener("resize", updateWidthAndHeight);
-
+    const getImagesForInfoPage = (chosenMineral) => {
+      if (chosenMineral != null) {
+        const imageMineral = new window.Image();
+        const imageGroup = new window.Image();
+        const imageSystem = new window.Image();
+        const color = myChosenCreatedMineral.color[0].toLowerCase();
+        const group = myChosenCreatedMineral.mainGroup[0].toLowerCase();
+        const system = myChosenCreatedMineral.system.toLowerCase();
+        imageMineral.onload = () => {
+          setMineralImage(imageMineral);
+        };
+        imageGroup.onload = () => {
+          setMineralGroupImage(imageGroup);
+        };
+        imageSystem.onload = () => {
+          setMineralSystemImage(imageSystem);
+        };
+        imageMineral.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`;
+        imageGroup.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${group}.svg`;
+        imageSystem.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${system}.svg`;
+      }
+    };
     getImagesForInfoPage(myChosenCreatedMineral);
     window.addEventListener("getimage", getImagesForInfoPage);
-    window.removeEventListener("getimage", getImagesForInfoPage);
-
-    return () => window.removeEventListener("resize", updateWidthAndHeight);
+    return () => {
+      window.removeEventListener("getimage", getImagesForInfoPage);
+    };
   });
 
-  const updateWidthAndHeight = () => {
-    setWidth(window.innerWidth);
-  };
-
-  function getImagesForInfoPage(chosenMineral) {
-    if (chosenMineral != null) {
-      const imageMineral = new window.Image();
-      const imageGroup = new window.Image();
-      const imageSystem = new window.Image();
-      const color = myChosenCreatedMineral.color[0].toLowerCase();
-      const group = myChosenCreatedMineral.mainGroup[0].toLowerCase();
-      const system = myChosenCreatedMineral.system.toLowerCase();
-      imageMineral.onload = () => {
-        setMineralImage(imageMineral);
-      };
-      imageGroup.onload = () => {
-        setMineralGroupImage(imageGroup);
-      };
-      imageSystem.onload = () => {
-        setMineralSystemImage(imageSystem);
-      };
-      imageMineral.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`;
-      imageGroup.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${group}.svg`;
-      imageSystem.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${system}.svg`;
-    }
-  }
+  const [width, setWidth] = React.useState(window.innerWidth + 200);
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth + 200);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   return (
-    <div>
+    <div >
       <Menu title={myChosenCreatedMineral.name}>
         <Formula
           className="formula-html"
