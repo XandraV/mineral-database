@@ -12,7 +12,6 @@ const StyledExpansionPanel = styled.div`
     height: 3rem;
   }
   div> #panel1bh-header > .MuiExpansionPanelSummary-content > p {
-    padding-top: 10px;
     color: rgb(152, 150, 150);
     font-size: 15px;
     font-weight: bold;

@@ -12,7 +12,6 @@ import { elements } from "./data/periodic-table";
 import { searchMineralsByElements } from "./helpers";
 import styled from "styled-components/macro";
 import { MineralContext } from "./MineralContext";
-import "./App.css";
 
 const ResultWrapper = styled(Paper)` 
     text-align: "center";

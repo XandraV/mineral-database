@@ -1,12 +1,13 @@
 import React from "react";
-import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Chip from "@material-ui/core/Chip";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { groupInfoText } from "./data/sunburstData";
 import styled from "styled-components/macro";
+
 const StyledGroupInfo = styled.div`
+  padding-top: 1rem;
   width: 220px;
   text-align: justify;
 
@@ -14,6 +15,7 @@ const StyledGroupInfo = styled.div`
     font-size: 12px;
   }
 `;
+
 function SunburstBreadcrumbs(props) {
   const chipCellStyle = {
     backgroundColor: props.hoveredCell.color,
@@ -44,7 +46,6 @@ function SunburstBreadcrumbs(props) {
           </Breadcrumbs>
         )}
       </Paper>
-      <Divider variant="middle" />
       <StyledGroupInfo>
         <Typography>{groupInfoText}</Typography>
       </StyledGroupInfo>

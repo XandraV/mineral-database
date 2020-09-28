@@ -63,7 +63,6 @@ function SunburstChart() {
             </Hint>
           ) : null}
         </Sunburst>
-
         {hoveredCell ? <SunburstAvatar hoveredCell={hoveredCell} /> : null}
       </Grid>
       <Grid item>

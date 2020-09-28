@@ -2,7 +2,6 @@ import React from "react";
 import mapboxgl from "mapbox-gl";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { Menu } from "./Menu";
-import "./App.css";
 import { mapData } from "./data/mapData";
 import styled from "styled-components/macro";
 const StyledMap = styled.div`
