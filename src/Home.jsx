@@ -14,8 +14,7 @@ import styled from "styled-components/macro";
 import { MineralContext } from "./MineralContext";
 import "./App.css";
 
-const ResultsWrapper = styled.span`
-  div.main-min-results {
+const ResultWrapper = styled(Paper)` 
     text-align: "center";
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -27,7 +26,6 @@ const ResultsWrapper = styled.span`
     width: 250px;
     box-shadow: 0px 0px 8px grey;
     background-image: url("https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95");
-  }
 `;
 
 const HomeWrapper = styled.div`
@@ -152,15 +150,14 @@ function Home() {
     );
   }
 
-  function renderCreatedMinerals(resultsArray) {
+  function renderResults(resultsArray) {
     if (resultsArray) {
       return (
         <Container maxWidth="lg" style={{ padding: 20 }}>
           <Grid container justify="center" spacing={2} alignItems="center">
             {resultsArray.map((mineral) => (
               <Grid item>
-                <ResultsWrapper>
-                  <Paper className="main-min-results">
+                <ResultWrapper>             
                     <Grid container spacing={2} alignItems="center">
                       <Grid item>
                         <Avatar
@@ -176,8 +173,7 @@ function Home() {
                         </div>
                       </Grid>
                     </Grid>
-                  </Paper>
-                </ResultsWrapper>
+                </ResultWrapper>
               </Grid>
             ))}
           </Grid>
@@ -207,7 +203,7 @@ function Home() {
               ? `${myMineralResults.length} results`
               : ``}
           </ResultCount>
-          {renderCreatedMinerals(myMineralResults)}
+          {renderResults(myMineralResults)}
         </div>
       </Container>
     </HomeWrapper>

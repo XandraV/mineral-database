@@ -10,9 +10,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import { dataSunburst } from "./data/sunburstData";
-import { Hint, Sunburst } from "react-vis";
-import SearchBar from "material-ui-search-bar";
 import {
   handleSearchMineralsList,
   getAllMinerals,
@@ -24,18 +21,18 @@ import {
   mineralGroups,
   mineralSubGroups,
 } from "./data/dashboardData";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import LabeledHeatmap from "./Heatmap";
-import BubbleChart from "./BubbleChart";
 import BarChart from "./BarChart";
-import { Menu } from "./Menu";
+import BubbleChart from "./BubbleChart";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ControlledExpansionPanel from "./ControlledExpansionPanel";
-import SunburstBreadcrumbs from "./SunburstBreadcrumbs";
-import SunburstAvatar from "./SunburstAvatar";
+import LabeledHeatmap from "./Heatmap";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import SearchBar from "material-ui-search-bar";
 import StyledButton from "./StyledButton";
+import { Menu } from "./Menu";
 import "./App.css";
 import styled from "styled-components/macro";
+import SunburstChart from "./SunburstChart";
 
 const ButtonsWrapper = styled.span`
   padding-left: 1em;
@@ -43,13 +40,37 @@ const ButtonsWrapper = styled.span`
   padding-top: 10px;
   margin-right: 0.5em;
 `;
+
+const StyledContainer = styled(Container)`
+  padding-top: 80px;
+  padding-left: 80px;
+  padding-bottom: 10px;
+  display: grid;
+`;
+const MineralsListWrapper = styled(Paper)`
+  position: relative;
+  height: 140px;
+  width: 350px;
+  border-radius: 15px;
+  padding: 5px;
+  flex-direction: column;
+  background: "white";
+
+  ul {
+    height: 8rem;
+    overflow: auto;
+  }
+  ul > div > div > span.MuiListItemText-primary {
+    font-size: 1rem;
+  }
+`;
+
 class Statistics extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       results: getAllMinerals(),
-      chosenMineral: null,
-      isloading: true,
+      selectedMineral: false,
       selectedColor: [],
       selectedGroup: [],
       selectedSubGroup: [],
@@ -59,70 +80,70 @@ class Statistics extends Component {
     };
   }
 
-  componentDidMount() {
-    // this simulates an async action, after which the component will render the content
-    demoAsyncCall().then(() => this.setState({ isloading: false }));
-  }
-
   handleListItemClick(rock) {
     this.setState({
-      chosenMineral: this.state.chosenMineral === rock ? null : rock,
+      selectedMineral: this.state.selectedMineral === rock ? false : rock,
     });
   }
 
   updateMineralsList() {
+    let newMineralsArray;
+    let newMineralsArray2;
+    let newMineralsArray3;
+    let newMineralsArray4;
     const originalMineralsArray = getAllMinerals();
     const filterColors = this.state.selectedColor;
     const filterGroups = this.state.selectedGroup;
     const filterSubGroups = this.state.selectedSubGroup;
     const filterSystems = this.state.selectedSystem;
     if (filterColors.length > 0) {
-      var newMineralsArray = originalMineralsArray.filter((el) => {
+      newMineralsArray = originalMineralsArray.filter((el) => {
         return filterColors.some((elem) => el.color.includes(elem));
       });
     } else {
-      var newMineralsArray = originalMineralsArray;
+      newMineralsArray = originalMineralsArray;
     }
 
     if (filterGroups.length > 0) {
-      var newMineralsArray2 = newMineralsArray.filter((el) => {
+      newMineralsArray2 = newMineralsArray.filter((el) => {
         return filterGroups.some((elem) => el.mainGroup.includes(elem));
       });
     } else {
-      var newMineralsArray2 = newMineralsArray;
+      newMineralsArray2 = newMineralsArray;
     }
 
     if (filterSubGroups.length > 0) {
-      var newMineralsArray3 = newMineralsArray2.filter((el) => {
+      newMineralsArray3 = newMineralsArray2.filter((el) => {
         return filterSubGroups.some((elem) => el.subGroup.includes(elem));
       });
     } else {
-      var newMineralsArray3 = newMineralsArray2;
+      newMineralsArray3 = newMineralsArray2;
     }
 
     if (filterSystems.length > 0) {
-      var newMineralsArray4 = newMineralsArray3.filter((el) => {
+      newMineralsArray4 = newMineralsArray3.filter((el) => {
         return filterSystems.some((elem) => el.system.includes(elem));
       });
     } else {
-      var newMineralsArray4 = newMineralsArray3;
+      newMineralsArray4 = newMineralsArray3;
     }
 
     this.setState({
       results: newMineralsArray4,
-      chosenMineral: null,
+      selectedMineral: null,
     });
   }
 
   handleSelectColor(mycolor) {
+    let newselected;
     if (this.state.selectedColor.indexOf(mycolor) > -1) {
-      var newselected = this.state.selectedColor;
+      newselected = this.state.selectedColor;
       newselected.splice(this.state.selectedColor.indexOf(mycolor), 1);
       this.setState({
         selectedColor: newselected,
       });
     } else {
-      var newselected = this.state.selectedColor.concat([mycolor]);
+      newselected = this.state.selectedColor.concat([mycolor]);
       this.setState({
         selectedColor: newselected,
       });
@@ -138,14 +159,15 @@ class Statistics extends Component {
   }
 
   handleSelectGroup(mygroup) {
+    let newselected;
     if (this.state.selectedColor.indexOf(mygroup) > -1) {
-      var newselected = this.state.selectedGroup;
+      newselected = this.state.selectedGroup;
       newselected.splice(this.state.selectedGroup.indexOf(mygroup), 1);
       this.setState({
         selectedGroup: newselected,
       });
     } else {
-      var newselected = this.state.selectedGroup.concat([mygroup]);
+      newselected = this.state.selectedGroup.concat([mygroup]);
       this.setState({
         selectedGroup: newselected,
       });
@@ -212,7 +234,7 @@ class Statistics extends Component {
   resetFilters() {
     this.setState({
       results: getAllMinerals(),
-      chosenMineral: null,
+      selectedMineral: null,
       selectedColor: [],
       selectedGroup: [],
       selectedSubGroup: [],
@@ -236,11 +258,10 @@ class Statistics extends Component {
         />
         <Menu title="Mineral Statistics" />
         <main>
-          <Container maxWidth="lg" className="stats-page-container">
+          <StyledContainer maxWidth="lg">
             <Grid container spacing={2}>
               <Grid item>
                 <ControlledExpansionPanel
-                  width={750}
                   value={
                     <div>
                       <BubbleChart />
@@ -251,83 +272,24 @@ class Statistics extends Component {
                   }
                 />
                 <ControlledExpansionPanel
-                  width={750}
                   value={
                     <div>
-                      <LabeledHeatmap mineral={this.state.chosenMineral} />
+                      <LabeledHeatmap mineral={this.state.selectedMineral} />
                     </div>
                   }
                   title={"Occurence of element pairs in minerals - HeatMap"}
                 />
                 <ControlledExpansionPanel
-                  width={750}
                   value={
                     <div>
-                      <Grid container spacing={2}>
-                        <Grid item>
-                          <Sunburst
-                            hideRootNode
-                            colorType="literal"
-                            data={dataSunburst}
-                            height={400}
-                            width={450}
-                            style={{
-                              stroke: "#fff",
-                              text: { color: "#ffffff" },
-                            }}
-                            onValueMouseOver={(v) =>
-                              this.setState({
-                                hoveredCell: v.x && v.y ? v : false,
-                                hoveredParent: v.parent.data,
-                              })
-                            }
-                            margin={{
-                              top: 50,
-                              bottom: 50,
-                              left: 50,
-                              right: 50,
-                            }}
-                          >
-                            <div className="sunburst-image-wrapper">
-                              {this.state.hoveredCell ? (
-                                <SunburstAvatar
-                                  hoveredCell={this.state.hoveredCell}
-                                />
-                              ) : null}
-                            </div>
-                            {this.state.hoveredCell ? (
-                              <Hint
-                                value={{
-                                  x: this.state.hoveredCell.x,
-                                  y: this.state.hoveredCell.y,
-                                }}
-                              >
-                                <div className="sunburst-hint-container-outter">
-                                  <div className="sunburst-hint-container-inner" />
-                                  {this.state.hoveredCell.title}
-                                </div>
-                              </Hint>
-                            ) : null}
-                          </Sunburst>
-                        </Grid>
-                        <Grid item>
-                          <div>
-                            {this.state.hoveredCell ? (
-                              <SunburstBreadcrumbs
-                                hoveredCell={this.state.hoveredCell}
-                                hoveredParent={this.state.hoveredParent}
-                              />
-                            ) : null}
-                          </div>
-                        </Grid>
-                      </Grid>
+                      <SunburstChart />
                     </div>
                   }
                   title={"Sunburst"}
                 />
               </Grid>
               <Grid item>
-                <BarChart chosenMineral={this.state.chosenMineral} />
+                <BarChart selectedMineral={this.state.selectedMineral} />
                 <SearchBar
                   onChange={(value) =>
                     this.setState({
@@ -336,33 +298,27 @@ class Statistics extends Component {
                   }
                   style={searchBar}
                 />
-                <Paper className="minerals-list">
-                  {this.state.loading ? (
-                    <CircularProgress
-                      style={{ marginLeft: "45%", marginTop: "15%" }}
-                      size={40}
-                    />
-                  ) : (
-                    <List style={{ height: 130, overflow: "auto" }}>
-                      {this.state.results != null
-                        ? this.state.results.map((rock) => (
-                            <ListItem
-                              style={{
-                                backgroundColor:
-                                  rock === this.state.chosenMineral
-                                    ? "lightGrey"
-                                    : "white",
-                              }}
-                              button
-                              onClick={() => this.handleListItemClick(rock)}
-                            >
-                              <ListItemText primary={rock.name} />
-                            </ListItem>
-                          ))
-                        : null}
-                    </List>
-                  )}
-                </Paper>
+                <MineralsListWrapper>
+                  <List>
+                    {this.state.results != null
+                      ? this.state.results.map((rock) => (
+                          <ListItem
+                            key={rock.name}
+                            style={{
+                              backgroundColor:
+                                rock === this.state.selectedMineral
+                                  ? "lightGrey"
+                                  : "white",
+                            }}
+                            button
+                            onClick={() => this.handleListItemClick(rock)}
+                          >
+                            <ListItemText primary={rock.name} />
+                          </ListItem>
+                        ))
+                      : null}
+                  </List>
+                </MineralsListWrapper>
                 <ControlledExpansionPanel
                   width={340}
                   value={
@@ -423,11 +379,13 @@ class Statistics extends Component {
                               value={["lol", "lol2"]}
                               className="properties-select"
                             >
-                              {mineralGroups.map((grp) => (
-                                <MenuItem value="">
+                              {mineralGroups.map((group) => (
+                                <MenuItem key={group} value="">
                                   <ListItemText
-                                    primary={grp}
-                                    onClick={() => this.handleSelectGroup(grp)}
+                                    primary={group}
+                                    onClick={() =>
+                                      this.handleSelectGroup(group)
+                                    }
                                   />
                                 </MenuItem>
                               ))}
@@ -461,7 +419,7 @@ class Statistics extends Component {
                               className="properties-select"
                             >
                               {mineralSubGroups.map((sgrp) => (
-                                <MenuItem value="">
+                                <MenuItem key={sgrp} value="">
                                   <ListItemText
                                     primary={sgrp}
                                     onClick={() =>
@@ -502,7 +460,7 @@ class Statistics extends Component {
                               className="properties-select"
                             >
                               {mineralSystems.map((sys) => (
-                                <MenuItem value="">
+                                <MenuItem key={sys} value="">
                                   <ListItemText
                                     primary={sys}
                                     onClick={() => this.handleSelectSystem(sys)}
@@ -543,7 +501,7 @@ class Statistics extends Component {
                 />
               </Grid>
             </Grid>
-          </Container>
+          </StyledContainer>
         </main>
       </MuiThemeProvider>
     );

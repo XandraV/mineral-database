@@ -30,6 +30,11 @@ const StyledSelectedElement = styled.div`
   padding: 2px;
   border: 0.09em dashed ${(props) => props.elementColor};
   border-radius: 10px;
+  grid-column-start: ${(props) => {
+    if (props.id === "He") return "-2";
+    else if (props.id === "B") return "13";
+    else if (props.id === "Al") return "13";
+  }};
 `;
 const StyledNotSelectedElement = styled.div`
   background-color: ${(props) => props.elementColor};
@@ -47,6 +52,11 @@ const StyledNotSelectedElement = styled.div`
     box-shadow: 0px 0px 5px #00ffff;
     border: 1px solid #00ffff;
   }
+  grid-column-start: ${(props) => {
+    if (props.id === "He") return "-2";
+    else if (props.id === "B") return "13";
+    else if (props.id === "Al") return "13";
+  }};
 `;
 
 function Element(props) {

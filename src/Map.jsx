@@ -1,12 +1,17 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
-import Grid from "@material-ui/core/Grid";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import Container from "@material-ui/core/Container";
 import { Menu } from "./Menu";
 import "./App.css";
 import { mapData } from "./data/mapData";
-
+import styled from "styled-components/macro";
+const StyledMap = styled.div`
+  position: absolute;
+  width: 63%;
+  top: 15%;
+  bottom: 6%;
+  border-radius: 10px;
+`;
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2FuZHJhZXhwbG9yZXMiLCJhIjoiY2pveXYzYmZsMmZzMzN2cGFkaDFzcnc4ZyJ9.jVMo-5f0RWDTv4FDD6WOLQ";
 
@@ -17,7 +22,7 @@ class Map extends React.Component {
       chosenMineral: null,
       lng: 10.926,
       lat: 36.695,
-      zoom: 1.45
+      zoom: 1.45,
     };
   }
 
@@ -26,14 +31,14 @@ class Map extends React.Component {
       container: this.mapContainer,
       style: "mapbox://styles/sandraexplores/ck5yg2w1i0cq61ijwkdzib1w4",
       center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom
+      zoom: this.state.zoom,
     });
 
     map.on("move", () => {
       this.setState({
         lng: map.getCenter().lng.toFixed(4),
         lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2)
+        zoom: map.getZoom().toFixed(2),
       });
     });
 
@@ -51,20 +56,20 @@ class Map extends React.Component {
               type: "geojson",
               data: {
                 type: "FeatureCollection",
-                features: mapData
-              }
+                features: mapData,
+              },
             },
             layout: {
               "icon-image": "diamond",
               "icon-size": 0.05,
-              "icon-allow-overlap": true
-            }
+              "icon-allow-overlap": true,
+            },
           });
         }
       );
     });
 
-    map.on("mouseenter", "places", e => {
+    map.on("mouseenter", "places", (e) => {
       // Change the cursor style as a UI indicator.
       map.getCanvas().style.cursor = "pointer";
 
@@ -80,10 +85,7 @@ class Map extends React.Component {
 
       // Populate the popup and set its coordinates
       // based on the feature found.
-      popup
-        .setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
+      popup.setLngLat(coordinates).setHTML(description).addTo(map);
     });
 
     map.on("mouseleave", "places", () => {
@@ -92,18 +94,17 @@ class Map extends React.Component {
     });
 
     // Event listener for clicking the gem icons
-    map.on("click", e => {
+    map.on("click", (e) => {
       let clickedPointcoordinates;
       // Query all the rendered points in the view
       const features = map.queryRenderedFeatures(e.point, {
-        layers: ["places"]
+        layers: ["places"],
       });
       features[0] !== undefined
         ? (clickedPointcoordinates = features[0].geometry.coordinates)
         : (clickedPointcoordinates = [e.lngLat.lng, e.lngLat.lat]);
       flyToPlace(map, clickedPointcoordinates);
     });
-    
 
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
@@ -111,7 +112,7 @@ class Map extends React.Component {
 
   handleListItemClick(rock) {
     this.setState({
-      chosenMineral: this.state.chosenMineral === rock ? null : rock
+      chosenMineral: this.state.chosenMineral === rock ? null : rock,
     });
   }
 
@@ -119,25 +120,9 @@ class Map extends React.Component {
     return (
       <MuiThemeProvider>
         <Menu title="Map" />
-        <main
-          className="main-stats"
-          style={{
-            height: "100%",
-            width: "100%",
-            backgroundSize: "cover"
-          }}
-        >
-          <Container maxWidth="lg" className="stats-page-container">
-            <Grid container justify="center" spacing={2}>
-              <Grid item key="1" >
-                <div
-                  ref={el => (this.mapContainer = el)}
-                  className="mapContainer"
-                />
-              </Grid>
-            </Grid>
-          </Container>
-        </main>
+        <div style={{ paddingLeft: "5rem" }}>
+          <StyledMap ref={(el) => (this.mapContainer = el)} />
+        </div>
       </MuiThemeProvider>
     );
   }
@@ -148,11 +133,11 @@ export default Map;
 function flyToPlace(map, currentFeature) {
   map.flyTo({
     center: currentFeature,
-    zoom: 10
+    zoom: 10,
   });
 }
 
 const popup = new mapboxgl.Popup({
   closeButton: false,
-  closeOnClick: false
+  closeOnClick: false,
 });

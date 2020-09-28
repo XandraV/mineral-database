@@ -31,10 +31,7 @@ const PageWrapper = styled.main`
 
 function InfoPage() {
   const { chosenCreatedMineral } = useContext(MineralContext);
-  const [
-    myChosenCreatedMineral,
-    setMyChosenCreatedMineral,
-  ] = chosenCreatedMineral;
+  const [myChosenCreatedMineral] = chosenCreatedMineral;
 
   const [mineralImage, setMineralImage] = useState(null);
   const [mineralGroupImage, setMineralGroupImage] = useState("");
@@ -87,7 +84,7 @@ function InfoPage() {
   });
 
   return (
-    <div >
+    <div>
       <Menu title={myChosenCreatedMineral.name}>
         <Formula
           className="formula-html"
@@ -98,81 +95,76 @@ function InfoPage() {
         <Container
           maxWidth="lg"
           className="container"
-          style={{ paddingLeft: 40 }}
+          style={{ paddingLeft: 40, paddingTop: 20 }}
         >
-          <div>
-            <link
-              href="https://fonts.googleapis.com/icon?family=Material+Icons"
-              rel="stylesheet"
-            />
-            <link
-              href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
-              rel="stylesheet"
-            />
-            <div className="canvas-wrapper">
-              <Stage width={width} height={600}>
-                <Layer>
-                  <ComponentsBackground />
-                </Layer>
-                <Layer
-                  onTap={() => setHoveredComponents(true)}
-                  onMouseOver={() => setHoveredComponents(true)}
-                >
-                  <Components
-                    chosenCreatedMineral={myChosenCreatedMineral}
-                    mainGroup={myChosenCreatedMineral.mainGroup}
-                  />
-                </Layer>
-                {hoveredComponents ? (
-                  <ComponentsInfo
-                    chosenCreatedMineral={myChosenCreatedMineral}
-                  />
-                ) : null}
-                <Layer
-                  onTap={() => setHoveredGravity(true)}
-                  onMouseOver={() => setHoveredGravity(true)}
-                >
-                  <SpecificGravityCircle
-                    specificGravity={myChosenCreatedMineral.specificGravity}
-                  />
-                </Layer>
-                {hoveredGravity ? <SpecificGravityInfo /> : null}
-                <SmallSystemCircle system={myChosenCreatedMineral.system} />
-                <Layer
-                  onTap={() => setHoveredSystem(true)}
-                  onMouseOver={() => setHoveredSystem(true)}
-                >
-                  <SystemCircle
-                    mineralSystemImage={mineralSystemImage}
-                    chosenCreatedMineral={myChosenCreatedMineral}
-                  />
-                </Layer>
-                {hoveredSystem ? (
-                  <SystemInfo hoveredSystem={hoveredSystem} />
-                ) : null}
-                <Layer
-                  onTap={() => setHoveredSubGroup(true)}
-                  onMouseOver={() => setHoveredSubGroup(true)}
-                >
-                  <SubGroup subGroup={myChosenCreatedMineral.subGroup} />
-                </Layer>
-                {hoveredSubGroup ? <SubGroupInfo /> : null}
-                {hoveredGroup ? <GroupInfo /> : null}
-                <Layer
-                  onTap={() => setHoveredGroup(true)}
-                  onMouseOver={() => setHoveredGroup(true)}
-                >
-                  <GroupCircle
-                    mineralGroupImage={mineralGroupImage}
-                    chosenCreatedMineral={myChosenCreatedMineral}
-                  />
-                </Layer>
-                <Hardness hardness={myChosenCreatedMineral.hardness} />
-                <Color color={myChosenCreatedMineral.color} />
-                <MineralImage mineralImage={mineralImage} />
-              </Stage>
-            </div>
-          </div>
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
+            rel="stylesheet"
+          />
+
+          <Stage width={width} height={600}>
+            <Layer>
+              <ComponentsBackground />
+            </Layer>
+            <Layer
+              onTap={() => setHoveredComponents(true)}
+              onMouseOver={() => setHoveredComponents(true)}
+            >
+              <Components
+                chosenCreatedMineral={myChosenCreatedMineral}
+                mainGroup={myChosenCreatedMineral.mainGroup}
+              />
+            </Layer>
+            {hoveredComponents ? (
+              <ComponentsInfo chosenCreatedMineral={myChosenCreatedMineral} />
+            ) : null}
+            <Layer
+              onTap={() => setHoveredGravity(true)}
+              onMouseOver={() => setHoveredGravity(true)}
+            >
+              <SpecificGravityCircle
+                specificGravity={myChosenCreatedMineral.specificGravity}
+              />
+            </Layer>
+            {hoveredGravity ? <SpecificGravityInfo /> : null}
+            <SmallSystemCircle system={myChosenCreatedMineral.system} />
+            <Layer
+              onTap={() => setHoveredSystem(true)}
+              onMouseOver={() => setHoveredSystem(true)}
+            >
+              <SystemCircle
+                mineralSystemImage={mineralSystemImage}
+                chosenCreatedMineral={myChosenCreatedMineral}
+              />
+            </Layer>
+            {hoveredSystem ? (
+              <SystemInfo hoveredSystem={hoveredSystem} />
+            ) : null}
+            <Layer
+              onTap={() => setHoveredSubGroup(true)}
+              onMouseOver={() => setHoveredSubGroup(true)}
+            >
+              <SubGroup subGroup={myChosenCreatedMineral.subGroup} />
+            </Layer>
+            {hoveredSubGroup ? <SubGroupInfo /> : null}
+            {hoveredGroup ? <GroupInfo /> : null}
+            <Layer
+              onTap={() => setHoveredGroup(true)}
+              onMouseOver={() => setHoveredGroup(true)}
+            >
+              <GroupCircle
+                mineralGroupImage={mineralGroupImage}
+                chosenCreatedMineral={myChosenCreatedMineral}
+              />
+            </Layer>
+            <Hardness hardness={myChosenCreatedMineral.hardness} />
+            <Color color={myChosenCreatedMineral.color} />
+            <MineralImage mineralImage={mineralImage} />
+          </Stage>
         </Container>
       </PageWrapper>
     </div>

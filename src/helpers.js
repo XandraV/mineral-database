@@ -7,10 +7,6 @@ export function getAllMinerals() {
   return allMineralsList;
 }
 
-export function demoAsyncCall() {
-  return new Promise(resolve => setTimeout(() => resolve(), 2500));
-}
-
 export function jsonToArray(jsonData) {
   const result = [];
   for (let i in jsonData) result.push(jsonData[i]);

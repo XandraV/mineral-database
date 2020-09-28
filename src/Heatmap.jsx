@@ -66,7 +66,7 @@ function LabeledHeatmap(props) {
     .domain([min, (min + max) / 2, max])
     .range(["lightBlue", "pink", "orange"]);
 
-  if (props.mineral != null) {
+  if (props.mineral) {
     const results3 = [];
     const myarray2 = props.mineral.formula;
     for (var i = 0; i < myarray2.length - 1; i++) {

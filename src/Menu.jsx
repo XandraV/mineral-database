@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import BackButton from "./BackButton";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Drawer from "@material-ui/core/Drawer";
@@ -25,6 +24,12 @@ const MenuWrapper = styled.div`
 `;
 const IconWrapper = styled.div`
   padding-top: 0.5em;
+`;
+
+const StyledDrawer = styled(Drawer)`
+  position: relative;
+  -moz-only-whitespace: nowrap;
+  width: 4rem;
 `;
 
 const Icon = () => {
@@ -66,7 +71,7 @@ export const Menu = ({ ...props }) => {
 const listIconStyle = { minWidth: 0, paddingRight: 8, color: "#009faf" };
 export function SideBar() {
   return (
-    <Drawer variant="permanent" className="drawerPaper">
+    <StyledDrawer variant="permanent">
       <List style={{ marginTop: "4.5em" }}>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -105,6 +110,6 @@ export function SideBar() {
           </Tooltip>
         </ListItem>
       </List>
-    </Drawer>
+    </StyledDrawer>
   );
 }

@@ -6,12 +6,7 @@ import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import SearchListItem from "./SearchListItem";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import {
-  demoAsyncCall,
-  getAllMinerals,
-  handleSearchMineralsList,
-} from "./helpers";
+import { getAllMinerals, handleSearchMineralsList } from "./helpers";
 import { Menu } from "./Menu";
 import StyledButton from "./StyledButton";
 import styled from "styled-components/macro";
@@ -26,7 +21,18 @@ const ButtonWrapper = styled.div`
   padding: 20px;
   text-align: center;
 `;
+const StyledCard = styled(Card)`
+  height: 140px;
+  width: 300px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+`;
 
+const StyledGrid = styled(Grid)`
+  height: 350px;
+  flex-grow: 1;
+  overflow: auto;
+`;
 function SearchPage() {
   const { chosenCreatedMineral } = useContext(MineralContext);
   const [
@@ -34,16 +40,9 @@ function SearchPage() {
     setMyChosenCreatedMineral,
   ] = chosenCreatedMineral;
   const originalList = getAllMinerals();
-
   const [value, setValue] = useState("");
   const [results, setResults] = useState(originalList);
-  const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(8);
-
-  useEffect(() => {
-    // this simulates an async action, after which the component will render the content
-    demoAsyncCall().then(() => setLoading(false));
-  });
 
   const searchBar = {
     width: 500,
@@ -73,33 +72,27 @@ function SearchPage() {
             maxWidth="lg"
             style={{ padding: 20, position: "absolute" }}
           >
-            {loading ? (
-              <CircularProgress
-                style={{ marginLeft: "48%" }}
-                left={-20}
-                size={40}
-              />
-            ) : (
-              <Grid
-                className="search-results-container"
-                container
-                justify="center"
-                spacing={2}
-                alignItems="center"
-              >
-                {results.slice(0, limit).map((rock) => (
-                  <Grid item>
-                    <Card className="result-item-wrapper">
-                      <CardActionArea
+            <StyledGrid
+              container
+              justify="center"
+              spacing={2}
+              alignItems="center"
+            >
+              {results.slice(0, limit).map((rock) => (
+                <Grid item key={rock.name}>
+                  <StyledCard>
+                    <CardActionArea
+                      onClick={() => setMyChosenCreatedMineral(rock)}
+                    >
+                      <SearchListItem
+                        mineral={rock}
                         onClick={() => setMyChosenCreatedMineral(rock)}
-                      >
-                        <SearchListItem mineral={rock} onClick={() => setMyChosenCreatedMineral(rock)}/>
-                      </CardActionArea>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            )}
+                      />
+                    </CardActionArea>
+                  </StyledCard>
+                </Grid>
+              ))}
+            </StyledGrid>
             <ButtonWrapper>
               <StyledButton onClick={() => setLimit(limit + 8)}>
                 Load more
