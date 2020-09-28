@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import * as d3 from "d3";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -31,62 +31,25 @@ const BarchartWrapper = styled(Paper)`
 
 function BarChart(props) {
   const { selectedMineral } = props;
+  const selectedElementNum = selectedMineral.formula?.length;
   const ref = useRef();
   const [selected, setSelected] = useState("");
-  const width = 280;
-  const height = 150;
+  const svgWidth = 280;
+  const svgHeight = 180;
+  const chartHeight = 150;
   const data = [33, 385, 675, 1089, 1090, 569, 292, 157, 64, 36, 8, 4];
 
   const xScale = d3.scaleLinear().domain([0, 12]).range([0, 260]);
   const yScale = d3
     .scaleLinear()
     .domain([0, d3.max(data)])
-    .range([0, height]);
-  useEffect(() => {
-    const color = d3
-      .scaleLinear()
-      .domain([0, 12])
-      .range(["hsl(323,66%,85%)", "hsl(35.8,100%,50%)"]);
-
-    const svg = d3.select(ref.current);
-    const selection = svg.selectAll("rect").data(data);
-
-    selection
-      .enter()
-      .append("rect")
-      .on("mouseover", function (_, d) {
-        setSelected(d);
-        d3.selectAll(`rect.bar${d}`).style("fill", "lightblue");
-      })
-      .on("mouseleave", function (_, d) {
-        setSelected("");
-        d3.selectAll(`rect.bar${d}`).style("fill", color(data.indexOf(d)));
-      })
-      .attr("class", function (d, i) {
-        return "bar" + d;
-      })
-      .attr("x", (d, i) => 21 + i * 22)
-      .attr("y", (d) => height)
-      .attr("width", 18)
-      .attr("height", 0)
-      .style("fill", function (d, i) {
-        return color(i);
-      })
-      .transition()
-      .duration(300)
-      .attr("height", (d) => yScale(d))
-      .attr("y", (d) => height - yScale(d));
-
-    if (selectedMineral) {
-      const elementNum = selectedMineral.formula.length;
-      d3.selectAll(`rect.bar${data[elementNum - 1]}`).style(
-        "fill",
-        "lightgrey"
-      );
-    }
-  });
-
+    .range([0, chartHeight]);
   const yAxisScale = d3.scaleLinear().domain([0, 1000]).range([150, 0]);
+
+  const color = d3
+    .scaleLinear()
+    .domain([0, 12])
+    .range(["hsl(323,66%,85%)", "hsl(35.8,100%,50%)"]);
 
   return (
     <BarchartWrapper>
@@ -94,11 +57,32 @@ function BarChart(props) {
         Number of distinct elements in minerals
       </Typography>
       <svg
-        width={width}
-        height={height}
+        width={svgWidth}
+        height={svgHeight}
         ref={ref}
         style={{ overflow: "visible" }}
       >
+        {data.map((d, i) => {
+          return (
+            <rect
+              className={`bar${d}`}
+              x={21 + i * 22}
+              y={150 - yScale(d)}
+              height={yScale(d)}
+              width={18}
+              fill={
+                d === data[selectedElementNum - 1]
+                  ? "lightgrey"
+                  : d === selected
+                  ? "lightblue"
+                  : color(i)
+              }
+              onMouseOver={() => setSelected(d)}
+              onMouseLeave={() => setSelected("")}
+            />
+          );
+        })}
+        
         <path
           d={["M", 10, 150, "v", -6, "V", -10, "v", 6].join(" ")}
           fill="none"
@@ -120,19 +104,16 @@ function BarChart(props) {
             </text>
           </g>
         ))}
-      </svg>
-
-      <svg height={20} width={260} style={{ overflow: "visible" }}>
         <path
-          d={["M", 0, 1, "v", -6, "H", 280, "v", 6].join(" ")}
+          d={["M", 10, 150, "h", 0, "H", 280, "v", 0].join(" ")}
           fill="none"
           stroke="lightgrey"
         />
         {xScale.ticks(12).map((value) => {
           if (value !== 0) {
             return (
-              <g key={value} transform={`translate(${xScale(value)},-3)`}>
-                <line y2="6" stroke="lightgrey" />
+              <g key={value} transform={`translate(${xScale(value)+9},152)`}>
+                <line y2="5" stroke="lightgrey" />
                 <text
                   key={value}
                   style={{
