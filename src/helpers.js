@@ -46,21 +46,21 @@ export function getColorInTable(symbol) {
     case "P":
     case "S":
     case "Se":
-      return "#9575cd";
+      return "hsl(302, 100%, 76%)";
     case "Li":
     case "Na":
     case "K":
     case "Rb":
     case "Cs":
     case "Fr":
-      return "#14cba8";
+      return "hsl(174, 72%, 56%)";
     case "Be":
     case "Mg":
     case "Ca":
     case "Sr":
     case "Ba":
     case "Ra":
-      return "#ff1744";
+      return "hsl(333, 100%, 62%)";
     case "Al":
     case "Ga":
     case "In":
@@ -72,7 +72,7 @@ export function getColorInTable(symbol) {
     case "Fl":
     case "Mc":
     case "Lv":
-      return "#ffb300";
+      return "hsl(40, 100%, 53%)";
     case "B":
     case "Si":
     case "Ge":
@@ -80,14 +80,14 @@ export function getColorInTable(symbol) {
     case "Te":
     case "Po":
     case "Sb":
-      return "#00838f";
+      return "hsl(181, 100%, 41%)";
     case "F":
     case "Cl":
     case "Br":
     case "I":
     case "At":
     case "Ts":
-      return "#ff6d00";
+      return "hsl(66, 75%, 54%)";
     case "He":
     case "Ne":
     case "Ar":
@@ -95,8 +95,8 @@ export function getColorInTable(symbol) {
     case "Xe":
     case "Rn":
     case "Og":
-      return "#673ab7";
+      return "hsl(194, 87%, 67%)";
     default:
-      return "#1565c0";
+      return "hsl(210, 99%, 69%)";
   }
 }

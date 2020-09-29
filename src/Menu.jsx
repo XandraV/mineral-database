@@ -16,7 +16,7 @@ import styled from "styled-components/macro";
 const MenuWrapper = styled.div`
   .appBar {
     z-index: 1201;
-    background-color: #009faf;
+    background-color: hsl(210, 99%, 69%);
   }
   .menu-header-text {
     flex-grow: 1;
@@ -68,7 +68,7 @@ export const Menu = ({ ...props }) => {
     </MenuWrapper>
   );
 };
-const listIconStyle = { minWidth: 0, paddingRight: 8, color: "#009faf" };
+const listIconStyle = { minWidth: 0, paddingRight: 8, color: "hsl(210, 99%, 69%)" };
 export function SideBar() {
   return (
     <StyledDrawer variant="permanent">

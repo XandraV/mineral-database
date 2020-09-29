@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import * as d3 from "d3";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -32,7 +32,6 @@ const BarchartWrapper = styled(Paper)`
 function BarChart(props) {
   const { selectedMineral } = props;
   const selectedElementNum = selectedMineral.formula?.length;
-  const ref = useRef();
   const [selected, setSelected] = useState("");
   const svgWidth = 280;
   const svgHeight = 180;
@@ -49,7 +48,7 @@ function BarChart(props) {
   const color = d3
     .scaleLinear()
     .domain([0, 12])
-    .range(["hsl(323,66%,85%)", "hsl(35.8,100%,50%)"]);
+    .range(["hsl(211, 100%, 89%)", "hsl(337, 100%, 79%)"]);
 
   return (
     <BarchartWrapper>
@@ -59,7 +58,6 @@ function BarChart(props) {
       <svg
         width={svgWidth}
         height={svgHeight}
-        ref={ref}
         style={{ overflow: "visible" }}
       >
         {data.map((d, i) => {

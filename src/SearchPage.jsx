@@ -233,6 +233,7 @@ function SearchPage() {
                 />
               </Grid>
               <ControlledExpansionPanel
+                expanded={false}
                 width={340}
                 value={
                   <div>

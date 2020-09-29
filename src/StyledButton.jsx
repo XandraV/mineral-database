@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 
 const ButtonWrapper = styled.span`
   button.button-create {
-    background: #009faf;
+    background: hsl(210, 100%, 56%);
     border-radius: 25px;
     border: 0px;
     color: white;
@@ -16,7 +16,7 @@ const ButtonWrapper = styled.span`
   }
   button.button-create:hover {
     transform: translateY(-7px);
-    background: #009faf;
+    background: hsl(210, 100%, 56%);
     box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
   }
 `;

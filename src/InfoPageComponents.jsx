@@ -1,8 +1,8 @@
 import React from "react";
 import { Layer, Text, Circle, Line, Rect, Group } from "react-konva";
 
-const darkColor = "#009faf";
-const lightColor = "#80deea";
+const darkColor = "hsl(210, 99%, 69%)";
+const lightColor = "hsl(211, 100%, 89%)";
 const data = require("./data/mineralGroups.json");
 export function getGroupData(chosenCreatedMineral, mineralGroup) {
   if (mineralGroup != null) {
@@ -434,7 +434,7 @@ export function SystemCircle(props) {
         x={380 + window.innerWidth / 2 - 225}
         y={340}
         radius={120}
-        fill={"#80deea"}
+        fill={lightColor}
       />
       <Circle
         className="system"
@@ -484,7 +484,7 @@ export function GroupCircle(props) {
         x={130 + window.innerWidth / 2 - 225}
         y={330}
         radius={100}
-        fill={"#80deea"}
+        fill={lightColor}
       />
       <Circle
         className="group"

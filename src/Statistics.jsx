@@ -67,6 +67,7 @@ function Statistics() {
           <Grid container spacing={2}>
             <Grid item>
               <ControlledExpansionPanel
+              expanded={true}
                 value={
                   <div>
                     <BubbleChart />
@@ -77,6 +78,7 @@ function Statistics() {
                 }
               />
               <ControlledExpansionPanel
+              expanded={false}
                 value={
                   <div>
                     <LabeledHeatmap mineral={selectedMineral} />
@@ -85,6 +87,7 @@ function Statistics() {
                 title={"Occurence of element pairs in minerals - Heat Map"}
               />
               <ControlledExpansionPanel
+              expanded={false}
                 value={
                   <div>
                     <SunburstChart />

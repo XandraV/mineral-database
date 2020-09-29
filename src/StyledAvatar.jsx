@@ -5,15 +5,15 @@ import styled from "styled-components/macro";
 const OutterCircle = styled.div`
   width: 110px;
   height: 110px;
-  background-color: #80deea;
+  background-color: hsl(211, 100%, 89%);
   border-radius: 50%;
-  box-shadow: 0px 0px 8px #009faf;
+  box-shadow: 0px 0px 8px hsl(211, 100%, 89%);
 `;
 const InnerCircle = styled.div`
   margin: 5px;
   width: 100px;
   height: 100px;
-  background-color: #009faf;
+  background-color: hsl(214, 100%, 75%);
   display: inline-block;
   border-radius: 50%;
 `;

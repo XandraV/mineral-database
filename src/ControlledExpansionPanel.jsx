@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -11,7 +11,7 @@ const StyledExpansionPanel = styled.div`
   div > #panel1bh-header {
     height: 3rem;
   }
-  div> #panel1bh-header > .MuiExpansionPanelSummary-content > p {
+  div > #panel1bh-header > .MuiExpansionPanelSummary-content > p {
     color: rgb(152, 150, 150);
     font-size: 15px;
     font-weight: bold;
@@ -19,9 +19,9 @@ const StyledExpansionPanel = styled.div`
 `;
 
 function ControlledExpansionPanel(props) {
-  const [expanded, setExpanded] = React.useState(false);
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const [expanded, setExpanded] = useState(props.expanded);
+  const handleChange = () => (event, isExpanded) => {
+    setExpanded(isExpanded ? true : false);
   };
   return (
     <StyledExpansionPanel>
@@ -31,8 +31,8 @@ function ControlledExpansionPanel(props) {
           borderRadius: 15,
           margin: "0 auto",
         }}
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
+        expanded={expanded === true}
+        onChange={handleChange()}
       >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
