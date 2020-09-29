@@ -1,26 +1,42 @@
 import React, { useState } from "react";
 import * as d3 from "d3";
+import StyledTooltip from "./StyledTooltip";
 import { bubbleData, labelsBubble } from "./data/bubbledata";
 import styled from "styled-components/macro";
 
 const BubbleWrapper = styled.div`
   padding-top: 0.5rem;
   padding-left: 3rem;
-`;
-
-const StyledTooltip = styled.div`
-  opacity: ${(props) => (props.hovered ? 1 : 0)};
-  left: ${(props) => props.left};
-  top: ${(props) => props.top};
-  position: absolute;
-  text-align: center;
-  width: 6rem;
-  font-size: 0.7rem;
-  height: 2.5rem;
-  padding: 0.2rem;
-  background: lightsteelblue;
-  border-radius: 8px;
-  color: white;
+  svg > circle {
+    @-webkit-keyframes slide-in-fwd-bottom {
+      0% {
+        -webkit-transform: translateZ(-1400px) translateY(800px);
+        transform: translateZ(-1400px) translateY(800px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateZ(0) translateY(0);
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slide-in-fwd-bottom {
+      0% {
+        -webkit-transform: translateZ(-1400px) translateY(800px);
+        transform: translateZ(-1400px) translateY(800px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateZ(0) translateY(0);
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+      }
+    }
+    -webkit-animation: slide-in-fwd-bottom 0.4s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-fwd-bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+  }
 `;
 
 function BubbleChart() {
@@ -116,83 +132,5 @@ function BubbleChart() {
     </BubbleWrapper>
   );
 }
-
-// import {
-//   XYPlot,
-//   XAxis,
-//   YAxis,
-//   VerticalGridLines,
-//   MarkSeriesCanvas,
-//   Hint
-// } from "react-vis";
-
-// function BubbleChart() {
-//   const [data] = useState(bubbleData);
-//   const [value, setValue] = useState(false);
-//   const markSeriesProps = {
-//     animation: true,
-//     sizeRange: [1, 35],
-//     colorRange: ["orange", "pink", "lightBlue"],
-//     data,
-//     onNearestXY: value => setValue(value)
-//   };
-//   return (
-//     <div style={{ padding: 5 }}>
-//       <XYPlot
-//         margin={{ left: 50 }}
-//         yDomain={[0, 3900]}
-//         onMouseLeave={() => setValue(false)}
-//         width={720}
-//         height={400}
-//       >
-//         <VerticalGridLines tickTotal={43} />
-//         <XAxis
-//           tickFormat={v => labelsBubble[v - 1]}
-//           tickTotal={43}
-//           tickSize={1}
-//         />
-//         <YAxis />
-//         <MarkSeriesCanvas {...markSeriesProps} />
-//         {value ? (
-//           <Hint value={value}>
-//             <HintContentBubble value={value} />
-//           </Hint>
-//         ) : null}
-//       </XYPlot>
-//     </div>
-//   );
-// }
-
-// function HintContentBubble({ value }) {
-//   const { x, y } = value;
-//   return (
-//     <div>
-//       {hintRowBubble({ numberOfMinerals: y, components: labelsBubble[x - 1] })},
-//     </div>
-//   );
-// }
-
-// function hintRowBubble({ numberOfMinerals, components }) {
-//   return (
-//     <Paper
-//       style={{
-//         backgroundColor: "rgb(105,105,105)",
-//         alignItems: "center",
-//         borderRadius: 4,
-//         padding: 8,
-//         display: "flex",
-//         overflow: "auto",
-//         flexDirection: "column"
-//       }}
-//     >
-//       <div style={{ fontSize: "12px", color: "white" }}>
-//         {numberOfMinerals}
-//         {numberOfMinerals > 1 ? " minerals" : " mineral"}
-//         {" contain "}
-//         {components}
-//       </div>
-//     </Paper>
-//   );
-// }
 
 export default BubbleChart;

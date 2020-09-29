@@ -43,7 +43,7 @@ const HomeWrapper = styled.div`
     background-position: center;
     background-position-y: 10px;
     background-repeat: no-repeat;
-    background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/grey.svg");
+    background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/bluish.svg");
   }
   .card1 {
     display: grid;

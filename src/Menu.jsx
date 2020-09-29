@@ -88,17 +88,17 @@ export function SideBar() {
             </ListItemIcon>
           </Tooltip>
         </ListItem>
-        <ListItem button component={Link} to="/search">
-          <Tooltip title="Search" placement="right" style={{ width: 500 }}>
-            <ListItemIcon style={listIconStyle}>
-              <i className="material-icons">search</i>
-            </ListItemIcon>
-          </Tooltip>
-        </ListItem>
         <ListItem button component={Link} to="/statistics">
           <Tooltip title="Dashboard" placement="right" style={{ width: 500 }}>
             <ListItemIcon style={listIconStyle}>
               <BarChartIcon />
+            </ListItemIcon>
+          </Tooltip>
+        </ListItem>
+        <ListItem button component={Link} to="/search">
+          <Tooltip title="Search" placement="right" style={{ width: 500 }}>
+            <ListItemIcon style={listIconStyle}>
+              <i className="material-icons">search</i>
             </ListItemIcon>
           </Tooltip>
         </ListItem>

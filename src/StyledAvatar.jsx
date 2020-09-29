@@ -13,7 +13,7 @@ const InnerCircle = styled.div`
   margin: 5px;
   width: 100px;
   height: 100px;
-  background-color: hsl(214, 100%, 75%);
+  background-color: hsl(211, 100%, 89%);
   display: inline-block;
   border-radius: 50%;
 `;

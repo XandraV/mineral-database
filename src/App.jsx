@@ -22,11 +22,11 @@ const App = () => {
             <Route exact path="/mineral-results">
               <InfoPage />
             </Route>
-            <Route exact path={"/search"}>
-              <SearchPage />
-            </Route>
             <Route exact path={"/statistics"}>
               <Statistics />
+            </Route>
+            <Route exact path={"/search"}>
+              <SearchPage />
             </Route>
             <Route exact path="/map">
               <Map />

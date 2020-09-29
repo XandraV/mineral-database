@@ -27,6 +27,36 @@ const BarchartWrapper = styled(Paper)`
     color: #b5b0b0;
     font-weight: bold;
   }
+  svg > rect {
+    @-webkit-keyframes scale-in-hor-center {
+      0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+    @keyframes scale-in-hor-center {
+      0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+    -webkit-animation: scale-in-hor-center 0.5s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-in-hor-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+  }
 `;
 
 function BarChart(props) {
@@ -55,11 +85,7 @@ function BarChart(props) {
       <Typography className="title" noWrap>
         Number of distinct elements in minerals
       </Typography>
-      <svg
-        width={svgWidth}
-        height={svgHeight}
-        style={{ overflow: "visible" }}
-      >
+      <svg width={svgWidth} height={svgHeight} style={{ overflow: "visible" }}>
         {data.map((d, i) => {
           return (
             <rect
@@ -69,10 +95,16 @@ function BarChart(props) {
               height={yScale(d)}
               width={18}
               fill={
-                d === data[selectedElementNum - 1]
-                  ? "lightgrey"
+                selectedMineral
+                  ? d === data[selectedElementNum - 1]
+                    ? d === selected
+                      ? "pink"
+                      : color(i)
+                    : d === selected
+                    ? "pink"
+                    : "lightgrey"
                   : d === selected
-                  ? "lightblue"
+                  ? "pink"
                   : color(i)
               }
               onMouseOver={() => setSelected(d)}
@@ -80,7 +112,7 @@ function BarChart(props) {
             />
           );
         })}
-        
+
         <path
           d={["M", 10, 150, "v", -6, "V", -10, "v", 6].join(" ")}
           fill="none"
@@ -110,7 +142,7 @@ function BarChart(props) {
         {xScale.ticks(12).map((value) => {
           if (value !== 0) {
             return (
-              <g key={value} transform={`translate(${xScale(value)+9},152)`}>
+              <g key={value} transform={`translate(${xScale(value) + 9},152)`}>
                 <line y2="5" stroke="lightgrey" />
                 <text
                   key={value}
