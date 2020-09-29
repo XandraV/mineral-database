@@ -104,7 +104,7 @@ function Statistics() {
                 }
                 style={searchBar}
               />
-              {/* <MineralsListWrapper>
+              <MineralsListWrapper>
                 <List className="minerals">
                   {results != null
                     ? results.map((rock) => (
@@ -122,7 +122,7 @@ function Statistics() {
                       ))
                     : null}
                 </List>
-              </MineralsListWrapper> */}
+              </MineralsListWrapper>
             </Grid>
           </Grid>
         </StyledContainer>
