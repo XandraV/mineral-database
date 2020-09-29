@@ -1,4 +1,4 @@
-export const heatmapData = [
+export const heatmapdata = [
   { y: 0, x: 0, cellValue: 0 },
   { y: 1, x: 0, cellValue: 0 },
   { y: 2, x: 0, cellValue: 0 },
@@ -190,3 +190,27 @@ export const heatmapData = [
   { y: 8, x: 18, cellValue: 0 },
   { y: 9, x: 18, cellValue: 174 },
 ];
+
+export const heatMapLabelsX = [
+  "H",
+  "C",
+  "N",
+  "O",
+  "F",
+  "P",
+  "S",
+  "K",
+  "I",
+  "Na",
+  "Mg",
+  "Al",
+  "Si",
+  "Cl",
+  "Ca",
+  "V",
+  "Cr",
+  "Mn",
+  "Fe",
+];
+
+export const heatMapLabelsY = ["H", "C", "N", "O", "F", "P", "S", "K", "I", "Na"];

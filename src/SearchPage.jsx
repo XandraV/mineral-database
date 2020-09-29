@@ -23,7 +23,7 @@ import {
   mineralSystems,
   mineralGroups,
   mineralSubGroups,
-} from "./data/dashboardData";
+} from "./data/searchPageHelperData";
 
 const PageWrapper = styled.main`
   padding-top: 5rem;
