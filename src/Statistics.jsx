@@ -66,7 +66,7 @@ function Statistics() {
         <StyledContainer maxWidth="lg">
           <Grid container spacing={2}>
             <Grid item>
-              <ControlledExpansionPanel
+              {/* <ControlledExpansionPanel
               expanded={true}
                 value={
                   <div>
@@ -76,8 +76,8 @@ function Statistics() {
                 title={
                   "Number of minerals containing a specific element - Bubble Chart"
                 }
-              />
-              <ControlledExpansionPanel
+              /> */}
+              {/* <ControlledExpansionPanel
               expanded={false}
                 value={
                   <div>
@@ -85,9 +85,9 @@ function Statistics() {
                   </div>
                 }
                 title={"Occurence of element pairs in minerals - Heat Map"}
-              />
+              /> */}
               <ControlledExpansionPanel
-              expanded={false}
+              expanded={true}
                 value={
                   <div>
                     <SunburstChart />
@@ -104,7 +104,7 @@ function Statistics() {
                 }
                 style={searchBar}
               />
-              <MineralsListWrapper>
+              {/* <MineralsListWrapper>
                 <List className="minerals">
                   {results != null
                     ? results.map((rock) => (
@@ -122,7 +122,7 @@ function Statistics() {
                       ))
                     : null}
                 </List>
-              </MineralsListWrapper>
+              </MineralsListWrapper> */}
             </Grid>
           </Grid>
         </StyledContainer>
