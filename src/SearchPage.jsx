@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Container from "@material-ui/core/Container";
-import ControlledExpansionPanel from "./ControlledExpansionPanel";
+import ExpansionPanel from "./ExpansionPanel";
 import SearchListItem from "./SearchListItem";
 import { getAllMinerals, handleSearchMineralsList } from "./helpers";
 import { Menu } from "./Menu";
@@ -232,7 +232,7 @@ function SearchPage() {
                   style={searchBar}
                 />
               </Grid>
-              <ControlledExpansionPanel
+              <ExpansionPanel
                 expanded={false}
                 width={340}
                 value={

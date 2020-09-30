@@ -89,6 +89,7 @@ function BarChart(props) {
         {data.map((d, i) => {
           return (
             <rect
+              key={d}
               className={`bar${d}`}
               x={21 + i * 22}
               y={150 - yScale(d)}

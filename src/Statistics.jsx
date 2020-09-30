@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BarChart from "./BarChart";
 import BubbleChart from "./BubbleChart";
 import Container from "@material-ui/core/Container";
-import ControlledExpansionPanel from "./ControlledExpansionPanel";
+import ExpansionPanel from "./ExpansionPanel";
 import Grid from "@material-ui/core/Grid";
 import LabeledHeatmap from "./Heatmap";
 import ListItem from "@material-ui/core/ListItem";
@@ -66,8 +66,8 @@ function Statistics() {
         <StyledContainer maxWidth="lg">
           <Grid container spacing={2}>
             <Grid item>
-              {/* <ControlledExpansionPanel
-              expanded={true}
+              <ExpansionPanel
+                expanded={true}
                 value={
                   <div>
                     <BubbleChart />
@@ -76,18 +76,18 @@ function Statistics() {
                 title={
                   "Number of minerals containing a specific element - Bubble Chart"
                 }
-              /> */}
-              {/* <ControlledExpansionPanel
-              expanded={false}
+              />
+              <ExpansionPanel
+                expanded={false}
                 value={
                   <div>
                     <LabeledHeatmap mineral={selectedMineral} />
                   </div>
                 }
                 title={"Occurence of element pairs in minerals - Heat Map"}
-              /> */}
-              <ControlledExpansionPanel
-              expanded={true}
+              />
+              <ExpansionPanel
+                expanded={false}
                 value={
                   <div>
                     <SunburstChart />
@@ -104,7 +104,7 @@ function Statistics() {
                 }
                 style={searchBar}
               />
-              {/* <MineralsListWrapper>
+              <MineralsListWrapper>
                 <List className="minerals">
                   {results != null
                     ? results.map((rock) => (
@@ -122,7 +122,7 @@ function Statistics() {
                       ))
                     : null}
                 </List>
-              </MineralsListWrapper> */}
+              </MineralsListWrapper>
             </Grid>
           </Grid>
         </StyledContainer>

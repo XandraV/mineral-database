@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import { AccordionDetails } from '@material-ui/core'
+import { AccordionSummary } from '@material-ui/core'
+import { Accordion } from '@material-ui/core'
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import styled from "styled-components/macro";
 
@@ -11,21 +11,21 @@ const StyledExpansionPanel = styled.div`
   div > #panel1bh-header {
     height: 3rem;
   }
-  div > #panel1bh-header > .MuiExpansionPanelSummary-content > p {
+  div > #panel1bh-header > .MuiAccordionSummary-content > p {
     color: rgb(152, 150, 150);
     font-size: 15px;
     font-weight: bold;
   }
 `;
 
-function ControlledExpansionPanel(props) {
+function ExpansionPanel(props) {
   const [expanded, setExpanded] = useState(props.expanded);
   const handleChange = () => (event, isExpanded) => {
     setExpanded(isExpanded ? true : false);
   };
   return (
     <StyledExpansionPanel>
-      <ExpansionPanel
+      <Accordion
         style={{
           width: props.width || 750,
           borderRadius: 15,
@@ -34,19 +34,19 @@ function ControlledExpansionPanel(props) {
         expanded={expanded === true}
         onChange={handleChange()}
       >
-        <ExpansionPanelSummary
+        <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
           <Typography>{props.title}</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails style={{ padding: 10 }}>
+        </AccordionSummary>
+        <AccordionDetails style={{ padding: 10 }}>
           {props.value}
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </AccordionDetails>
+      </Accordion>
     </StyledExpansionPanel>
   );
 }
 
-export default ControlledExpansionPanel;
+export default ExpansionPanel;
