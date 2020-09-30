@@ -119,6 +119,7 @@ function BubbleChart() {
         {bubbleData.map((bubble, i) => {
           return (
             <circle
+              key={i}
               cx={`${xScale(bubble.x)}`}
               cy={`${yScale(bubble.y)}`}
               r={`${bubble.y / 100}`}

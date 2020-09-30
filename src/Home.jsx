@@ -43,7 +43,7 @@ const HomeWrapper = styled.div`
     background-position: center;
     background-position-y: 10px;
     background-repeat: no-repeat;
-    background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/bluish.svg");
+    background-image: url("");
   }
   .card1 {
     display: grid;
@@ -155,7 +155,7 @@ function Home() {
         <Container maxWidth="lg" style={{ padding: 20 }}>
           <Grid container justify="center" spacing={2} alignItems="center">
             {resultsArray.map((mineral) => (
-              <Grid item>
+              <Grid key={mineral.name} item>
                 <ResultWrapper>             
                     <Grid container spacing={2} alignItems="center">
                       <Grid item>

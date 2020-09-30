@@ -40,8 +40,9 @@ function LabeledHeatmap() {
         } and ${heatMapLabelsY[hovered.y]}`}
       </StyledTooltip>
       <svg width={svgWidth} height={svgHeight} style={{ overflow: "visible" }}>
-        {heatmapdata.map((value) => (
+        {heatmapdata.map((value, i) => (
           <rect
+            key={i}
             className={value.cellValue}
             x={xScale(value.x) + 40}
             y={yScale(value.y) + 10}

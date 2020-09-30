@@ -1,78 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Menu } from "./Menu";
-import { Stage, Layer } from "react-konva";
-import Container from "@material-ui/core/Container";
-import {
-  GroupCircle,
-  SystemCircle,
-  SystemInfo,
-  GroupInfo,
-  ComponentsInfo,
-  Components,
-  SpecificGravityInfo,
-  SpecificGravityCircle,
-  SmallSystemCircle,
-  ComponentsBackground,
-  SubGroup,
-  SubGroupInfo,
-  Hardness,
-  Color,
-  MineralImage,
-} from "./InfoPageComponents";
+import Avatar from "@material-ui/core/Avatar";
 import Formula from "./Formula";
-import styled from "styled-components/macro";
+import ComponentsCircle from "./ComponentsCircle";
+import { MainGroupCircle, SubGroupCircle } from "./GroupCircles";
 import { MineralContext } from "./MineralContext";
-
-const PageWrapper = styled.main`
-  padding-top: 70px;
-  flex-grow: 1;
-  height: 100vh;
-`;
+import GravityCircle from "./GravityCircle";
+import { ColorText, HardnessText, SystemText } from "./SmallCircles";
 
 function InfoPage() {
   const { chosenCreatedMineral } = useContext(MineralContext);
   const [myChosenCreatedMineral] = chosenCreatedMineral;
+  const light = "hsl(211, 100%, 89%)";
 
-  const [mineralImage, setMineralImage] = useState(null);
-  const [mineralGroupImage, setMineralGroupImage] = useState("");
-  const [mineralSystemImage, setMineralSystemImage] = useState("");
-  const [hoveredGravity, setHoveredGravity] = useState(false);
-  const [hoveredSystem, setHoveredSystem] = useState(false);
-  const [hoveredGroup, setHoveredGroup] = useState(false);
-  const [hoveredSubGroup, setHoveredSubGroup] = useState(false);
-  const [hoveredComponents, setHoveredComponents] = useState(false);
-
-  useEffect(() => {
-    const getImagesForInfoPage = (chosenMineral) => {
-      if (chosenMineral != null) {
-        const imageMineral = new window.Image();
-        const imageGroup = new window.Image();
-        const imageSystem = new window.Image();
-        const color = myChosenCreatedMineral.color[0].toLowerCase();
-        const group = myChosenCreatedMineral.mainGroup[0].toLowerCase();
-        const system = myChosenCreatedMineral.system.toLowerCase();
-        imageMineral.onload = () => {
-          setMineralImage(imageMineral);
-        };
-        imageGroup.onload = () => {
-          setMineralGroupImage(imageGroup);
-        };
-        imageSystem.onload = () => {
-          setMineralSystemImage(imageSystem);
-        };
-        imageMineral.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${color}.svg`;
-        imageGroup.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${group}.svg`;
-        imageSystem.src = `https://crystallizer.s3.eu-west-2.amazonaws.com/${system}.svg`;
-      }
-    };
-    getImagesForInfoPage(myChosenCreatedMineral);
-    window.addEventListener("getimage", getImagesForInfoPage);
-    return () => {
-      window.removeEventListener("getimage", getImagesForInfoPage);
-    };
-  });
-
-  const [width, setWidth] = React.useState(window.innerWidth + 200);
+  const [width, setWidth] = useState(window.innerWidth);
+  const height = 600;
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth + 200);
@@ -91,84 +33,131 @@ function InfoPage() {
           chosenCreatedMineral={myChosenCreatedMineral}
         />
       </Menu>
-      <PageWrapper>
-        <Container
-          maxWidth="lg"
-          className="container"
-          style={{ paddingLeft: 40, paddingTop: 20 }}
-        >
-          <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
-            rel="stylesheet"
-          />
-
-          <Stage width={width} height={600}>
-            <Layer>
-              <ComponentsBackground />
-            </Layer>
-            <Layer
-              onTap={() => setHoveredComponents(true)}
-              onMouseOver={() => setHoveredComponents(true)}
-            >
-              <Components
-                chosenCreatedMineral={myChosenCreatedMineral}
-                mainGroup={myChosenCreatedMineral.mainGroup}
-              />
-            </Layer>
-            {hoveredComponents ? (
-              <ComponentsInfo chosenCreatedMineral={myChosenCreatedMineral} />
-            ) : null}
-            <Layer
-              onTap={() => setHoveredGravity(true)}
-              onMouseOver={() => setHoveredGravity(true)}
-            >
-              <SpecificGravityCircle
-                specificGravity={myChosenCreatedMineral.specificGravity}
-              />
-            </Layer>
-            {hoveredGravity ? <SpecificGravityInfo /> : null}
-            <SmallSystemCircle system={myChosenCreatedMineral.system} />
-            <Layer
-              onTap={() => setHoveredSystem(true)}
-              onMouseOver={() => setHoveredSystem(true)}
-            >
-              <SystemCircle
-                mineralSystemImage={mineralSystemImage}
-                chosenCreatedMineral={myChosenCreatedMineral}
-              />
-            </Layer>
-            {hoveredSystem ? (
-              <SystemInfo hoveredSystem={hoveredSystem} />
-            ) : null}
-            <Layer
-              onTap={() => setHoveredSubGroup(true)}
-              onMouseOver={() => setHoveredSubGroup(true)}
-            >
-              <SubGroup subGroup={myChosenCreatedMineral.subGroup} />
-            </Layer>
-            {hoveredSubGroup ? <SubGroupInfo /> : null}
-            {hoveredGroup ? <GroupInfo /> : null}
-            <Layer
-              onTap={() => setHoveredGroup(true)}
-              onMouseOver={() => setHoveredGroup(true)}
-            >
-              <GroupCircle
-                mineralGroupImage={mineralGroupImage}
-                chosenCreatedMineral={myChosenCreatedMineral}
-              />
-            </Layer>
-            <Hardness hardness={myChosenCreatedMineral.hardness} />
-            <Color color={myChosenCreatedMineral.color} />
-            <MineralImage mineralImage={mineralImage} />
-          </Stage>
-        </Container>
-      </PageWrapper>
+      {/* mineral, group, system images */}
+      <InfoAvatar
+        width={9}
+        height={9}
+        top={height / 2 - 70}
+        left={width / 2 - 50}
+        keyWord={myChosenCreatedMineral.color[0]}
+      />
+      <InfoAvatar
+        width={8}
+        height={8}
+        top={height / 2 + 50}
+        left={width / 2 - 165}
+        keyWord={myChosenCreatedMineral.mainGroup[0]}
+      />
+      <InfoAvatar
+        width={7}
+        height={7}
+        top={height / 2 + 70}
+        left={width / 2 + 90}
+        keyWord={myChosenCreatedMineral.system}
+      />
+      <svg
+        widht={width}
+        height={height}
+        style={{ paddingLeft: 20, overflow: "visible" }}
+      >
+        {/* components */}
+        <ComponentsCircle
+          svgWidth={width}
+          svgHeight={height}
+          mineral={myChosenCreatedMineral}
+        />
+        {/* main group circle */}
+        <MainGroupCircle
+          svgWidth={width}
+          svgHeight={height}
+          label={myChosenCreatedMineral.mainGroup[0]}
+        />
+        {/* subgroup circle */}
+        <SubGroupCircle
+          svgWidth={width}
+          svgHeight={height}
+          label={myChosenCreatedMineral.subGroup[0]}
+        />
+        {/* maingroup image circle */}
+        <circle
+          cx={`${width / 2 - 120}`}
+          cy={`${height / 2 + 120}`}
+          r={70}
+          fill={"white"}
+          style={{ stroke: light, strokeWidth: 12 }}
+        />
+        {/* system image circle */}
+        <circle
+          cx={`${width / 2 + 120}`}
+          cy={`${height / 2 + 120}`}
+          r={70}
+          fill={"white"}
+          style={{ stroke: light, strokeWidth: 12 }}
+        />
+        {/* gravity circle */}
+        <GravityCircle
+          svgWidth={width}
+          svgHeight={height}
+          label={myChosenCreatedMineral.specificGravity}
+        />
+        {/* systems text */}
+        <SystemText
+          svgWidth={width}
+          svgHeight={height}
+          label={myChosenCreatedMineral.system}
+        />
+        {/* hardness text */}
+        <HardnessText
+          svgWidth={width}
+          svgHeight={height}
+          label={myChosenCreatedMineral.hardness}
+        />
+        {/* colour text */}
+        <ColorText
+          svgWidth={width}
+          svgHeight={height}
+          label={myChosenCreatedMineral.color[0]}
+        />
+        {/* mineral image circle  */}
+        <circle
+          cx={`${width / 2}`}
+          cy={`${height / 2}`}
+          r={100}
+          fill={"white"}
+          style={{ stroke: light, strokeWidth: 12 }}
+        />
+      </svg>
     </div>
   );
 }
 
+function InfoAvatar(props) {
+  return (
+    <Avatar
+      alt="avatar"
+      src={
+        props.keyWord === ""
+          ? "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+          : `https://crystallizer.s3.eu-west-2.amazonaws.com/${props.keyWord.toLowerCase()}.svg`
+      }
+      style={{
+        width: `${props.width}rem`,
+        height: `${props.height}rem`,
+        top: `${props.top}px`,
+        left: `${props.left}px`,
+        position: "absolute",
+      }}
+    />
+  );
+}
+
 export default InfoPage;
+
+// const systemInfoText =
+//   "There are six crystal systems. Although you may have seen more than six shapes of crystals, they’re all variations of one of these six habits. ";
+// const groupInfoText =
+//   "A mineral group is a set of mineral species with essentially the same crystal structure and composed of chemically similar elements. ";
+// const subGroupInfoText =
+//   "The next level of mineral classification after categorization in groups.";
+// const gravityInfoText =
+//   "Specific Gravity is a measurement that determines the density of minerals. It determines how heavy it is by its relative weight to water. ";
