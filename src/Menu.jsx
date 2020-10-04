@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -45,12 +45,11 @@ const Icon = () => {
   );
 };
 
-export const Menu = ({ ...props }) => {
+const Menu = ({ ...props }) => {
   return (
     <MenuWrapper>
       <AppBar position="fixed" className="appBar">
         <Toolbar>
-          {/* {props.title !== "Crystallizer" ? <BackButton /> : ""} */}
           <Typography
             component="h1"
             variant="h6"
@@ -68,7 +67,11 @@ export const Menu = ({ ...props }) => {
     </MenuWrapper>
   );
 };
-const listIconStyle = { minWidth: 0, paddingRight: 8, color: "hsl(210, 99%, 69%)" };
+const listIconStyle = {
+  minWidth: 0,
+  paddingRight: 8,
+  color: "hsl(210, 99%, 69%)",
+};
 export function SideBar() {
   return (
     <StyledDrawer variant="permanent">
@@ -113,3 +116,5 @@ export function SideBar() {
     </StyledDrawer>
   );
 }
+
+export default Menu;

@@ -18,16 +18,6 @@ export const mineralColors = [
   "Yellow-orange"
 ];
 
-export const mineralSystems = [
-  "Triclinic",
-  "Monoclinic",
-  "Orthorhombic",
-  "Hexagonal",
-  "Tetragonal",
-  "Trigonal",
-  "Isometric"
-];
-
 export const mineralGroups = [
   "Elements",
   "Sulfides",
@@ -43,48 +33,4 @@ export const mineralGroups = [
   "Vanadates",
   "Silicates",
   "Organic Compounds"
-];
-
-export const mineralSubGroups = [
-  "Metals",
-  "Metalloids",
-  "Nonmetals",
-  "Carbides",
-  "Silicides",
-  "Nitrides",
-  "Phosphides",
-  "Selenides",
-  "Tellurides",
-  "Arsenides",
-  "Antimonides",
-  "Bismuthides",
-  "Sulfarsenites",
-  "Sulfantimonites",
-  "Sulfbismuthies",
-  "Oxysulfosalts",
-  "Complex Halides",
-  "Oxyhalides",
-  "Hydroxyhalides",
-  "Iodates",
-  "Nitrates",
-  "Monoborates",
-  "Diborates",
-  "Triborates",
-  "Tetraborates",
-  "Pentaborates",
-  "Hexaborates",
-  "Heptaborates",
-  "Chromates",
-  "Uranyl sulfates",
-  "Molybdates",
-  "Wolframates",
-  "Niobates",
-  "Nesosilicates",
-  "Sorosilicates",
-  "Cyclosilicates",
-  "Inosilicates",
-  "Phyllosilicates",
-  "Tektosilicates",
-  "Germanates",
-  "Unclassified"
 ];

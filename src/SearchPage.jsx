@@ -8,7 +8,7 @@ import Container from "@material-ui/core/Container";
 import ExpansionPanel from "./ExpansionPanel";
 import SearchListItem from "./SearchListItem";
 import { getAllMinerals, handleSearchMineralsList } from "./helpers";
-import { Menu } from "./Menu";
+import  Menu  from "./Menu";
 import StyledButton from "./StyledButton";
 import styled from "styled-components/macro";
 import { MineralContext } from "./MineralContext";
@@ -20,9 +20,7 @@ import Chip from "@material-ui/core/Chip";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import {
   mineralColors,
-  mineralSystems,
   mineralGroups,
-  mineralSubGroups,
 } from "./data/searchPageHelperData";
 
 const PageWrapper = styled.main`
@@ -84,19 +82,14 @@ function SearchPage() {
   const [limit, setLimit] = useState(8);
   const [color, setColor] = useState([]);
   const [group, setGroup] = useState([]);
-  const [subGroup, setSubGroup] = useState([]);
-  const [system, setSystem] = useState([]);
 
   function updateMineralsList() {
     let newMineralsArray;
     let newMineralsArray2;
-    let newMineralsArray3;
-    let newMineralsArray4;
     const originalMineralsArray = getAllMinerals();
     const filterColors = color;
     const filterGroups = group;
-    const filterSubGroups = subGroup;
-    const filterSystems = system;
+  
     if (filterColors.length > 0) {
       newMineralsArray = originalMineralsArray.filter((el) => {
         return filterColors.some((elem) => el.color.includes(elem));
@@ -112,23 +105,7 @@ function SearchPage() {
     } else {
       newMineralsArray2 = newMineralsArray;
     }
-
-    if (filterSubGroups.length > 0) {
-      newMineralsArray3 = newMineralsArray2.filter((el) => {
-        return filterSubGroups.some((elem) => el.subGroup.includes(elem));
-      });
-    } else {
-      newMineralsArray3 = newMineralsArray2;
-    }
-
-    if (filterSystems.length > 0) {
-      newMineralsArray4 = newMineralsArray3.filter((el) => {
-        return filterSystems.some((elem) => el.system.includes(elem));
-      });
-    } else {
-      newMineralsArray4 = newMineralsArray3;
-    }
-    setResults(newMineralsArray4);
+    setResults(newMineralsArray2);
   }
 
   function handleSelectColor(mycolor) {
@@ -166,48 +143,10 @@ function SearchPage() {
     setGroup(newselected);
   }
 
-  function handleSelectSubGroup(mySubGroup) {
-    let newselected;
-    if (color.indexOf(mySubGroup) > -1) {
-      newselected = subGroup;
-      newselected.splice(subGroup.indexOf(mySubGroup), 1);
-      setSubGroup(newselected);
-    } else {
-      newselected = subGroup.concat([mySubGroup]);
-      setSubGroup(newselected);
-    }
-  }
-
-  function handleDeleteSubGroup(subGroupToBeDeleted) {
-    const newselected = subGroup;
-    newselected.splice(subGroup.indexOf(subGroupToBeDeleted), 1);
-    setSubGroup(newselected);
-  }
-
-  function handleSelectSystem(systemGroup) {
-    let newselected;
-    if (system.indexOf(systemGroup) > -1) {
-      newselected = system;
-      newselected.splice(system.indexOf(systemGroup), 1);
-      setSystem(newselected);
-    } else {
-      newselected = system.concat([systemGroup]);
-      setSystem(newselected);
-    }
-  }
-
-  function handleDeleteSystem(systemToBeDeleted) {
-    const newselected = system;
-    newselected.splice(system.indexOf(systemToBeDeleted), 1);
-    setSystem(newselected);
-  }
-
   function resetFilters() {
     setResults(getAllMinerals());
     setColor([]);
     setGroup([]);
-    setSubGroup([]);
-    setSystem([]);
   }
 
   const searchBar = {
@@ -239,7 +178,7 @@ function SearchPage() {
                   <div>
                     <div
                       style={{
-                        height: 230,
+                        height: 130,
                         overflow: "auto",
                         overflowX: "hidden",
                       }}
@@ -264,7 +203,7 @@ function SearchPage() {
                             style={{
                               margin: 7,
                               color: "white",
-                              backgroundColor: "lightpink",
+                              backgroundColor: "lightblue",
                             }}
                             onDelete={() =>
                               handleDeleteColor(selectedColorElement)
@@ -297,64 +236,6 @@ function SearchPage() {
                             }}
                             onDelete={() =>
                               handleDeleteGroup(selectedGroupElement)
-                            }
-                            clickable
-                          />
-                        ))}
-                      </Filter>
-                      <Filter>
-                        <FormControl style={{ padding: 10 }}>
-                          <StyledFormHelperText>SubGroup</StyledFormHelperText>
-                          <StyledSelect multiple value={["1", "2"]}>
-                            {mineralSubGroups.map((sgrp) => (
-                              <MenuItem key={sgrp} value="">
-                                <ListItemText
-                                  primary={sgrp}
-                                  onClick={() => handleSelectSubGroup(sgrp)}
-                                />
-                              </MenuItem>
-                            ))}
-                          </StyledSelect>
-                        </FormControl>
-                        {subGroup.map((selectedSubGroupElement) => (
-                          <Chip
-                            label={selectedSubGroupElement}
-                            style={{
-                              margin: 7,
-                              color: "white",
-                              backgroundColor: "lightBlue",
-                            }}
-                            onDelete={() =>
-                              handleDeleteSubGroup(selectedSubGroupElement)
-                            }
-                            clickable
-                          />
-                        ))}
-                      </Filter>
-                      <Filter>
-                        <FormControl style={{ padding: 10 }}>
-                          <StyledFormHelperText>System</StyledFormHelperText>
-                          <StyledSelect multiple value={["1", "2"]}>
-                            {mineralSystems.map((sys) => (
-                              <MenuItem key={sys} value="">
-                                <ListItemText
-                                  primary={sys}
-                                  onClick={() => handleSelectSystem(sys)}
-                                />
-                              </MenuItem>
-                            ))}
-                          </StyledSelect>
-                        </FormControl>
-                        {system.map((selectedSystemElement) => (
-                          <Chip
-                            label={selectedSystemElement}
-                            style={{
-                              margin: 7,
-                              color: "white",
-                              backgroundColor: "lightBlue",
-                            }}
-                            onDelete={() =>
-                              handleDeleteSystem(selectedSystemElement)
                             }
                             clickable
                           />

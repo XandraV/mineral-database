@@ -1,7 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { Menu } from "./Menu";
+import Menu from "./Menu";
 import { mapData } from "./data/mapData";
 import styled from "styled-components/macro";
 const StyledMap = styled.div`
@@ -14,7 +14,7 @@ const StyledMap = styled.div`
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2FuZHJhZXhwbG9yZXMiLCJhIjoiY2pveXYzYmZsMmZzMzN2cGFkaDFzcnc4ZyJ9.jVMo-5f0RWDTv4FDD6WOLQ";
 
-class Map extends React.Component {
+class MineralMap extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -127,7 +127,7 @@ class Map extends React.Component {
   }
 }
 
-export default Map;
+export default MineralMap;
 
 function flyToPlace(map, currentFeature) {
   map.flyTo({

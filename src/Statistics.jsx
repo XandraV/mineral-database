@@ -12,7 +12,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Paper from "@material-ui/core/Paper";
 import SearchBar from "material-ui-search-bar";
 import SunburstChart from "./SunburstChart";
-import { Menu } from "./Menu";
+import  Menu from "./Menu";
 import { handleSearchMineralsList, getAllMinerals } from "./helpers";
 import styled from "styled-components/macro";
 

@@ -7,7 +7,7 @@ import Element from "./Element";
 import Grid from "@material-ui/core/Grid";
 import MineralLink from "./MineralLink";
 import Paper from "@material-ui/core/Paper";
-import { Menu } from "./Menu";
+import  Menu  from "./Menu";
 import { elements } from "./data/periodic-table";
 import { searchMineralsByElements } from "./helpers";
 import styled from "styled-components/macro";

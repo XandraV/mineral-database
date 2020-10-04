@@ -43,14 +43,14 @@ function BubbleChart() {
   const [hovered, setHovered] = useState(false);
   const svgHeight = 300;
   const svgWidth = 680;
-  const chartHeight = 260;
+  const chartHight = 260;
   const chartWidth = 660;
   const xScale = d3
     .scaleLinear()
     .domain([0, labelsBubble.length - 1])
     .range([0, chartWidth]);
 
-  const yScale = d3.scaleLinear().domain([0, 3600]).range([chartHeight, 0]);
+  const yScale = d3.scaleLinear().domain([0, 3600]).range([chartHight, 0]);
 
   const color = d3
     .scaleLinear()
@@ -66,7 +66,7 @@ function BubbleChart() {
       >
         {`${hovered.y} minerals contain ${labelsBubble[hovered.x]}`}
       </StyledTooltip>
-      <svg width={svgWidth} height={svgHeight} style={{ overflow: "visible" }}>
+      <svg width={svgWidth} hight={svgHeight} style={{ overflow: "visible" }}>
         <path
           d={["M", 5, 260, "v", -6, "V", -10, "v", 6].join(" ")}
           fill="none"

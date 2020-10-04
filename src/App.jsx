@@ -5,7 +5,7 @@ import { MineralContextContainer } from "./MineralContextContainer";
 
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
-const Map = lazy(() => import("./Map"));
+const MineralMap = lazy(() => import("./MineralMap"));
 const Statistics = lazy(() => import("./Statistics"));
 const SearchPage = lazy(() => import("./SearchPage"));
 
@@ -29,7 +29,7 @@ const App = () => {
               <SearchPage />
             </Route>
             <Route exact path="/map">
-              <Map />
+              <MineralMap />
             </Route>
           </MineralContextContainer>
         </Switch>

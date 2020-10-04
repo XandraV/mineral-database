@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Menu } from "./Menu";
+import Menu from "./Menu";
 import Avatar from "@material-ui/core/Avatar";
 import Formula from "./Formula";
 import ComponentsCircle from "./ComponentsCircle";
