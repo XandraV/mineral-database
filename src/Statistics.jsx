@@ -12,7 +12,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Paper from "@material-ui/core/Paper";
 import SearchBar from "material-ui-search-bar";
 import SunburstChart from "./SunburstChart";
-import  Menu from "./Menu";
+import Menu from "./Menu";
 import { handleSearchMineralsList, getAllMinerals } from "./helpers";
 import styled from "styled-components/macro";
 
@@ -43,6 +43,7 @@ const MineralsListWrapper = styled(Paper)`
 function Statistics() {
   const [results, setResults] = useState(getAllMinerals());
   const [selectedMineral, setSelectedMineral] = useState(false);
+  const [limit, setLimit] = useState(8);
 
   function handleListItemClick(rock) {
     setSelectedMineral(selectedMineral === rock ? false : rock);
@@ -107,7 +108,7 @@ function Statistics() {
               <MineralsListWrapper>
                 <List className="minerals">
                   {results != null
-                    ? results.map((rock) => (
+                    ? results.slice(0, limit).map((rock) => (
                         <ListItem
                           key={rock.name}
                           style={{
@@ -121,6 +122,14 @@ function Statistics() {
                         </ListItem>
                       ))
                     : null}
+                  <div style={{textAlign:"center"}}>
+                    <a
+                      style={{ color: "blue", cursor: "pointer" }}
+                      onClick={() => setLimit(limit + 8)}
+                    >
+                      Load more
+                    </a>
+                  </div>
                 </List>
               </MineralsListWrapper>
             </Grid>
