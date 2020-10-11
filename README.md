@@ -36,8 +36,7 @@ Clone the master branch and then run following scripts in the project directory:
 | Material-UI components - a popular React UI framework       | [Material-UI docs](https://material-ui.com/getting-started/installation/) |
 | React - JavaScript library for building user interfaces            | [create-react-app](https://github.com/facebook/create-react-app)          |
 |AWS Amplify |  [Amplify](https://aws.amazon.com/amplify/)
-| React Konva for drawing complex canvas graphics  | [React Konva docs](https://konvajs.org/docs/react/) |
-| React-vis visualization library | [React-vis docs](https://uber.github.io/react-vis/documentation/getting-started/creating-a-new-react-vis-project) |
+| D3.js - Data visualisation library  | [D3.js](https://d3js.org/) |
 | Mindat online database of minerals | [Mindat](https://www.mindat.org/)|
 
 ## Created with create-react-app
