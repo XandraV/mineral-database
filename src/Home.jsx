@@ -7,50 +7,34 @@ import Element from "./Element";
 import Grid from "@material-ui/core/Grid";
 import MineralLink from "./MineralLink";
 import Paper from "@material-ui/core/Paper";
-import  Menu  from "./Menu";
+import Menu from "./Menu";
 import { elements } from "./data/periodic-table";
 import { searchMineralsByElements } from "./helpers";
 import styled from "styled-components/macro";
 import { MineralContext } from "./MineralContext";
-
-const ResultWrapper = styled(Paper)` 
-    text-align: "center";
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    display: flex;
-    padding-top: 6px;
-    padding-left: 6px;
-    flex-direction: column;
-    height: 50px;
-    width: 250px;
-    box-shadow: 0px 0px 8px grey;
-    background-image: url("https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95");
+import PeriodicTableWrapper from "./PeriodicTableWrapper";
+const ResultWrapper = styled(Paper)`
+  text-align: "center";
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  padding-top: 6px;
+  padding-left: 6px;
+  flex-direction: column;
+  height: 50px;
+  width: 250px;
+  box-shadow: 0px 0px 8px grey;
+  background-image: url("https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95");
 `;
 
 const HomeWrapper = styled.div`
   .home-container {
     padding-top: 70px;
-    padding-left: 20px;
-  }
-  .table-wrapper {
     text-align: center;
     display: inline-block;
     flex-grow: 1;
-    padding-left: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  .table-background {
-    background-position: center;
-    background-position-y: 10px;
-    background-repeat: no-repeat;
-    background-image: url("");
-  }
-  .card1 {
-    display: grid;
-    grid-template-columns: repeat(18, auto);
-    grid-gap: 1.5px;
-    padding: 10px;
-  }
+    padding-left: 70px;
+    background-color: rgba(255, 255, 255, 0.5); }
   .button-container {
     padding: 1.25em;
   }
@@ -91,6 +75,7 @@ function Home() {
     for (let element_num = 1; element_num < 58; element_num++) {
       periodicTable.push(
         <Element
+          className="element"
           key={element_num}
           value={elements[element_num]}
           onClick={() => handleElementClick(element_num)}
@@ -101,6 +86,7 @@ function Home() {
     for (let element_num = 72; element_num < 90; element_num++) {
       periodicTable.push(
         <Element
+          className="element"
           key={element_num}
           value={elements[element_num]}
           onClick={() => handleElementClick(element_num)}
@@ -111,6 +97,7 @@ function Home() {
     for (let element_num = 104; element_num < 119; element_num++) {
       periodicTable.push(
         <Element
+          className="element"
           key={element_num}
           value={elements[element_num]}
           onClick={() => handleElementClick(element_num)}
@@ -156,22 +143,22 @@ function Home() {
           <Grid container justify="center" spacing={2} alignItems="center">
             {resultsArray.map((mineral) => (
               <Grid key={mineral.name} item>
-                <ResultWrapper>             
-                    <Grid container spacing={2} alignItems="center">
-                      <Grid item>
-                        <Avatar
-                          alt="mineral"
-                          src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${mineral.color[0].toLowerCase()}.svg`}
-                        />
-                      </Grid>
-                      <Grid item>
-                        <div>
-                          <MineralLink onClick={() => chooseMineral(mineral)}>
-                            {mineral.name}
-                          </MineralLink>
-                        </div>
-                      </Grid>
+                <ResultWrapper>
+                  <Grid container spacing={2} alignItems="center">
+                    <Grid item>
+                      <Avatar
+                        alt="mineral"
+                        src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${mineral.color[0].toLowerCase()}.svg`}
+                      />
                     </Grid>
+                    <Grid item>
+                      <div>
+                        <MineralLink onClick={() => chooseMineral(mineral)}>
+                          {mineral.name}
+                        </MineralLink>
+                      </div>
+                    </Grid>
+                  </Grid>
                 </ResultWrapper>
               </Grid>
             ))}
@@ -185,14 +172,14 @@ function Home() {
     <HomeWrapper>
       <Menu title="Crystallizer" />
       <Container className="home-container" maxWidth="lg">
-        <div className="table-wrapper">
+       
           <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
           />
-          <div className="table-background">
-            <PeriodicTable />
-          </div>
+            <PeriodicTableWrapper>
+              <PeriodicTable />
+            </PeriodicTableWrapper>
           <div className="button-container">
             <StyledButton onClick={() => createMineral()}>search</StyledButton>
             <BinButton onClick={() => deleteElements()} />
@@ -203,7 +190,7 @@ function Home() {
               : ``}
           </ResultCount>
           {renderResults(myMineralResults)}
-        </div>
+       
       </Container>
     </HomeWrapper>
   );
