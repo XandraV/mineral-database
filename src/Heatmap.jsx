@@ -1,18 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 import * as d3 from "d3";
-import StyledTooltip from "./StyledTooltip";
+import Tooltip from "@material-ui/core/Tooltip";
 import {
   heatmapdata,
   heatMapLabelsX,
   heatMapLabelsY,
 } from "./data/heatmapdata";
+import styled from "styled-components/macro";
+
+const StyledHeatmap = styled.div`
+  margin-top: 2rem;
+  padding-bottom: 0;
+  svg {
+    overflow: visible;
+    @-webkit-keyframes scale-in-hor-center {
+      0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+    @keyframes scale-in-hor-center {
+      0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+    -webkit-animation: scale-in-hor-center 0.5s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-in-hor-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+  }
+`;
 
 function LabeledHeatmap() {
-  const [hovered, setHovered] = useState(false);
-  const svgHeight = 380;
-  const svgWidth = 680;
+  const svgHeight = 220;
+  const svgWidth = 730;
   const chartWidth = 670;
-  const chartHeight = 360;
+  const chartHeight = 210;
 
   const xScale = d3
     .scaleLinear()
@@ -29,18 +65,17 @@ function LabeledHeatmap() {
     .range(["hsl(211, 100%, 89%)", "hsl(337, 100%, 79%)"]);
 
   return (
-    <div>
-      <StyledTooltip
-        hovered={hovered}
-        left={`${xScale(hovered.x) + 80}px`}
-        top={`${yScale(hovered.y) + 30}px`}
-      >
-        {`${hovered.cellValue} minerals contain ${
-          heatMapLabelsX[hovered.x]
-        } and ${heatMapLabelsY[hovered.y]}`}
-      </StyledTooltip>
-      <svg width={svgWidth} height={svgHeight} style={{ overflow: "visible" }}>
+    <StyledHeatmap>
+      <svg width={svgWidth} height={svgHeight}>
         {heatmapdata.map((value, i) => (
+          <Tooltip
+          key={`rect-${i}`}
+          title={`${value.cellValue} minerals contain ${
+            heatMapLabelsX[value.x]
+          } and ${heatMapLabelsY[value.y]}`}
+          aria-label="haha"
+          placement="right"
+        >
           <rect
             key={i}
             className={value.cellValue}
@@ -48,12 +83,11 @@ function LabeledHeatmap() {
             y={yScale(value.y) + 10}
             rx={4}
             ry={4}
+            stroke="white"
             width={"2rem"}
             height={"2rem"}
             fill={color(value.cellValue)}
-            onMouseOver={() => setHovered(value)}
-            onMouseLeave={() => setHovered(false)}
-          />
+          /></Tooltip>
         ))}
 
         {xScale.ticks(heatMapLabelsX.length).map((value) => (
@@ -88,7 +122,7 @@ function LabeledHeatmap() {
           </g>
         ))}
       </svg>
-    </div>
+    </StyledHeatmap>
   );
 }
 

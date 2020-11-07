@@ -26,15 +26,7 @@ export const bubbleData = [
   { x: 24, y: 157 },
   { x: 25, y: 584 },
   { x: 26, y: 234 },
-  { x: 27, y: 483 },
-  { x: 28, y: 92 },
-  { x: 29, y: 89 },
-  { x: 30, y: 110 },
-  { x: 31, y: 36 },
-  { x: 32, y: 12 },
-  { x: 33, y: 13 },
-  { x: 34, y: 165 },
-  { x: 35, y: 82 },
+  { x: 27, y: 483 }
 ];
 export const labelsBubble = [
   "",
@@ -64,14 +56,5 @@ export const labelsBubble = [
   "Ni",
   "Cu",
   "Zn",
-  "As",
-  "Se",
-  "Zr",
-  "Nb",
-  "Mo",
-  "Ru",
-  "Rh",
-  "Ag",
-  "Sn",
-  "Sb",
+  "As"
 ];

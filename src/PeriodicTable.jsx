@@ -1,11 +1,15 @@
 import React from "react";
+import Element from "./Element";
+import { elements } from "./data/periodic-table";
 import styled from "styled-components/macro";
+
 const PeriodicTableWrapper = styled.div`
+  padding-left: 1rem;
   .card1 {
     display: grid;
     grid-template-columns: repeat(18, auto);
-    grid-gap: 1.5px;
-    padding: 10px;
+    grid-gap: 0.2rem;
+    grid-row-gap: 0.5rem;
   }
 
   @-webkit-keyframes slide-in-blurred-top {
@@ -55,4 +59,46 @@ const PeriodicTableWrapper = styled.div`
     forwards;
 `;
 
-export default PeriodicTableWrapper;
+const PeriodicTable = (props) => {
+  let periodicTable = [];
+  for (let element_num = 1; element_num < 58; element_num++) {
+    periodicTable.push(
+      <Element
+        className="element"
+        key={element_num}
+        value={elements[element_num]}
+        onClick={() => props.selectElement(element_num)}
+        selected={props.selectedElements[element_num]}
+      />
+    );
+  }
+  for (let element_num = 72; element_num < 90; element_num++) {
+    periodicTable.push(
+      <Element
+        className="element"
+        key={element_num}
+        value={elements[element_num]}
+        onClick={() => props.selectElement(element_num)}
+        selected={props.selectedElements[element_num]}
+      />
+    );
+  }
+  for (let element_num = 104; element_num < 119; element_num++) {
+    periodicTable.push(
+      <Element
+        className="element"
+        key={element_num}
+        value={elements[element_num]}
+        onClick={() => props.selectElement(element_num)}
+        selected={props.selectedElements[element_num]}
+      />
+    );
+  }
+  return (
+    <PeriodicTableWrapper>
+      <section className="card1">{periodicTable}</section>
+    </PeriodicTableWrapper>
+  );
+};
+
+export default PeriodicTable;

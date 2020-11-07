@@ -1,17 +1,59 @@
 import React, { useContext, useEffect, useState } from "react";
 import Menu from "./Menu";
 import Avatar from "@material-ui/core/Avatar";
-import Formula from "./Formula";
 import ComponentsCircle from "./ComponentsCircle";
 import { MainGroupCircle, SubGroupCircle } from "./GroupCircles";
 import { MineralContext } from "./MineralContext";
 import GravityCircle from "./GravityCircle";
 import { ColorText, HardnessText, SystemText } from "./SmallCircles";
+import Crystal3D from "./Crystal3D";
+import styled from "styled-components/macro";
+
+const HomeWrapper = styled.div`
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
+  height: ${window.innerHeight}px;
+`;
 
 function InfoPage() {
-  const { chosenCreatedMineral } = useContext(MineralContext);
-  const [myChosenCreatedMineral] = chosenCreatedMineral;
-  const light = "hsl(211, 100%, 89%)";
+  const { chosenMineral } = useContext(MineralContext);
+  const [mychosenMineral] = chosenMineral;
+
+  function colorMap(myColor) {
+    switch (myColor) {
+      case "yellow":
+        return "#ffe082";
+      case "green":
+        return "#c5e1a5";
+      case "red":
+        return "#ef5350";
+      case "blue":
+        return "#81d4fa";
+      case "black":
+      case "grey":
+      case "grey":
+        return "#9fa8da";
+      case "Colourless":
+      case "white":
+        return "#c9c2d4";
+      case "pink":
+        return "#f48fb1";
+      case "violet":
+      case "purple":
+        return "#ce93d8";
+      case "brown":
+        return "#bcaaa4";
+      case "orange":
+        return "#ffab91";
+      default:
+        return "#80deea";
+    }
+  }
+
+  const dark = colorMap(mychosenMineral.color[0].toLowerCase());
+  const light = "#fafafa";
 
   const [width, setWidth] = useState(window.innerWidth);
   const height = 600;
@@ -26,108 +68,108 @@ function InfoPage() {
   });
 
   return (
-    <div>
-      <Menu title={myChosenCreatedMineral.name}>
-        <Formula
-          className="formula-html"
-          chosenCreatedMineral={myChosenCreatedMineral}
+    <HomeWrapper>
+      <Menu />
+      <div style={{ textAlign: "center" }}>
+        <InfoAvatar
+          width={10}
+          height={10}
+          top={height / 2 + 40}
+          left={width / 3 - 80}
+          keyWord={mychosenMineral.mainGroup[0]}
         />
-      </Menu>
-      {/* mineral, group, system images */}
-      <InfoAvatar
-        width={9}
-        height={9}
-        top={height / 2 - 70}
-        left={width / 2 - 50}
-        keyWord={myChosenCreatedMineral.color[0]}
-      />
-      <InfoAvatar
-        width={8}
-        height={8}
-        top={height / 2 + 50}
-        left={width / 2 - 165}
-        keyWord={myChosenCreatedMineral.mainGroup[0]}
-      />
-      <InfoAvatar
-        width={7}
-        height={7}
-        top={height / 2 + 70}
-        left={width / 2 + 90}
-        keyWord={myChosenCreatedMineral.system}
-      />
-      <svg
-        widht={width}
-        height={height}
-        style={{ paddingLeft: 20, overflow: "visible" }}
-      >
-        {/* components */}
-        <ComponentsCircle
-          svgWidth={width}
-          svgHeight={height}
-          mineral={myChosenCreatedMineral}
+        <InfoAvatar
+          width={9}
+          height={9}
+          top={height / 2 + 60}
+          left={width / 3 + 240}
+          keyWord={mychosenMineral.system}
         />
-        {/* main group circle */}
-        <MainGroupCircle
-          svgWidth={width}
-          svgHeight={height}
-          label={myChosenCreatedMineral.mainGroup[0]}
-        />
-        {/* subgroup circle */}
-        <SubGroupCircle
-          svgWidth={width}
-          svgHeight={height}
-          label={myChosenCreatedMineral.subGroup[0]}
-        />
-        {/* maingroup image circle */}
-        <circle
-          cx={`${width / 2 - 120}`}
-          cy={`${height / 2 + 120}`}
-          r={70}
-          fill={"white"}
-          style={{ stroke: light, strokeWidth: 12 }}
-        />
-        {/* system image circle */}
-        <circle
-          cx={`${width / 2 + 120}`}
-          cy={`${height / 2 + 120}`}
-          r={70}
-          fill={"white"}
-          style={{ stroke: light, strokeWidth: 12 }}
-        />
-        {/* gravity circle */}
-        <GravityCircle
-          svgWidth={width}
-          svgHeight={height}
-          label={myChosenCreatedMineral.specificGravity}
-        />
-        {/* systems text */}
-        <SystemText
-          svgWidth={width}
-          svgHeight={height}
-          label={myChosenCreatedMineral.system}
-        />
-        {/* hardness text */}
-        <HardnessText
-          svgWidth={width}
-          svgHeight={height}
-          label={myChosenCreatedMineral.hardness}
-        />
-        {/* colour text */}
-        <ColorText
-          svgWidth={width}
-          svgHeight={height}
-          label={myChosenCreatedMineral.color[0]}
-        />
-        {/* mineral image circle  */}
-        <circle
-          cx={`${width / 2}`}
-          cy={`${height / 2}`}
-          r={100}
-          fill={"white"}
-          style={{ stroke: light, strokeWidth: 12 }}
-        />
-      </svg>
-    </div>
+        <div
+          id="crystal-3d"
+          style={{ left: width / 3, top: height / 5, position: "absolute" }}
+        >
+          <Crystal3D
+            width={300}
+            height={300}
+            shaderName={mychosenMineral.color[0].toLowerCase()}
+          />
+        </div>
+        <svg
+          widht={width}
+          height={height}
+          viewBox="0 100 100 450"
+          style={{ paddingLeft: 20, overflow: "visible" }}
+        >
+          <ComponentsCircle
+            svgWidth={width}
+            svgHeight={height}
+            mineral={mychosenMineral}
+            colors={[dark, light]}
+          />
+          <MainGroupCircle
+            svgWidth={width}
+            svgHeight={height}
+            label={mychosenMineral.mainGroup[0]}
+            colors={[dark, light]}
+          />
+          <SubGroupCircle
+            svgWidth={width}
+            svgHeight={height}
+            label={mychosenMineral.subGroup[0]}
+            colors={[dark, light]}
+          />
+          {/* maingroup image circle */}
+          <circle
+            cx={`${-120}`}
+            cy={`${height / 2 + 120}`}
+            r={70}
+            fill={"white"}
+            style={{ stroke: light, strokeWidth: 12 }}
+          />
+          {/* system image circle */}
+          <circle
+            cx={`${120}`}
+            cy={`${height / 2 + 120}`}
+            r={70}
+            fill={"white"}
+            style={{ stroke: light, strokeWidth: 12 }}
+          />
+          <GravityCircle
+            svgWidth={width}
+            svgHeight={height}
+            label={mychosenMineral.specificGravity}
+            colors={[dark, light]}
+          />
+          <SystemText
+            svgWidth={width}
+            svgHeight={height}
+            label={mychosenMineral.system}
+            colors={[dark, light]}
+          />
+          <HardnessText
+            svgWidth={width}
+            svgHeight={height}
+            label={mychosenMineral.hardness}
+            colors={[dark, light]}
+          />
+          <ColorText
+            svgWidth={width}
+            svgHeight={height}
+            label={mychosenMineral.color[0]}
+            colors={[dark, light]}
+          />
+          {/* mineral image circle  */}
+          <circle
+            cx={`${0}`}
+            cy={`${height / 2}`}
+            r={100}
+            fill={"white"}
+            style={{ stroke: light, strokeWidth: 12 }}
+          />
+        </svg>
+      </div>
+    </HomeWrapper>
   );
 }
 

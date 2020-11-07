@@ -1,19 +1,18 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MineralContextContainer } from "./MineralContextContainer";
 
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
-const MineralMap = lazy(() => import("./MineralMap"));
-const Statistics = lazy(() => import("./Statistics"));
-const SearchPage = lazy(() => import("./SearchPage"));
+const StatisticsPage = lazy(() => import("./StatisticsPage"));
 
 const App = () => {
   return (
     <Router>
       <CssBaseline />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...<CircularProgress color="secondary" /></div>}>
         <Switch>
           <MineralContextContainer>
             <Route exact path="/">
@@ -23,13 +22,7 @@ const App = () => {
               <InfoPage />
             </Route>
             <Route exact path={"/statistics"}>
-              <Statistics />
-            </Route>
-            <Route exact path={"/search"}>
-              <SearchPage />
-            </Route>
-            <Route exact path="/map">
-              <MineralMap />
+              <StatisticsPage />
             </Route>
           </MineralContextContainer>
         </Switch>

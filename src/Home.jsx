@@ -1,196 +1,109 @@
-import React, { useContext } from "react";
-import Avatar from "@material-ui/core/Avatar";
+import React, { useContext, useEffect } from "react";
 import BinButton from "./BinButton";
 import StyledButton from "./StyledButton";
 import Container from "@material-ui/core/Container";
-import Element from "./Element";
-import Grid from "@material-ui/core/Grid";
-import MineralLink from "./MineralLink";
-import Paper from "@material-ui/core/Paper";
 import Menu from "./Menu";
-import { elements } from "./data/periodic-table";
-import { searchMineralsByElements } from "./helpers";
-import styled from "styled-components/macro";
+import PeriodicTable from "./PeriodicTable"
+import SearchResults from "./SearchResults";
 import { MineralContext } from "./MineralContext";
-import PeriodicTableWrapper from "./PeriodicTableWrapper";
-const ResultWrapper = styled(Paper)`
-  text-align: "center";
-  border-bottom-left-radius: 15px;
-  border-top-right-radius: 15px;
-  display: flex;
-  padding-top: 6px;
-  padding-left: 6px;
-  flex-direction: column;
-  height: 50px;
-  width: 250px;
-  box-shadow: 0px 0px 8px grey;
-  background-image: url("https://i2.wp.com/www.123freevectors.com/wp-content/original/131393-abstract-light-blue-triangle-geometric-background.jpg?w=800&q=95");
-`;
+import { elements } from "./data/periodic-table";
+import styled from "styled-components/macro";
 
 const HomeWrapper = styled.div`
+background-position: center;
+background-repeat: no-repeat;
+background-size: 200% 200%;
+background-image: url('https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg');
+  height: ${window.innerHeight}px;
+  overflow-x: hidden;
   .home-container {
-    padding-top: 70px;
+    padding-top: 2rem;
     text-align: center;
     display: inline-block;
     flex-grow: 1;
-    padding-left: 70px;
-    background-color: rgba(255, 255, 255, 0.5); }
-  .button-container {
-    padding: 1.25em;
+    padding-left: 4rem;
+    height: ${window.innerHeight}px;
   }
-`;
-
-const ResultCount = styled.div`
-  text-align: center;
-  color: black;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  .button-container {
+    padding: 2rem;
+  }
 `;
 
 function Home() {
-  const { clickedElements, mineralResults, chosenCreatedMineral } = useContext(
+  const { clickedElements, mineralResults, chosenMineral } = useContext(
     MineralContext
   );
-  const [myClickedElements, setMyClickedElements] = clickedElements;
-  const [myMineralResults, setMyMineralResults] = mineralResults;
-  const [
-    myChosenCreatedMineral,
-    setMyChosenCreatedMineral,
-  ] = chosenCreatedMineral;
+  const [selectedElements, setSelectedElements] = clickedElements;
+  const [results, setResults] = mineralResults;
+  const [selectedMineral, setSelectedMineral] = chosenMineral;
 
-  function handleElementClick(elementNum) {
-    let items = [...myClickedElements];
+  useEffect(() => {
+    if (document.getElementById("scroller")) {
+      document.getElementById("scroller").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [results]);
+
+  const selectElement = (elementNum) => {
+    let items = [...selectedElements];
     let item = !items[elementNum];
     items[elementNum] = item;
-    setMyClickedElements(items);
-  }
-
-  function deleteElements() {
-    setMyClickedElements(Array(120).fill(false));
-    setMyMineralResults(null);
-  }
-
-  const PeriodicTable = () => {
-    let periodicTable = [];
-    for (let element_num = 1; element_num < 58; element_num++) {
-      periodicTable.push(
-        <Element
-          className="element"
-          key={element_num}
-          value={elements[element_num]}
-          onClick={() => handleElementClick(element_num)}
-          selected={myClickedElements[element_num]}
-        />
-      );
-    }
-    for (let element_num = 72; element_num < 90; element_num++) {
-      periodicTable.push(
-        <Element
-          className="element"
-          key={element_num}
-          value={elements[element_num]}
-          onClick={() => handleElementClick(element_num)}
-          selected={myClickedElements[element_num]}
-        />
-      );
-    }
-    for (let element_num = 104; element_num < 119; element_num++) {
-      periodicTable.push(
-        <Element
-          className="element"
-          key={element_num}
-          value={elements[element_num]}
-          onClick={() => handleElementClick(element_num)}
-          selected={myClickedElements[element_num]}
-        />
-      );
-    }
-    return <section className="card1">{periodicTable}</section>;
+    setSelectedElements(items);
   };
 
-  function createMineral() {
+  const unselectAllElements = () => {
+    setSelectedElements(Array(120).fill(false));
+    setResults(null);
+  };
+
+  const searchMineralsByElements = (arrayOfElements) => {
+    const resultList = [];
+
+    const jsonData = require("./data/data.json");
+    const allMinerals = [];
+    for (let i in jsonData) allMinerals.push(jsonData[i]);
+
+    if (arrayOfElements.length > 0) {
+      for (let mineralObj of allMinerals[0]) {
+        if (
+          arrayOfElements.every((elem) => mineralObj.formula.includes(elem))
+        ) {
+          resultList.push(mineralObj);
+        }
+      }
+    }
+    return resultList;
+  };
+
+  const searchMineral = () => {
     const elementSymbols = elements.slice().map((el) => {
       return el.symbol;
     });
-    setMyMineralResults(null);
-    if (myClickedElements.every((el) => el === false)) {
-      return;
-    } else {
-      const indices = myClickedElements.reduce(
-        (out, bool, index) => (bool ? out.concat(index) : out),
+    setResults(null);
+    if (selectedElements.every((el) => el === false)) return;
+    else {
+      const indices = selectedElements.reduce(
+        (acc, cur, idx) => (cur ? acc.concat(idx) : acc),
         []
       );
-      const chosenElements = indices.map((index) => {
-        return elementSymbols[index];
-      });
+      const chosenElements = indices.map((idx) => elementSymbols[idx]);
       const searchResults = searchMineralsByElements(chosenElements);
-      setMyMineralResults(searchResults);
+      setResults(searchResults);
     }
-  }
-
-  function chooseMineral(mineral) {
-    setMyChosenCreatedMineral(mineral);
-    localStorage.setItem(
-      "chosenCreatedMineral",
-      JSON.stringify(myChosenCreatedMineral)
-    );
-  }
-
-  function renderResults(resultsArray) {
-    if (resultsArray) {
-      return (
-        <Container maxWidth="lg" style={{ padding: 20 }}>
-          <Grid container justify="center" spacing={2} alignItems="center">
-            {resultsArray.map((mineral) => (
-              <Grid key={mineral.name} item>
-                <ResultWrapper>
-                  <Grid container spacing={2} alignItems="center">
-                    <Grid item>
-                      <Avatar
-                        alt="mineral"
-                        src={`https://crystallizer.s3.eu-west-2.amazonaws.com/${mineral.color[0].toLowerCase()}.svg`}
-                      />
-                    </Grid>
-                    <Grid item>
-                      <div>
-                        <MineralLink onClick={() => chooseMineral(mineral)}>
-                          {mineral.name}
-                        </MineralLink>
-                      </div>
-                    </Grid>
-                  </Grid>
-                </ResultWrapper>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      );
-    }
-  }
+  };
 
   return (
     <HomeWrapper>
       <Menu title="Crystallizer" />
       <Container className="home-container" maxWidth="lg">
-       
-          <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-          />
-            <PeriodicTableWrapper>
-              <PeriodicTable />
-            </PeriodicTableWrapper>
-          <div className="button-container">
-            <StyledButton onClick={() => createMineral()}>search</StyledButton>
-            <BinButton onClick={() => deleteElements()} />
-          </div>
-          <ResultCount>
-            {myMineralResults != null
-              ? `${myMineralResults.length} results`
-              : ``}
-          </ResultCount>
-          {renderResults(myMineralResults)}
-       
+        <PeriodicTable
+          selectElement={selectElement}
+          selectedElements={selectedElements}
+        />
+        <div className="button-container">
+          <StyledButton onClick={() => searchMineral()}>search</StyledButton>
+          <BinButton onClick={() => unselectAllElements()} />
+        </div>
+        <SearchResults setSelectedMineral={setSelectedMineral} mineralResults={results} />
       </Container>
     </HomeWrapper>
   );

@@ -1,49 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import * as d3 from "d3";
-import StyledTooltip from "./StyledTooltip";
+import Tooltip from "@material-ui/core/Tooltip";
 import { bubbleData, labelsBubble } from "./data/bubbledata";
+import { BubbleChartWrapper } from "./BubbleChartWrapper";
+import { getColor } from "./Element";
 import styled from "styled-components/macro";
-
-const BubbleWrapper = styled.div`
-  padding-top: 0.5rem;
-  padding-left: 3rem;
-  svg > circle {
-    @-webkit-keyframes slide-in-fwd-bottom {
-      0% {
-        -webkit-transform: translateZ(-1400px) translateY(800px);
-        transform: translateZ(-1400px) translateY(800px);
-        opacity: 0;
-      }
-      100% {
-        -webkit-transform: translateZ(0) translateY(0);
-        transform: translateZ(0) translateY(0);
-        opacity: 1;
-      }
-    }
-    @keyframes slide-in-fwd-bottom {
-      0% {
-        -webkit-transform: translateZ(-1400px) translateY(800px);
-        transform: translateZ(-1400px) translateY(800px);
-        opacity: 0;
-      }
-      100% {
-        -webkit-transform: translateZ(0) translateY(0);
-        transform: translateZ(0) translateY(0);
-        opacity: 1;
-      }
-    }
-    -webkit-animation: slide-in-fwd-bottom 0.4s
-      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    animation: slide-in-fwd-bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      both;
+const StyledCircle = styled.circle`
+transition: 0.3s;
+  :hover {
+    r:25;
   }
 `;
-
 function BubbleChart() {
-  const [hovered, setHovered] = useState(false);
-  const svgHeight = 300;
+  const svgHeight = 170;
   const svgWidth = 680;
-  const chartHeight = 260;
+  const chartHeight = 120;
   const chartWidth = 660;
   const xScale = d3
     .scaleLinear()
@@ -55,35 +26,19 @@ function BubbleChart() {
   const color = d3
     .scaleLinear()
     .domain([0, labelsBubble.length])
-    .range(["hsl(211, 100%, 89%)", "hsl(337, 100%, 79%)"]);
+    .range(["#ffaf0f", "hsl(337, 100%, 79%)"]);
 
   return (
-    <BubbleWrapper>
-      <StyledTooltip
-        hovered={hovered}
-        left={`${xScale(hovered.x) + 80}px`}
-        top={`${yScale(hovered.y) + 30}px`}
-      >
-        {`${hovered.y} minerals contain ${labelsBubble[hovered.x]}`}
-      </StyledTooltip>
+    <BubbleChartWrapper>
       <svg width={svgWidth} height={svgHeight} style={{ overflow: "visible" }}>
-        <path
-          d={["M", 5, 260, "v", -6, "V", -10, "v", 6].join(" ")}
-          fill="none"
-          stroke="#e6e6e9"
-          strokeWidth="0.1rem"
-        />
-
-        {yScale.ticks(7).map((value) => (
-          <g key={value} transform={`translate(0,${yScale(value)})`}>
-            <line x1="1" x2="9" stroke="lightgrey" />
+        {yScale.ticks(3).map((value) => (
+          <g key={`num-${value}`} transform={`translate(0,${yScale(value)})`}>
             <text
-              key={value}
               style={{
-                fontSize: "10px",
+                fontSize: "0.7rem",
                 textAnchor: "end",
-                transform: "translateX(-5px)",
-                fill: "grey",
+                transform: "translateX(-15px)",
+                fill: "white",
               }}
             >
               {value}
@@ -92,22 +47,23 @@ function BubbleChart() {
         ))}
 
         <path
-          d={["M", 5, 260, "h", 0, "H", 665, "v", 0].join(" ")}
-          stroke="#e6e6e9"
-          strokeWidth="0.1rem"
+          d={["M", 0, chartHeight, "h", 0, "H", 675, "v", 0].join(" ")}
+          stroke="white"
+          strokeWidth="0.0.5rem"
         />
         {xScale.ticks(labelsBubble.length - 1).map((value) => {
-          if (value !== 0) {
+          if (value !== 0 || value !== 36) {
             return (
-              <g key={value} transform={`translate(${xScale(value)},260)`}>
-                <line y1="-270" y2="5" stroke="#e6e6e9" />
+              <g
+                key={`symbol-${value}`}
+                transform={`translate(${xScale(value)},${chartHeight})`}
+              >
                 <text
-                  key={value}
                   style={{
-                    fontSize: "10px",
+                    fontSize: "0.8rem",
                     textAnchor: "middle",
                     transform: "translateY(20px)",
-                    fill: "grey",
+                    fill: "#83769a",
                   }}
                 >
                   {labelsBubble[value]}
@@ -117,20 +73,28 @@ function BubbleChart() {
           }
         })}
         {bubbleData.map((bubble, i) => {
-          return (
-            <circle
-              key={i}
-              cx={`${xScale(bubble.x)}`}
-              cy={`${yScale(bubble.y)}`}
-              r={`${bubble.y / 100}`}
-              fill={`${color(i)}`}
-              onMouseOver={() => setHovered(bubble)}
-              onMouseLeave={() => setHovered(false)}
-            />
-          );
+          if (bubble.y !== 0)
+            return (
+              <Tooltip
+                key={`circle-${i}`}
+                title={`${bubble.y} minerals contain ${labelsBubble[i]}`}
+                aria-label="haha"
+                placement="right"
+              >
+                <StyledCircle
+                  cx={`${xScale(bubble.x)}`}
+                  cy={`${yScale(bubble.y)}`}
+                  r={`${bubble.y / 100 + 5}`}
+                  // fill={`${getColor(labelsBubble[i])}`}
+                  fill={`${color(i)}`}
+                  stroke={"white"}
+                  fillOpacity="0.6"
+                />
+              </Tooltip>
+            );
         })}
       </svg>
-    </BubbleWrapper>
+    </BubbleChartWrapper>
   );
 }
 

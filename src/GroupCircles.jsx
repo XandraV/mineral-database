@@ -1,21 +1,16 @@
 import React from "react";
 
-const dark = "hsl(210, 99%, 69%)";
-const light = "hsl(211, 100%, 89%)";
-
 export const MainGroupCircle = (props) => {
+  const dark = props.colors[0];
+  const light = props.colors[1];
   return (
-    <g
-      transform={`translate(${props.svgWidth / 2 - 170},${
-        props.svgHeight / 2 + 20
-      })`}
-    >
+    <g transform={`translate(${-170},${props.svgHeight / 2 + 20})`}>
       <circle r={60} fill={light}></circle>
       <text
         style={{
-          fontSize: "1rem",
+          fontSize: "0.9rem",
           textAnchor: "middle",
-          fill: "white",
+          fill: dark,
         }}
       >
         {props.label}
@@ -25,12 +20,10 @@ export const MainGroupCircle = (props) => {
 };
 
 export const SubGroupCircle = (props) => {
+  const dark = props.colors[0];
+  const light = props.colors[1];
   return (
-    <g
-      transform={`translate(${props.svgWidth / 2 - 25},${
-        props.svgHeight / 2 + 180
-      })`}
-    >
+    <g transform={`translate(${-25},${props.svgHeight / 2 + 180})`}>
       <circle
         r={50}
         fill={dark}
@@ -38,7 +31,7 @@ export const SubGroupCircle = (props) => {
       ></circle>
       <text
         style={{
-          fontSize: "0.8rem",
+          fontSize: "0.7rem",
           textAnchor: "middle",
           fill: "white",
         }}
@@ -47,7 +40,7 @@ export const SubGroupCircle = (props) => {
       </text>
       <text
         style={{
-          fontSize: "0.8rem",
+          fontSize: "0.7rem",
           textAnchor: "middle",
           fill: "white",
           transform: "translateY(1rem)",

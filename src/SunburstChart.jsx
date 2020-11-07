@@ -1,98 +1,184 @@
 import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Grid from "@material-ui/core/Grid";
+import ListItem from "@material-ui/core/ListItem";
+import List from "@material-ui/core/List";
+import Tooltip from "@material-ui/core/Tooltip";
 import { dataSunburst } from "./data/sunburstData";
 import styled from "styled-components/macro";
 import * as d3 from "d3";
 
-const GroupBreadcrumb = styled.div`
-  width: 7rem;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  padding: 0.4rem;
-  background: ${(props) => props.color};
-  margin-bottom: 0.3rem;
-  text-align: center;
-  :hover {
-    box-shadow: 0px 0px 5px #00ffff;
-    border: 1px solid #00ffff;
+const Wrapper = styled.div`
+  .title {
+    position: absolute;
+    font-size: 0.5rem;
+    margin-top: 3.8rem;
+    margin-left: 3.2rem;
+  }
+  .title,
+  path {
+    @-webkit-keyframes roll-in-right {
+      0% {
+        -webkit-transform: translateX(800px) rotate(540deg);
+        transform: translateX(800px) rotate(540deg);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0) rotate(0deg);
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+    }
+    @keyframes roll-in-right {
+      0% {
+        -webkit-transform: translateX(800px) rotate(540deg);
+        transform: translateX(800px) rotate(540deg);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0) rotate(0deg);
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+    }
 
-    @-webkit-keyframes vibrate-1 {
-      0% {
-        -webkit-transform: translate(0);
-        transform: translate(0);
-      }
-      20% {
-        -webkit-transform: translate(-2px, 2px);
-        transform: translate(-2px, 2px);
-      }
-      40% {
-        -webkit-transform: translate(-2px, -2px);
-        transform: translate(-2px, -2px);
-      }
-      60% {
-        -webkit-transform: translate(2px, 2px);
-        transform: translate(2px, 2px);
-      }
-      80% {
-        -webkit-transform: translate(2px, -2px);
-        transform: translate(2px, -2px);
-      }
-      100% {
-        -webkit-transform: translate(0);
-        transform: translate(0);
-      }
-    }
-    @keyframes vibrate-1 {
-      0% {
-        -webkit-transform: translate(0);
-        transform: translate(0);
-      }
-      20% {
-        -webkit-transform: translate(-2px, 2px);
-        transform: translate(-2px, 2px);
-      }
-      40% {
-        -webkit-transform: translate(-2px, -2px);
-        transform: translate(-2px, -2px);
-      }
-      60% {
-        -webkit-transform: translate(2px, 2px);
-        transform: translate(2px, 2px);
-      }
-      80% {
-        -webkit-transform: translate(2px, -2px);
-        transform: translate(2px, -2px);
-      }
-      100% {
-        -webkit-transform: translate(0);
-        transform: translate(0);
-      }
-    }
-    -webkit-animation: vibrate-1 0.7s linear infinite both;
-    animation: vibrate-1 0.7s linear infinite both;
+    -webkit-animation: roll-in-right 1s ease-out both;
+    animation: roll-in-right 1s ease-out both;
   }
 `;
 
-const SubGroupBreadcrumb = styled.div`
-  width: 4rem;
-  color: white;
-  font-size: 0.5rem;
+const GroupBreadcrumb = styled(ListItem)`
+  width: 4.5rem;
+  height: 1rem;
+  color: #83769a;
+  background: #add8e66e;
+  font-size: 0.5em;
   font-weight: bold;
-  border-radius: 1rem;
-  padding: 0.3rem;
-  background: ${(props) => props.color};
-  margin-bottom: 0.2rem;
-  text-align: center;
+  padding: 0.4rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.8rem;
+  border: 1px solid white;
+  :hover {
+    background: ${(props) => props.color};
+    box-shadow: 0px 0px 5px grey;
+  }
 `;
+const StyledList = styled(List)`
+  margin-left: 0.5rem;
+  display: inline-block;
+  overflow: auto;
+  max-height: 120;
+  @-webkit-keyframes bounce-in-top {
+    0% {
+      -webkit-transform: translateY(-500px);
+      transform: translateY(-500px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: translateY(-65px);
+      transform: translateY(-65px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: translateY(-28px);
+      transform: translateY(-28px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    90% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+  }
+  @keyframes bounce-in-top {
+    0% {
+      -webkit-transform: translateY(-500px);
+      transform: translateY(-500px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: translateY(-65px);
+      transform: translateY(-65px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: translateY(-28px);
+      transform: translateY(-28px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    90% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+      -webkit-animation-timing-function: ease-in;
+      animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+      animation-timing-function: ease-out;
+    }
+  }
 
-function SunburstChart() {
-  const [selectedSubgroups, setSelectedSubgroups] = useState([]);
+  -webkit-animation: bounce-in-top 1.1s both;
+  animation: bounce-in-top 1.1s both;
+`;
+const SunburstChart = () => {
   const [selectedGroup, setSelectedGroup] = useState("");
-  const svgHeight = 380;
-  const svgWidth = 380;
+  const [selectedSubgroups, setSelectedSubgroups] = useState([]);
+  const svgHeight = 130;
+  const svgWidth = 130;
   const radius = Math.min(svgWidth, svgHeight) / 2;
   const partition = d3.partition().size([2 * Math.PI, radius]);
   const root = d3.hierarchy(dataSunburst).sum(function (d) {
@@ -109,17 +195,18 @@ function SunburstChart() {
   const color = d3
     .scaleLinear()
     .domain([0, 15, 55])
-    .range([
-      "hsl(300, 100%, 87%)",
-      "hsl(260, 100%, 75%)",
-      "hsl(211, 100%, 89%)",
-    ]);
+    .range(["rgb(255, 148, 189)", "hsl(211, 100%, 89%)", "#ecba70"]);
 
   function handleClick(group) {
     const parentGroup = dataSunburst.children.find((x) => x.title === group);
-    setSelectedGroup(parentGroup.title);
-    const childrenLabels = parentGroup.children.map((c) => c.title);
-    setSelectedSubgroups(childrenLabels);
+    if (selectedGroup === parentGroup.title) {
+      setSelectedGroup("");
+      setSelectedSubgroups([]);
+    } else {
+      setSelectedGroup(parentGroup.title);
+      const childrenLabels = parentGroup.children.map((c) => c.title);
+      setSelectedSubgroups(childrenLabels);
+    }
   }
 
   function fill(d, i) {
@@ -130,102 +217,83 @@ function SunburstChart() {
       return "none";
     }
     if (parentGroupTitle || childGroups) return color(i);
-    if (parentGroup && !parentGroupTitle) return "#ededed";
+    if (parentGroup && !parentGroupTitle) return "transparent";
     else return color(i);
   }
 
   return (
-    <div>
-      <Grid container spacing={9}>
-        <Grid item>
-          <SunburstAvatar selectedGroup={selectedGroup} />
-          <svg
-            width={svgWidth}
-            height={svgHeight}
+    <Wrapper>
+      <span className="title">Groups</span>
+      <svg
+        width={svgWidth}
+        height={svgHeight}
+        style={{
+          marginTop: 2,
+          display: "inline-block",
+          overflow: "visible",
+          transform: "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")",
+        }}
+      >
+        {root.descendants().map((d, i) => (
+          <Tooltip
+            key={`group-${i}`}
+            title={`${d.data.title}`}
+            aria-label="haha"
+            placement={`${i < 5 || (i < 34 && i > 10) ? "right" : "left"}`}
+            color={"white"}
+          >
+            <g
+              key={`segment${i}`}
+              transform={`translate(${svgHeight / 2} ${svgWidth / 2})`}
+            >
+              <path
+                className="arc"
+                d={createArc({
+                  startAngle: d.x0,
+                  endAngle: d.x1,
+                  innerRadius: d.y0,
+                  outerRadius: d.y1,
+                })}
+                fill={fill(d, i)}
+                style={{
+                  stroke: "#fff",
+                  display: d.depth == null ? "none" : "",
+                }}
+              />
+            </g>
+          </Tooltip>
+        ))}
+      </svg>
+      <StyledList>
+        {groupLabels.slice(0, 5).map((group, i) => (
+          <GroupBreadcrumb
+            key={`maingroup-${i}`}
+            color={color(i)}
+            onClick={() => handleClick(group)}
             style={{
-              overflow: "visible",
-              transform:
-                "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")",
+              backgroundColor: selectedGroup === group && color(i),
             }}
           >
-            {root.descendants().map((d, i) => (
-              <g
-                key={`segment${i}`}
-                transform={`translate(220 ${svgWidth / 2})`}
-              >
-                <path
-                  className="arc"
-                  d={createArc({
-                    startAngle: d.x0,
-                    endAngle: d.x1,
-                    innerRadius: d.y0,
-                    outerRadius: d.y1,
-                  })}
-                  fill={fill(d, i)}
-                  style={{
-                    stroke: "#fff",
-                    display: d.depth == null ? "none" : "",
-                  }}
-                />
-              </g>
-            ))}
-          </svg>
-        </Grid>
-        <Grid item style={{ maxHeight: 380 }}>
-          <Grid container spacing={2}>
-            <Grid item>
-              {groupLabels.map((group, i) => (
-                <GroupBreadcrumb
-                  key={`maingroup-${i}`}
-                  color={color(i)}
-                  onClick={() => handleClick(group)}
-                  style={{
-                    boxShadow:
-                      selectedGroup === group ? "0px 0px 5px #00ffff" : "",
-                    border: selectedGroup === group ? "1px solid #00ffff" : "",
-                  }}
-                >
-                  {group}
-                </GroupBreadcrumb>
-              ))}
-            </Grid>
-            <Grid item>
-              {selectedSubgroups
-                ? selectedSubgroups.map((group, i) => (
-                    <SubGroupBreadcrumb
-                      key={`subgroup-${i}`}
-                      color={color(10 + i)}
-                    >
-                      {group}
-                    </SubGroupBreadcrumb>
-                  ))
-                : ""}
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    </div>
+            {group.toUpperCase()}
+          </GroupBreadcrumb>
+        ))}
+      </StyledList>
+      <StyledList>
+        {groupLabels.slice(5, 10).map((group, i) => (
+          <GroupBreadcrumb
+            key={`maingroup-${i}`}
+            color={color(i)}
+            onClick={() => handleClick(group)}
+            style={{
+              backgroundColor: selectedGroup === group && color(i),
+            }}
+          >
+            {group.toUpperCase()}
+          </GroupBreadcrumb>
+        ))}
+      </StyledList>
+    </Wrapper>
   );
-}
-
-function SunburstAvatar(props) {
-  return (
-    <Avatar
-      alt="avatar"
-      src={
-        props.selectedGroup === ""
-          ? "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-          : `https://crystallizer.s3.eu-west-2.amazonaws.com/${props.selectedGroup.toLowerCase()}.svg`
-      }
-      style={{
-        width: 100,
-        height: 100,
-        top: "13.5rem",
-        left: "11.3rem",
-        position: "absolute",
-      }}
-    />
-  );
-}
+};
 
 export default SunburstChart;

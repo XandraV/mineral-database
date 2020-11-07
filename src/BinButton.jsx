@@ -6,10 +6,35 @@ import styled from "styled-components/macro";
 const ButtonWrapper = styled.span`
   button.bin {
     position: "absolute";
-    transition: all 0.3s ease 0s;
-  }
-  button.bin:hover {
-    transform: translateY(-7px);
+    @-webkit-keyframes slide-in-right {
+      0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slide-in-right {
+      0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      1.2s both;
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s
+      both;
   }
 `;
 
@@ -18,7 +43,7 @@ function BinButton(props) {
     <ButtonWrapper>
       <IconButton className="bin" onClick={props.onClick}>
         <DeleteOutlinedIcon
-          style={{ color: "black" }}
+          style={{ color: "white" }}
           className="material-icons"
         />
       </IconButton>

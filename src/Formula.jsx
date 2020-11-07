@@ -6,14 +6,18 @@ const StyledFormula = styled.div`
   font-size: 1em;
   color: white;
 `;
+
+{/* <Formula
+  className="formula-html"
+  chosenMineral={mychosenMineral}
+/>; */}
+
 function Formula(props) {
   return (
     <StyledFormula
       dangerouslySetInnerHTML={{
         __html: `${
-          props.chosenCreatedMineral === null
-            ? localStorage.getItem("chosenCreatedMineral")
-            : props.chosenCreatedMineral.formulaWeb
+          props.chosenMineral.formulaWeb
         }`,
       }}
     />

@@ -1,23 +1,25 @@
 import React from "react";
-const dark = "hsl(210, 99%, 69%)";
-const light = "hsl(211, 100%, 89%)";
+
 
 export const SystemText = (props) => {
+  const dark = props.colors[0];
+  const light = props.colors[1];
   return (
-    <g transform={`translate(${props.svgWidth / 2 + 120},${props.svgHeight / 2 + 190})`}>
-      <line y2="20" stroke={light} strokeWidth={5}></line>
+    <g transform={`translate(120,${props.svgHeight / 2 + 190})`}>
+      <line y2="20" stroke={light} strokeWidth={3}></line>
       <circle
         cx={0}
         cy={20}
         r={5}
         fill={dark}
-        style={{ stroke: light, strokeWidth: 5 }}
+        style={{ stroke: light, strokeWidth: 3 }}
       ></circle>
       <text
         style={{
-          fontSize: "0.8rem",
+          fontSize: "0.7rem",
+          fontWeight: "bold",
           textAnchor: "middle",
-          fill: "grey",
+          fill: "#ac99cc",
           transform: "translateY(2.5rem)",
         }}
       >
@@ -25,9 +27,10 @@ export const SystemText = (props) => {
       </text>
       <text
         style={{
-          fontSize: "0.8rem",
+          fontSize: "0.7rem",
           textAnchor: "middle",
-          fill: "grey",
+          fill: "#ac99cc",
+          fontWeight: "bold",
           transform: "translateY(3.5rem)",
         }}
       >
@@ -38,21 +41,24 @@ export const SystemText = (props) => {
 };
 
 export const HardnessText = (props) => {
+  const dark = props.colors[0];
+  const light = props.colors[1];
   return (
-    <g transform={`translate(${props.svgWidth / 2 + 100},${props.svgHeight / 2 })`}>
-      <line x2="20" stroke={light} strokeWidth={5}></line>
+    <g transform={`translate(100,${props.svgHeight / 2 })`}>
+      <line x2="20" stroke={dark} strokeWidth={3}></line>
       <circle
         cx={20}
         cy={0}
         r={5}
-        fill={dark}
-        style={{ stroke: light, strokeWidth: 5 }}
+        fill={light}
+        style={{ stroke: dark, strokeWidth: 3 }}
       ></circle>
       <text
         style={{
-          fontSize: "0.8rem",
+          fontSize: "0.7rem",
           textAnchor: "middle",
-          fill: "grey",
+          fill: "#ac99cc",
+          fontWeight: "bold",
           transform: "translate(4rem, 0)",
         }}
       >
@@ -60,9 +66,10 @@ export const HardnessText = (props) => {
       </text>
       <text
         style={{
-          fontSize: "0.8rem",
+          fontSize: "0.7rem",
           textAnchor: "middle",
-          fill: "grey",
+          fill: "#ac99cc",
+          fontWeight: "bold",
           transform: "translate(3.5rem, 1rem)",
         }}
       >{props.label}
@@ -72,21 +79,24 @@ export const HardnessText = (props) => {
 };
 
 export const ColorText = (props) => {
+  const dark = props.colors[0];
+  const light = props.colors[1];
   return (
-    <g transform={`translate(${props.svgWidth / 2},${props.svgHeight / 2 - 100 })`}>
-      <line y2="-30" stroke={light} strokeWidth={5}></line>
+    <g transform={`translate(0,${props.svgHeight / 2 - 100 })`}>
+      <line y2="-30" stroke={light} strokeWidth={3}></line>
       <circle
         cx={0}
         cy={-30}
         r={5}
         fill={dark}
-        style={{ stroke: light, strokeWidth: 5 }}
+        style={{ stroke: light, strokeWidth: 3 }}
       ></circle>
       <text
         style={{
           fontSize: "0.8rem",
           textAnchor: "middle",
-          fill: "grey",
+          fill: "#ac99cc",
+          fontWeight: "bold",
           transform: "translateY(-3rem)",
         }}
       >{props.label}

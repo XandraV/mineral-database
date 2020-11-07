@@ -5,14 +5,14 @@ import { MineralContext } from "./MineralContext";
 export const MineralContextContainer = (props) => {
   const [clickedElements, setClickedElements] = useState(Array(120).fill(false));
   const [mineralResults, setMineralResults] = useState(null);
-  const [chosenCreatedMineral, setChosenCreatedMineral] = useState(null);
+  const [chosenMineral, setchosenMineral] = useState(null);
 
   return (
     <MineralContext.Provider
       value={{
         clickedElements: [clickedElements, setClickedElements],
         mineralResults: [mineralResults, setMineralResults],
-        chosenCreatedMineral: [chosenCreatedMineral, setChosenCreatedMineral],
+        chosenMineral: [chosenMineral, setchosenMineral],
       }}
     >
       {props.children}
