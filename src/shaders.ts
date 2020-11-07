@@ -1,4 +1,4 @@
-export default function shaders(color) {
+export default function shaders(color:string) {
     switch (color) {
       case "purple":
       case "violet":

@@ -1,22 +1,25 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import * as THREE from "three";
 import shaders from "./shaders";
 
-const Crystal3D = (props) => {
+type CrystalProps = {
+  width: number;
+  height: number;
+  shaderName: string;
+};
+
+const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName }) => {
   useEffect(() => {
-    const width = props.width;
-    const height = props.height;
-    // === THREE.JS CODE START ===
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     scene.background = null;
-   
+
     renderer.setSize(width, height);
     camera.position.set(0, 0, 100);
     camera.lookAt(0, 0, 0);
 
-    document.getElementById('crystal-3d').appendChild(renderer.domElement);
+    document.getElementById("crystal-3d")!.appendChild(renderer.domElement);
     const vertices = [
       -1,
       1,
@@ -109,7 +112,7 @@ const Crystal3D = (props) => {
       }
         `;
 
-    const fragmentShader = shaders(props.shaderName)
+    const fragmentShader = shaders(shaderName);
     const material = new THREE.ShaderMaterial({
       vertexShader,
       fragmentShader,
@@ -135,8 +138,7 @@ const Crystal3D = (props) => {
       renderer.render(scene, camera);
     };
     animate();
-    // === THREE.JS EXAMPLE CODE END ===
-  },[]);
+  });
 
   return <span />;
 };

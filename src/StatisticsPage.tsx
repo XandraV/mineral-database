@@ -7,11 +7,12 @@ import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
 import ListItemText from "@material-ui/core/ListItemText";
 import Menu from "./Menu";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import SearchBar from "material-ui-search-bar";
 import SunburstChart from "./SunburstChart";
 import { StyledPaper } from "./StyledPaper";
 import styled from "styled-components/macro";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import SearchIcon from "@material-ui/icons/Search";
 
 const MineralsListWrapper = styled.div`
   position: relative;
@@ -60,15 +61,16 @@ const StatsPageWrapper = styled.div`
 `;
 
 const StatisticsPage = () => {
-  const [results, setResults] = useState([]);
-  const [selectedMineral, setSelectedMineral] = useState(false);
+  const [results, setResults] = useState<any>([]);
+  const [selectedMineral, setSelectedMineral] = useState<any>(null);
   const [limit, setLimit] = useState(8);
 
-  function handleListItemClick(rock) {
+  function handleListItemClick(rock: object) {
     setSelectedMineral(selectedMineral === rock ? false : rock);
   }
 
-  function handleSearchMineralsList(input) {
+  function handleSearchMineralsList(input: string) {
+    console.log(input);
     const data = require("./data/data.json");
     const resultList = [];
     for (let i = 0; i < Object.keys(data.minerals).length; i++) {
@@ -79,18 +81,10 @@ const StatisticsPage = () => {
     return resultList;
   }
 
-  const searchBar = {
-    marginTop: 5,
-    marginBottom: 5,
-    width: 300,
-    borderRadius: 15,
-    height: 40,
-  };
-
   return (
     <StatsPageWrapper>
-      <Menu title="Crystallizer" />
-      <div className="home-container" maxwidth="lg">
+      <Menu />
+      <div className="home-container">
         <Grid
           container
           justify="center"
@@ -117,13 +111,23 @@ const StatisticsPage = () => {
               <StyledPaper height={"16rem"}>
                 <div>
                   Number of Distinct Elements in{" "}
-                  {selectedMineral ? selectedMineral.name : "Minerals"}
+                  {selectedMineral ? (
+                    <span>
+                      {selectedMineral.name}:{" "}
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: `${selectedMineral.formulaWeb}`,
+                        }}
+                      />
+                    </span>
+                  ) : (
+                    "Minerals"
+                  )}
                 </div>
                 <BarChart selectedMineral={selectedMineral} />
               </StyledPaper>
             </Grid>
           </Grid>
-
           <Grid
             item
             xs={12}
@@ -133,7 +137,7 @@ const StatisticsPage = () => {
             <Grid item xs={12} style={{ marginRight: "1rem" }}>
               <StyledPaper height={"18.5rem"}>
                 <div>Occurence of Element Pairs in Minerals</div>
-                <LabeledHeatmap mineral={selectedMineral} />
+                <LabeledHeatmap />
               </StyledPaper>
             </Grid>
             <Grid item xs={12}>
@@ -142,43 +146,58 @@ const StatisticsPage = () => {
                   height={"8rem"}
                   style={{ width: 360, marginBottom: "1rem" }}
                 >
-                  <MuiThemeProvider>
-                    <SearchBar
-                      onChange={(value) =>
-                        setResults(handleSearchMineralsList(value))
-                      }
-                      style={searchBar}
-                    />
-                    <MineralsListWrapper>
-                      <List>
-                        {results.slice(0, limit).map((rock) => (
-                          <ListItem
-                            key={rock.name}
-                            style={{
-                              backgroundColor:
-                                rock === selectedMineral &&
-                                "rgb(243, 165, 203, 0.6)",
-                              color: rock === selectedMineral && "white",
-                            }}
-                            button
-                            onClick={() => handleListItemClick(rock)}
-                          >
-                            <ListItemText primary={rock.name} />
-                          </ListItem>
-                        ))}
-                        {results.length > 8 && (
-                          <div style={{ textAlign: "center" }}>
-                            <a
-                              style={{ color: "blue", cursor: "pointer" }}
-                              onClick={() => setLimit(limit + 8)}
-                            >
-                              Load more
-                            </a>
-                          </div>
-                        )}
-                      </List>
-                    </MineralsListWrapper>
-                  </MuiThemeProvider>
+                  <MineralsListWrapper>
+                    <Paper
+                      component="form"
+                      style={{
+                        alignItems: "center",
+                        marginTop: 5,
+                        marginBottom: 5,
+                        width: 300,
+                        borderRadius: 10,
+                        height: 40,
+                      }}
+                    >
+                      <InputBase
+                        placeholder="Search"
+                        inputProps={{ "aria-label": "search" }}
+                        onChange={(event) =>
+                          setResults(
+                            handleSearchMineralsList(event.target.value)
+                          )
+                        }
+                      />
+                      <SearchIcon
+                        style={{ margin: 10, verticalAlign: "middle" }}
+                      />
+                    </Paper>
+                    <List>
+                      {results.slice(0, limit).map((rock: { name: string }) => (
+                        <ListItem
+                          key={rock.name}
+                          style={{
+                            backgroundColor: `${
+                              rock === selectedMineral &&
+                              "rgb(243, 165, 203, 0.6)"
+                            }`,
+                            color: `${rock === selectedMineral && "white"}`,
+                          }}
+                          button
+                          onClick={() => handleListItemClick(rock)}
+                        >
+                          <ListItemText primary={rock.name} />
+                        </ListItem>
+                      ))}
+                      {results.length > 8 && (
+                        <div
+                          style={{ cursor: "pointer", textAlign: "center" }}
+                          onClick={() => setLimit(limit + 8)}
+                        >
+                          Load more
+                        </div>
+                      )}
+                    </List>
+                  </MineralsListWrapper>
                 </StyledPaper>
               </Grid>
               <Grid item xs={12}>
@@ -192,6 +211,6 @@ const StatisticsPage = () => {
       </div>
     </StatsPageWrapper>
   );
-}
+};
 
 export default StatisticsPage;

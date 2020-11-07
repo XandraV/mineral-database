@@ -1,6 +1,6 @@
-import React from "react";
+import React, {FC} from "react";
 import Element from "./Element";
-import { elements } from "./data/periodic-table";
+import { elements } from "./data/periodictable";
 import styled from "styled-components/macro";
 
 const PeriodicTableWrapper = styled.div`
@@ -59,38 +59,42 @@ const PeriodicTableWrapper = styled.div`
     forwards;
 `;
 
-const PeriodicTable = (props) => {
+type PeriodicTableProps ={
+  selectElement:any
+  selectedElements:any
+}
+const PeriodicTable:FC<PeriodicTableProps> = ({selectElement, selectedElements}) => {
   let periodicTable = [];
   for (let element_num = 1; element_num < 58; element_num++) {
     periodicTable.push(
       <Element
-        className="element"
+        // className="element"
         key={element_num}
         value={elements[element_num]}
-        onClick={() => props.selectElement(element_num)}
-        selected={props.selectedElements[element_num]}
+        onClick={() => selectElement(element_num)}
+        selected={selectedElements[element_num]}
       />
     );
   }
   for (let element_num = 72; element_num < 90; element_num++) {
     periodicTable.push(
       <Element
-        className="element"
+        // className="element"
         key={element_num}
         value={elements[element_num]}
-        onClick={() => props.selectElement(element_num)}
-        selected={props.selectedElements[element_num]}
+        onClick={() => selectElement(element_num)}
+        selected={selectedElements[element_num]}
       />
     );
   }
   for (let element_num = 104; element_num < 119; element_num++) {
     periodicTable.push(
       <Element
-        className="element"
+        // className="element"
         key={element_num}
         value={elements[element_num]}
-        onClick={() => props.selectElement(element_num)}
-        selected={props.selectedElements[element_num]}
+        onClick={() => selectElement(element_num)}
+        selected={selectedElements[element_num]}
       />
     );
   }

@@ -11,6 +11,7 @@ const StyledMap = styled.div`
   bottom: 6%;
   border-radius: 10px;
 `;
+
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2FuZHJhZXhwbG9yZXMiLCJhIjoiY2pveXYzYmZsMmZzMzN2cGFkaDFzcnc4ZyJ9.jVMo-5f0RWDTv4FDD6WOLQ";
 
@@ -140,3 +141,26 @@ const popup = new mapboxgl.Popup({
   closeButton: false,
   closeOnClick: false,
 });
+
+const mapData = [
+  {
+    type: "Feature",
+    properties: {
+      description: `<img width='250px' src='https://images.jtv.com/media/jtv-site/gemopedia/rhodochrosite/rhodochrosite-specimen.jpg'/><div class='caption'><h1>Rhodocrosite</h1></div>`
+    },
+    geometry: {
+      type: "Point",
+      coordinates: [4.9585391, 52.3745893]
+    }
+  },
+  {
+    type: "Feature",
+    properties: {
+      description: `<img width='250px' src='https://upload.wikimedia.org/wikipedia/commons/0/00/Tourmaline-121240.jpg'/><div class='caption'><h1>Tourmaline</h1></div>`
+    },
+    geometry: {
+      type: "Point",
+      coordinates: [139, 35.2552801]
+    }
+  }
+];

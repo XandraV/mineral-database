@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -34,7 +34,7 @@ const ResultCount = styled.div`
   padding-bottom: 10px;
   padding-top: 10px;
 `;
-function colorMap(myColor) {
+function colorMap(myColor: string) {
   switch (myColor) {
     case "yellow":
       return "#ffd452";
@@ -64,10 +64,17 @@ function colorMap(myColor) {
   }
 }
 
-const SearchResults = (props) => {
-  return props.mineralResults ? (
+type SearchResultsProps = {
+  mineralResults: any;
+  setSelectedMineral: any;
+};
+const SearchResults: FC<SearchResultsProps> = ({
+  mineralResults,
+  setSelectedMineral,
+}) => {
+  return mineralResults ? (
     <>
-      <ResultCount id="scroller">{`${props.mineralResults.length} results`}</ResultCount>
+      <ResultCount id="scroller">{`${mineralResults.length} results`}</ResultCount>
       <Grid
         container
         justify="center"
@@ -75,25 +82,27 @@ const SearchResults = (props) => {
         alignItems="center"
         style={{ maxWidth: "50rem", display: "inline-flex" }}
       >
-        {props.mineralResults.map((mineral) => (
-          <Grid item xs={12} sm={4}>
-            <Link
-              className="link"
-              to="/mineral-results"
-              onClick={() => props.setSelectedMineral(mineral)}
-              style={{ textDecoration: "none" }}
-            >
-              <StyledPaper color={colorMap(mineral.color[0].toLowerCase())}>
-                <span>{mineral.name}</span>
-                <ArrowForwardIcon />
-              </StyledPaper>
-            </Link>
-          </Grid>
-        ))}
+        {mineralResults.map(
+          (mineral: { color: Array<string>; name: string }) => (
+            <Grid item xs={12} sm={4}>
+              <Link
+                className="link"
+                to="/mineral-results"
+                onClick={() => setSelectedMineral(mineral)}
+                style={{ textDecoration: "none" }}
+              >
+                <StyledPaper color={colorMap(mineral.color[0].toLowerCase())}>
+                  <span>{mineral.name}</span>
+                  <ArrowForwardIcon />
+                </StyledPaper>
+              </Link>
+            </Grid>
+          )
+        )}
       </Grid>
     </>
   ) : (
-    ""
+    <div />
   );
 };
 export default SearchResults;

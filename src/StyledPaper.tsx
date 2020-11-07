@@ -1,11 +1,10 @@
 import Paper from "@material-ui/core/Paper";
 import styled from "styled-components/macro";
 
-export const StyledPaper = styled(Paper)`
-//   background-position: bottom;
-//   background-repeat: no-repeat;
-//   background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/dashboardbackground.svg");
-//  opacity: 0.7;
+type PaperProps = {
+  height: string;
+};
+export const StyledPaper = styled(Paper)<PaperProps>`
   background-color: #86a7f133;
   border: 0.09em solid white;
   border-radius: 0.6rem;
@@ -14,7 +13,7 @@ export const StyledPaper = styled(Paper)`
   font-size: 1rem;
   text-decoration: none;
   font-weight: bold;
-  height: ${(props)=>props.height};
+  height: ${(props) => props.height};
   color: #83769a;
   @-webkit-keyframes fade-in-left {
     0% {
