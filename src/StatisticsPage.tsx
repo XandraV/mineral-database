@@ -168,7 +168,7 @@ const StatisticsPage = () => {
                         }
                       />
                       <SearchIcon
-                        style={{ margin: 10, verticalAlign: "middle" }}
+                        style={{ margin: 10, verticalAlign: "middle", color:"lightgrey" }}
                       />
                     </Paper>
                     <List>
