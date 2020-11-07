@@ -14,9 +14,7 @@
 
 A React application that allows the user to search for minerals by selecting elements in the periodic table, view the info page of a chosen mineral and a dashboard with statistics tailored to the specific mineral properties.
 
-This project is automated with continuous deployment on [AWS Amplify](https://aws.amazon.com/amplify/) and you can visit the deployed app [here](https://master.d2773e6759xldj.amplifyapp.com/).
-
-![Alt text](https://crystallizer.s3.eu-west-2.amazonaws.com/crystallizer.gif)
+This project is automated with continuous deployment on [AWS Amplify](https://aws.amazon.com/amplify/) and you can visit the deployed app [here](https://master.d1qwrf5789l68x.amplifyapp.com/).
 
 Data used in this application was collected from https://www.mindat.org using Python Request library.
 The data analysis project based on this dataset can be found [here](https://github.com/XandraV/python-data-visualisation).
