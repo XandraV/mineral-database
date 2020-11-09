@@ -7,6 +7,7 @@
 
 ![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![d3.js](https://img.shields.io/badge/-D3.js-F9A03C?style=flat-square&logo=d3.js&logoColor=black)
+![three.js](https://img.shields.io/badge/-Three.js-9999FF?style=flat-square)
 ![react](https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white)
 ![styled](https://img.shields.io/badge/-Styled_Components-db7092?style=flat-square&logo=styled-components&logoColor=white)
 ![material-ui](https://img.shields.io/badge/-MaterialUI-0081CB?style=flat-square&logo=material-ui&logoColor=white)
@@ -16,6 +17,7 @@ A React application that allows the user to search for minerals by selecting ele
 
 This project is automated with continuous deployment on [AWS Amplify](https://aws.amazon.com/amplify/) and you can visit the deployed app [here](https://master.d1qwrf5789l68x.amplifyapp.com/).
 
+![gif](https://general-gif-bucket.s3.eu-west-2.amazonaws.com/mineral-database.gif)
 Data used in this application was collected from https://www.mindat.org using Python Request library.
 The data analysis project based on this dataset can be found [here](https://github.com/XandraV/python-data-visualisation).
 
