@@ -87,7 +87,7 @@ const InfoPage = () => {
         />
         <div
           id="crystal-3d"
-          style={{ left: width / 3, top: height / 5, position: "absolute" }}
+          style={{ left: width*0.34, top: height / 5, position: "absolute" }}
         >
           <Crystal3D
             width={300}

@@ -49,7 +49,6 @@ const GroupBreadcrumb = styled(ListItem)<any>`
   width: 4.5rem;
   height: 1rem;
   color: #83769a;
-  background: #add8e66e;
   font-size: 0.5em;
   font-weight: bold;
   padding: 0.4rem;
@@ -161,7 +160,9 @@ const SunburstChart = () => {
             color={color(i)}
             onClick={() => handleClick(group)}
             style={{
-              backgroundColor: `${selectedGroup === group && color(i)}`,
+              backgroundColor: `${
+                selectedGroup === group ? color(i) : "#add8e66e"
+              }`,
             }}
           >
             {group.toUpperCase()}
@@ -175,7 +176,9 @@ const SunburstChart = () => {
             color={color(i)}
             onClick={() => handleClick(group)}
             style={{
-              backgroundColor: `${selectedGroup === group && color(i)}`,
+              backgroundColor: `${
+                selectedGroup === group ? color(i) : "#add8e66e"
+              }`,
             }}
           >
             {group.toUpperCase()}

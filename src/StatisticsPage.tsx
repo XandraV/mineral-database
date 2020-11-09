@@ -27,7 +27,6 @@ const MineralsListWrapper = styled.div`
   ul > div.MuiListItem-root {
     padding-bottom: 0px;
     padding-top: 0px;
-    background-color: transparent;
     border-radius: 0.5rem;
     :hover {
       background-color: rgb(243, 165, 203, 0.6);
@@ -168,7 +167,11 @@ const StatisticsPage = () => {
                         }
                       />
                       <SearchIcon
-                        style={{ margin: 10, verticalAlign: "middle", color:"lightgrey" }}
+                        style={{
+                          margin: 10,
+                          verticalAlign: "middle",
+                          color: "lightgrey",
+                        }}
                       />
                     </Paper>
                     <List>
@@ -177,10 +180,13 @@ const StatisticsPage = () => {
                           key={rock.name}
                           style={{
                             backgroundColor: `${
-                              rock === selectedMineral &&
-                              "rgb(243, 165, 203, 0.6)"
+                              rock === selectedMineral
+                                ? "rgb(243, 165, 203, 0.6)"
+                                : "transparent"
                             }`,
-                            color: `${rock === selectedMineral && "white"}`,
+                            color: `${
+                              rock === selectedMineral ? "white" : "#83769a"
+                            }`,
                           }}
                           button
                           onClick={() => handleListItemClick(rock)}
