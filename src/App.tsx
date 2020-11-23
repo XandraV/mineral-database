@@ -6,19 +6,24 @@ import { MineralContextContainer } from "./MineralContextContainer";
 
 import System3D from "./System3D";
 
-
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
 const StatisticsPage = lazy(() => import("./StatisticsPage"));
 
 const App = () => {
   return (
-   
-      // <System3D system={"Vanadates"} />
-  
+    // <System3D system={""} />
+
     <Router>
       <CssBaseline />
-      <Suspense fallback={<div>Loading...<CircularProgress color="secondary" /></div>}>
+      <Suspense
+        fallback={
+          <div>
+            Loading...
+            <CircularProgress color="secondary" />
+          </div>
+        }
+      >
         <Switch>
           <MineralContextContainer>
             <Route exact path="/">

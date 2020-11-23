@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-
+import Orthorhombic3D from "./Orthorhombic3D";
 type System3DProps = {
   system: string;
 };
@@ -10,15 +10,12 @@ const System3D: FC<System3DProps> = ({ system }) => (
       <div
         id="system-3d"
         style={{
-          top: 600 / 2 + 60,
-          left: window.innerWidth / 3 + 240,
+          top: 600 / 2 + 70,
+          left: window.innerWidth / 3 + 230,
           position: "absolute",
         }}
       >
-        {/* <Group4OtherAtoms3D
-          width={170}
-          height={170}
-        /> */}
+        <Orthorhombic3D width={170} height={170} />
       </div>
     )}
   </>

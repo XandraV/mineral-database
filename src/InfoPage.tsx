@@ -74,14 +74,8 @@ const InfoPage = () => {
       <Menu />
       <div style={{ textAlign: "center" }}>
         <MainGroup3D groupName={mychosenMineral.mainGroup[0]} />
-        {/* <InfoAvatar
-          width={9}
-          height={9}
-          top={height / 2 + 60}
-          left={width / 3 + 240}
-          keyWord={mychosenMineral.system}
-        /> */}
-        <System3D system={mychosenMineral.system} />
+        {/* <System3D system={mychosenMineral.system} /> */}
+        <System3D system={""} />
         <div
           id="crystal-3d"
           style={{ left: width * 0.34, top: height / 5, position: "absolute" }}
