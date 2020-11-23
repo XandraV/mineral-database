@@ -4,10 +4,11 @@ import ComponentsCircle from "./ComponentsCircle";
 import { MainGroupCircle, SubGroupCircle } from "./GroupCircles";
 import { MineralContext } from "./MineralContext";
 import GravityCircle from "./GravityCircle";
-import InfoAvatar from "./InfoAvatar";
 import { ColorText, HardnessText, SystemText } from "./SmallCircles";
 import Crystal3D from "./Crystal3D";
 import NameCircle from "./NameCircle";
+import MainGroup3D from "./MainGroup3D";
+import System3D from "./System3D";
 import styled from "styled-components/macro";
 
 const HomeWrapper = styled.div`
@@ -22,11 +23,12 @@ const InfoPage = () => {
   const { chosenMineral } = useContext(MineralContext);
   const mychosenMineral: any = chosenMineral[0];
 
-  function colorMap(myColor: string) {
+  function getDarkColor(myColor: string) {
     switch (myColor) {
       case "yellow":
         return "#ffe082";
       case "green":
+      case "greenish-blue":
         return "#c5e1a5";
       case "red":
         return "#ef5350";
@@ -52,7 +54,7 @@ const InfoPage = () => {
     }
   }
 
-  const dark = colorMap(mychosenMineral.color[0].toLowerCase());
+  const dark = getDarkColor(mychosenMineral.color[0].toLowerCase());
   const light = "#fafafa";
 
   const [width, setWidth] = useState(window.innerWidth);
@@ -71,23 +73,18 @@ const InfoPage = () => {
     <HomeWrapper>
       <Menu />
       <div style={{ textAlign: "center" }}>
-        <InfoAvatar
-          width={10}
-          height={10}
-          top={height / 2 + 40}
-          left={width / 3 - 80}
-          keyWord={mychosenMineral.mainGroup[0]}
-        />
-        <InfoAvatar
+        <MainGroup3D groupName={mychosenMineral.mainGroup[0]} />
+        {/* <InfoAvatar
           width={9}
           height={9}
           top={height / 2 + 60}
           left={width / 3 + 240}
           keyWord={mychosenMineral.system}
-        />
+        /> */}
+        <System3D system={mychosenMineral.system} />
         <div
           id="crystal-3d"
-          style={{ left: width*0.34, top: height / 5, position: "absolute" }}
+          style={{ left: width * 0.34, top: height / 5, position: "absolute" }}
         >
           <Crystal3D
             width={300}
@@ -118,7 +115,11 @@ const InfoPage = () => {
           />
           <SubGroupCircle
             svgHeight={height}
-            label={mychosenMineral.subGroup[0]}
+            label={
+              typeof mychosenMineral.subGroup === "string"
+                ? mychosenMineral.subGroup
+                : mychosenMineral.subGroup[0]
+            }
             colors={[dark, light]}
           />
           {/* maingroup image circle */}

@@ -138,7 +138,7 @@ const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName }) => {
       renderer.render(scene, camera);
     };
     animate();
-  });
+  }, []);
 
   return <span />;
 };

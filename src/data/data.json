@@ -149,7 +149,7 @@
             "Brown",
             "Black",
             "Brownish",
-            "Yellow-orange",
+            "yellow",
             "Greenish"
          ],
          "hardness":"5 - 6",
@@ -3705,7 +3705,7 @@
             "Orange",
             "Brown",
             "Brownish",
-            "Yellow-orange"
+            "yellow"
          ],
          "hardness":"2½",
          "mindatLink":"https://www.mindat.org/min-597.html",
@@ -5031,7 +5031,7 @@
             "Yellow",
             "Orange",
             "Grey",
-            "Yellow-orange"
+            "yellow"
          ],
          "hardness":"3",
          "mindatLink":"https://www.mindat.org/min-696.html",
@@ -6373,7 +6373,7 @@
          "color":[
             "Yellow",
             "Orange",
-            "Yellow-orange"
+            "yellow"
          ],
          "hardness":"2½",
          "mindatLink":"https://www.mindat.org/min-810.html",
@@ -19600,7 +19600,7 @@
             "Yellow",
             "Orange",
             "Brown",
-            "Yellow-orange"
+            "yellow"
          ],
          "hardness":"4",
          "mindatLink":"https://www.mindat.org/min-2066.html",
@@ -21934,7 +21934,7 @@
             "Orange",
             "Brown",
             "Red",
-            "Yellow-orange",
+            "yellow",
             "Reddish"
          ],
          "hardness":"3",
@@ -29226,7 +29226,7 @@
             "Yellow",
             "Orange",
             "Red",
-            "Yellow-orange"
+            "yellow"
          ],
          "hardness":"2½",
          "mindatLink":"https://www.mindat.org/min-3130.html",
@@ -38274,7 +38274,7 @@
             "Yellow",
             "Orange",
             "Brown",
-            "Yellow-orange"
+            "yellow"
          ],
          "hardness":"3½ - 4",
          "mindatLink":"https://www.mindat.org/min-3929.html",
@@ -42451,7 +42451,7 @@
             "Orange",
             "Brown",
             "Red",
-            "Yellow-orange",
+            "yellow",
             "Red-brown"
          ],
          "hardness":"2 - 3",

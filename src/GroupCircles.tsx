@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 type GroupProps = {
   colors: Array<string>;
-  label: string;
+  label: string | Array<string>;
   svgHeight: number;
 };
 export const MainGroupCircle: FC<GroupProps> = ({
@@ -22,6 +22,16 @@ export const MainGroupCircle: FC<GroupProps> = ({
         }}
       >
         {label}
+      </text>
+      <text
+        style={{
+          fontSize: "0.7rem",
+          textAnchor: "middle",
+          fill: dark,
+          transform: "translateY(1rem)",
+        }}
+      >
+        maingroup
       </text>
     </g>
   );

@@ -1,8 +1,11 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MineralContextContainer } from "./MineralContextContainer";
+
+import System3D from "./System3D";
+
 
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
@@ -10,6 +13,9 @@ const StatisticsPage = lazy(() => import("./StatisticsPage"));
 
 const App = () => {
   return (
+   
+      // <System3D system={"Vanadates"} />
+  
     <Router>
       <CssBaseline />
       <Suspense fallback={<div>Loading...<CircularProgress color="secondary" /></div>}>

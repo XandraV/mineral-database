@@ -2,7 +2,6 @@ import React from "react";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Drawer from "@material-ui/core/Drawer";
-import ExploreIcon from "@material-ui/icons/Explore";
 import ListItem from "@material-ui/core/ListItem";
 import { Link } from "react-router-dom";
 import List from "@material-ui/core/List";
@@ -130,20 +129,6 @@ const Menu = () => {
           <Tooltip title="Dashboard" placement="right" style={{ width: 500 }}>
             <ListItemIcon style={listIconStyle}>
               <BarChartIcon />
-            </ListItemIcon>
-          </Tooltip>
-        </ListItem>
-        <ListItem button>
-          <Tooltip title="Search" placement="right" style={{ width: 500 }}>
-            <ListItemIcon style={listIconStyle}>
-              <i className="material-icons">search</i>
-            </ListItemIcon>
-          </Tooltip>
-        </ListItem>
-        <ListItem button>
-          <Tooltip title="Map" placement="right" style={{ width: 500 }}>
-            <ListItemIcon style={listIconStyle}>
-              <ExploreIcon />
             </ListItemIcon>
           </Tooltip>
         </ListItem>

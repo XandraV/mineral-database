@@ -3,8 +3,8 @@ import * as d3 from "d3";
 import Tooltip from "@material-ui/core/Tooltip";
 import { bubbleData, labelsBubble } from "./data/bubbledata";
 import { BubbleChartWrapper } from "./BubbleChartWrapper";
-import { getColor } from "./Element";
 import styled from "styled-components/macro";
+
 const StyledCircle = styled.circle`
 transition: 0.3s;
   :hover {
