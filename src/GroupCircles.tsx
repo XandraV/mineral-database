@@ -19,16 +19,16 @@ export const MainGroupCircle: FC<GroupProps> = ({
           fontSize: "0.9rem",
           textAnchor: "middle",
           fill: dark,
+          transform: "translateY(-1rem)",
         }}
       >
         {label}
       </text>
       <text
         style={{
-          fontSize: "0.7rem",
+          fontSize: "0.6rem",
           textAnchor: "middle",
-          fill: dark,
-          transform: "translateY(1rem)",
+          fill: "#ac99cc",
         }}
       >
         maingroup

@@ -69,7 +69,6 @@ const StatisticsPage = () => {
   }
 
   function handleSearchMineralsList(input: string) {
-    console.log(input);
     const data = require("./data/data.json");
     const resultList = [];
     for (let i = 0; i < Object.keys(data.minerals).length; i++) {

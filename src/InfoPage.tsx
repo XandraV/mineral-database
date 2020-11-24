@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import Menu from "./Menu";
-import ComponentsCircle from "./ComponentsCircle";
 import { MainGroupCircle, SubGroupCircle } from "./GroupCircles";
 import { MineralContext } from "./MineralContext";
 import GravityCircle from "./GravityCircle";
@@ -74,8 +73,7 @@ const InfoPage = () => {
       <Menu />
       <div style={{ textAlign: "center" }}>
         <MainGroup3D groupName={mychosenMineral.mainGroup[0]} />
-        {/* <System3D system={mychosenMineral.system} /> */}
-        <System3D system={""} />
+        <System3D system={"Hexagonal"} />
         <div
           id="crystal-3d"
           style={{ left: width * 0.34, top: height / 5, position: "absolute" }}
@@ -86,6 +84,19 @@ const InfoPage = () => {
             shaderName={mychosenMineral.color[0].toLowerCase()}
           />
         </div>
+        {/* groump chemical component */}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: getGroupMolecule(mychosenMineral.mainGroup[0]),
+          }}
+          style={{
+            color: dark,
+            left: width * 0.27,
+            top: height / 2,
+            position: "absolute",
+            fontSize: "1rem",
+          }}
+        />
         <svg
           width={width}
           height={height}
@@ -96,11 +107,6 @@ const InfoPage = () => {
             svgHeight={height}
             colors={[dark, light]}
             name={mychosenMineral.name}
-          />
-          <ComponentsCircle
-            svgHeight={height}
-            mineral={mychosenMineral}
-            colors={[dark, light]}
           />
           <MainGroupCircle
             svgHeight={height}
@@ -168,6 +174,29 @@ const InfoPage = () => {
 
 export default InfoPage;
 
+function getGroupMolecule(group: string) {
+  switch (group) {
+    case "Silicates":
+      return "<span>SiO<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sup style='font-size:inherit;line-height:inherit;vertical-align:baseline'>4−</sup><br><sub style='font-size:inherit;line-height:inherit;vertical-align:baseline'>4</sub></span></span>";
+    case "Oxides":
+      return "<span>O<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sup style='font-size:inherit;line-height:inherit;vertical-align:baseline'>2−</sup></span></span>";
+    case "Sulfates":
+      return "<span>SO<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sup style='font-size:inherit;line-height:inherit;vertical-align:baseline'>2−</sup><br><sub style='font-size:inherit;line-height:inherit;vertical-align:baseline'>4</sub></span></span>";
+    case "Sulfides":
+      return "<span>S<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sup style='font-size:inherit;line-height:inherit;vertical-align:baseline'>2−</sup></span></span>";
+    case "Carbonates":
+      return "<span>CO<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sup style='font-size:inherit;line-height:inherit;vertical-align:baseline'>2−</sup><br><sub style='font-size:inherit;line-height:inherit;vertical-align:baseline'>3</sub></span></span>";
+    case "Halides":
+      return "<span>F, Cl</span>";
+    case "Phosphates":
+      return "<span>PO<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sup style='font-size:inherit;line-height:inherit;vertical-align:baseline'>3−</sup><br><sub style='font-size:inherit;line-height:inherit;vertical-align:baseline'>4</sub></span></span>";
+    case "Borates":
+      return "<span>BO<span style='display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1em;font-size:80%;text-align:left'><sub style='font-size:inherit;line-height:inherit;vertical-align:baseline'>4</sub></span></span>";
+    case "Organic":
+    default:
+      return "<span>C</span>";
+  }
+}
 // const systemInfoText =
 //   "There are six crystal systems. Although you may have seen more than six shapes of crystals, they’re all variations of one of these six habits. ";
 // const groupInfoText =

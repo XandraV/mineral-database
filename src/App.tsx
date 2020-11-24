@@ -12,8 +12,6 @@ const StatisticsPage = lazy(() => import("./StatisticsPage"));
 
 const App = () => {
   return (
-    // <System3D system={""} />
-
     <Router>
       <CssBaseline />
       <Suspense

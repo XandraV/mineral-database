@@ -9,20 +9,20 @@ const NameCircle: FC<GravityProps> = ({ svgHeight, name, colors }) => {
   const dark = colors[0];
   const light = colors[1];
   return (
-    <g transform={`translate(${-265},${svgHeight / 3 + 30})`}>
+    <g transform={`translate(${-130},${svgHeight / 2 -100})`}>
     <circle
-      cx={0}
-      cy={0}
-      r={50}
-      fill={light}
-      style={{ stroke: dark, strokeWidth: 8 }}
+       cx={0}
+       cy={0}
+       r={60}
+       fill={dark}
+       style={{ stroke: light, strokeWidth: 17 }}
     />
     <text
       style={{
         fontSize: "0.7rem",
         textAnchor: "middle",
         transform: "translateY(0.2rem)",
-        fill: dark,
+        fill: "white",
       }}
     >
       {name}
