@@ -7,7 +7,11 @@ type Group4OtherAtoms3DProps = {
   color: string;
 };
 
-const Group4OtherAtoms3D: FC<Group4OtherAtoms3DProps> = ({ width, height, color }) => {
+const Group4OtherAtoms3D: FC<Group4OtherAtoms3DProps> = ({
+  width,
+  height,
+  color,
+}) => {
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
@@ -24,13 +28,20 @@ const Group4OtherAtoms3D: FC<Group4OtherAtoms3DProps> = ({ width, height, color 
     const molecule = new THREE.Object3D();
 
     //create colors of materials
-    const centralAtomMaterial = new THREE.MeshStandardMaterial({ color: color });
-    const otherAtomsMaterial = new THREE.MeshStandardMaterial({ color: 0x80deea });
+    const centralAtomMaterial = new THREE.MeshStandardMaterial({
+      color: color,
+    });
+    const otherAtomsMaterial = new THREE.MeshStandardMaterial({
+      color: 0x80deea,
+    });
     const whiteMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
     //create silicon atom
     const centralAtomGeometry = new THREE.SphereBufferGeometry(6, 32, 32);
-    const centralAtom = new THREE.Mesh(centralAtomGeometry, centralAtomMaterial);
+    const centralAtom = new THREE.Mesh(
+      centralAtomGeometry,
+      centralAtomMaterial
+    );
     molecule.add(centralAtom);
     // create oxygen atom and cylinder to use as model for others
     const otherAtomGeometry = new THREE.SphereBufferGeometry(4.5, 32, 32);
@@ -78,14 +89,14 @@ const Group4OtherAtoms3D: FC<Group4OtherAtoms3DProps> = ({ width, height, color 
 
     spotLight.castShadow = true;
     scene.add(spotLight);
-   
+
     const animate = function () {
       requestAnimationFrame(animate);
       molecule.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
     animate();
-  },[]);
+  }, [color, height, width]);
 
   return <span />;
 };

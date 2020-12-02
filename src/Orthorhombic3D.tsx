@@ -114,7 +114,7 @@ const Orthorhombic3D: FC<Orthorhombic3DProps> = ({ width, height }) => {
       renderer.render(scene, camera);
     };
     animate();
-  }, []);
+  }, [height, width]);
 
   return <span />;
 };

@@ -43,21 +43,18 @@ const BarchartWrapper = styled.div`
 `;
 
 type BarChartProps = {
-  selectedMineral: {formula: string}
-}
-const BarChart:FC<BarChartProps> = ({selectedMineral}) => {
+  selectedMineral: { formula: string };
+};
+const BarChart: FC<BarChartProps> = ({ selectedMineral }) => {
   const selectedElementNum = selectedMineral?.formula?.length || 0;
-  const [selected, setSelected] = useState<number|string>("");
+  const [selected, setSelected] = useState<number | string>("");
   const svgWidth = 280;
   const svgHeight = 150;
   const chartHeight = 130;
   const data = [33, 385, 675, 1089, 1090, 569, 292, 157, 64, 36, 8, 4];
 
   const xScale = d3.scaleLinear().domain([0, 12]).range([0, 260]);
-  const yScale = d3
-    .scaleLinear()
-    .domain([0, 1090])
-    .range([0, chartHeight]);
+  const yScale = d3.scaleLinear().domain([0, 1090]).range([0, chartHeight]);
   const yAxisScale = d3.scaleLinear().domain([0, 1000]).range([130, 0]);
 
   const color = d3
@@ -68,34 +65,32 @@ const BarChart:FC<BarChartProps> = ({selectedMineral}) => {
   return (
     <BarchartWrapper>
       <svg width={svgWidth} height={svgHeight} style={{ overflow: "visible" }}>
-        {data.map((d, i) => {
-          return (
-            <rect
-              key={d}
-              className={`bar${d}`}
-              x={21 + i * 22}
-              y={chartHeight - yScale(d)}
-              rx={7}
-              ry={7}
-              height={yScale(d)}
-              stroke={"white"}
-              width={18}
-              fill={
-                selectedMineral
-                  ? d === data[selectedElementNum - 1]
-                    ? "#ff94bd"
-                    : d === selected
-                    ? "#ff94bd"
-                    : "lightgrey"
+        {data.map((d, i) => (
+          <rect
+            key={d}
+            className={`bar${d}`}
+            x={21 + i * 22}
+            y={chartHeight - yScale(d)}
+            rx={7}
+            ry={7}
+            height={yScale(d)}
+            stroke={"white"}
+            width={18}
+            fill={
+              selectedMineral
+                ? d === data[selectedElementNum - 1]
+                  ? "#ff94bd"
                   : d === selected
                   ? "#ff94bd"
-                  : `${color(i)}`
-              }
-              onMouseOver={() => setSelected(d)}
-              onMouseLeave={() => setSelected("")}
-            />
-          );
-        })}
+                  : "lightgrey"
+                : d === selected
+                ? "#ff94bd"
+                : `${color(i)}`
+            }
+            onMouseOver={() => setSelected(d)}
+            onMouseLeave={() => setSelected("")}
+          />
+        ))}
 
         {yAxisScale.ticks(4).map((value) => (
           <g key={value} transform={`translate(0,${yAxisScale(value)})`}>
@@ -117,9 +112,9 @@ const BarChart:FC<BarChartProps> = ({selectedMineral}) => {
           fill="none"
           stroke="white"
         />
-        {xScale.ticks(12).map((value) => {
-          if (value !== 0) {
-            return (
+        {xScale.ticks(12).map(
+          (value) =>
+            value !== 0 && (
               <g
                 key={value}
                 transform={`translate(${xScale(value) + 9},${chartHeight})`}
@@ -137,12 +132,11 @@ const BarChart:FC<BarChartProps> = ({selectedMineral}) => {
                   {value}
                 </text>
               </g>
-            );
-          }
-        })}
+            )
+        )}
       </svg>
     </BarchartWrapper>
   );
-}
+};
 
 export default BarChart;

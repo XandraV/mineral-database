@@ -101,7 +101,7 @@ const Trigonal3D: FC<trigonal3DProps> = ({ width, height }) => {
       renderer.render(scene, camera);
     };
     animate();
-  }, []);
+  }, [height, width]);
 
   return <span />;
 };

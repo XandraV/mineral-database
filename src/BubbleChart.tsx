@@ -6,9 +6,9 @@ import { BubbleChartWrapper } from "./BubbleChartWrapper";
 import styled from "styled-components/macro";
 
 const StyledCircle = styled.circle`
-transition: 0.3s;
+  transition: 0.3s;
   :hover {
-    r:25;
+    r: 25;
   }
 `;
 const BubbleChart = () => {
@@ -51,9 +51,10 @@ const BubbleChart = () => {
           stroke="white"
           strokeWidth="0.0.5rem"
         />
-        {xScale.ticks(labelsBubble.length - 1).map((value) => {
-          if (value !== 0 && value !== 36) {
-            return (
+        {xScale.ticks(labelsBubble.length - 1).map(
+          (value) =>
+            value !== 0 &&
+            value !== 36 && (
               <g
                 key={`symbol-${value}`}
                 transform={`translate(${xScale(value)},${chartHeight})`}
@@ -69,12 +70,11 @@ const BubbleChart = () => {
                   {labelsBubble[value]}
                 </text>
               </g>
-            );
-          }
-        })}
-        {bubbleData.map((bubble, i) => {
-          if (bubble.y !== 0)
-            return (
+            )
+        )}
+        {bubbleData.map(
+          (bubble, i) =>
+            bubble.y !== 0 && (
               <Tooltip
                 key={`circle-${i}`}
                 title={`${bubble.y} minerals contain ${labelsBubble[i]}`}
@@ -85,17 +85,16 @@ const BubbleChart = () => {
                   cx={`${xScale(bubble.x)}`}
                   cy={`${yScale(bubble.y)}`}
                   r={`${bubble.y / 100 + 5}`}
-                  // fill={`${getColor(labelsBubble[i])}`}
                   fill={`${color(i)}`}
                   stroke={"white"}
                   fillOpacity="0.6"
                 />
               </Tooltip>
-            );
-        })}
+            )
+        )}
       </svg>
     </BubbleChartWrapper>
   );
-}
+};
 
 export default BubbleChart;

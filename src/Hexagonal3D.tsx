@@ -158,7 +158,7 @@ const Hexagonal3D: FC<Hexagonal3DProps> = ({ width, height }) => {
       renderer.render(scene, camera);
     };
     animate();
-  }, []);
+  }, [height, width]);
 
   return <span />;
 };

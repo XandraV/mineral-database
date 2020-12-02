@@ -28,13 +28,20 @@ const Group3OtherAtoms3D: FC<Group3OtherAtoms3DProps> = ({
     const molecule = new THREE.Object3D();
 
     //create colors of materials
-    const centralAtomMaterial = new THREE.MeshStandardMaterial({ color: color });
-    const otherAtomsMaterial = new THREE.MeshStandardMaterial({ color: 0x40c4ff });
+    const centralAtomMaterial = new THREE.MeshStandardMaterial({
+      color: color,
+    });
+    const otherAtomsMaterial = new THREE.MeshStandardMaterial({
+      color: 0x40c4ff,
+    });
     const bondMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
     //create central atom
     const centralAtomGeometry = new THREE.SphereBufferGeometry(6, 32, 32);
-    const centralAtom = new THREE.Mesh(centralAtomGeometry, centralAtomMaterial);
+    const centralAtom = new THREE.Mesh(
+      centralAtomGeometry,
+      centralAtomMaterial
+    );
     molecule.add(centralAtom);
     // create oxygen atom and cylinder to use as model for others
     const otherAtomGeometry = new THREE.SphereBufferGeometry(4.5, 32, 32);
@@ -81,7 +88,7 @@ const Group3OtherAtoms3D: FC<Group3OtherAtoms3DProps> = ({
       renderer.render(scene, camera);
     };
     animate();
-  }, []);
+  }, [color, height, width]);
 
   return <span />;
 };

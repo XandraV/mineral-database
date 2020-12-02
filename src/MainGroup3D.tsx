@@ -50,7 +50,7 @@ const MainGroup3D: FC<GroupProps> = ({ groupName }) => (
       <div
         id="maingroup-3d"
         style={{
-          left: window.innerWidth / 3 - 90,
+          left: window.innerWidth / 3 - 85,
           top: 600 / 2 + 50,
           position: "absolute",
         }}

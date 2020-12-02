@@ -83,7 +83,7 @@ const Group2OtherAtoms3D: FC<Group2OtherAtoms3DProps> = ({
       renderer.render(scene, camera);
     };
     animate();
-  }, []);
+  }, [color, height, width]);
 
   return <span />;
 };

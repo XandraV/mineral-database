@@ -15,7 +15,7 @@ const System3D: FC<System3DProps> = ({ system }) => (
           id="system-3d"
           style={{
             top: 600 / 2 + 70,
-            left: window.innerWidth / 3 + 230,
+            left: window.innerWidth / 3 + 235,
             position: "absolute",
           }}
         >
@@ -28,7 +28,7 @@ const System3D: FC<System3DProps> = ({ system }) => (
       id="system-3d"
       style={{
         top: 600 / 2 + 70,
-        left: window.innerWidth / 3 + 230,
+        left: window.innerWidth / 3 + 235,
         position: "absolute",
       }}
     >
@@ -38,7 +38,7 @@ const System3D: FC<System3DProps> = ({ system }) => (
       id="system-3d"
       style={{
         top: 600 / 2 + 70,
-        left: window.innerWidth / 3 + 230,
+        left: window.innerWidth / 3 + 235,
         position: "absolute",
       }}
     >

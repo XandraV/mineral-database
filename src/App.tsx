@@ -4,8 +4,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MineralContextContainer } from "./MineralContextContainer";
 
-import System3D from "./System3D";
-
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
 const StatisticsPage = lazy(() => import("./StatisticsPage"));
