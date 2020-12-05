@@ -17,7 +17,7 @@ A React application that allows the user to search for minerals by selecting ele
 
 This project is automated with continuous deployment on [AWS Amplify](https://aws.amazon.com/amplify/) and you can visit the deployed app [here](https://master.d1qwrf5789l68x.amplifyapp.com/).
 
-![gif](https://general-gif-bucket.s3.eu-west-2.amazonaws.com/mineral-databse.gif)
+![gif](https://general-gif-bucket.s3.eu-west-2.amazonaws.com/mineral-database.gif)
 
 Data used in this application was collected from https://www.mindat.org using Python Request library.
 The data analysis project based on this dataset can be found [here](https://github.com/XandraV/python-data-visualisation).
