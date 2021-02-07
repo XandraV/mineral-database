@@ -1,6 +1,5 @@
 <img align="right" width="15%" src="https://general-gif-bucket.s3.eu-west-2.amazonaws.com/readme.gif"/>
 
-![contributors](https://img.shields.io/github/contributors/XandraV/crystallizer?color=gold)
 ![commit](https://img.shields.io/github/last-commit/XandraV/crystallizer?color=cyan)
 
 # Mineral Database 
