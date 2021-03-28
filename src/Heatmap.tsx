@@ -44,12 +44,17 @@ const StyledHeatmap = styled.div`
   }
 `;
 
-const LabeledHeatmap = () => {
-  const svgHeight = 220;
-  const svgWidth = 730;
-  const chartWidth = 670;
-  const chartHeight = 210;
+const svgHeight = 220;
+const svgWidth = 730;
+const chartWidth = 670;
+const chartHeight = 210;
 
+const color = d3
+  .scaleLinear<string>()
+  .domain([0, 2385])
+  .range(["hsl(211, 100%, 89%)", "hsl(337, 100%, 79%)"]);
+
+const LabeledHeatmap = () => {
   const xScale = d3
     .scaleLinear()
     .domain([0, heatMapLabelsX.length])
@@ -58,11 +63,6 @@ const LabeledHeatmap = () => {
     .scaleLinear()
     .domain([0, heatMapLabelsY.length])
     .range([0, chartHeight]);
-
-  const color = d3
-    .scaleLinear<string>()
-    .domain([0, 2385])
-    .range(["hsl(211, 100%, 89%)", "hsl(337, 100%, 79%)"]);
 
   return (
     <StyledHeatmap>

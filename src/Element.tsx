@@ -1,9 +1,11 @@
 import React, { FC } from "react";
+import { getElementColor } from "./helpers";
 import styled from "styled-components/macro";
 
 type StyledElementProps = {
   elementColor: string;
 };
+
 const StyledNumber = styled.div`
 float: left;
 margin: 4px;
@@ -124,8 +126,9 @@ type ElementProps = {
   selected: boolean;
   onClick: any;
 };
+
 const Element: FC<ElementProps> = ({ value, selected, onClick }) => {
-  const thisColor = getColor(value.symbol);
+  const thisColor = getElementColor(value.symbol);
   return selected ? (
     <StyledSelectedElement
       elementColor={thisColor}
@@ -148,69 +151,5 @@ const Element: FC<ElementProps> = ({ value, selected, onClick }) => {
     </StyledNotSelectedElement>
   );
 };
-
-export function getColor(symbol: string) {
-  switch (symbol) {
-    case "H":
-    case "C":
-    case "N":
-    case "O":
-    case "P":
-    case "S":
-    case "Se":
-      return "#f48fb1";
-    case "Li":
-    case "Na":
-    case "K":
-    case "Rb":
-    case "Cs":
-    case "Fr":
-      return "hsl(174, 72%, 56%)";
-    case "Be":
-    case "Mg":
-    case "Ca":
-    case "Sr":
-    case "Ba":
-    case "Ra":
-      return "hsl(333, 100%, 62%)";
-    case "Al":
-    case "Ga":
-    case "In":
-    case "Sn":
-    case "Tl":
-    case "Pb":
-    case "Bi":
-    case "Nh":
-    case "Fl":
-    case "Mc":
-    case "Lv":
-      return "hsl(40, 100%, 53%)";
-    case "B":
-    case "Si":
-    case "Ge":
-    case "As":
-    case "Te":
-    case "Po":
-    case "Sb":
-      return "hsl(181, 100%, 41%)";
-    case "F":
-    case "Cl":
-    case "Br":
-    case "I":
-    case "At":
-    case "Ts":
-      return "hsl(66, 75%, 54%)";
-    case "He":
-    case "Ne":
-    case "Ar":
-    case "Kr":
-    case "Xe":
-    case "Rn":
-    case "Og":
-      return "hsl(194, 87%, 67%)";
-    default:
-      return "hsl(210, 99%, 69%)";
-  }
-}
 
 export default Element;

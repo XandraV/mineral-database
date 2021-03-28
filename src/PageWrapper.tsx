@@ -25,7 +25,7 @@ export const InfoPageWrapper = styled.div`
   background-repeat: no-repeat;
   background-size: 200% 200%;
   background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
-  height: ${window.innerHeight}px;
+  height: 100vh;
 `;
 
 export const StatsPageWrapper = styled.div`

@@ -61,28 +61,29 @@ const GroupBreadcrumb = styled(ListItem)<any>`
   }
 `;
 
+const svgSize = 130;
+
+const color = d3
+  .scaleLinear<string>()
+  .domain([0, 15, 55])
+  .range(["rgb(255, 148, 189)", "hsl(211, 100%, 89%)", "#ecba70"]);
+
+const createArc = d3.arc().cornerRadius(7);
+
 const SunburstChart = () => {
   const [selectedGroup, setSelectedGroup] = useState("");
   const [selectedSubgroups, setSelectedSubgroups] = useState([""]);
-  const svgHeight = 130;
-  const svgWidth = 130;
-  const radius = Math.min(svgWidth, svgHeight) / 2;
+  const radius = Math.min(svgSize, svgSize) / 2;
   const partition = d3.partition().size([2 * Math.PI, radius]);
   const root = d3.hierarchy(dataSunburst).sum((d: any) => {
     return d.size;
   });
 
   partition(root);
-  const createArc = d3.arc().cornerRadius(7);
   const groupLabels = root
     .descendants()
     .splice(1, 10)
     .map((d) => d.data.title);
-
-  const color = d3
-    .scaleLinear<string>()
-    .domain([0, 15, 55])
-    .range(["rgb(255, 148, 189)", "hsl(211, 100%, 89%)", "#ecba70"]);
 
   const handleClick = (group: string) => {
     const parentGroup = dataSunburst.children.find((x) => x.title === group);
@@ -112,13 +113,13 @@ const SunburstChart = () => {
     <Wrapper>
       <span className="title">Groups</span>
       <svg
-        width={svgWidth}
-        height={svgHeight}
+        width={svgSize}
+        height={svgSize}
         style={{
           marginTop: 2,
           display: "inline-block",
           overflow: "visible",
-          transform: "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")",
+          transform: "translate(" + svgSize / 2 + "," + svgSize / 2 + ")",
         }}
       >
         {root.descendants().map((d: any, i: number) => (
@@ -131,7 +132,7 @@ const SunburstChart = () => {
           >
             <g
               key={`segment${i}`}
-              transform={`translate(${svgHeight / 2} ${svgWidth / 2})`}
+              transform={`translate(${svgSize / 2} ${svgSize / 2})`}
             >
               <path
                 className="arc"

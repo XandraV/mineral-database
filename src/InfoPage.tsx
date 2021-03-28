@@ -13,6 +13,7 @@ import { getDarkColor, getGroupMolecule } from "./helpers";
 
 const light = "#fafafa";
 const height = 600;
+const width = 1000;
 
 const InfoPage = () => {
   const { chosenMineral } = useContext(MineralContext);
@@ -20,26 +21,42 @@ const InfoPage = () => {
 
   const dark = getDarkColor(mychosenMineral.color[0].toLowerCase());
 
-  const [width, setWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth + 200);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+  useEffect(() => {});
 
   return (
     <InfoPageWrapper>
       <Menu />
-      <div style={{ textAlign: "center" }}>
-        <MainGroup3D groupName={mychosenMineral.mainGroup[0]} />
-        <System3D system={"Hexagonal"} />
+      <div style={{ textAlign: "center", width: "100vw" }}>
+        <div
+          style={{
+            top: 600 / 2 + 50,
+            left: "50%",
+            position: "absolute",
+            transform: "translateX(-180%)",
+          }}
+        >
+          <MainGroup3D groupName={mychosenMineral.mainGroup[0]} />
+        </div>
+
+        <div
+          style={{
+            top: 600 / 2 + 70,
+            left: "52%",
+            position: "absolute",
+            transform: "translateX(0%)",
+          }}
+        >
+          <System3D system={"Hexagonal"} />
+        </div>
+
         <div
           id="crystal-3d"
-          style={{ left: width * 0.34, top: height / 5, position: "absolute" }}
+          style={{
+            left: "50%",
+            top: height / 5,
+            position: "absolute",
+            transform: "translateX(-70%)",
+          }}
         >
           <Crystal3D
             width={300}
@@ -53,15 +70,16 @@ const InfoPage = () => {
             __html: getGroupMolecule(mychosenMineral.mainGroup[0]),
           }}
           style={{
+            width: width,
             color: dark,
-            left: width * 0.27,
+            left: "50%",
             top: height / 2,
             position: "absolute",
             fontSize: "1rem",
+            transform: "translateX(-78%)",
           }}
         />
         <svg
-          width={width}
           height={height}
           viewBox="0 100 100 450"
           style={{ paddingLeft: 20, overflow: "visible" }}

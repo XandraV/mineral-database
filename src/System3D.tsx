@@ -11,39 +11,22 @@ const System3D: FC<System3DProps> = ({ system }) => (
     {system === "Orthorhombic" ||
       system === "Tetragonal" ||
       (system === "Isometric" && (
-        <div
-          id="system-3d"
-          style={{
-            top: 600 / 2 + 70,
-            left: window.innerWidth / 3 + 235,
-            position: "absolute",
-          }}
-        >
+        <div id="system-3d">
           <Orthorhombic3D width={170} height={170} />
         </div>
       ))}
     {system === "Triclinic" ||
       system === "Monoclinic" ||
-      (system === "Trigonal" && <div
-      id="system-3d"
-      style={{
-        top: 600 / 2 + 70,
-        left: window.innerWidth / 3 + 235,
-        position: "absolute",
-      }}
-    >
-      <Trigonal3D width={170} height={170} />
-    </div>)}
-    {system === "Hexagonal" && <div
-      id="system-3d"
-      style={{
-        top: 600 / 2 + 70,
-        left: window.innerWidth / 3 + 235,
-        position: "absolute",
-      }}
-    >
-      <Hexagonal3D width={170} height={170} />
-    </div>}
+      (system === "Trigonal" && (
+        <div id="system-3d">
+          <Trigonal3D width={170} height={170} />
+        </div>
+      ))}
+    {system === "Hexagonal" && (
+      <div id="system-3d">
+        <Hexagonal3D width={170} height={170} />
+      </div>
+    )}
   </>
 );
 export default System3D;

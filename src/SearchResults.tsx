@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
+import { getSearchResultColor } from "./helpers";
 
 const StyledPaper = styled(Paper)`
   background: ${(props) => props.color};
@@ -34,36 +35,6 @@ const ResultCount = styled.div`
   padding-bottom: 10px;
   padding-top: 10px;
 `;
-function colorMap(myColor: string) {
-  switch (myColor) {
-    case "yellow":
-      return "#ffd452";
-    case "green":
-      return "#c5e1a5";
-    case "red":
-      return "#ef5350";
-    case "blue":
-      return "#81d4fa";
-    case "black":
-    case "grey":
-      return "#9fa8da";
-    case "Colourless":
-    case "white":
-      return "#c9c2d4";
-    case "pink":
-      return "#f48fb1";
-    case "violet":
-    case "purple":
-      return "#ce93d8";
-    case "brown":
-      return "#bcaaa4";
-    case "orange":
-      return "#ffab91";
-    default:
-      return "#80deea";
-  }
-}
-
 type SearchResultsProps = {
   mineralResults: any;
   setSelectedMineral: any;
@@ -91,7 +62,9 @@ const SearchResults: FC<SearchResultsProps> = ({
                 onClick={() => setSelectedMineral(mineral)}
                 style={{ textDecoration: "none" }}
               >
-                <StyledPaper color={colorMap(mineral.color[0].toLowerCase())}>
+                <StyledPaper
+                  color={getSearchResultColor(mineral.color[0].toLowerCase())}
+                >
                   <span>{mineral.name}</span>
                   <ArrowForwardIcon />
                 </StyledPaper>
