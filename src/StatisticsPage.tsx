@@ -13,6 +13,7 @@ import styled from "styled-components/macro";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
+import { StatsPageWrapper } from "./PageWrapper";
 
 const MineralsListWrapper = styled.div`
   position: relative;
@@ -36,26 +37,6 @@ const MineralsListWrapper = styled.div`
     font-size: 0.8rem;
     font-weight: bold;
     font-family: "Literata", serif;
-  }
-`;
-
-const StatsPageWrapper = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
-  height: ${window.innerHeight}px;
-  overflow-x: hidden;
-  .home-container {
-    padding-top: 2rem;
-    text-align: center;
-    display: inline-block;
-    flex-grow: 1;
-    padding-left: 4rem;
-    height: ${window.innerHeight}px;
-  }
-  .button-container {
-    padding: 2rem;
   }
 `;
 

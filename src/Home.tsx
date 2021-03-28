@@ -7,27 +7,7 @@ import PeriodicTable from "./PeriodicTable";
 import SearchResults from "./SearchResults";
 import { MineralContext } from "./MineralContext";
 import { elements } from "./data/periodictable";
-import styled from "styled-components/macro";
-
-const HomeWrapper = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
-  height: ${window.innerHeight}px;
-  overflow-x: hidden;
-  .home-container {
-    padding-top: 2rem;
-    text-align: center;
-    display: inline-block;
-    flex-grow: 1;
-    padding-left: 4rem;
-    height: ${window.innerHeight}px;
-  }
-  .button-container {
-    padding: 2rem;
-  }
-`;
+import { HomePageWrapper } from "./PageWrapper";
 
 const Home = () => {
   const { clickedElements, mineralResults, chosenMineral } = useContext<any>(
@@ -36,10 +16,11 @@ const Home = () => {
   const [selectedElements, setSelectedElements] = clickedElements;
   const [results, setResults] = mineralResults;
   const [selectedMineral, setSelectedMineral] = chosenMineral;
-console.log(selectedMineral)
+  console.log(selectedMineral);
   useEffect(() => {
     if (document.getElementById("scroller")) {
-      document.getElementById("scroller")!
+      document
+        .getElementById("scroller")!
         .scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [results]);
@@ -94,7 +75,7 @@ console.log(selectedMineral)
   };
 
   return (
-    <HomeWrapper>
+    <HomePageWrapper>
       <Menu />
       <Container className="home-container" maxWidth="lg">
         <PeriodicTable
@@ -110,7 +91,7 @@ console.log(selectedMineral)
           mineralResults={results}
         />
       </Container>
-    </HomeWrapper>
+    </HomePageWrapper>
   );
 };
 export default Home;
