@@ -1,166 +1,78 @@
-import React from "react";
-import mapboxgl from "mapbox-gl";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import React, { useEffect, useState, useCallback, useRef } from "react";
+import { Marker, GoogleMap, InfoWindow } from "@react-google-maps/api";
+import mapStyles from "./mapStyles";
 import Menu from "./Menu";
-import { mapData } from "./data/mapData";
-import styled from "styled-components/macro";
-const StyledMap = styled.div`
-  position: absolute;
-  width: 63%;
-  top: 15%;
-  bottom: 6%;
-  border-radius: 10px;
-`;
+const containerStyle = {
+  width: "100%",
+  height: "100vh",
+};
 
-mapboxgl.accessToken =
-  "pk.eyJ1Ijoic2FuZHJhZXhwbG9yZXMiLCJhIjoiY2pveXYzYmZsMmZzMzN2cGFkaDFzcnc4ZyJ9.jVMo-5f0RWDTv4FDD6WOLQ";
+const center = {
+  lat: 54.2511,
+  lng: -4.4632,
+};
+const options = {
+  styles: mapStyles,
+  disableDefaultUI: true,
+  zoomControl: true,
+};
 
-class MineralMap extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      chosenMineral: null,
-      lng: 10.926,
-      lat: 36.695,
-      zoom: 1.45,
-    };
-  }
+function MineralMap() {
+  const mapRef = useRef();
+  const [selected, setSelected] = useState(null);
+  const [markers, setMarkers] = useState([
+    { name: "London", lat: 51.509865, lng: -0.118092 },
+    { name: "Edinburgh", lat: 55.953251, lng: -3.188267 },
+  ]);
 
-  componentDidMount() {
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: "mapbox://styles/sandraexplores/ck5yg2w1i0cq61ijwkdzib1w4",
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
-    });
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
 
-    map.on("move", () => {
-      this.setState({
-        lng: map.getCenter().lng.toFixed(4),
-        lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2),
-      });
-    });
+  return (
+    <>
+      <Menu />
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        zoom={4}
+        center={center}
+        options={options}
+        onLoad={onMapLoad}
+      >
+        {markers.map((marker) => (
+          <Marker
+            className="marker"
+            key={marker.name}
+            position={{ lat: marker.lat, lng: marker.lng }}
+            onClick={() => {
+              setSelected(marker);
+            }}
+            onMouseLeave={() => {
+              setSelected(null);
+            }}
+            icon={{
+              url: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'>  <rect transform='rotate(45 10 10)' x='16' y='10' height ='20' width='20' stroke-width='2px' stroke='white' fill='lightblue' /></svg>`,
+              anchor: new window.google.maps.Point(15, 30),
+            }}
+          />
+        ))}
 
-    map.on("load", () => {
-      map.loadImage(
-        "https://images.vexels.com/media/users/3/151224/isolated/preview/58003c389b57ec8182abf593984eaa82-slot-diamond-icon-by-vexels.png",
-        (error, image) => {
-          if (error) throw error;
-          map.addImage("diamond", image);
-          // Add a layer showing the places.
-          map.addLayer({
-            id: "places",
-            type: "symbol",
-            source: {
-              type: "geojson",
-              data: {
-                type: "FeatureCollection",
-                features: mapData,
-              },
-            },
-            layout: {
-              "icon-image": "diamond",
-              "icon-size": 0.05,
-              "icon-allow-overlap": true,
-            },
-          });
-        }
-      );
-    });
-
-    map.on("mouseenter", "places", (e) => {
-      // Change the cursor style as a UI indicator.
-      map.getCanvas().style.cursor = "pointer";
-
-      const coordinates = e.features[0].geometry.coordinates.slice();
-      const description = e.features[0].properties.description;
-
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      // Populate the popup and set its coordinates
-      // based on the feature found.
-      popup.setLngLat(coordinates).setHTML(description).addTo(map);
-    });
-
-    map.on("mouseleave", "places", () => {
-      map.getCanvas().style.cursor = "";
-      popup.remove();
-    });
-
-    // Event listener for clicking the gem icons
-    map.on("click", (e) => {
-      let clickedPointcoordinates;
-      // Query all the rendered points in the view
-      const features = map.queryRenderedFeatures(e.point, {
-        layers: ["places"],
-      });
-      features[0] !== undefined
-        ? (clickedPointcoordinates = features[0].geometry.coordinates)
-        : (clickedPointcoordinates = [e.lngLat.lng, e.lngLat.lat]);
-      flyToPlace(map, clickedPointcoordinates);
-    });
-
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
-  }
-
-  handleListItemClick(rock) {
-    this.setState({
-      chosenMineral: this.state.chosenMineral === rock ? null : rock,
-    });
-  }
-
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Menu title="Map" />
-        <div style={{ paddingLeft: "5rem" }}>
-          <StyledMap ref={(el) => (this.mapContainer = el)} />
-        </div>
-      </MuiThemeProvider>
-    );
-  }
+        {selected ? (
+          <InfoWindow
+            className="info"
+            position={{ lat: selected.lat, lng: selected.lng }}
+            onCloseClick={() => {
+              setSelected(null);
+            }}
+          >
+            <div>
+              <h2>{selected.name}</h2>
+            </div>
+          </InfoWindow>
+        ) : null}
+      </GoogleMap>
+    </>
+  );
 }
 
 export default MineralMap;
-
-function flyToPlace(map, currentFeature) {
-  map.flyTo({
-    center: currentFeature,
-    zoom: 10,
-  });
-}
-
-const popup = new mapboxgl.Popup({
-  closeButton: false,
-  closeOnClick: false,
-});
-
-const mapData = [
-  {
-    type: "Feature",
-    properties: {
-      description: `<img width='250px' src='https://images.jtv.com/media/jtv-site/gemopedia/rhodochrosite/rhodochrosite-specimen.jpg'/><div class='caption'><h1>Rhodocrosite</h1></div>`
-    },
-    geometry: {
-      type: "Point",
-      coordinates: [4.9585391, 52.3745893]
-    }
-  },
-  {
-    type: "Feature",
-    properties: {
-      description: `<img width='250px' src='https://upload.wikimedia.org/wikipedia/commons/0/00/Tourmaline-121240.jpg'/><div class='caption'><h1>Tourmaline</h1></div>`
-    },
-    geometry: {
-      type: "Point",
-      coordinates: [139, 35.2552801]
-    }
-  }
-];
