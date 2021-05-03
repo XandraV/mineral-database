@@ -4,12 +4,12 @@ import styled from "styled-components/macro";
 
 const ButtonWrapper = styled.span`
   button.button-create {
-    background: hsl(210, 100%, 56%);
+    background: #9700f58f;
     border-radius: 1rem;
     border: 0.09em solid white;
     color: white;
     height: 40px;
-    padding: 0 20px;
+    padding-top: 0 20px;
     font-weight: bold;
 
     @-webkit-keyframes slide-in-left {

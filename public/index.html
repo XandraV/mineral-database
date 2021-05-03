@@ -33,13 +33,40 @@
       href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /*styling for the scrollbar*/
+      /* width */
+      ::-webkit-scrollbar {
+        width: 15px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: white;
+        border-top: 0px solid transparent;
+        border-bottom: 0px solid transparent;
+        border-left: 2px solid white;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background:  #e2d6f6a3 ;
+        border:2px solid white;
+        border-radius: 2rem;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #e2d6f6a3;
+      }
+    </style>
     <title>Minerals</title>
   </head>
   <body>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD82kOH1_oePDAfgBiqrRU0JTvyThCZ-kA&libraries=geometry"
     type="text/javascript"></script>
     <div
-      style="font-family: 'Literata', serif; /* background-color: #aba2d2; */"
+      style="font-family: 'Literata', serif;"
       id="root"
     ></div>
   </body>

@@ -47,11 +47,9 @@ function MineralMap() {
             onClick={() => {
               setSelected(marker);
             }}
-            onMouseLeave={() => {
-              setSelected(null);
-            }}
+
             icon={{
-              url: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'>  <rect transform='rotate(45 10 10)' x='16' y='10' height ='20' width='20' stroke-width='2px' stroke='white' fill='lightblue' /></svg>`,
+              url: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><circle cx='10' cy='10' r='10' fill='lightblue' stroke="white" fill-opacity="0.6"/></svg>`,
               anchor: new window.google.maps.Point(15, 30),
             }}
           />

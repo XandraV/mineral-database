@@ -1,19 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import Drawer from "@material-ui/core/Drawer";
+import ExploreIcon from '@material-ui/icons/Explore';
+import {Drawer, Tooltip, ListItemIcon} from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
-import { Link } from "react-router-dom";
 import List from "@material-ui/core/List";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Tooltip from "@material-ui/core/Tooltip";
 import styled from "styled-components/macro";
 
 const StyledDrawer = styled(Drawer)`
-  .MuiDrawer-paper {
+margin-right: 3.5rem;
+.MuiListItem-gutters {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.MuiDrawer-paper {
     border: transparent;
-    background: linear-gradient(#83a7f2, #f6a4ce);
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    background: transparent;
+    padding-left: 1.5rem;
+    a {
+      padding: 13px;
+      border-radius: 1rem;
+      background:#7689ef;
+      border:1px solid white;
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -109,7 +120,7 @@ const Menu = () => {
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
         />
-        <ListItem>
+        <ListItem style={{display: "block", textAlign:"center"}}>
           <ListItemIcon style={listIconStyle}>
             <Icon />
           </ListItemIcon>
@@ -129,6 +140,13 @@ const Menu = () => {
           <Tooltip title="Dashboard" placement="right" style={{ width: 500 }}>
             <ListItemIcon style={listIconStyle}>
               <BarChartIcon />
+            </ListItemIcon>
+          </Tooltip>
+        </ListItem>
+        <ListItem button component={Link} to="/map">
+          <Tooltip title="Map" placement="right" style={{ width: 500 }}>
+            <ListItemIcon style={listIconStyle}>
+              <ExploreIcon />
             </ListItemIcon>
           </Tooltip>
         </ListItem>

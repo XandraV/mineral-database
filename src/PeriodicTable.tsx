@@ -1,15 +1,19 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import Element from "./Element";
 import { elements } from "./data/periodictable";
 import styled from "styled-components/macro";
 
-const PeriodicTableWrapper = styled.div`
-  padding-left: 1rem;
+const PeriodicTableWrapper = styled.div` 
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #86a7f133;
+  border: 2px solid white;
   .card1 {
     display: grid;
     grid-template-columns: repeat(18, auto);
-    grid-gap: 0.2rem;
-    grid-row-gap: 0.5rem;
+    grid-gap: 3px;
+    grid-row-gap: 3px;
   }
 
   @-webkit-keyframes slide-in-blurred-top {
@@ -59,11 +63,15 @@ const PeriodicTableWrapper = styled.div`
     forwards;
 `;
 
-type PeriodicTableProps ={
-  selectElement:any
-  selectedElements:any
-}
-const PeriodicTable:FC<PeriodicTableProps> = ({selectElement, selectedElements}) => {
+type PeriodicTableProps = {
+  selectElement: any;
+  selectedElements: any;
+};
+
+const PeriodicTable: FC<PeriodicTableProps> = ({
+  selectElement,
+  selectedElements,
+}) => {
   let periodicTable = [];
   for (let element_num = 1; element_num < 58; element_num++) {
     periodicTable.push(

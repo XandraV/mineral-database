@@ -5,9 +5,9 @@ type PaperProps = {
   height: string;
 };
 export const StyledPaper = styled(Paper)<PaperProps>`
-  background-color: #86a7f133;
+  background: #86a7f133;
   border: 0.09em solid white;
-  border-radius: 0.6rem;
+  border-radius: 8px;
   padding: 10px 20px;
   text-align: center;
   font-size: 1rem;

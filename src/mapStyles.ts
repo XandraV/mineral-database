@@ -22,7 +22,7 @@ export default [
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "color": "#fb7593"
+                "color": "#b9b7b7"
             }
         ]
     },
@@ -40,7 +40,7 @@ export default [
         "elementType": "geometry.stroke",
         "stylers": [
             {
-                "color": "#ffc900"
+                "color": "#ddb7fe"
             }
         ]
     },
@@ -49,7 +49,7 @@ export default [
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "color": "#efcf0b"
+                "color": "#b9b7b"
             }
         ]
     },
@@ -58,7 +58,7 @@ export default [
         "elementType": "labels.icon",
         "stylers": [
             {
-                "color": "#ff0000"
+                "color": "#b9b7b"
             }
         ]
     },
@@ -67,7 +67,7 @@ export default [
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "color": "#ffdc00"
+                "color": "#b9b7b7"
             }
         ]
     },
@@ -76,7 +76,7 @@ export default [
         "elementType": "labels.icon",
         "stylers": [
             {
-                "color": "#ede024"
+                "color": "#b9b7b7"
             },
             {
                 "weight": "1.58"

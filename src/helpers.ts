@@ -62,21 +62,21 @@ export const getElementColor = (symbol: string) => {
     case "P":
     case "S":
     case "Se":
-      return "#f48fb1";
+      return "#f39ae4";
     case "Li":
     case "Na":
     case "K":
     case "Rb":
     case "Cs":
     case "Fr":
-      return "hsl(174, 72%, 56%)";
+      return "#99efc7";
     case "Be":
     case "Mg":
     case "Ca":
     case "Sr":
     case "Ba":
     case "Ra":
-      return "hsl(333, 100%, 62%)";
+      return "#e69be4";
     case "Al":
     case "Ga":
     case "In":
@@ -88,7 +88,7 @@ export const getElementColor = (symbol: string) => {
     case "Fl":
     case "Mc":
     case "Lv":
-      return "hsl(40, 100%, 53%)";
+      return "#fdec76";
     case "B":
     case "Si":
     case "Ge":
@@ -96,14 +96,14 @@ export const getElementColor = (symbol: string) => {
     case "Te":
     case "Po":
     case "Sb":
-      return "hsl(181, 100%, 41%)";
+      return "#ffab91";
     case "F":
     case "Cl":
     case "Br":
     case "I":
     case "At":
     case "Ts":
-      return "hsl(66, 75%, 54%)";
+      return "#af81ea";
     case "He":
     case "Ne":
     case "Ar":
@@ -111,9 +111,9 @@ export const getElementColor = (symbol: string) => {
     case "Xe":
     case "Rn":
     case "Og":
-      return "hsl(194, 87%, 67%)";
+      return "#b0e3f3";
     default:
-      return "hsl(210, 99%, 69%)";
+      return "#a39df5";
   }
 };
 

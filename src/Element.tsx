@@ -7,19 +7,19 @@ type StyledElementProps = {
 };
 
 const StyledNumber = styled.div`
-float: left;
-margin: 4px;
-margin-left: 9px;
-font-size: 0.8vw;
-position: absolute;
+  float: left;
+  margin: 0.2vw;
+  margin-left: 0.8vw;
+  font-size: 0.8vw;
+  position: absolute;
 }`;
 
 const StyledSymbol = styled.div`
   font-weight: bold;
   text-align: center;
-  margin-top: 1vw;
+  margin-top: 0.9vw;
   font-size: 1.5vw;
-  margin-bottom: -5px;
+  margin-bottom: -0.6vh;
 `;
 
 const StyledElementName = styled.div`
@@ -34,7 +34,7 @@ const StyledSelectedElement = styled.div<StyledElementProps>`
   cursor: pointer;
   width: 4.6vw;
   height: 4.6vw;
-  padding: 2px;
+  padding: 0.2vw;
   border: 0.09em dashed ${(props) => props.elementColor};
   border-radius: 60%;
   grid-column-start: ${(props) => {
@@ -50,10 +50,9 @@ const StyledNotSelectedElement = styled.div<StyledElementProps>`
   cursor: pointer;
   width: 4.6vw;
   height: 4.6vw;
-  padding: 2px;
+  padding: 0.2vw;
   border: 0.09em solid white;
   border-radius: 60%;
-  opacity: 0.6;
   box-shadow: 0px 0px 8px grey;
 
   :hover {

@@ -1,22 +1,15 @@
 import styled from "styled-components/macro";
 
 export const HomePageWrapper = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
+  background: #e2d6f6;
   height: ${window.innerHeight}px;
   overflow-x: hidden;
+  display: flex;
   .home-container {
-    padding-top: 2rem;
     text-align: center;
-    display: inline-block;
-    flex-grow: 1;
-    padding-left: 4rem;
-    height: ${window.innerHeight}px;
   }
   .button-container {
-    padding: 2rem;
+    padding: 1rem;
   }
 `;
 
@@ -29,19 +22,15 @@ export const InfoPageWrapper = styled.div`
 `;
 
 export const StatsPageWrapper = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
-  height: ${window.innerHeight}px;
+  background: #e2d6f6;
   overflow-x: hidden;
+  width: 100%;
   .home-container {
+    height: ${window.innerHeight}px;
     padding-top: 2rem;
     text-align: center;
     display: inline-block;
-    flex-grow: 1;
-    padding-left: 4rem;
-    height: ${window.innerHeight}px;
+    margin-left: 6rem;
   }
   .button-container {
     padding: 2rem;

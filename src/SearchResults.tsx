@@ -45,8 +45,9 @@ const SearchResults: FC<SearchResultsProps> = ({
 }) => {
   return mineralResults ? (
     <>
-      <ResultCount id="scroller">{`${mineralResults.length} results`}</ResultCount>
+     
       <Grid
+      id="scroller"
         container
         justify="center"
         spacing={2}
