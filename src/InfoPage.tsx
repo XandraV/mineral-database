@@ -61,6 +61,7 @@ const InfoPage = () => {
             width={300}
             height={300}
             shaderName={mychosenMineral.color[0].toLowerCase()}
+            rotationSpeed={1}
           />
         </div>
         {/* groump chemical component */}

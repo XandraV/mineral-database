@@ -6,9 +6,10 @@ type CrystalProps = {
   width: number;
   height: number;
   shaderName: string;
+  rotationSpeed:number;
 };
 
-const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName }) => {
+const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName, rotationSpeed }) => {
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
@@ -134,7 +135,7 @@ const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName }) => {
 
     const animate = function () {
       requestAnimationFrame(animate);
-      crystal.rotation.y += 0.01;
+      crystal.rotation.y += 0.01*rotationSpeed;
       renderer.render(scene, camera);
     };
     animate();

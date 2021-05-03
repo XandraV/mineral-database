@@ -4,6 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MineralContextContainer } from "./MineralContextContainer";
 import { PageWrapper } from "./PageWrapper";
+import LoadingPage from "./LoadingPage";
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
 const StatisticsPage = lazy(() => import("./StatisticsPage"));
@@ -13,17 +14,10 @@ const App = () => {
   return (
     <Router>
       <CssBaseline />
-      <Suspense
-        fallback={
-          <div>
-            Loading...
-            <CircularProgress color="secondary" />
-          </div>
-        }
-      >
-        <Switch>
-          <MineralContextContainer>
-            <PageWrapper>
+      <PageWrapper>
+        <Suspense fallback={<LoadingPage />}>
+          <Switch>
+            <MineralContextContainer>
               <Route exact path="/">
                 <Home />
               </Route>
@@ -36,10 +30,10 @@ const App = () => {
               <Route exact path={"/map"}>
                 <MineralMap />
               </Route>
-            </PageWrapper>
-          </MineralContextContainer>
-        </Switch>
-      </Suspense>
+            </MineralContextContainer>
+          </Switch>
+        </Suspense>
+      </PageWrapper>
     </Router>
   );
 };
