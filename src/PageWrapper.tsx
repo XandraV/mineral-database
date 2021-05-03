@@ -7,6 +7,7 @@ export const HomePageWrapper = styled.div`
   display: flex;
   .home-container {
     text-align: center;
+    margin-left: 60px;
   }
   .button-container {
     padding: 1rem;

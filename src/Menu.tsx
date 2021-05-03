@@ -9,7 +9,6 @@ import List from "@material-ui/core/List";
 import styled from "styled-components/macro";
 
 const StyledDrawer = styled(Drawer)`
-margin-right: 3.5rem;
 .MuiListItem-gutters {
   padding-left: 0px;
   padding-right: 0px;

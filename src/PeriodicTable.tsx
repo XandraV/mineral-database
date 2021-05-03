@@ -9,6 +9,7 @@ const PeriodicTableWrapper = styled.div`
   border-radius: 1rem;
   background: #86a7f133;
   border: 2px solid white;
+  display:inline-block;
   .card1 {
     display: grid;
     grid-template-columns: repeat(18, auto);

@@ -157,7 +157,7 @@ export default [
         "elementType": "all",
         "stylers": [
             {
-                "color": "#ddb7fe"
+                "color": "rgb(214,204,237)"
             },
             {
                 "visibility": "on"
