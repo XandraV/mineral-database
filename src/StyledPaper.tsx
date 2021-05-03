@@ -7,16 +7,18 @@ type PaperProps = {
 
 //#b7adc7
 export const StyledPaper = styled(Paper)<PaperProps>`
-  background: #86a7f133;
-  border: 0.09em solid white;
-  border-radius: 8px;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  height: ${(props) => props.height};
-  color: #83769a;
+  &&.MuiPaper-rounded {
+    background: #86a7f133;
+    border: 0.09em solid white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    height: ${(props) => props.height};
+    color: #83769a;
+  }
   @-webkit-keyframes fade-in-left {
     0% {
       -webkit-transform: translateX(-50px);

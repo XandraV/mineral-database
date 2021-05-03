@@ -9,11 +9,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Menu from "./Menu";
 import SunburstChart from "./SunburstChart";
 import { StyledPaper } from "./StyledPaper";
-import styled from "styled-components/macro";
-import Paper from "@material-ui/core/Paper";
-import InputBase from "@material-ui/core/InputBase";
+import {Paper, InputBase} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { StatsPageWrapper } from "./PageWrapper";
+import styled from "styled-components/macro";
+
+const Wrapper = styled.div`
+  padding-top: 2rem;
+  text-align: center;
+  display: inline-block;
+  margin-left: 6rem;
+`;
 
 const MineralsListWrapper = styled.div`
   position: relative;
@@ -61,9 +66,9 @@ const StatisticsPage = () => {
   }
 
   return (
-    <StatsPageWrapper>
+    <>
       <Menu />
-      <div className="home-container">
+      <Wrapper>
         <Grid
           container
           justify="center"
@@ -194,8 +199,8 @@ const StatisticsPage = () => {
             </Grid>
           </Grid>
         </Grid>
-      </div>
-    </StatsPageWrapper>
+      </Wrapper>
+    </>
   );
 };
 

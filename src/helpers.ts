@@ -159,9 +159,9 @@ export const getSearchResultColor = (myColor: string) => {
     case "green":
       return "#c5e1a5";
     case "red":
-      return "#ef5350";
+      return "#F4817F";
     case "blue":
-      return "#81d4fa";
+      return "#98DCE3";
     case "black":
     case "grey":
       return "#9fa8da";

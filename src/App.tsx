@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MineralContextContainer } from "./MineralContextContainer";
-
+import { PageWrapper } from "./PageWrapper";
 const Home = lazy(() => import("./Home"));
 const InfoPage = lazy(() => import("./InfoPage"));
 const StatisticsPage = lazy(() => import("./StatisticsPage"));
@@ -23,18 +23,20 @@ const App = () => {
       >
         <Switch>
           <MineralContextContainer>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/mineral-results">
-              <InfoPage />
-            </Route>
-            <Route exact path={"/statistics"}>
-              <StatisticsPage />
-            </Route>
-            <Route exact path={"/map"}>
-              <MineralMap />
-            </Route>
+            <PageWrapper>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/mineral-results">
+                <InfoPage />
+              </Route>
+              <Route exact path={"/statistics"}>
+                <StatisticsPage />
+              </Route>
+              <Route exact path={"/map"}>
+                <MineralMap />
+              </Route>
+            </PageWrapper>
           </MineralContextContainer>
         </Switch>
       </Suspense>

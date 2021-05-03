@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import Menu from "./Menu";
 import { MainGroupCircle, SubGroupCircle } from "./GroupCircles";
 import { MineralContext } from "./MineralContext";
@@ -8,9 +8,8 @@ import Crystal3D from "./Crystal3D";
 import NameCircle from "./NameCircle";
 import MainGroup3D from "./MainGroup3D";
 import System3D from "./System3D";
-import { InfoPageWrapper } from "./PageWrapper";
 import { getDarkColor, getGroupMolecule } from "./helpers";
-
+import { PageWrapper } from "./PageWrapper";
 const light = "#fafafa";
 const height = 600;
 const width = 1000;
@@ -24,7 +23,7 @@ const InfoPage = () => {
   useEffect(() => {});
 
   return (
-    <InfoPageWrapper>
+    <PageWrapper>
       <Menu />
       <div style={{ textAlign: "center", width: "100vw" }}>
         <div
@@ -149,7 +148,7 @@ const InfoPage = () => {
           />
         </svg>
       </div>
-    </InfoPageWrapper>
+    </PageWrapper>
   );
 };
 

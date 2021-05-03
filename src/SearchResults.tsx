@@ -7,26 +7,28 @@ import styled from "styled-components/macro";
 import { getSearchResultColor } from "./helpers";
 
 const StyledPaper = styled(Paper)`
-  background: ${(props) => props.color};
-  border: 0.09em solid white;
-  color: white;
-  height: 3rem;
-  border-radius: 0.6rem;
-  padding: 10px 20px;
-  vertical-align: middle;
-  text-align: left;
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  opacity: 0.9;
-  span {
+  &&.MuiPaper-rounded {
+    background: ${(props) => props.color};
+    border: 0.09em solid white;
+    color: white;
+    height: 3rem;
+    border-radius: 0.6rem;
+    padding: 10px 20px;
     vertical-align: middle;
-  }
-  .MuiSvgIcon-root {
-    float: right;
-  }
-  :hover {
-    border: 0.09em solid ${(props) => props.color};
+    text-align: left;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0.9;
+    span {
+      vertical-align: middle;
+    }
+    .MuiSvgIcon-root {
+      float: right;
+    }
+    :hover {
+      border: 0.09em solid ${(props) => props.color};
+    }
   }
 `;
 const ResultCount = styled.div`
@@ -35,6 +37,7 @@ const ResultCount = styled.div`
   padding-bottom: 10px;
   padding-top: 10px;
 `;
+
 type SearchResultsProps = {
   mineralResults: any;
   setSelectedMineral: any;
@@ -45,9 +48,9 @@ const SearchResults: FC<SearchResultsProps> = ({
 }) => {
   return mineralResults ? (
     <>
-     
+    {mineralResults.length === 0 && <ResultCount id="scroller">{`No result found`}</ResultCount>}
       <Grid
-      id="scroller"
+        id="scroller"
         container
         justify="center"
         spacing={2}

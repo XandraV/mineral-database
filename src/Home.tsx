@@ -1,13 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import BinButton from "./BinButton";
-import StyledButton from "./StyledButton";
-import Container from "@material-ui/core/Container";
 import Menu from "./Menu";
 import PeriodicTable from "./PeriodicTable";
 import SearchResults from "./SearchResults";
+import StyledButton from "./StyledButton";
 import { MineralContext } from "./MineralContext";
 import { elements } from "./data/periodictable";
-import { HomePageWrapper } from "./PageWrapper";
+import styled from "styled-components/macro";
+
+const Wrapper = styled.div`
+  text-align: center;
+  margin-left: 100px;
+
+  .button-container {
+    padding: 1rem;
+  }
+`;
 
 const Home = () => {
   const { clickedElements, mineralResults, chosenMineral } = useContext<any>(
@@ -75,9 +83,9 @@ const Home = () => {
   };
 
   return (
-    <HomePageWrapper>
+    <>
       <Menu />
-      <Container className="home-container" maxWidth="lg">
+      <Wrapper>
         <PeriodicTable
           selectElement={selectElement}
           selectedElements={selectedElements}
@@ -90,8 +98,8 @@ const Home = () => {
           setSelectedMineral={setSelectedMineral}
           mineralResults={results}
         />
-      </Container>
-    </HomePageWrapper>
+      </Wrapper>
+    </>
   );
 };
 export default Home;
