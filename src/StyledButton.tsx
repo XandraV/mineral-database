@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 
 const ButtonWrapper = styled.span`
   button.button-create {
-    background: #9700f58f;
+    background: #7689EF;
     border-radius: 1rem;
     border: 0.09em solid white;
     color: white;

@@ -15,13 +15,11 @@ export const HomePageWrapper = styled.div`
 `;
 
 export const InfoPageWrapper = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  background-image: url("https://crystallizer.s3.eu-west-2.amazonaws.com/circle2.svg");
+  background: #e2d6f6;
   height: 100vh;
 `;
 
+// #584f69
 export const StatsPageWrapper = styled.div`
   background: #e2d6f6;
   overflow-x: hidden;

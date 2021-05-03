@@ -62,21 +62,24 @@ export const getElementColor = (symbol: string) => {
     case "P":
     case "S":
     case "Se":
-      return "#f39ae4";
+      return "#F86CB3CF";
+      //#AE1C95
     case "Li":
     case "Na":
     case "K":
     case "Rb":
     case "Cs":
     case "Fr":
-      return "#99efc7";
+      return "#F2BF4EE0";
+      //#4A9774
     case "Be":
     case "Mg":
     case "Ca":
     case "Sr":
     case "Ba":
     case "Ra":
-      return "#e69be4";
+      return "#E69BE4";
+      //#6A0B68
     case "Al":
     case "Ga":
     case "In":
@@ -88,7 +91,8 @@ export const getElementColor = (symbol: string) => {
     case "Fl":
     case "Mc":
     case "Lv":
-      return "#fdec76";
+      return "#CE9BEE";
+      //#C37B12
     case "B":
     case "Si":
     case "Ge":
@@ -96,7 +100,8 @@ export const getElementColor = (symbol: string) => {
     case "Te":
     case "Po":
     case "Sb":
-      return "#ffab91";
+      return "#9B96EE";
+      // #B43712
     case "F":
     case "Cl":
     case "Br":
@@ -104,6 +109,7 @@ export const getElementColor = (symbol: string) => {
     case "At":
     case "Ts":
       return "#af81ea";
+      // #5E28A4
     case "He":
     case "Ne":
     case "Ar":
@@ -112,8 +118,10 @@ export const getElementColor = (symbol: string) => {
     case "Rn":
     case "Og":
       return "#b0e3f3";
+      //##1C708B
     default:
-      return "#a39df5";
+      return "#98DDE4";
+      //#514C97
   }
 };
 

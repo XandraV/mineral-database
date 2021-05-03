@@ -3,6 +3,7 @@ import Element from "./Element";
 import { elements } from "./data/periodictable";
 import styled from "styled-components/macro";
 
+// #7689ef78
 const PeriodicTableWrapper = styled.div` 
   margin-top: 2rem;
   padding: 1rem;

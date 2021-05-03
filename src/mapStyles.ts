@@ -158,6 +158,7 @@ export default [
         "stylers": [
             {
                 "color": "rgb(214,204,237)"
+                //584f69
             },
             {
                 "visibility": "on"

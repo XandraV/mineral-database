@@ -29,7 +29,7 @@ const InfoPage = () => {
       <div style={{ textAlign: "center", width: "100vw" }}>
         <div
           style={{
-            top: 600 / 2 + 50,
+            top:"57%",
             left: "50%",
             position: "absolute",
             transform: "translateX(-180%)",
@@ -40,8 +40,8 @@ const InfoPage = () => {
 
         <div
           style={{
-            top: 600 / 2 + 70,
-            left: "52%",
+            top: "62%",
+            left: "51.5%",
             position: "absolute",
             transform: "translateX(0%)",
           }}
@@ -53,7 +53,7 @@ const InfoPage = () => {
           id="crystal-3d"
           style={{
             left: "50%",
-            top: height / 5,
+            top: "20%",
             position: "absolute",
             transform: "translateX(-70%)",
           }}
@@ -73,7 +73,7 @@ const InfoPage = () => {
             width: width,
             color: dark,
             left: "50%",
-            top: height / 2,
+            top: "50%",
             position: "absolute",
             fontSize: "1rem",
             transform: "translateX(-78%)",
@@ -108,7 +108,7 @@ const InfoPage = () => {
             cx={`${-120}`}
             cy={`${height / 2 + 120}`}
             r={70}
-            fill={"white"}
+            fill={"rgb(226,214,246)"}
             style={{ stroke: light, strokeWidth: 12 }}
           />
           {/* system image circle */}
@@ -116,7 +116,7 @@ const InfoPage = () => {
             cx={`${120}`}
             cy={`${height / 2 + 120}`}
             r={70}
-            fill={"white"}
+            fill={"rgb(226,214,246)"}
             style={{ stroke: light, strokeWidth: 12 }}
           />
           <GravityCircle

@@ -4,6 +4,8 @@ import styled from "styled-components/macro";
 type PaperProps = {
   height: string;
 };
+
+//#b7adc7
 export const StyledPaper = styled(Paper)<PaperProps>`
   background: #86a7f133;
   border: 0.09em solid white;
