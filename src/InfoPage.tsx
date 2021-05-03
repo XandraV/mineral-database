@@ -29,7 +29,7 @@ const InfoPage = () => {
       <div style={{ textAlign: "center", width: "100vw" }}>
         <div
           style={{
-            top:"57%",
+            top: 600 / 2 + 50,
             left: "50%",
             position: "absolute",
             transform: "translateX(-180%)",
@@ -40,7 +40,7 @@ const InfoPage = () => {
 
         <div
           style={{
-            top: "62%",
+            top: 600 / 2 + 70,
             left: "51.5%",
             position: "absolute",
             transform: "translateX(0%)",
@@ -53,7 +53,7 @@ const InfoPage = () => {
           id="crystal-3d"
           style={{
             left: "50%",
-            top: "20%",
+            top: height / 5,
             position: "absolute",
             transform: "translateX(-70%)",
           }}
@@ -73,7 +73,7 @@ const InfoPage = () => {
             width: width,
             color: dark,
             left: "50%",
-            top: "50%",
+            top: height / 2,
             position: "absolute",
             fontSize: "1rem",
             transform: "translateX(-78%)",
