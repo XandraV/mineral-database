@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MineralContextContainer } from "./MineralContextContainer";
 import { PageWrapper } from "./PageWrapper";
@@ -18,7 +17,7 @@ const App = () => {
         <Suspense fallback={<LoadingPage />}>
           <Switch>
             <MineralContextContainer>
-              <Route exact path="/">
+              <Route exact path="/">                
                 <Home />
               </Route>
               <Route exact path="/mineral-results">

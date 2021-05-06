@@ -7,6 +7,7 @@ import StyledButton from "./StyledButton";
 import { MineralContext } from "./MineralContext";
 import { elements } from "./data/periodictable";
 import styled from "styled-components/macro";
+import { minerals} from './data/minerals';
 
 const Wrapper = styled.div`
   text-align: center;
@@ -24,7 +25,7 @@ const Home = () => {
   const [selectedElements, setSelectedElements] = clickedElements;
   const [results, setResults] = mineralResults;
   const [selectedMineral, setSelectedMineral] = chosenMineral;
-  console.log(selectedMineral);
+  
   useEffect(() => {
     if (document.getElementById("scroller")) {
       document
@@ -47,15 +48,10 @@ const Home = () => {
 
   const searchMineralsByElements = (arrayOfElements: Array<object>) => {
     const resultList = [];
-
-    const jsonData = require("./data/data.json");
-    const allMinerals = [];
-    for (let i in jsonData) allMinerals.push(jsonData[i]);
-
     if (arrayOfElements.length > 0) {
-      for (let mineralObj of allMinerals[0]) {
+      for (let mineralObj of minerals) {
         if (
-          arrayOfElements.every((elem) => mineralObj.formula.includes(elem))
+          arrayOfElements.every((elem:any) => mineralObj.formula.includes(elem))
         ) {
           resultList.push(mineralObj);
         }

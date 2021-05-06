@@ -1,10 +1,10 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import styled from "styled-components/macro";
+import React, { FC } from 'react';
+import Button from '@material-ui/core/Button';
+import styled from 'styled-components/macro';
 
 const ButtonWrapper = styled.span`
   button.button-create {
-    background: #7689EF;
+    background: #7689ef;
     border-radius: 1rem;
     border: 0.09em solid white;
     color: white;
@@ -42,16 +42,15 @@ const ButtonWrapper = styled.span`
     animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
   }
 `;
+type ButtonProps = {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+};
 
-const StyledButton = ({ ...props }) => {
+const StyledButton: FC<ButtonProps> = ({ onClick, children }) => {
   return (
     <ButtonWrapper>
-      <Button
-        variant="contained"
-        className="button-create"
-        onClick={props.onClick}
-      >
-        {props.children}
+      <Button variant='contained' className='button-create' onClick={onClick}>
+        {children}
       </Button>
     </ButtonWrapper>
   );
