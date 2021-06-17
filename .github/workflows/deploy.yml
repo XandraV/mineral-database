@@ -8,7 +8,10 @@ jobs:
     name: GAE Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
+      
+      - name: Setup App Engine
       - uses: google-github-actions/deploy-appengine@main
         with:
           deliverables: app.yaml
@@ -16,3 +19,5 @@ jobs:
           credentials: ${{ secrets.GCP_SA_KEY }}
           promote: true
           version: v1
+      - name: Deploy to App Engine
+        run: gcloud app deploy --quiet
