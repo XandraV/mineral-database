@@ -1,27 +1,18 @@
-name: Build and Deploy to GKE
-
+name: Deploy to Google App Engine
 on:
   push:
     branches:
       - master
-      
 jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+  build:
+    name: GAE Deploy
     runs-on: ubuntu-latest
-    environment: production
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Deploy to App Engine
-      uses: google-github-actions/deploy-appengine@v0.2.0
-      with:
-        deliverables: app.yaml
-        project_id: ${{ secrets.GCP_PROJECT }}
-        credentials: ${{ secrets.GCP_SA_KEY }}
-        promote: false
-        version: v1
-
-
+      - uses: actions/checkout@v2
+      - uses: google-github-actions/deploy-appengine@main
+        with:
+          project_id: ${{ secrets.GCP_PROJECT }}
+          credentials: ${{ secrets.GCP_SA_KEY }}
+          promote: false
+          version: v1
+          
