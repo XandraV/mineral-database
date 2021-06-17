@@ -21,5 +21,7 @@ jobs:
           promote: true
           version: v1
 
+      - name: Set project id
+        run: gcloud config set project ${{ secrets.GCP_PROJECT }}
       - name: Deploy to App Engine
         run: gcloud app deploy --quiet
