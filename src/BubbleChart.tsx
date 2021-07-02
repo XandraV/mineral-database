@@ -13,9 +13,9 @@ const StyledCircle = styled.circle`
 `;
 const BubbleChart = () => {
   const svgHeight = 170;
-  const svgWidth = 680;
+  const svgWidth = 480;
   const chartHeight = 120;
-  const chartWidth = 660;
+  const chartWidth = 460;
   const xScale = d3
     .scaleLinear()
     .domain([0, labelsBubble.length - 1])
@@ -26,7 +26,7 @@ const BubbleChart = () => {
   const color = d3
     .scaleLinear<string>()
     .domain([0, labelsBubble.length])
-    .range(["#ffaf0f", "hsl(337, 100%, 79%)"]);
+    .range(["rgba(211, 79, 115)", "rgba(170,135,244)"]);
 
   return (
     <BubbleChartWrapper>
@@ -35,7 +35,7 @@ const BubbleChart = () => {
           <g key={`num-${value}`} transform={`translate(0,${yScale(value)})`}>
             <text
               style={{
-                fontSize: "0.7rem",
+                fontSize: 10,
                 textAnchor: "end",
                 transform: "translateX(-15px)",
                 fill: "white",
@@ -47,9 +47,9 @@ const BubbleChart = () => {
         ))}
 
         <path
-          d={["M", 0, chartHeight, "h", 0, "H", 675, "v", 0].join(" ")}
-          stroke="white"
-          strokeWidth="0.0.5rem"
+          d={["M", 0, chartHeight, "h", 0, "H", 480, "v", 0].join(" ")}
+          stroke="lightgrey"
+          strokeWidth={0.2}
         />
         {xScale.ticks(labelsBubble.length - 1).map(
           (value) =>
@@ -64,7 +64,7 @@ const BubbleChart = () => {
                     fontSize: "0.8rem",
                     textAnchor: "middle",
                     transform: "translateY(20px)",
-                    fill: "#83769a",
+                    fill: "white",
                   }}
                 >
                   {labelsBubble[value]}
@@ -86,8 +86,7 @@ const BubbleChart = () => {
                   cy={`${yScale(bubble.y)}`}
                   r={`${bubble.y / 100 + 5}`}
                   fill={`${color(i)}`}
-                  stroke={"white"}
-                  fillOpacity="0.6"
+                 // stroke={"white"}
                 />
               </Tooltip>
             )

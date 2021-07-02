@@ -1,101 +1,96 @@
-import React, { useContext, useEffect } from "react";
-import BinButton from "./BinButton";
-import Menu from "./Menu";
-import PeriodicTable from "./PeriodicTable";
-import SearchResults from "./SearchResults";
-import StyledButton from "./StyledButton";
-import { MineralContext } from "./MineralContext";
-import { elements } from "./data/periodictable";
+import React from "react";
+import { Link } from "react-router-dom";
+import PeriodicTableBackground from "./PeriodicTableBackground";
+import crystal from "./images/crystal.svg";
 import styled from "styled-components/macro";
-import { minerals} from './data/minerals';
 
 const Wrapper = styled.div`
-  text-align: center;
-  margin-left: 100px;
+  width: 100%;
+  height: ${window.innerHeight - 170}px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 20px;
+  padding-left: 40px;
+  justify-content: center;
+  display: flex;
+`;
 
-  .button-container {
-    padding: 1rem;
+const Title = styled.div`
+  font-size: 20px;
+  font-family: Rosario;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 30px 0 60px 0;
+  font-size: 20px;
+`;
+const IntroText = styled.div`
+  font-size: 34px;
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  display: inline-block;
+  width: 70vw;
+  div:nth-child(3) {
+    margin: 30px 0 60px 0;
+    font-size: 18px;
+  }
+  img {
+    opacity: 0.1;
+    transform: rotate(-18deg);
+  }
+`;
+
+const StyledButton = styled(Link)`
+  height: 56px;
+  color: white;
+  font-size: 21px;
+  padding: 10px 30px;
+  text-align: center;
+  border 2px solid #e18cac;
+  border-radius: 40px;
+  transition: 0.3s;
+  text-decoration: none;
+  :hover {
+      color: white;
+      background: rgb(255, 255, 255, 0.1);
   }
 `;
 
 const Home = () => {
-  const { clickedElements, mineralResults, chosenMineral } = useContext<any>(
-    MineralContext
-  );
-  const [selectedElements, setSelectedElements] = clickedElements;
-  const [results, setResults] = mineralResults;
-  const [selectedMineral, setSelectedMineral] = chosenMineral;
-  
-  useEffect(() => {
-    if (document.getElementById("scroller")) {
-      document
-        .getElementById("scroller")!
-        .scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [results]);
-
-  const selectElement = (elementNum: number) => {
-    let items = [...selectedElements];
-    let item = !items[elementNum];
-    items[elementNum] = item;
-    setSelectedElements(items);
-  };
-
-  const unselectAllElements = () => {
-    setSelectedElements(Array(120).fill(false));
-    setResults(null);
-  };
-
-  const searchMineralsByElements = (arrayOfElements: Array<object>) => {
-    const resultList = [];
-    if (arrayOfElements.length > 0) {
-      for (let mineralObj of minerals) {
-        if (
-          arrayOfElements.every((elem:any) => mineralObj.formula.includes(elem))
-        ) {
-          resultList.push(mineralObj);
-        }
-      }
-    }
-    return resultList;
-  };
-
-  const searchMineral = () => {
-    const elementSymbols = elements.slice().map((element) => {
-      return element.symbol;
-    });
-    setResults(null);
-    if (selectedElements.every((element: boolean) => element === false)) return;
-    else {
-      const indices = selectedElements.reduce(
-        (acc: Array<number>, cur: boolean, idx: number) =>
-          cur ? acc.concat(idx) : acc,
-        []
-      );
-      const chosenElements = indices.map((idx: number) => elementSymbols[idx]);
-      const searchResults = searchMineralsByElements(chosenElements);
-      setResults(searchResults);
-    }
-  };
-
   return (
-    <>
-      <Menu />
-      <Wrapper>
-        <PeriodicTable
-          selectElement={selectElement}
-          selectedElements={selectedElements}
-        />
-        <div className="button-container">
-          <StyledButton onClick={() => searchMineral()}>search</StyledButton>
-          <BinButton onClick={() => unselectAllElements()} />
+    <Wrapper>
+      <IntroText>
+        <Title>
+          <img
+            className="icon"
+            src={crystal}
+            alt="crystal"
+            width={80}
+            height={66}
+          />
+          <div>Database of Minerals</div>
+        </Title>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+          suscipit vel urna at commodo. Mauris pulvinar laoreet turpis
+          consectetur aliquam. Praesent maximus, ligula sed dapibus mattis,
+          velit dolor aliquet metus, non posuere mi orci sit amet quam.
         </div>
-        <SearchResults
-          setSelectedMineral={setSelectedMineral}
-          mineralResults={results}
-        />
-      </Wrapper>
-    </>
+
+        <div>
+          Quisque quam neque, vulputate eget quam eget, tincidunt hendrerit
+          nibh. Etiam quam leo, sagittis quis urna non, sagittis gravida ex.
+          Suspendisse id metus et lectus maximus porta eu eget libero. Mauris
+          suscipit velit at dolor hendrerit, ut laoreet nisi feugiat. Curabitur
+          vestibulum sit amet ante eu vehicula. Integer porttitor ac risus vel
+          mattis.
+        </div>
+        <StyledButton to={"/periodic"}>Search Minerals</StyledButton>
+      </IntroText>
+      <PeriodicTableBackground />
+    </Wrapper>
   );
 };
+
 export default Home;

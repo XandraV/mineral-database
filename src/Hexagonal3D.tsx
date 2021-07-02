@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 type Hexagonal3DProps = {
   width: number;
@@ -11,8 +12,9 @@ const Hexagonal3D: FC<Hexagonal3DProps> = ({ width, height }) => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const controls = new OrbitControls(camera, renderer.domElement);
     scene.background = null;
-
+    controls.update();
     renderer.setSize(width, height);
     camera.position.set(0, 80, 100);
     camera.lookAt(0, 0, 0);
@@ -21,7 +23,7 @@ const Hexagonal3D: FC<Hexagonal3DProps> = ({ width, height }) => {
 
     const hexagonal = new THREE.Object3D();
     const material = new THREE.LineBasicMaterial({
-      color: "black",
+      color: "lightgrey",
     });
 
     // base lines
@@ -154,6 +156,7 @@ const Hexagonal3D: FC<Hexagonal3DProps> = ({ width, height }) => {
 
     const animate = function () {
       requestAnimationFrame(animate);
+      controls.update();
       hexagonal.rotation.y += 0.01;
       renderer.render(scene, camera);
     };

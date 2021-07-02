@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import shaders from "./shaders";
 
 type CrystalProps = {
@@ -14,10 +15,11 @@ const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName, rotationSpeed 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const controls = new OrbitControls(camera, renderer.domElement);
     scene.background = null;
-
+    controls.update();
     renderer.setSize(width, height);
-    camera.position.set(0, 0, 100);
+    camera.position.set(-40, 0, 100);
     camera.lookAt(0, 0, 0);
 
     document.getElementById("crystal-3d")!.appendChild(renderer.domElement);
@@ -132,14 +134,16 @@ const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName, rotationSpeed 
 
     spotLight.castShadow = true;
     scene.add(spotLight);
-
+    
     const animate = function () {
       requestAnimationFrame(animate);
+      controls.update();
       crystal.rotation.y += 0.01*rotationSpeed;
+      crystal.rotation.x += 0.01*rotationSpeed;
       renderer.render(scene, camera);
     };
     animate();
-  }, [height, width, shaderName]);
+  }, [height, width, shaderName, rotationSpeed]);
 
   return <span />;
 };

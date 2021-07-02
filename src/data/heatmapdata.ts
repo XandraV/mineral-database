@@ -89,30 +89,6 @@ export const heatmapdata = [
   { y: 3, x: 14, cellValue: 1036 },
   { y: 4, x: 14, cellValue: 116 },
   { y: 5, x: 14, cellValue: 154 },
-  { y: 0, x: 15, cellValue: 102 },
-  { y: 1, x: 15, cellValue: 1 },
-  { y: 2, x: 15, cellValue: 0 },
-  { y: 3, x: 15, cellValue: 145 },
-  { y: 4, x: 15, cellValue: 1 },
-  { y: 5, x: 15, cellValue: 6 },
-  { y: 0, x: 16, cellValue: 31 },
-  { y: 1, x: 16, cellValue: 4 },
-  { y: 2, x: 16, cellValue: 1 },
-  { y: 3, x: 16, cellValue: 75 },
-  { y: 4, x: 16, cellValue: 0 },
-  { y: 5, x: 16, cellValue: 4 },
-  { y: 0, x: 17, cellValue: 316 },
-  { y: 1, x: 17, cellValue: 18 },
-  { y: 2, x: 17, cellValue: 1 },
-  { y: 3, x: 17, cellValue: 462 },
-  { y: 4, x: 17, cellValue: 32 },
-  { y: 5, x: 17, cellValue: 90 },
-  { y: 0, x: 18, cellValue: 590 },
-  { y: 1, x: 18, cellValue: 26 },
-  { y: 2, x: 18, cellValue: 11 },
-  { y: 3, x: 18, cellValue: 855 },
-  { y: 4, x: 18, cellValue: 45 },
-  { y: 5, x: 18, cellValue: 160 }
 ];
 
 export const heatMapLabelsX = [
@@ -131,10 +107,6 @@ export const heatMapLabelsX = [
   "Si",
   "Cl",
   "Ca",
-  "V",
-  "Cr",
-  "Mn",
-  "Fe",
 ];
 
 export const heatMapLabelsY = ["H", "C", "N", "O", "F", "P"];

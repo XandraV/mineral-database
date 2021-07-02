@@ -1,5 +1,5 @@
-export const getDarkColor = (myColor: string) => {
-  switch (myColor) {
+export const getDarkColor = (color: string) => {
+  switch (color) {
     case "yellow":
       return "#ffe082";
     case "green":
@@ -62,24 +62,21 @@ export const getElementColor = (symbol: string) => {
     case "P":
     case "S":
     case "Se":
-      return "#F86CB3CF";
-      //#AE1C95
+      return "rgba(255, 203, 221, 0.6)";
     case "Li":
     case "Na":
     case "K":
     case "Rb":
     case "Cs":
     case "Fr":
-      return "#F2BF4EE0";
-      //#4A9774
+      return "rgba(211, 79, 115, 0.6)";
     case "Be":
     case "Mg":
     case "Ca":
     case "Sr":
     case "Ba":
     case "Ra":
-      return "#E69BE4";
-      //#6A0B68
+      return "rgba(255, 180, 91, 0.7)";
     case "Al":
     case "Ga":
     case "In":
@@ -91,8 +88,7 @@ export const getElementColor = (symbol: string) => {
     case "Fl":
     case "Mc":
     case "Lv":
-      return "#CE9BEE";
-      //#C37B12
+      return "rgba(126,142,201,0.6)";
     case "B":
     case "Si":
     case "Ge":
@@ -100,16 +96,14 @@ export const getElementColor = (symbol: string) => {
     case "Te":
     case "Po":
     case "Sb":
-      return "#9B96EE";
-      // #B43712
+      return "rgba(249,131,194,0.6)";
     case "F":
     case "Cl":
     case "Br":
     case "I":
     case "At":
     case "Ts":
-      return "#af81ea";
-      // #5E28A4
+      return "rgba(255,67,157,0.6)";
     case "He":
     case "Ne":
     case "Ar":
@@ -117,11 +111,9 @@ export const getElementColor = (symbol: string) => {
     case "Xe":
     case "Rn":
     case "Og":
-      return "#b0e3f3";
-      //##1C708B
+      return "rgb(244, 146, 240,0.6)";
     default:
-      return "#98DDE4";
-      //#514C97
+      return "rgba(177,139,240, 0.9)";
   }
 };
 
@@ -149,35 +141,5 @@ export const getMainGroupColor = (groupName: string) => {
       return "#64ffda";
     default:
       return "lightgrey";
-  }
-};
-
-export const getSearchResultColor = (myColor: string) => {
-  switch (myColor) {
-    case "yellow":
-      return "#ffd452";
-    case "green":
-      return "#c5e1a5";
-    case "red":
-      return "#F4817F";
-    case "blue":
-      return "#98DCE3";
-    case "black":
-    case "grey":
-      return "#9fa8da";
-    case "Colourless":
-    case "white":
-      return "#c9c2d4";
-    case "pink":
-      return "#f48fb1";
-    case "violet":
-    case "purple":
-      return "#ce93d8";
-    case "brown":
-      return "#bcaaa4";
-    case "orange":
-      return "#ffab91";
-    default:
-      return "#80deea";
   }
 };

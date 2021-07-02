@@ -9,8 +9,6 @@ import {
 import styled from "styled-components/macro";
 
 const StyledHeatmap = styled.div`
-  margin-top: 2rem;
-  padding-bottom: 0;
   svg {
     overflow: visible;
     @-webkit-keyframes scale-in-hor-center {
@@ -45,14 +43,14 @@ const StyledHeatmap = styled.div`
 `;
 
 const svgHeight = 220;
-const svgWidth = 730;
-const chartWidth = 670;
+const svgWidth = 580;
+const chartWidth = 530;
 const chartHeight = 210;
 
 const color = d3
   .scaleLinear<string>()
-  .domain([0, 2385])
-  .range(["hsl(211, 100%, 89%)", "hsl(337, 100%, 79%)"]);
+  .domain([400, 2385])
+  .range(["rgba(255, 203, 221)", "rgba(251, 75, 78)"]);
 
 const LabeledHeatmap = () => {
   const xScale = d3
@@ -73,7 +71,6 @@ const LabeledHeatmap = () => {
             title={`${value.cellValue} minerals contain ${
               heatMapLabelsX[value.x]
             } and ${heatMapLabelsY[value.y]}`}
-            aria-label="haha"
             placement="right"
           >
             <rect
@@ -83,9 +80,8 @@ const LabeledHeatmap = () => {
               y={yScale(value.y) + 10}
               rx={4}
               ry={4}
-              stroke="white"
-              width={"2rem"}
-              height={"2rem"}
+              width={33}
+              height={33}
               fill={color(value.cellValue)}
             />
           </Tooltip>
@@ -96,10 +92,10 @@ const LabeledHeatmap = () => {
             <text
               key={value}
               style={{
-                fontSize: "0.8rem",
+                fontSize: 10,
                 textAnchor: "end",
                 transform: "translateX(2rem)",
-                fill: "grey",
+                fill: "white",
               }}
             >
               {heatMapLabelsX[value]}
@@ -112,10 +108,10 @@ const LabeledHeatmap = () => {
             <text
               key={value}
               style={{
-                fontSize: "0.8rem",
+                fontSize: 10,
                 textAnchor: "end",
                 transform: "translateX(2rem)",
-                fill: "grey",
+                fill: "white",
               }}
             >
               {heatMapLabelsY[value]}

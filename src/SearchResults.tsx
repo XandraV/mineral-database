@@ -1,82 +1,71 @@
-import React, { FC } from "react";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import React, { FC, useContext } from "react";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+import { MineralContext } from "./MineralContextProvider";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-import { getSearchResultColor } from "./helpers";
 
-const StyledPaper = styled(Paper)`
-  &&.MuiPaper-rounded {
-    background: ${(props) => props.color};
-    border: 0.09em solid white;
-    color: white;
-    height: 3rem;
-    border-radius: 0.6rem;
-    padding: 10px 20px;
-    vertical-align: middle;
+const StyledGrid = styled(Grid)`
+  && {
+    max-width: 50rem;
+    display: inline-flex;
     text-align: left;
-    font-size: 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    opacity: 0.9;
-    span {
-      vertical-align: middle;
-    }
-    .MuiSvgIcon-root {
-      float: right;
-    }
-    :hover {
-      border: 0.09em solid ${(props) => props.color};
-    }
+    margin-top: 20px;
+    position: relative;
   }
 `;
+
+const StyledLink = styled(Link)`
+  padding-top: 12px;
+  font-size: 19px;
+  font-family: Rosario;
+  font-weight: 300;
+  color: white;
+  text-decoration: none;
+  svg.MuiSvgIcon-root {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  :hover {
+    border-bottom: 1px solid white;
+  }
+`;
+
 const ResultCount = styled.div`
   text-align: center;
-  color: black;
+  color: white;
   padding-bottom: 10px;
   padding-top: 10px;
 `;
 
 type SearchResultsProps = {
   mineralResults: any;
-  setSelectedMineral: any;
 };
-const SearchResults: FC<SearchResultsProps> = ({
-  mineralResults,
-  setSelectedMineral,
-}) => {
+
+const SearchResults: FC<SearchResultsProps> = ({ mineralResults }) => {
+  const { setChosenMineral } = useContext<any>(MineralContext);
+
   return mineralResults ? (
     <>
-    {mineralResults.length === 0 && <ResultCount id="scroller">{`No result found`}</ResultCount>}
-      <Grid
-        id="scroller"
-        container
-        justify="center"
-        spacing={2}
-        alignItems="center"
-        style={{ maxWidth: "50rem", display: "inline-flex" }}
-      >
+      {mineralResults.length === 0 && (
+        <ResultCount id="scroller">No results found</ResultCount>
+      )}
+      <StyledGrid id="scroller" container justify="center" spacing={2}>
         {mineralResults.map(
           (mineral: { color: Array<string>; name: string }) => (
-            <Grid item xs={12} sm={4}>
-              <Link
-                className="link"
+            <Grid item xs={3} key={mineral.name}>
+              <StyledLink
                 to="/mineral-results"
-                onClick={() => setSelectedMineral(mineral)}
-                style={{ textDecoration: "none" }}
+                onClick={() => setChosenMineral(mineral)}
               >
-                <StyledPaper
-                  color={getSearchResultColor(mineral.color[0].toLowerCase())}
-                >
-                  <span>{mineral.name}</span>
-                  <ArrowForwardIcon />
-                </StyledPaper>
-              </Link>
+                <span>{mineral.name}</span>
+                <ArrowForwardIosIcon />
+              </StyledLink>
             </Grid>
           )
         )}
-      </Grid>
+      </StyledGrid>
     </>
   ) : (
     <div />

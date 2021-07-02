@@ -1,15 +1,26 @@
+import React, { FC } from "react";
+import Footer from "./Footer";
 import styled from "styled-components/macro";
-
-// #584f69
-export const PageWrapper = styled.div`
-  //background: #ece5f8;
-  background: #cdd9ee;
-  overflow-x: hidden;
+//  background: conic-gradient(from 140deg at 60% 50%, #be2a7a, #75649c, #be2a7a);
+//  background: conic-gradient(from 140deg at 60% 50%, #ad005e, #220f6f, #ad005e);
+const StyledWrapper = styled.div`
+  background: conic-gradient(from 140deg at 60% 50%, #be2a7a, #75649c, #be2a7a);
+  #content {
+    padding: 0 80px 0 80px;
+  }
+  text-align: center;
+  height: 100%;
   width: 100%;
-  height: ${window.innerHeight}px;
-  display: flex;
-
   *:focus {
     outline: none;
   }
 `;
+
+const PageWrapper: FC = ({ children }) => (
+  <StyledWrapper>
+    <div id={"content"}>{children}</div>
+    <Footer />
+  </StyledWrapper>
+);
+
+export default PageWrapper;

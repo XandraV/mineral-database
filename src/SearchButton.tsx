@@ -1,16 +1,20 @@
 import React, { FC } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components/macro';
-
-const ButtonWrapper = styled.span`
-  button.button-create {
-    background: #7689ef;
-    border-radius: 1rem;
-    border: 0.09em solid white;
+//#cb2d86
+const StyledButton = styled(Button)`
+  && {
+    background: transparent;
+    border-radius: 20px;
+    border: 2px solid #e18cac;
     color: white;
     height: 40px;
+    width: 120px;
     padding-top: 0 20px;
     font-weight: bold;
+    :hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
 
     @-webkit-keyframes slide-in-left {
       0% {
@@ -46,13 +50,15 @@ type ButtonProps = {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const StyledButton: FC<ButtonProps> = ({ onClick, children }) => {
+const SearchButton: FC<ButtonProps> = ({ onClick }) => {
   return (
-    <ButtonWrapper>
-      <Button variant='contained' className='button-create' onClick={onClick}>
-        {children}
-      </Button>
-    </ButtonWrapper>
+    <StyledButton
+      variant='contained'
+      className='button-create'
+      onClick={onClick}
+    >
+      Search
+    </StyledButton>
   );
 };
-export default StyledButton;
+export default SearchButton;

@@ -1,165 +1,121 @@
-import React, { useContext, useEffect } from "react";
-import Menu from "./Menu";
-import { MainGroupCircle, SubGroupCircle } from "./GroupCircles";
-import { MineralContext } from "./MineralContext";
-import GravityCircle from "./GravityCircle";
-import { ColorText, HardnessText, SystemText } from "./SmallCircles";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { MineralContext } from "./MineralContextProvider";
 import Crystal3D from "./Crystal3D";
-import NameCircle from "./NameCircle";
 import MainGroup3D from "./MainGroup3D";
 import System3D from "./System3D";
-import { getDarkColor, getGroupMolecule } from "./helpers";
-import { PageWrapper } from "./PageWrapper";
-const light = "#fafafa";
-const height = 600;
-const width = 1000;
+import { getDarkColor } from "./helpers";
+import Grid from "@material-ui/core/Grid";
+import styled from "styled-components/macro";
+import BackButton from "./BackButton";
+
+const Wrapper = styled.div`
+  height: ${window.innerHeight * 0.8}px;
+`;
+
+const Title = styled.div`
+  font-size: 50px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  display: flex;
+  color: white;
+`;
+
+const Description = styled.div`
+  font-size: 19px;
+  text-align: left;
+  color: white;
+  width: 400px;
+`;
+
+const Card = styled.div`
+  display: inline-grid;
+  margin-right: 20px;
+  width: fit-content;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 300;
+  font-size: 12px;
+  div:first-child,
+  div:nth-child(3),
+  div:nth-child(5) {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+`;
 
 const InfoPage = () => {
   const { chosenMineral } = useContext(MineralContext);
-  const mychosenMineral: any = chosenMineral[0];
 
-  const dark = getDarkColor(mychosenMineral.color[0].toLowerCase());
-
-  useEffect(() => {});
+  const dark = getDarkColor(chosenMineral.color[0].toLowerCase());
 
   return (
-    <PageWrapper>
-      <Menu />
-      <div style={{ textAlign: "center", width: "100vw" }}>
-        <div
-          style={{
-            top: 600 / 2 + 50,
-            left: "50%",
-            position: "absolute",
-            transform: "translateX(-180%)",
-          }}
-        >
-          <MainGroup3D groupName={mychosenMineral.mainGroup[0]} />
-        </div>
+    <Wrapper>
+      <Grid container justify="center" spacing={2}>
+        <Grid item xs={7}>
+          <BackButton />
+          <Title>{chosenMineral.name}</Title>
+          <Description>
+            {chosenMineral.name} is a silicate mineral. Silicate minerals are
+            rock-forming minerals made up of silicate groups. They are the
+            largest and most important class of minerals and make up
+            approximately 90 percent of Earth's crust.
+          </Description>
+          <div
+            id="crystal-3d"
+            style={{
+              left: "50%",
+              top: 600 / 5,
+              position: "absolute",
+              transform: "translateX(10%)",
+            }}
+          >
+            <Crystal3D
+              width={300}
+              height={300}
+              shaderName={chosenMineral.color[0].toLowerCase()}
+              rotationSpeed={1}
+            />
+          </div>
+        </Grid>
 
-        <div
-          style={{
-            top: 600 / 2 + 70,
-            left: "51.5%",
-            position: "absolute",
-            transform: "translateX(0%)",
-          }}
-        >
-          <System3D system={"Hexagonal"} />
-        </div>
+        <Grid item xs={8} style={{ paddingTop: 70}}>
+          <Card>
+            <div>Chemical Formula</div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: chosenMineral.formulaWeb,
+              }}
+            />
 
-        <div
-          id="crystal-3d"
-          style={{
-            left: "50%",
-            top: height / 5,
-            position: "absolute",
-            transform: "translateX(-70%)",
-          }}
-        >
-          <Crystal3D
-            width={300}
-            height={300}
-            shaderName={mychosenMineral.color[0].toLowerCase()}
-            rotationSpeed={1}
-          />
-        </div>
-        {/* groump chemical component */}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: getGroupMolecule(mychosenMineral.mainGroup[0]),
-          }}
-          style={{
-            width: width,
-            color: dark,
-            left: "50%",
-            top: height / 2,
-            position: "absolute",
-            fontSize: "1rem",
-            transform: "translateX(-78%)",
-          }}
-        />
-        <svg
-          height={height}
-          viewBox="0 100 100 450"
-          style={{ paddingLeft: 20, overflow: "visible" }}
-        >
-          <NameCircle
-            svgHeight={height}
-            colors={[dark, light]}
-            name={mychosenMineral.name}
-          />
-          <MainGroupCircle
-            svgHeight={height}
-            label={mychosenMineral.mainGroup[0]}
-            colors={[dark, light]}
-          />
-          <SubGroupCircle
-            svgHeight={height}
-            label={
-              typeof mychosenMineral.subGroup === "string"
-                ? mychosenMineral.subGroup
-                : mychosenMineral.subGroup[0]
-            }
-            colors={[dark, light]}
-          />
-          {/* maingroup image circle */}
-          <circle
-            cx={`${-120}`}
-            cy={`${height / 2 + 120}`}
-            r={70}
-            fill={"rgb(226,214,246)"}
-            style={{ stroke: light, strokeWidth: 12 }}
-          />
-          {/* system image circle */}
-          <circle
-            cx={`${120}`}
-            cy={`${height / 2 + 120}`}
-            r={70}
-            fill={"rgb(226,214,246)"}
-            style={{ stroke: light, strokeWidth: 12 }}
-          />
-          <GravityCircle
-            svgHeight={height}
-            label={mychosenMineral.specificGravity}
-            colors={[dark, light]}
-          />
-          <SystemText
-            svgHeight={height}
-            label={mychosenMineral.system}
-            colors={[dark, light]}
-          />
-          <HardnessText
-            svgHeight={height}
-            label={mychosenMineral.hardness}
-            colors={[dark, light]}
-          />
-          <ColorText
-            svgHeight={height}
-            label={mychosenMineral.color[0]}
-            colors={[dark, light]}
-          />
-          {/* mineral image circle  */}
-          <circle
-            cx={`${0}`}
-            cy={`${height / 2}`}
-            r={100}
-            fill={"white"}
-            style={{ stroke: light, strokeWidth: 12 }}
-          />
-        </svg>
-      </div>
-    </PageWrapper>
+            <div>Hardness</div>
+            <div>{chosenMineral.hardness}</div>
+
+            <div>Specific Gravity</div>
+            <div>{chosenMineral.specificGravity}</div>
+          </Card>
+          <Card>
+            <div>Crystal Structure</div>
+            <div>{chosenMineral.system}</div>
+
+            <System3D system={"Hexagonal"} />
+          </Card>
+          <Card>
+            <div>Group</div>
+            <div>
+              {chosenMineral.mainGroup[0]},{" "}
+              {typeof chosenMineral.subGroup === "string"
+                ? chosenMineral.subGroup
+                : chosenMineral.subGroup[0]}
+            </div>
+
+            <MainGroup3D groupName={chosenMineral.mainGroup[0]} />
+          </Card>
+        </Grid>
+      </Grid>
+    </Wrapper>
   );
 };
 
 export default InfoPage;
-
-// const systemInfoText =
-//   "There are six crystal systems. Although you may have seen more than six shapes of crystals, they’re all variations of one of these six habits. ";
-// const groupInfoText =
-//   "A mineral group is a set of mineral species with essentially the same crystal structure and composed of chemically similar elements. ";
-// const subGroupInfoText =
-//   "The next level of mineral classification after categorization in groups.";
-// const gravityInfoText =
-//   "Specific Gravity is a measurement that determines the density of minerals. It determines how heavy it is by its relative weight to water. ";

@@ -1,33 +1,37 @@
-import React from "react";
-import Crystal3D from "./Crystal3D";
-import styled from "styled-components/macro";
+import React from 'react';
+import Crystal3D from './Crystal3D';
+import styled from 'styled-components/macro';
 
 const Wrapper = styled.div`
   margin: auto;
   width: 50%;
   text-align: center;
-
+  height: ${window.innerHeight}px;
+  div:first-child {
+    display: inline-block;
+    margin-top: 20%;
+  }
 `;
 
 const LoadingText = styled.div`
   :after {
     color: #969698;
     font-weight: bold;
-    content: "Loading";
+    content: 'Loading';
     animation: changeText 3s linear infinite;
   }
   @keyframes changeText {
     0% {
-      content: "Loading";
+      content: 'Loading';
     }
     25% {
-      content: "Loading.";
+      content: 'Loading.';
     }
     50% {
-      content: "Loading..";
+      content: 'Loading..';
     }
     75% {
-      content: "Loading...";
+      content: 'Loading...';
     }
   }
   @keyframes loading {
@@ -54,11 +58,11 @@ const LoadingPage = () => {
   return (
     <>
       <Wrapper>
-        <div id="crystal-3d" style={{ display: "inline-block" }}>
+        <div id='crystal-3d'>
           <Crystal3D
             width={300}
             height={300}
-            shaderName={"loading"}
+            shaderName={'pink'}
             rotationSpeed={10}
           />
         </div>

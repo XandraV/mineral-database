@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 type Group2OtherAtoms3DProps = {
   width: number;
@@ -16,8 +17,9 @@ const Group2OtherAtoms3D: FC<Group2OtherAtoms3DProps> = ({
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const controls = new OrbitControls(camera, renderer.domElement);
     scene.background = null;
-
+    controls.update();
     renderer.setSize(width, height);
     camera.position.set(0, 0, 100);
     camera.lookAt(0, 0, 0);
@@ -79,6 +81,7 @@ const Group2OtherAtoms3D: FC<Group2OtherAtoms3DProps> = ({
 
     const animate = function () {
       requestAnimationFrame(animate);
+      controls.update();
       molecule.rotation.y += 0.01;
       renderer.render(scene, camera);
     };

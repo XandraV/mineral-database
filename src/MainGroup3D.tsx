@@ -3,6 +3,8 @@ import Group4OtherAtoms3D from "./Group4OtherAtoms3D";
 import Group3OtherAtoms3D from "./Group3OtherAtoms3D";
 import Group2OtherAtoms3D from "./Group2OtherAtoms3D";
 import { getMainGroupColor } from "./helpers";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
 type GroupProps = {
   groupName: string;
 };

@@ -1,16 +1,47 @@
-import React, { FC } from "react";
-import Element from "./Element";
-import { elements } from "./data/periodictable";
-import styled from "styled-components/macro";
+import React, { FC } from 'react';
+import Element from './Element';
+import { elements } from './data/periodictable';
+import styled from 'styled-components/macro';
 
-// #7689ef78
-const PeriodicTableWrapper = styled.div` 
-  margin-top: 2rem;
+const groups = [
+  {
+    name: 'Non Metal',
+    color: 'rgba(255, 203, 221, 0.6)',
+  },
+  {
+    name: 'Alkaline Metal',
+    color: 'rgba(211, 79, 115, 0.6)',
+  },
+  {
+    name: 'Alkaline Earth Metal',
+    color: 'rgba(255, 180, 91, 0.7)',
+  },
+  {
+    name: 'Transition Metal',
+    color: 'rgba(177,139,240, 0.9)',
+  },
+  {
+    name: 'Post Transition Metal',
+    color: 'rgba(126,142,201,0.6)',
+  },
+  {
+    name: 'Metalloid',
+    color: 'rgba(249,131,194,0.6)',
+  },
+  {
+    name: 'Halogen',
+    color: 'rgba(255,67,157,0.6)',
+  },
+  {
+    name: 'Noble Gas',
+    color: 'rgb(244, 146, 240,0.6)',
+  },
+];
+
+const PeriodicTableWrapper = styled.div`
+  margin-top: 1rem;
   padding: 1rem;
-  border-radius: 1rem;
-  background: #86a7f133;
-  border: 2px solid white;
-  display:inline-block;
+  display: inline-block;
   .card1 {
     display: grid;
     grid-template-columns: repeat(18, auto);
@@ -65,6 +96,34 @@ const PeriodicTableWrapper = styled.div`
     forwards;
 `;
 
+const GroupWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  justify-content: center;
+  padding: 0 5vw 0 15vw;
+  position: absolute;
+`;
+
+type StyledTagProps = {
+  color: string;
+};
+
+const StyledTag = styled.div<StyledTagProps>`
+  height: 24px;
+  margin: 6px 4px 0 0;
+  display: inline;
+  background-color: ${({ color }) => color};
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.25);
+`;
+
 type PeriodicTableProps = {
   selectElement: any;
   selectedElements: any;
@@ -78,7 +137,6 @@ const PeriodicTable: FC<PeriodicTableProps> = ({
   for (let element_num = 1; element_num < 58; element_num++) {
     periodicTable.push(
       <Element
-        // className="element"
         key={element_num}
         value={elements[element_num]}
         onClick={() => selectElement(element_num)}
@@ -89,7 +147,6 @@ const PeriodicTable: FC<PeriodicTableProps> = ({
   for (let element_num = 72; element_num < 90; element_num++) {
     periodicTable.push(
       <Element
-        // className="element"
         key={element_num}
         value={elements[element_num]}
         onClick={() => selectElement(element_num)}
@@ -100,7 +157,6 @@ const PeriodicTable: FC<PeriodicTableProps> = ({
   for (let element_num = 104; element_num < 119; element_num++) {
     periodicTable.push(
       <Element
-        // className="element"
         key={element_num}
         value={elements[element_num]}
         onClick={() => selectElement(element_num)}
@@ -108,9 +164,16 @@ const PeriodicTable: FC<PeriodicTableProps> = ({
       />
     );
   }
+
   return (
     <PeriodicTableWrapper>
-      <section className="card1">{periodicTable}</section>
+      <GroupWrapper>
+        {groups.map(({ name, color }) => (
+          <StyledTag color={color}>{name}</StyledTag>
+        ))}
+      </GroupWrapper>
+
+      <section className='card1'>{periodicTable}</section>
     </PeriodicTableWrapper>
   );
 };
