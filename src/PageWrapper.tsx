@@ -7,6 +7,7 @@ const StyledWrapper = styled.div`
   background: conic-gradient(from 140deg at 60% 50%, #be2a7a, #75649c, #be2a7a);
   #content {
     padding: 0 80px 0 80px;
+    display: grid;
   }
   text-align: center;
   height: 100%;

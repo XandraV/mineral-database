@@ -6,7 +6,7 @@ import styled from "styled-components/macro";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${window.innerHeight - 170}px;
+  height: ${window.innerHeight}px;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-bottom: 20px;
