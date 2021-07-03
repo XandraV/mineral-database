@@ -8,6 +8,7 @@ const StyledWrapper = styled.div`
   #content {
     padding: 0 80px 0 80px;
     display: grid;
+    min-height: ${window.innerHeight + 50}px;
   }
   text-align: center;
   height: 100%;
