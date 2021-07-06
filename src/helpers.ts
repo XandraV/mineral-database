@@ -96,7 +96,7 @@ export const getElementColor = (symbol: string) => {
     case "Te":
     case "Po":
     case "Sb":
-      return "rgba(249,131,194,0.6)";
+      return "rgba(131,219,249,0.7)";
     case "F":
     case "Cl":
     case "Br":

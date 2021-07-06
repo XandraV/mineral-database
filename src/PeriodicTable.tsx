@@ -18,7 +18,7 @@ const groups = [
   },
   {
     name: 'Transition Metal',
-    color: 'rgba(177,139,240, 0.9)',
+    color: 'rgba(101, 79, 139, 0.7)',
   },
   {
     name: 'Post Transition Metal',
@@ -26,7 +26,7 @@ const groups = [
   },
   {
     name: 'Metalloid',
-    color: 'rgba(249,131,194,0.6)',
+    color: 'rgba(131,219,249,0.7)',
   },
   {
     name: 'Halogen',
@@ -34,7 +34,7 @@ const groups = [
   },
   {
     name: 'Noble Gas',
-    color: 'rgb(244, 146, 240,0.6)',
+    color: 'rgb(244, 205, 252, 0.6)',
   },
 ];
 
