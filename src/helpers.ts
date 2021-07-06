@@ -103,7 +103,7 @@ export const getElementColor = (symbol: string) => {
     case "I":
     case "At":
     case "Ts":
-      return "rgba(255,67,157,0.6)";
+      return "rgba(255,63,165,0.6)";
     case "He":
     case "Ne":
     case "Ar":
@@ -111,9 +111,9 @@ export const getElementColor = (symbol: string) => {
     case "Xe":
     case "Rn":
     case "Og":
-      return "rgb(244, 146, 240,0.6)";
+      return "rgb(244, 205, 252, 0.6)";
     default:
-      return "rgba(177,139,240, 0.9)";
+      return "rgba(101, 79, 139, 0.9)";
   }
 };
 

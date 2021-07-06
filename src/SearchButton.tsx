@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components/macro';
-//#cb2d86
+
 const StyledButton = styled(Button)`
   && {
     background: transparent;
     border-radius: 20px;
-    border: 2px solid #e18cac;
+    border: 2px solid #ffb1cf;
     color: white;
     height: 40px;
     width: 120px;

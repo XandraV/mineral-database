@@ -36,7 +36,7 @@ const IntroText = styled.div`
     font-size: 18px;
   }
   img {
-    opacity: 0.1;
+    opacity: 0.2;
     transform: rotate(-18deg);
   }
 `;
@@ -47,7 +47,7 @@ const StyledButton = styled(Link)`
   font-size: 21px;
   padding: 10px 30px;
   text-align: center;
-  border 2px solid #e18cac;
+  border 2px solid #ffb1cf;
   border-radius: 40px;
   transition: 0.3s;
   text-decoration: none;
