@@ -10,11 +10,11 @@ const groups = [
   },
   {
     name: "Alkaline Metal",
-    color: "rgba(255, 64, 116, 0.7)",
+    color: "rgba(248, 203, 144, 0.7)",
   },
   {
     name: "Alkaline Earth Metal",
-    color: "rgb(255, 114, 125)",
+    color: "rgba(255, 114, 125, 0.7)",
   },
   {
     name: "Transition Metal",
@@ -30,7 +30,7 @@ const groups = [
   },
   {
     name: "Halogen",
-    color: "rgba(255,63,165, 0.7)",
+    color: "rgba(191, 187, 244, 0.7)",
   },
   {
     name: "Noble Gas",
