@@ -6,7 +6,7 @@ const StyledButton = styled(Button)`
   && {
     background: transparent;
     border-radius: 20px;
-    border: 2px solid #ffb1cf;
+    border: 2px solid #faf0c7;
     color: white;
     height: 40px;
     width: 120px;

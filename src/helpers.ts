@@ -62,21 +62,21 @@ export const getElementColor = (symbol: string) => {
     case "P":
     case "S":
     case "Se":
-      return "rgba(255, 203, 221, 0.6)";
+      return "rgba(255, 193, 183, 0.9)";
     case "Li":
     case "Na":
     case "K":
     case "Rb":
     case "Cs":
     case "Fr":
-      return "rgba(211, 79, 115, 0.6)";
+      return "rgba(255, 64, 116, 0.7)";
     case "Be":
     case "Mg":
     case "Ca":
     case "Sr":
     case "Ba":
     case "Ra":
-      return "rgba(255, 180, 91, 0.7)";
+      return "rgba(255, 114, 125, 0.7)";
     case "Al":
     case "Ga":
     case "In":
@@ -88,7 +88,7 @@ export const getElementColor = (symbol: string) => {
     case "Fl":
     case "Mc":
     case "Lv":
-      return "rgba(126,142,201,0.6)";
+      return "rgba(134,142,255,1)";
     case "B":
     case "Si":
     case "Ge":
@@ -96,7 +96,7 @@ export const getElementColor = (symbol: string) => {
     case "Te":
     case "Po":
     case "Sb":
-      return "rgba(131,219,249,0.7)";
+      return "rgba(255, 192, 71,0.8)";
     case "F":
     case "Cl":
     case "Br":
@@ -113,7 +113,7 @@ export const getElementColor = (symbol: string) => {
     case "Og":
       return "rgb(244, 205, 252, 0.6)";
     default:
-      return "rgba(101, 79, 139, 0.9)";
+      return "rgba(255, 169, 154, 0.9)";
   }
 };
 
