@@ -7,10 +7,17 @@ type CrystalProps = {
   width: number;
   height: number;
   shaderName: string;
-  rotationSpeed:number;
+  rotationSpeed: number;
+  xRotation?: boolean;
 };
 
-const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName, rotationSpeed }) => {
+const Crystal3D: FC<CrystalProps> = ({
+  width,
+  height,
+  shaderName,
+  rotationSpeed,
+  xRotation = true,
+}) => {
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
@@ -134,12 +141,12 @@ const Crystal3D: FC<CrystalProps> = ({ width, height, shaderName, rotationSpeed 
 
     spotLight.castShadow = true;
     scene.add(spotLight);
-    
+
     const animate = function () {
       requestAnimationFrame(animate);
       controls.update();
-      crystal.rotation.y += 0.01*rotationSpeed;
-      crystal.rotation.x += 0.01*rotationSpeed;
+      crystal.rotation.y += 0.01 * rotationSpeed;
+      if (xRotation) crystal.rotation.x += 0.01 * rotationSpeed;
       renderer.render(scene, camera);
     };
     animate();

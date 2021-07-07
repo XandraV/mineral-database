@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const LoadingText = styled.div`
   :after {
-    color: #969698;
+    color: white;
     font-weight: bold;
     content: 'Loading';
     animation: changeText 3s linear infinite;
@@ -62,7 +62,7 @@ const LoadingPage = () => {
           <Crystal3D
             width={300}
             height={300}
-            shaderName={'pink'}
+            shaderName={'loading'}
             rotationSpeed={10}
           />
         </div>

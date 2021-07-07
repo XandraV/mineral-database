@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PeriodicTableBackground from "./PeriodicTableBackground";
 import crystal from "./images/crystal.svg";
 import styled from "styled-components/macro";
-
+import Crystal3D from "./Crystal3D";
 const Wrapper = styled.div`
   width: 100%;
   height: ${window.innerHeight}px;
@@ -21,7 +21,7 @@ const Title = styled.div`
   font-weight: 700;
   color: white;
   text-align: center;
-  margin: 30px 0 60px 0;
+  margin: 90px 0 60px 0;
   font-size: 20px;
 `;
 const IntroText = styled.div`
@@ -36,7 +36,7 @@ const IntroText = styled.div`
     font-size: 18px;
   }
   img {
-    opacity: 0.1;
+    opacity: 0.2;
     transform: rotate(-18deg);
   }
 `;
@@ -47,7 +47,7 @@ const StyledButton = styled(Link)`
   font-size: 21px;
   padding: 10px 30px;
   text-align: center;
-  border 2px solid #e18cac;
+  border 2px solid #faf0c7;
   border-radius: 40px;
   transition: 0.3s;
   text-decoration: none;
@@ -62,13 +62,30 @@ const Home = () => {
     <Wrapper>
       <IntroText>
         <Title>
-          <img
+          {/* <img
             className="icon"
             src={crystal}
             alt="crystal"
             width={80}
             height={66}
-          />
+          /> */}
+          <div
+            id="crystal-3d"
+            style={{
+              left: "31vw",
+              top: 0,
+              position: "absolute",
+              transform: "translateX(10%)",
+            }}
+          >
+            <Crystal3D
+              width={100}
+              height={100}
+              shaderName={'yellow'}
+              rotationSpeed={1}
+              xRotation={false}
+            />
+          </div>
           <div>Database of Minerals</div>
         </Title>
         <div>

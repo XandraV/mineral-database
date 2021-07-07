@@ -1,40 +1,40 @@
-import React, { FC } from 'react';
-import Element from './Element';
-import { elements } from './data/periodictable';
-import styled from 'styled-components/macro';
+import React, { FC } from "react";
+import Element from "./Element";
+import { elements } from "./data/periodictable";
+import styled from "styled-components/macro";
 
 const groups = [
   {
-    name: 'Non Metal',
-    color: 'rgba(255, 203, 221, 0.6)',
+    name: "Non Metal",
+    color: "rgb(255, 193, 183)",
   },
   {
-    name: 'Alkaline Metal',
-    color: 'rgba(211, 79, 115, 0.6)',
+    name: "Alkaline Metal",
+    color: "rgba(248, 203, 144, 0.7)",
   },
   {
-    name: 'Alkaline Earth Metal',
-    color: 'rgba(255, 180, 91, 0.7)',
+    name: "Alkaline Earth Metal",
+    color: "rgba(255, 114, 125, 0.7)",
   },
   {
-    name: 'Transition Metal',
-    color: 'rgba(177,139,240, 0.9)',
+    name: "Transition Metal",
+    color: "rgb(255, 169, 154)",
   },
   {
-    name: 'Post Transition Metal',
-    color: 'rgba(126,142,201,0.6)',
+    name: "Post Transition Metal",
+    color: "rgb(134,142,255)",
   },
   {
-    name: 'Metalloid',
-    color: 'rgba(249,131,194,0.6)',
+    name: "Metalloid",
+    color: "rgb(255, 192, 71)",
   },
   {
-    name: 'Halogen',
-    color: 'rgba(255,67,157,0.6)',
+    name: "Halogen",
+    color: "rgba(191, 187, 244, 0.7)",
   },
   {
-    name: 'Noble Gas',
-    color: 'rgb(244, 146, 240,0.6)',
+    name: "Noble Gas",
+    color: "rgb(244, 205, 252)",
   },
 ];
 
@@ -173,7 +173,7 @@ const PeriodicTable: FC<PeriodicTableProps> = ({
         ))}
       </GroupWrapper>
 
-      <section className='card1'>{periodicTable}</section>
+      <section className="card1">{periodicTable}</section>
     </PeriodicTableWrapper>
   );
 };

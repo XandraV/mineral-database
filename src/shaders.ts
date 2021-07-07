@@ -86,7 +86,7 @@ export default function shaders(color: string) {
       #define PI 3.14159265359
       void main() {
         float x = pow(sin(PI * vUv.x / 3.0), 1.0);
-        float y = pow(cos(PI * vUv.y / 5.0), 3.5);
+        float y = pow(cos(PI * vUv.y / 5.0), 0.5);
         gl_FragColor = vec4(0.5, x, y, 2.0);
           }`;
     default:

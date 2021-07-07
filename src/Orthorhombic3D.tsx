@@ -23,7 +23,7 @@ const Orthorhombic3D: FC<Orthorhombic3DProps> = ({ width, height }) => {
 
     const orthorhombic = new THREE.Object3D();
     const material = new THREE.LineBasicMaterial({
-      color: "black",
+      color: "white",
     });
 
     // base lines

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { MineralContext } from "./MineralContextProvider";
 import Crystal3D from "./Crystal3D";
 import MainGroup3D from "./MainGroup3D";

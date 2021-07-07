@@ -26,7 +26,7 @@ const BubbleChart = () => {
   const color = d3
     .scaleLinear<string>()
     .domain([0, labelsBubble.length])
-    .range(["rgba(211, 79, 115)", "rgba(170,135,244)"]);
+    .range(["rgba(240, 244, 239)","rgba(170,135,244)"]);
 
   return (
     <BubbleChartWrapper>

@@ -23,7 +23,7 @@ const Trigonal3D: FC<trigonal3DProps> = ({ width, height }) => {
 
     const trigonal = new THREE.Object3D();
     const material = new THREE.LineBasicMaterial({
-      color: "black",
+      color: "white",
     });
 
     // base lines

@@ -58,7 +58,7 @@ const BarChart: FC<BarChartProps> = ({ selectedMineral }) => {
   const color = d3
     .scaleLinear<string>()
     .domain([0, 12])
-    .range(["rgba(170,135,244)", "rgba(240, 244, 2395)"]);
+    .range(["rgba(211, 79, 115)", "rgba(170,135,244)"]);
 
   return (
     <BarchartWrapper>

@@ -23,7 +23,7 @@ const Hexagonal3D: FC<Hexagonal3DProps> = ({ width, height }) => {
 
     const hexagonal = new THREE.Object3D();
     const material = new THREE.LineBasicMaterial({
-      color: "lightgrey",
+      color: "white",
     });
 
     // base lines

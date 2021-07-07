@@ -7,7 +7,7 @@ import * as d3 from "d3";
 
 const Wrapper = styled.div`
   display: flex;
-  span{
+  span {
     margin: auto 10px auto auto;
   }
   path {
@@ -64,8 +64,15 @@ const svgSize = 300;
 
 const color = d3
   .scaleLinear<string>()
-  .domain([0, 55])
-  .range(["rgb(244, 146, 240)", "rgb(255, 180, 91)"]);
+  .domain([0, 5, 10, 11, 30, 55])
+  .range([
+    "rgba(170,135,244)",
+    "rgba(240, 244, 239)",
+    "rgba(170,135,244)",
+    "rgba(211, 79, 115)",
+    "rgba(170,135,244)",
+    "rgba(211, 79, 115)",
+  ]);
 
 const createArc = d3.arc().cornerRadius(7);
 
