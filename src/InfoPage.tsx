@@ -50,7 +50,7 @@ const InfoPage = () => {
 
   return (
     <Wrapper>
-      <Grid container justify="center" spacing={2}>
+      <Grid container justify="center">
         <Grid item xs={7}>
           <BackButton />
           <Title>{chosenMineral.name}</Title>

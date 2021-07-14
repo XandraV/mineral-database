@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PeriodicTableBackground from "./PeriodicTableBackground";
 import crystal from "./images/crystal.svg";
 import styled from "styled-components/macro";
-
+import Crystal3D from "./Crystal3D";
 const Wrapper = styled.div`
   width: 100%;
   height: ${window.innerHeight}px;
