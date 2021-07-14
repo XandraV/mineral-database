@@ -10,7 +10,7 @@
     A React application that allows the user to search for minerals by selecting elements in the periodic table, view the info page of a chosen mineral and a dashboard with statistics tailored to the specific mineral properties. Data used in this application was collected from <a href="https://www.mindat.org">mindat</a> using Python Request library.
     <br />
     <br />
-    <a href="https://master.d1qwrf5789l68x.amplifyapp.com/">View Deployed App</a> 
+    <a href="https://master.dtpug0f58nobr.amplifyapp.com/">View Deployed App</a> 
   </p>
 </p>
 
