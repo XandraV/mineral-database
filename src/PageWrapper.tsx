@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import Footer from "./Footer";
 import styled from "styled-components/macro";
-//  background: conic-gradient(from 140deg at 60% 50%, #be2a7a, #75649c, #be2a7a);
-//  background: conic-gradient(from 140deg at 60% 50%, #ad005e, #220f6f, #ad005e);
+
 const StyledWrapper = styled.div`
   background-image: radial-gradient(ellipse at top, #838bfc, transparent),
     radial-gradient(ellipse at bottom, #ffb016, #ffb016);

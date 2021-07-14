@@ -7,6 +7,7 @@ import { getDarkColor } from "./helpers";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components/macro";
 import BackButton from "./BackButton";
+import { shortDescription } from "./data/groupsDescription";
 
 const Wrapper = styled.div`
   height: ${window.innerHeight * 0.8}px;
@@ -47,8 +48,6 @@ const Card = styled.div`
 const InfoPage = () => {
   const { chosenMineral } = useContext(MineralContext);
 
-  const dark = getDarkColor(chosenMineral.color[0].toLowerCase());
-
   return (
     <Wrapper>
       <Grid container justify="center">
@@ -56,10 +55,8 @@ const InfoPage = () => {
           <BackButton />
           <Title>{chosenMineral.name}</Title>
           <Description>
-            {chosenMineral.name} is a silicate mineral. Silicate minerals are
-            rock-forming minerals made up of silicate groups. They are the
-            largest and most important class of minerals and make up
-            approximately 90 percent of Earth's crust.
+            {chosenMineral.name} is a {chosenMineral.mainGroup[0].toLowerCase()}{" "}
+            mineral. {(shortDescription as any)[chosenMineral.mainGroup[0]]}
           </Description>
           <div
             id="crystal-3d"
@@ -79,7 +76,7 @@ const InfoPage = () => {
           </div>
         </Grid>
 
-        <Grid item xs={8} style={{ paddingTop: 70}}>
+        <Grid item xs={8} style={{ paddingTop: 70 }}>
           <Card>
             <div>Chemical Formula</div>
             <div

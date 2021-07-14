@@ -3,12 +3,7 @@ import BarChart from "./BarChart";
 import BubbleChart from "./BubbleChart";
 import Grid from "@material-ui/core/Grid";
 import LabeledHeatmap from "./Heatmap";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import ListItemText from "@material-ui/core/ListItemText";
-import SunburstChart from "./SunburstChart";
-import { StyledPaper } from "./StyledPaper";
-import { Paper, InputBase } from "@material-ui/core";
+import SunburstWithDescription from "./SunburstWithDescription";
 import molecule from "./images/molecule.svg";
 import styled from "styled-components/macro";
 
@@ -29,6 +24,7 @@ const Title = styled.div`
   font-weight: 700;
   color: white;
 `;
+
 const Description = styled.div`
   font-size: 28px;
   font-weight: 700;
@@ -43,24 +39,7 @@ const Description = styled.div`
 `;
 
 const ElementsPage = () => {
-  const [results, setResults] = useState<any>([]);
   const [selectedMineral, setSelectedMineral] = useState<any>(null);
-  const [limit, setLimit] = useState(8);
-
-  function handleListItemClick(rock: object) {
-    setSelectedMineral(selectedMineral === rock ? false : rock);
-  }
-
-  function handleSearchMineralsList(input: string) {
-    const data = require("./data/data.json");
-    const resultList = [];
-    for (let i = 0; i < Object.keys(data.minerals).length; i++) {
-      if (data.minerals[i].name.toLowerCase().includes(input.toLowerCase())) {
-        resultList.push(data.minerals[i]);
-      }
-    }
-    return resultList;
-  }
 
   return (
     <>
@@ -78,9 +57,13 @@ const ElementsPage = () => {
             <Description>
               <div>Occurence of Elements</div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis
+                There are more than 5000 known minerals, but only about 100 of
+                these are common. Silicon and oxygen make up about threequarters
+                of the crust by weight, and silicate minerals such as quartz,
+                feldspar, and olivine are by far the most common minerals in
+                rocks, making up 90 percent of the rocks at Earth’s surface. The
+                carbonates calcite and dolomite form sedimentary rocks, such as
+                limestone.
               </p>
             </Description>
             {/* Number of Minerals Containing a Specific Element */}
@@ -91,39 +74,28 @@ const ElementsPage = () => {
             <Description>
               <div>How many elements?</div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quisLorem ipsum dolor sit amet,
-                consectetur adipiscing
+                Most minerals are chemical compounds composed of two or more
+                chemical elements. However, copper, sulfur, gold, silver, and a
+                few others occur as single “native” elements. A chemical formula
+                identifies the atoms present in a mineral and their proportions.
+                After careful analysis it turns out that most minerals contain 3
+                or 4 distinct elements.
               </p>
             </Description>
           </Grid>
           <Grid item xs={11} style={{ display: "flex", marginBottom: 80 }}>
-            <Description>
-              <div>Groups and Subgroups</div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quisLorem ipsum dolor sit amet,
-                consectetur adipiscing
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quisLorem ipsum dolor sit amet,
-                consectetur adipiscing
-                
-              </p>
-            </Description>
-            <SunburstChart />
+            <SunburstWithDescription />
           </Grid>
           <Grid item xs={11} style={{ display: "flex", marginBottom: 80 }}>
-          <LabeledHeatmap />
+            <LabeledHeatmap />
             <Description>
               <div>Most Common Element Pairs</div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quisLorem ipsum dolor sit amet,
-                consectetur adipiscing
+                Most minerals are chemical compounds composed of two or more
+                chemical elements. Here are the most common element pairs
+                occuring together in the same mineral. Silicon, hydrogen,
+                calcium and oxygen are by far the most common elements in
+                minerals.
               </p>
             </Description>
           </Grid>
