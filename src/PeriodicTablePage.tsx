@@ -86,6 +86,7 @@ const PeriodicTablePage = () => {
 
   const searchMineralsByElements = (arrayOfElements: Array<object>) => {
     const resultList = [];
+    console.log(minerals.length);
     if (arrayOfElements.length > 0) {
       for (let mineralObj of minerals) {
         if (

@@ -46,7 +46,7 @@ const Title = styled.div`
   }
 `;
 
-const navTitles = ["HOME", "PERIODIC TABLE", "ELEMENTS", "SEARCH", "MAP"];
+const navTitles = ["HOME", "PERIODIC TABLE", "ELEMENTS", "MAP"];
 
 const Menu = () => {
   const { activeMenu, setActiveMenu } = useContext(MineralContext);

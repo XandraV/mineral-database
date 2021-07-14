@@ -5,7 +5,6 @@ type PaperProps = {
   height: string;
 };
 
-//#b7adc7
 export const StyledPaper = styled(Paper)<PaperProps>`
   &&.MuiPaper-rounded {
     background: #86a7f133;

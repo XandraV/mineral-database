@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PeriodicTableBackground from "./PeriodicTableBackground";
 import crystal from "./images/crystal.svg";
 import styled from "styled-components/macro";
-import Crystal3D from "./Crystal3D";
+
 const Wrapper = styled.div`
   width: 100%;
   height: ${window.innerHeight}px;
@@ -62,46 +62,28 @@ const Home = () => {
     <Wrapper>
       <IntroText>
         <Title>
-          {/* <img
+          <img
             className="icon"
             src={crystal}
             alt="crystal"
             width={80}
             height={66}
-          /> */}
-          <div
-            id="crystal-3d"
-            style={{
-              left: "31vw",
-              top: 0,
-              position: "absolute",
-              transform: "translateX(10%)",
-            }}
-          >
-            <Crystal3D
-              width={100}
-              height={100}
-              shaderName={'yellow'}
-              rotationSpeed={1}
-              xRotation={false}
-            />
-          </div>
+          />
           <div>Database of Minerals</div>
         </Title>
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-          suscipit vel urna at commodo. Mauris pulvinar laoreet turpis
-          consectetur aliquam. Praesent maximus, ligula sed dapibus mattis,
-          velit dolor aliquet metus, non posuere mi orci sit amet quam.
+          A mineral is defined as a naturally occurring solid with specific
+          chemical composition and distinctive internal crystal structure.
+          Minerals are usually formed by inorganic processes, although there are
+          organically produced substances that are also considered minerals.
         </div>
 
         <div>
-          Quisque quam neque, vulputate eget quam eget, tincidunt hendrerit
-          nibh. Etiam quam leo, sagittis quis urna non, sagittis gravida ex.
-          Suspendisse id metus et lectus maximus porta eu eget libero. Mauris
-          suscipit velit at dolor hendrerit, ut laoreet nisi feugiat. Curabitur
-          vestibulum sit amet ante eu vehicula. Integer porttitor ac risus vel
-          mattis.
+          Certain substances, including opal and glass, resemble minerals in
+          chemistry and occurrence but do not have a regularly ordered internal
+          arrangement. These are known as mineraloids. There are more than 5000
+          known minerals and this database contains information on nearly 800 of
+          them including chemical formulas, crystal systems and structures.
         </div>
         <StyledButton to={"/periodic"}>Search Minerals</StyledButton>
       </IntroText>

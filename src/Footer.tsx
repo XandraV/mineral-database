@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   font-size: 14px;
   color: white;
   padding: 10px 100px 0 100px;
-  margin-top:50px;
+  margin-top: 80px;
   a {
     color: inherit;
     text-decoration: none;
