@@ -57,8 +57,8 @@ const BarChart: FC<BarChartProps> = ({ selectedMineral }) => {
   console.log(selected);
   const color = d3
     .scaleLinear<string>()
-    .domain([0, 12])
-    .range(["rgba(211, 79, 115)", "rgba(170,135,244)"]);
+    .domain([0, 6, 12])
+    .range(["rgb(170,135,244)", "rgba(255,255,255,0.5)", "rgb(255, 176, 22)"]);
 
   return (
     <BarchartWrapper>
@@ -75,10 +75,10 @@ const BarChart: FC<BarChartProps> = ({ selectedMineral }) => {
               key={d}
               className={`bar${d}`}
               x={21 + i * 22}
-              y={chartHeight - yScale(d)-10}
+              y={chartHeight - yScale(d) - 10}
               rx={7}
               ry={7}
-              height={yScale(d)+10}
+              height={yScale(d) + 10}
               width={18}
               fill={d === selected ? "#FFFAF3" : `${color(i)}`}
               onMouseOver={() => setSelected(d)}
@@ -115,7 +115,7 @@ const BarChart: FC<BarChartProps> = ({ selectedMineral }) => {
                 key={value}
                 transform={`translate(${xScale(value) + 9},${chartHeight})`}
               >
-                <line y2="5" stroke="lightgrey" strokeWidth={0.5}/>
+                <line y2="5" stroke="lightgrey" strokeWidth={0.5} />
                 <text
                   key={value}
                   style={{
