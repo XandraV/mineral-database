@@ -13,6 +13,9 @@
     <a href="https://master.dtpug0f58nobr.amplifyapp.com/">View Deployed App</a> 
   </p>
 </p>
+<p align="center">
+  <img src='./demo.gif'/>
+</p>
 
 ## Installation
 
